@@ -10,7 +10,7 @@ In particular, it will look for, and flag the use of deprecated features as well
 from being managed by the ODM on Cloud SaaS platform.
 The application will also look for rule project artifacts that do not align with some common implementation good practices.
 
-See the list of checkpoints in the following section, and check-out a [sample report](docs/sample-ota-report.html) in the [docs](docs) folder.
+See the list of checkpoints in the following section, and check-out a [sample report](https://rawgit.com/ODMDev/odm-transformation-advisor/master/docs/sample-ota-report.html) in the [docs](docs) folder.
 
 ## List of checkpoints 
 The table below lists the current checks for deprecated features or possible blockers for the adoption of ODM on Cloud.
