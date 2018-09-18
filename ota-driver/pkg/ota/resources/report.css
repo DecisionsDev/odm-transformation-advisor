@@ -1,0 +1,84 @@
+h1, h2 {
+	color: #333;
+	font-family: Verdana, Arial, sans-serif;
+}
+
+body {
+    font: normal 14px Verdana, Arial, sans-serif;
+}
+
+em {
+	color: SaddleBrown
+}
+
+ul {
+    list-style-type: square;
+}
+
+p {
+	color: #333;
+	font-family: Verdana, Arial, sans-serif;
+	font-size: 14px;
+}
+
+p.summary-head {
+	display: block;
+	margin: 0.25rem;
+	padding: 10px 1rem 10px 1rem;
+	width: 60%;
+	background: linear-gradient(#333 0%, #777 100%);
+	font-weight: bold;
+	color: white;
+	border-radius: 5px 5px 0 0;
+}
+
+p.summary-body {
+	display: block;
+	margin: 0.25rem;
+	padding: 1rem;
+	width: 60%;
+	background: #EFEFEF;
+}
+
+table {
+	color: #333;
+	font-family: Consolas, Helvetica, Arial, sans-serif;
+	font-size: 9px;
+	border-collapse: collapse;
+	border-spacing: 0;
+	width: 80%;
+}
+
+td, th {
+	border: 0 none;
+	padding: 10px;
+	height: 30px;
+}
+
+th {
+	background: linear-gradient(#333 0%, #444 100%);
+	color: #FFF;
+	font-weight: bold;
+	height: 40px;
+}
+
+td {
+	background: #FAFAFA;
+	text-align: left;
+}
+
+tr:nth-child(even) td {
+	background: #EEE;
+}
+
+tr:nth-child(odd) td {
+	background: #FDFDFD;
+}
+
+tr:first-child th:nth-child(1) {
+	border-radius: 5px 0 0 0;
+}
+
+tr:first-child th:last-child {
+	border-radius: 0 5px 0 0;
+}

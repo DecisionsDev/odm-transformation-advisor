@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>using different algorithms</name>
+  <uuid>385c987f-9c2a-4c0d-8bea-933621b3e517</uuid>
+  <documentation><![CDATA[This may (will probably) generate multiple occurences of the same warning, but is alleviated by the fact that identical report elements are only added once to the report. 
+A bit wasteful in CPU cycles...]]></documentation>
+  <locale>en_US</locale>
+  <definition><![CDATA[definitions
+	set flow to an ilr ruleflow in elements ;
+	set task to an ilr RFRule task in the tasks of the RFModel of flow ;
+if
+	there is at least one ilr RFRule task in the tasks of the RFModel of flow where 
+		the execution mode of this ilr RFRule task is not the execution mode of task,  
+then
+	add entry Using Different Algorithms : < project, flow > to report ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

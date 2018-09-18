@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.base:RulePackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.base="http://ilog.rules.studio/model/base.ecore">
+  <name>flows</name>
+  <uuid>870a0126-2a33-4112-be66-e94da09655ca</uuid>
+</ilog.rules.studio.model.base:RulePackage>

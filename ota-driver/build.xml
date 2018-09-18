@@ -1,0 +1,52 @@
+<project name="ODM Transformation Advisor" default="package-ota" basedir=".">
+
+	<property name="src.dir" location="${basedir}/src" />
+	<property name="bin.dir" location="${basedir}/bin" />
+	<property name="pkg.dir" location="${basedir}/pkg/ota" />
+	<property name="build.dir" location="${basedir}/build" />
+
+	<property name="xom.dir" location="${basedir}/../ota-xom" />
+	<property name="bom.dir" location="${basedir}/../ota-bom" />
+	
+	<property file="${basedir}/build.properties"/>
+	
+	<path id="compile.classpath">
+		<fileset dir="${odm.dir}/teamserver/lib">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${odm.dir}/executionserver/lib">
+			<include name="**/*.jar" />
+		</fileset>
+		<pathelement location="${xom.dir}/build/ota-xom.jar"/>
+	</path>
+
+	<target name="clean-ota-bin">
+		<delete dir="${bin.dir}" />
+		<mkdir dir="${bin.dir}" />
+	</target>
+
+	<target name="clean-ota-build">
+		<delete dir="${build.dir}" />
+		<mkdir dir="${build.dir}" />
+	</target>
+
+	<target name="compile-ota" depends="clean-ota-bin">
+		<javac srcdir="${src.dir}" destdir="${bin.dir}" includeantruntime="false">
+			<classpath refid="compile.classpath" />
+		</javac>
+	</target>
+
+	<target name="jar-ota" depends="compile-ota, clean-ota-build">
+		<jar jarfile="${build.dir}/ota-driver.jar" basedir="${bin.dir}" />
+	</target>
+
+	<target name="package-ota">
+		<copy todir="${pkg.dir}/lib">
+			<fileset dir="${build.dir}" />
+			<fileset dir="${xom.dir}/build" />
+		</copy>
+		<copy file="${bom.dir}/resources/findings.xlsx" todir="${pkg.dir}/resources" />
+	</target>
+
+</project>
+

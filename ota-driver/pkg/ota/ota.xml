@@ -1,0 +1,39 @@
+<project name="ODM Transformation Advisor" default="run-ota" basedir=".">
+
+	<property name="lib.dir" location="${basedir}/lib" />
+	<property name="res.dir" location="${basedir}/resources" />
+	<property name="rep.dir" location="${basedir}/repository" />
+	
+	<property file="${basedir}/ota.properties"/>
+
+	<path id="run.classpath">
+		<fileset dir="${lib.dir}">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${odm.dir}/teamserver/lib">
+			<include name="**/*.jar" />
+		</fileset>
+		<fileset dir="${odm.dir}/executionserver/lib">
+			<include name="**/*.jar" />
+		</fileset>
+		<pathelement path="${res.dir}"/>
+	</path>
+
+	<target name="run-ota">
+		<input message="Decision Center - Username:" addproperty="ota.username" />
+		<input message="Decision Center - Password:" addproperty="ota.password"/>
+		<java classname="com.ibm.odm.ota.OTARunner" fork="yes">
+			<classpath refid="run.classpath" />
+			<jvmarg value="-Djava.util.logging.config.file=${res.dir}/logging.properties" />
+			<arg value="url=${ota.url}" />
+			<arg value="datasource=${ota.datasource}" />
+			<arg value="projects=${ota.projects}" />
+			<arg value="username=${ota.username}" />
+			<arg value="password=${ota.password}" />
+			<arg value="report=${ota.report}" />
+			<arg value="version=${ota.version}" />
+		</java>
+	</target>
+		
+</project>
+

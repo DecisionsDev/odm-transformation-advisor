@@ -1,0 +1,33 @@
+<project name="OTA XOM" default="jar-ota-xom" basedir=".">
+
+	<property name="src.dir" location="${basedir}/src" />
+	<property name="bin.dir" location="${basedir}/bin" />
+	<property name="build.dir" location="${basedir}/build" />
+
+	<property file="${basedir}/build.properties"/>
+
+	<path id="compile.classpath">
+		<fileset dir="${odm.dir}/teamserver/lib">
+			<include name="**/*.jar" />
+		</fileset>
+	</path>
+	
+    <target name="clean-ota-xom" >
+        <delete dir="${bin.dir}"/>
+        <delete dir="${build.dir}"/>
+      	<mkdir dir="${bin.dir}"/>
+        <mkdir dir="${build.dir}"/>
+    </target>
+
+	<target name="compile-ota-xom" depends="clean-ota-xom" >
+		<javac srcdir="${src.dir}" destdir="${bin.dir}" includeantruntime="false">
+			<classpath refid="compile.classpath" />
+		</javac>
+	</target>
+
+	<target name="jar-ota-xom" depends="compile-ota-xom">
+		<jar jarfile="${build.dir}/ota-xom.jar" basedir="${bin.dir}" />
+	</target>
+		
+</project>
+

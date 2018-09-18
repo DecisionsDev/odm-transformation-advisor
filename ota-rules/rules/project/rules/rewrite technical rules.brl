@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>rewrite technical rules</name>
+  <uuid>baca1fd7-15a1-4d2c-93d1-2c9f259cee9c</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[definitions
+	set technical to an ilr technical rule in elements ;
+then
+	add entry Technical Rules : < project , technical > to report ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

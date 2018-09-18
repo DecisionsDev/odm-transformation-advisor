@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>use of templated rules</name>
+  <uuid>52482197-0325-4afb-b194-46115f4db7be</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[definitions
+	set templated to an ilr business rule in elements ;
+if
+	the type of templated is one of { Decision Table , Action Rule } and
+	the template of templated is not null
+then
+	add entry Rules from Template : < project , templated  > to report ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

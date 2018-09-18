@@ -1,0 +1,4 @@
+#Sun Aug 26 01:12:50 PDT 2018
+ruleset.uuid=4f8d74b8-d7e8-4149-a52a-d4910d062dd7
+ruleset.engine=de
+ruleset.engine.version=1.30.0

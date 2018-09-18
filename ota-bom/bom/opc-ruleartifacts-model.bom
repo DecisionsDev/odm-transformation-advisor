@@ -1,0 +1,721 @@
+
+property loadGetterSetterAsProperties "true"
+property origin "xom:/ota-bom//opc-xom/lib/jrules-ruleartifacts.jar"
+property uuid "1132ca19-5620-49df-bff1-d3b76de3b1e3"
+package ilog.rules.rf.model;
+
+
+public abstract class IlrRFAbstractModelVisitor
+        implements ilog.rules.rf.model.IlrRFModelVisitor
+{
+    public IlrRFAbstractModelVisitor();
+    public void visit(ilog.rules.rf.model.IlrRFModel arg);
+    public void visit(ilog.rules.rf.model.IlrRFNode arg);
+    public void visit(ilog.rules.rf.model.IlrRFTask arg);
+    public void visit(ilog.rules.rf.model.IlrRFTransition arg);
+}
+
+public final class IlrRFAlgorithm
+        extends java.io.Serializable
+{
+    domain {static DEFAULT, static SEQUENTIAL, static FASTPATH}
+    public static final readonly ilog.rules.rf.model.IlrRFAlgorithm DEFAULT;
+    public static final readonly ilog.rules.rf.model.IlrRFAlgorithm FASTPATH;
+    public static final readonly ilog.rules.rf.model.IlrRFAlgorithm SEQUENTIAL;
+    public readonly string name;
+    public static final readonly ilog.rules.rf.model.IlrRFAlgorithm[] values;
+    public static ilog.rules.rf.model.IlrRFAlgorithm get(string arg);
+    public string toString();
+}
+
+public interface IlrRFBody
+        extends java.io.Serializable
+{
+    public readonly abstract ilog.rules.rf.model.IlrRFBodyKind kind;
+    public readonly abstract ilog.rules.rf.model.IlrRFLanguage language;
+    public readonly abstract string text;
+}
+
+public final class IlrRFBodyKind
+        extends java.lang.Enum
+{
+    domain {static SELECT, static ACTION, static GUARD}
+    public static final readonly ilog.rules.rf.model.IlrRFBodyKind ACTION;
+    public static final readonly ilog.rules.rf.model.IlrRFBodyKind GUARD;
+    public static final readonly ilog.rules.rf.model.IlrRFBodyKind SELECT;
+    public static ilog.rules.rf.model.IlrRFBodyKind valueOf(string arg);
+    public static ilog.rules.rf.model.IlrRFBodyKind[] values();
+}
+
+public interface IlrRFBodyable
+{
+    public static final readonly string BODY_PROPERTY;
+    public abstract ilog.rules.rf.model.IlrRFBody body;
+}
+
+public interface IlrRFBranchNode
+        extends ilog.rules.rf.model.IlrRFRoutingNode
+{
+}
+
+public interface IlrRFConcurrencyNode
+        extends ilog.rules.rf.model.IlrRFRoutingNode
+{
+    public static final readonly string CONCURRENCY_KIND_PROPERTY;
+    public static final readonly string FORK_CONCURRENCY;
+    public static final readonly string JOIN_CONCURRENCY;
+    public abstract string concurrencyKind;
+}
+
+public interface IlrRFElement
+        extends ilog.rules.shared.model.IlrDecorableElement, java.lang.Cloneable
+{
+    public static final readonly string LABEL_PROPERTY;
+    public void accept(ilog.rules.rf.model.IlrRFModelVisitor arg);
+}
+
+public final class IlrRFExitCriteria
+        extends java.io.Serializable
+{
+    domain {static NONE, static RULE, static RULEINSTANCE}
+    public static final readonly ilog.rules.rf.model.IlrRFExitCriteria NONE;
+    public static final readonly ilog.rules.rf.model.IlrRFExitCriteria RULE;
+    public static final readonly ilog.rules.rf.model.IlrRFExitCriteria RULEINSTANCE;
+    public readonly string name;
+    public static final readonly ilog.rules.rf.model.IlrRFExitCriteria[] values;
+    public static ilog.rules.rf.model.IlrRFExitCriteria get(string arg);
+}
+
+public abstract class IlrRFFactory
+{
+    public IlrRFFactory();
+    public static ilog.rules.rf.model.IlrRFBody createBody(ilog.rules.rf.model.IlrRFLanguage arg1, string arg2);
+    public static ilog.rules.rf.model.IlrRFBranchNode createBranchNode(ilog.rules.rf.model.IlrRFModel arg);
+    public static ilog.rules.rf.model.IlrRFConcurrencyNode createConcurrencyNode(ilog.rules.rf.model.IlrRFModel arg1, string arg2);
+    public static ilog.rules.rf.model.IlrRFFunctionTask createFunctionTask(ilog.rules.rf.model.IlrRFModel arg);
+    public static ilog.rules.rf.model.IlrRFModel createRFModel();
+    public static ilog.rules.rf.model.IlrRFRuleTask createRuleTask(ilog.rules.rf.model.IlrRFModel arg);
+    public static ilog.rules.rf.model.IlrRFScope createScope();
+    public static ilog.rules.rf.model.IlrRFStartTask createStartTask(ilog.rules.rf.model.IlrRFModel arg);
+    public static ilog.rules.rf.model.IlrRFStopTask createStopTask(ilog.rules.rf.model.IlrRFModel arg);
+    public static ilog.rules.rf.model.IlrRFSubflowTask createSubflowTask(ilog.rules.rf.model.IlrRFModel arg);
+    public static ilog.rules.rf.model.IlrRFTaskNode createTaskNode(ilog.rules.rf.model.IlrRFModel arg);
+    public static ilog.rules.rf.model.IlrRFTaskNode createTaskNode(ilog.rules.rf.model.IlrRFModel arg1, ilog.rules.rf.model.IlrRFTask arg2);
+    public static ilog.rules.rf.model.IlrRFTransition createTransition(ilog.rules.rf.model.IlrRFModel arg);
+    public static ilog.rules.rf.model.IlrRFTransition createTransition(ilog.rules.rf.model.IlrRFModel arg1, ilog.rules.rf.model.IlrRFNode arg2, ilog.rules.rf.model.IlrRFNode arg3);
+    public static ilog.rules.rf.model.IlrRFFactory getInstance();
+    public static void setInstance(ilog.rules.rf.model.IlrRFFactory arg);
+}
+
+public interface IlrRFFunctionTask
+        extends ilog.rules.rf.model.IlrRFGenericTask, ilog.rules.rf.model.IlrRFBodyable
+{
+}
+
+public interface IlrRFGenericTask
+        extends ilog.rules.rf.model.IlrRFTask
+{
+    public static final readonly string FINAL_ACTIONS_PROPERTY;
+    public static final readonly string INITIAL_ACTIONS_PROPERTY;
+    public abstract ilog.rules.rf.model.IlrRFBody finalActions;
+    public abstract ilog.rules.rf.model.IlrRFBody initialActions;
+}
+
+public final class IlrRFGuardKind
+{
+    domain {static NONE, static IF, static ELSE}
+    public static final readonly ilog.rules.rf.model.IlrRFGuardKind ELSE;
+    public static final readonly ilog.rules.rf.model.IlrRFGuardKind IF;
+    public static final readonly ilog.rules.rf.model.IlrRFGuardKind NONE;
+    public readonly string name;
+    public static final readonly ilog.rules.rf.model.IlrRFGuardKind[] values;
+    public static ilog.rules.rf.model.IlrRFGuardKind get(string arg);
+    public string toString();
+}
+
+public final class IlrRFLanguage
+        extends java.io.Serializable
+{
+    domain {static IRL, static BAL}
+    public static final readonly ilog.rules.rf.model.IlrRFLanguage BAL;
+    public static final readonly ilog.rules.rf.model.IlrRFLanguage IRL;
+    public static ilog.rules.rf.model.IlrRFLanguage getLanguage(string arg);
+    public string toString();
+}
+
+public interface IlrRFList
+        extends java.util.List
+{
+    public ilog.rules.rf.model.IlrRFModelElement get(string arg);
+}
+
+public interface IlrRFModel
+        extends ilog.rules.rf.model.IlrRFElement
+{
+    public static final readonly string ADJUSTING_PROPERTY;
+    public static final readonly string IMPORTS_PROPERTY;
+    public static final readonly string NODELIST_PROPERTY;
+    public static final readonly string RESOURCES_PROPERTY;
+    public static final readonly string TASKLIST_PROPERTY;
+    public static final readonly string TRANSITIONLIST_PROPERTY;
+    public readonly abstract boolean adjusting;
+    public abstract boolean eventFiring;
+    public readonly abstract java.util.List modelListeners domain 0,* class ilog.rules.rf.model.event.IlrRFModelListener;
+    public readonly abstract ilog.rules.rf.model.IlrRFList nodeList domain 0,* class ilog.rules.rf.model.IlrRFNode;
+    public readonly abstract ilog.rules.rf.model.IlrRFList taskList domain 0,* class ilog.rules.rf.model.IlrRFTask;
+    public readonly abstract ilog.rules.rf.model.IlrRFList transitionList domain 0,* class ilog.rules.rf.model.IlrRFTransition;
+    public void addModelListener(ilog.rules.rf.model.event.IlrRFModelListener arg);
+    public ilog.rules.rf.model.IlrRFModel clear();
+    public void removeModelListener(ilog.rules.rf.model.event.IlrRFModelListener arg);
+    public boolean setAdjusting(boolean arg);
+}
+
+public interface IlrRFModelElement
+        extends ilog.rules.rf.model.IlrRFElement
+{
+    public abstract string ID;
+    public static final readonly string ID_PROPERTY;
+    public readonly abstract ilog.rules.rf.model.IlrRFModel RFModel;
+    public void remove();
+}
+
+public interface IlrRFModelVisitor
+{
+    public void visit(ilog.rules.rf.model.IlrRFModel arg);
+    public void visit(ilog.rules.rf.model.IlrRFNode arg);
+    public void visit(ilog.rules.rf.model.IlrRFTask arg);
+    public void visit(ilog.rules.rf.model.IlrRFTransition arg);
+}
+
+public interface IlrRFNode
+        extends ilog.rules.rf.model.IlrRFModelElement
+{
+}
+
+public final class IlrRFOrdering
+        extends java.io.Serializable
+{
+    domain {static DEFAULT, static LITERAL, static PRIORITY}
+    public static final readonly ilog.rules.rf.model.IlrRFOrdering DEFAULT;
+    public static final readonly ilog.rules.rf.model.IlrRFOrdering LITERAL;
+    public static final readonly ilog.rules.rf.model.IlrRFOrdering PRIORITY;
+    public readonly string name;
+    public static final readonly ilog.rules.rf.model.IlrRFOrdering[] values;
+    public static ilog.rules.rf.model.IlrRFOrdering get(string arg);
+}
+
+public interface IlrRFRoutingNode
+        extends ilog.rules.rf.model.IlrRFNode
+{
+}
+
+public interface IlrRFRuleTask
+        extends ilog.rules.rf.model.IlrRFGenericTask, ilog.rules.rf.model.IlrRFBodyable
+{
+    public static final readonly string ADVANCED_PROPERTIES;
+    public static final readonly string ALGORITHM_PROPERTY;
+    public static final readonly string DYNAMIC_PROPERTY;
+    public static final readonly string EXIT_CRITERIA_PROPERTY;
+    public static final readonly string ORDERING_PROPERTY;
+    public static final readonly string SCOPE_PROPERTY;
+    public abstract boolean dynamic;
+    public abstract ilog.rules.rf.model.IlrRFAlgorithm executionMode;
+    public abstract ilog.rules.rf.model.IlrRFExitCriteria exitCriteria;
+    public abstract ilog.rules.rf.model.IlrRFOrdering ordering;
+    public abstract ilog.rules.rf.model.IlrRFScope scope;
+}
+
+public interface IlrRFScope
+        extends java.io.Serializable
+{
+
+    public interface ScopeEntry
+    {
+        public readonly abstract string ID;
+        public readonly abstract string type;
+    }
+    public static final readonly string PACKAGE;
+    public static final readonly string RULE;
+    public readonly abstract java.util.List entries domain 0,* class ilog.rules.rf.model.IlrRFScope.ScopeEntry;
+    public void addEntries(java.util.List arg domain 0,* class ilog.rules.rf.model.IlrRFScope.ScopeEntry);
+    public void addEntry(string arg1, string arg2);
+    public void clear();
+    public boolean contains(string arg);
+    public void removeEntry(string arg);
+}
+
+public interface IlrRFStartTask
+        extends ilog.rules.rf.model.IlrRFTask, ilog.rules.rf.model.IlrRFBodyable
+{
+}
+
+public interface IlrRFStopTask
+        extends ilog.rules.rf.model.IlrRFTask, ilog.rules.rf.model.IlrRFBodyable
+{
+}
+
+public interface IlrRFSubflowTask
+        extends ilog.rules.rf.model.IlrRFGenericTask
+{
+    public static final readonly string UUID_PROPERTY;
+    public abstract string uuid;
+}
+
+public interface IlrRFTask
+        extends ilog.rules.rf.model.IlrRFModelElement
+{
+}
+
+public interface IlrRFTaskNode
+        extends ilog.rules.rf.model.IlrRFNode
+{
+    public static final readonly string TASK_PROPERTY;
+    public abstract ilog.rules.rf.model.IlrRFTask task;
+}
+
+public interface IlrRFTransition
+        extends ilog.rules.rf.model.IlrRFModelElement, ilog.rules.rf.model.IlrRFBodyable
+{
+    public static final readonly string FROM_NODE_PROPERTY;
+    public static final readonly string GUARD_KIND_PROPERTY;
+    public static final readonly string GUARD_TEXT_PROPERTY;
+    public static final readonly string TO_NODE_PROPERTY;
+    public readonly abstract ilog.rules.rf.model.IlrRFGuardKind guardKind;
+    public abstract ilog.rules.rf.model.IlrRFNode source;
+    public abstract ilog.rules.rf.model.IlrRFNode target;
+    public boolean hasGuard();
+}
+
+package ilog.rules.rf.model.event;
+
+
+public class IlrRFEvent
+{
+    public static final readonly int ADD;
+    public static final readonly int REMOVE;
+    public static final readonly int SET;
+    public readonly int eventType;
+    public readonly object newValue;
+    public readonly object oldValue;
+    public readonly string property;
+    public readonly ilog.rules.rf.model.IlrRFElement source;
+    public IlrRFEvent(ilog.rules.rf.model.IlrRFElement arg1, int arg2, string arg3, object arg4, object arg5);
+    public IlrRFEvent(ilog.rules.rf.model.IlrRFElement arg1, int arg2, string arg3, boolean arg4, boolean arg5);
+    public IlrRFEvent(ilog.rules.rf.model.IlrRFElement arg1, int arg2, string arg3, int arg4, int arg5);
+}
+
+public interface IlrRFModelListener
+        extends java.util.EventListener
+{
+    public void modelChanged(ilog.rules.rf.model.event.IlrRFEvent arg);
+}
+
+public abstract class IlrRFModelListenerAdapter
+        implements ilog.rules.rf.model.event.IlrRFModelListener
+{
+    public IlrRFModelListenerAdapter();
+    public void handleAdd(ilog.rules.rf.model.event.IlrRFEvent arg);
+    public void handleRemove(ilog.rules.rf.model.event.IlrRFEvent arg);
+    public void handleSet(ilog.rules.rf.model.event.IlrRFEvent arg);
+    public void modelChanged(ilog.rules.rf.model.event.IlrRFEvent arg);
+}
+
+package ilog.rules.rf.model.impl;
+
+
+public class IlrRFBodyImpl
+        implements ilog.rules.rf.model.IlrRFBody
+{
+    public ilog.rules.rf.model.IlrRFBodyKind kind;
+    public ilog.rules.rf.model.IlrRFLanguage language;
+    public string text;
+    public IlrRFBodyImpl(ilog.rules.rf.model.IlrRFLanguage arg1, string arg2);
+    public IlrRFBodyImpl();
+    public boolean equals(object arg);
+    public int hashCode();
+    public string toString();
+}
+
+public class IlrRFBranchNodeImpl
+        extends ilog.rules.rf.model.impl.IlrRFNodeImpl
+        implements ilog.rules.rf.model.IlrRFBranchNode
+{
+    public IlrRFBranchNodeImpl(ilog.rules.rf.model.IlrRFModel arg);
+    public IlrRFBranchNodeImpl(ilog.rules.rf.model.IlrRFModel arg1, string arg2);
+    public IlrRFBranchNodeImpl();
+}
+
+public class IlrRFConcurrencyNodeImpl
+        extends ilog.rules.rf.model.impl.IlrRFNodeImpl
+        implements ilog.rules.rf.model.IlrRFConcurrencyNode
+{
+    public string concurrencyKind;
+    public IlrRFConcurrencyNodeImpl(ilog.rules.rf.model.IlrRFModel arg);
+    public IlrRFConcurrencyNodeImpl(ilog.rules.rf.model.IlrRFModel arg1, string arg2);
+    public IlrRFConcurrencyNodeImpl(string arg1, ilog.rules.rf.model.IlrRFModel arg2);
+    public IlrRFConcurrencyNodeImpl();
+}
+
+public abstract class IlrRFElementImpl
+        extends ilog.rules.shared.model.IlrDecorableElementImpl
+        implements ilog.rules.rf.model.IlrRFElement
+{
+    public IlrRFElementImpl();
+    public void accept(ilog.rules.rf.model.IlrRFModelVisitor arg);
+}
+
+public class IlrRFFunctionTaskImpl
+        extends ilog.rules.rf.model.impl.IlrRFGenericTaskImpl
+        implements ilog.rules.rf.model.IlrRFFunctionTask
+{
+    public ilog.rules.rf.model.IlrRFBody body;
+    public IlrRFFunctionTaskImpl(ilog.rules.rf.model.IlrRFModel arg);
+    public IlrRFFunctionTaskImpl(ilog.rules.rf.model.IlrRFModel arg1, string arg2);
+    public IlrRFFunctionTaskImpl();
+}
+
+public abstract class IlrRFGenericTaskImpl
+        extends ilog.rules.rf.model.impl.IlrRFTaskImpl
+        implements ilog.rules.rf.model.IlrRFGenericTask
+{
+    public ilog.rules.rf.model.IlrRFBody finalActions;
+    public ilog.rules.rf.model.IlrRFBody initialActions;
+    public IlrRFGenericTaskImpl(ilog.rules.rf.model.IlrRFModel arg);
+    public IlrRFGenericTaskImpl();
+}
+
+public class IlrRFListImpl
+        implements ilog.rules.rf.model.IlrRFList
+{
+    public readonly boolean empty;
+    public IlrRFListImpl(ilog.rules.rf.model.impl.IlrRFModelImpl arg1, string arg2);
+    public boolean add(ilog.rules.rf.model.IlrRFModelElement arg);
+    public void add(int arg1, ilog.rules.rf.model.IlrRFModelElement arg2);
+    public boolean addAll(java.util.Collection arg domain 0,*);
+    public boolean addAll(int arg1, 
+        java.util.Collection arg2 domain 0,*);
+    public void clear();
+    public object clone();
+    public boolean contains(ilog.rules.rf.model.IlrRFModelElement arg);
+    public boolean contains(object arg);
+    public boolean containsAll(java.util.Collection arg domain 0,*);
+    public ilog.rules.rf.model.impl.IlrRFListImpl copy()
+                throws java.lang.CloneNotSupportedException domain 0,*;
+    public ilog.rules.rf.model.IlrRFModelElement get(string arg);
+    public ilog.rules.rf.model.IlrRFModelElement get(int arg);
+    public int indexOf(ilog.rules.rf.model.IlrRFModelElement arg);
+    public int indexOf(object arg);
+    public java.util.Iterator iterator();
+    public int lastIndexOf(object arg);
+    public java.util.ListIterator listIterator(int arg);
+    public java.util.ListIterator listIterator();
+    public boolean remove(ilog.rules.rf.model.IlrRFModelElement arg);
+    public boolean remove(object arg);
+    public ilog.rules.rf.model.IlrRFModelElement remove(int arg);
+    public boolean removeAll(java.util.Collection arg domain 0,*);
+    public boolean retainAll(java.util.Collection arg domain 0,*);
+    public ilog.rules.rf.model.IlrRFModelElement set(int arg1, ilog.rules.rf.model.IlrRFModelElement arg2);
+    public int size();
+    public java.util.List subList(int arg1, int arg2) domain 0,*;
+    public java.lang.Object[] toArray(java.lang.Object[] arg);
+    public java.lang.Object[] toArray();
+    public string toString();
+}
+
+public abstract class IlrRFModelElementImpl
+        extends ilog.rules.rf.model.impl.IlrRFElementImpl
+        implements ilog.rules.rf.model.IlrRFModelElement
+{
+    public string ID;
+    public readonly ilog.rules.rf.model.IlrRFModel RFModel;
+    public IlrRFModelElementImpl(ilog.rules.rf.model.IlrRFModel arg);
+    public void addProperties(java.util.Map arg);
+    public void addPropertyChangeListener(string arg1, java.beans.PropertyChangeListener arg2);
+    public void removePropertyChangeListener(string arg1, java.beans.PropertyChangeListener arg2);
+    public void setProperty(object arg1, object arg2);
+    public string toString();
+}
+
+public class IlrRFModelImpl
+        extends ilog.rules.rf.model.impl.IlrRFElementImpl, ilog.rules.shared.util.IlrCloneable
+        implements ilog.rules.rf.model.IlrRFModel
+{
+    public readonly boolean adjusting;
+    public boolean eventFiring;
+    public readonly java.util.List modelListeners domain 0,* class ilog.rules.rf.model.event.IlrRFModelListener;
+    public string nodeIDSeed;
+    public readonly ilog.rules.rf.model.impl.IlrRFListImpl nodeList domain 0,* class ilog.rules.rf.model.IlrRFNode;
+    public string taskIDSeed;
+    public readonly ilog.rules.rf.model.impl.IlrRFListImpl taskList domain 0,* class ilog.rules.rf.model.IlrRFTask;
+    public string transitionIDSeed;
+    public readonly ilog.rules.rf.model.impl.IlrRFListImpl transitionList domain 0,* class ilog.rules.rf.model.IlrRFTransition;
+    public IlrRFModelImpl();
+    public void accept(ilog.rules.rf.model.IlrRFModelVisitor arg);
+    public void addModelListener(ilog.rules.rf.model.event.IlrRFModelListener arg);
+    public void addProperties(java.util.Map arg);
+    public void addPropertyChangeListener(string arg1, java.beans.PropertyChangeListener arg2);
+    public ilog.rules.rf.model.IlrRFModel clear();
+    public object clone()
+                throws java.lang.CloneNotSupportedException;
+    public void fireModelChanged(ilog.rules.rf.model.IlrRFElement arg1, int arg2, string arg3, object arg4, object arg5);
+    public void fireModelChanged(ilog.rules.rf.model.IlrRFElement arg1, int arg2, string arg3, boolean arg4, boolean arg5);
+    public void fireModelChanged(ilog.rules.rf.model.IlrRFElement arg1, int arg2, string arg3, int arg4, int arg5);
+    public void generateID(ilog.rules.rf.model.IlrRFModelElement arg);
+    public void removeModelListener(ilog.rules.rf.model.event.IlrRFModelListener arg);
+    public void removePropertyChangeListener(string arg1, java.beans.PropertyChangeListener arg2);
+    public boolean setAdjusting(boolean arg);
+    public void setProperty(object arg1, object arg2);
+}
+
+public abstract class IlrRFNodeImpl
+        extends ilog.rules.rf.model.impl.IlrRFModelElementImpl
+        implements ilog.rules.rf.model.IlrRFNode
+{
+    public readonly java.util.Collection incomingTransitions domain 0,* class ilog.rules.rf.model.IlrRFTransition;
+    public readonly java.util.Collection outgoingTransitions domain 0,* class ilog.rules.rf.model.IlrRFTransition;
+    public IlrRFNodeImpl(ilog.rules.rf.model.IlrRFModel arg);
+    public IlrRFNodeImpl();
+    public void addIncomingTransition(ilog.rules.rf.model.IlrRFTransition arg);
+    public void addOutgoingTransition(ilog.rules.rf.model.IlrRFTransition arg);
+    public void remove();
+    public void removeIncomingTransition(ilog.rules.rf.model.IlrRFTransition arg);
+    public void removeOutgoingTransition(ilog.rules.rf.model.IlrRFTransition arg);
+}
+
+public class IlrRFRuleTaskImpl
+        extends ilog.rules.rf.model.impl.IlrRFGenericTaskImpl
+        implements ilog.rules.rf.model.IlrRFRuleTask
+{
+    public ilog.rules.rf.model.IlrRFBody body;
+    public boolean dynamic;
+    public ilog.rules.rf.model.IlrRFAlgorithm executionMode;
+    public ilog.rules.rf.model.IlrRFExitCriteria exitCriteria;
+    public ilog.rules.rf.model.IlrRFOrdering ordering;
+    public ilog.rules.rf.model.IlrRFScope scope;
+    public IlrRFRuleTaskImpl(ilog.rules.rf.model.IlrRFModel arg);
+    public IlrRFRuleTaskImpl(ilog.rules.rf.model.IlrRFModel arg1, string arg2);
+    public IlrRFRuleTaskImpl();
+}
+
+public class IlrRFScopeImpl
+        implements ilog.rules.rf.model.IlrRFScope
+{
+
+    static private class ScopeEntryImpl
+            implements ilog.rules.rf.model.IlrRFScope.ScopeEntry
+    {
+    }
+    public readonly java.util.List entries domain 0,* class ilog.rules.rf.model.IlrRFScope.ScopeEntry;
+    public IlrRFScopeImpl();
+    public void addEntries(java.util.List arg domain 0,* class ilog.rules.rf.model.IlrRFScope.ScopeEntry);
+    public void addEntry(string arg1, string arg2);
+    public void clear();
+    public boolean contains(string arg);
+    public boolean equals(object arg);
+    public int hashCode();
+    public void removeEntry(string arg);
+}
+
+public class IlrRFStartTaskImpl
+        extends ilog.rules.rf.model.impl.IlrRFTaskImpl
+        implements ilog.rules.rf.model.IlrRFStartTask
+{
+    public ilog.rules.rf.model.IlrRFBody body;
+    public IlrRFStartTaskImpl(ilog.rules.rf.model.IlrRFModel arg);
+    public IlrRFStartTaskImpl(ilog.rules.rf.model.IlrRFModel arg1, string arg2);
+    public IlrRFStartTaskImpl();
+}
+
+public class IlrRFStopTaskImpl
+        extends ilog.rules.rf.model.impl.IlrRFTaskImpl
+        implements ilog.rules.rf.model.IlrRFStopTask
+{
+    public ilog.rules.rf.model.IlrRFBody body;
+    public IlrRFStopTaskImpl(ilog.rules.rf.model.IlrRFModel arg);
+    public IlrRFStopTaskImpl(ilog.rules.rf.model.IlrRFModel arg1, string arg2);
+    public IlrRFStopTaskImpl();
+}
+
+public class IlrRFSubflowTaskImpl
+        extends ilog.rules.rf.model.impl.IlrRFGenericTaskImpl
+        implements ilog.rules.rf.model.IlrRFSubflowTask
+{
+    public string uuid;
+    public IlrRFSubflowTaskImpl(ilog.rules.rf.model.IlrRFModel arg);
+    public IlrRFSubflowTaskImpl(ilog.rules.rf.model.IlrRFModel arg1, string arg2);
+    public IlrRFSubflowTaskImpl();
+}
+
+public abstract class IlrRFTaskImpl
+        extends ilog.rules.rf.model.impl.IlrRFModelElementImpl
+        implements ilog.rules.rf.model.IlrRFTask
+{
+    public IlrRFTaskImpl(ilog.rules.rf.model.IlrRFModel arg);
+    public IlrRFTaskImpl();
+    public void remove();
+}
+
+public class IlrRFTaskNodeImpl
+        extends ilog.rules.rf.model.impl.IlrRFNodeImpl
+        implements ilog.rules.rf.model.IlrRFTaskNode
+{
+    public ilog.rules.rf.model.IlrRFTask task;
+    public IlrRFTaskNodeImpl(ilog.rules.rf.model.IlrRFModel arg);
+    public IlrRFTaskNodeImpl(ilog.rules.rf.model.IlrRFModel arg1, string arg2);
+    public IlrRFTaskNodeImpl();
+}
+
+public class IlrRFTransitionImpl
+        extends ilog.rules.rf.model.impl.IlrRFModelElementImpl
+        implements ilog.rules.rf.model.IlrRFTransition
+{
+    public ilog.rules.rf.model.IlrRFBody body;
+    public readonly ilog.rules.rf.model.IlrRFGuardKind guardKind;
+    public ilog.rules.rf.model.IlrRFNode source;
+    public ilog.rules.rf.model.IlrRFNode target;
+    public IlrRFTransitionImpl(ilog.rules.rf.model.IlrRFModel arg);
+    public IlrRFTransitionImpl(ilog.rules.rf.model.IlrRFModel arg1, string arg2);
+    public IlrRFTransitionImpl();
+    public boolean hasGuard();
+    public void remove();
+}
+
+package ilog.rules.rf.model.io;
+
+
+public interface IlrRFModelSerializer
+{
+    public void writeRFModel(ilog.rules.rf.model.IlrRFModel arg1, java.io.Writer arg2);
+}
+
+public class IlrRFModelXmlReader
+{
+    public IlrRFModelXmlReader();
+    public ilog.rules.rf.model.IlrRFModel readRFModel(org.w3c.dom.Node arg);
+}
+
+public class IlrRFModelXmlSerializer
+        implements ilog.rules.rf.model.io.IlrRFModelSerializer
+{
+    public readonly java.util.logging.Logger logger;
+    public IlrRFModelXmlSerializer(java.util.logging.Logger arg);
+    public IlrRFModelXmlSerializer();
+    public ilog.rules.rf.model.IlrRFModel readRFModel(java.io.Reader arg);
+    public void writeRFModel(ilog.rules.rf.model.IlrRFModel arg1, java.io.Writer arg2);
+    public void writeRFModel(ilog.rules.rf.model.IlrRFModel arg1, java.io.Writer arg2, boolean arg3);
+}
+
+public class IlrRFModelXmlWriter
+{
+    public IlrRFModelXmlWriter(ilog.rules.rf.model.IlrRFModel arg);
+    public void writeRFModel(org.w3c.dom.Document arg);
+    public void writeRFModel(org.w3c.dom.Document arg1, org.w3c.dom.Element arg2);
+}
+
+public class IlrRFSAXHandler
+        extends org.xml.sax.helpers.DefaultHandler, org.xml.sax.ContentHandler, org.xml.sax.ext.LexicalHandler
+{
+    public readonly ilog.rules.rf.model.IlrRFModel RFModel;
+    public writeonly org.xml.sax.Locator documentLocator;
+    public IlrRFSAXHandler();
+    public void characters(char[] arg1, int arg2, int arg3)
+                throws org.xml.sax.SAXException;
+    public void comment(char[] arg1, int arg2, int arg3);
+    public void endCDATA();
+    public void endDTD()
+                throws org.xml.sax.SAXException;
+    public void endDocument()
+                throws org.xml.sax.SAXException;
+    public void endElement(string arg1, string arg2, string arg3)
+                throws org.xml.sax.SAXException;
+    public void endEntity(string arg);
+    public void endPrefixMapping(string arg)
+                throws org.xml.sax.SAXException;
+    public void ignorableWhitespace(char[] arg1, int arg2, int arg3)
+                throws org.xml.sax.SAXException;
+    public void processingInstruction(string arg1, string arg2)
+                throws org.xml.sax.SAXException;
+    public void skippedEntity(string arg)
+                throws org.xml.sax.SAXException;
+    public void startCDATA();
+    public void startDTD(string arg1, string arg2, string arg3)
+                throws org.xml.sax.SAXException;
+    public void startDocument()
+                throws org.xml.sax.SAXException;
+    public void startElement(string arg1, string arg2, string arg3, org.xml.sax.Attributes arg4)
+                throws org.xml.sax.SAXException;
+    public void startEntity(string arg);
+    public void startPrefixMapping(string arg1, string arg2)
+                throws org.xml.sax.SAXException;
+}
+
+public class IlrRFSAXWriter
+{
+    public IlrRFSAXWriter(ilog.rules.rf.model.IlrRFModel arg);
+    public void writeRFModel(java.io.Writer arg1, boolean arg2)
+                throws javax.xml.transform.TransformerConfigurationException, org.xml.sax.SAXException;
+}
+
+public final class IlrRFXmlTags
+{
+    public static final readonly string BRL_TEXT_TAG;
+    public static final readonly string ELSE_VALUE;
+    public static final readonly string GUARD_TAG;
+    public static final readonly string IF_VALUE;
+    public static final readonly string IRL_TEXT_TAG;
+    public static final readonly string NONE_VALUE;
+    public static final readonly string Package;
+    public static final readonly string Rule;
+    public static final readonly string SCHEMA_LOCATION_TAG;
+    public static final readonly string XSI_NS;
+    public static final readonly string actionsTag;
+    public static final readonly string advancedTag;
+    public static final readonly string bodyTag;
+    public static final readonly string branchNodeTag;
+    public static final readonly string dataTag;
+    public static final readonly string dynamicTag;
+    public static final readonly string executionModeTag;
+    public static final readonly string exitCriteriaTag;
+    public static final readonly string finalActionsTag;
+    public static final readonly string finalTaskTag;
+    public static final readonly string forkNodeTag;
+    public static final readonly string fromNodeTag;
+    public static final readonly string functionTaskTag;
+    public static final readonly string idTag;
+    public static final readonly string initialActionsTag;
+    public static final readonly string joinNodeTag;
+    public static final readonly string languageTag;
+    public static final readonly string localeTag;
+    public static final readonly string modelTag;
+    public static final readonly string nameTag;
+    public static final readonly string nodeTag;
+    public static final readonly string orderingTag;
+    public static final readonly string propertiesTag;
+    public static final readonly string propertyNS;
+    public static final readonly string resourceSetTag;
+    public static final readonly string resourcesTag;
+    public static final readonly string ruleTaskTag;
+    public static final readonly string ruleflowNS;
+    public static final readonly string ruleflowTag;
+    public static final readonly string scopeEntryTag;
+    public static final readonly string scopeTag;
+    public static final readonly string selectTag;
+    public static final readonly string startTaskTag;
+    public static final readonly string subflowTaskTag;
+    public static final readonly string taskNodeTag;
+    public static final readonly string taskTag;
+    public static final readonly string toNodeTag;
+    public static final readonly string transitionTag;
+    public static final readonly string uuidTag;
+}
+
+package ilog.rules.rf.model.io.util;
+
+
+public class IlrTaskSorter
+        extends java.util.Comparator
+{
+    public IlrTaskSorter();
+    public int compare(ilog.rules.rf.model.IlrRFTask arg1, ilog.rules.rf.model.IlrRFTask arg2);
+}
+

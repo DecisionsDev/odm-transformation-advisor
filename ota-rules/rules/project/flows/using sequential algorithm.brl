@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>using sequential algorithm</name>
+  <uuid>d0fa57a9-e479-4484-b132-96cfa930231c</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[definitions
+	set flow to an ilr ruleflow in elements ;
+	set task to an ilr RFRule task in the tasks of the RFModel of flow ;
+if
+	the execution mode of task is SEQUENTIAL 
+then
+	add entry Using Sequential : < project, flow > to report ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

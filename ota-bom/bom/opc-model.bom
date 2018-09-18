@@ -1,0 +1,151 @@
+
+property loadGetterSetterAsProperties "true"
+property origin "xom:/ota-bom//ota-xom"
+property uuid "ab994e5f-7c24-4ae8-9a7b-fe746ea537d3"
+package com.ibm.odm.ota;
+
+
+public class ActionRuleInfo
+{
+    public readonly int countOfConstantsInConditions;
+    public readonly int countOfConstantsInDefinitions;
+    public readonly int definitionsCount;
+    public readonly int elseCount;
+    public readonly int ifCount;
+    public readonly int thenCount;
+    public static com.ibm.odm.ota.ActionRuleInfo createActionRuleInfo(ilog.rules.teamserver.brm.IlrActionRule arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException;
+}
+
+public class Parameters
+{
+    public Parameters();
+    public int getInt(string arg);
+    public int getIntV(com.ibm.odm.ota.virtual.ParamNameType param);
+    public string getString(string arg);
+    public string getStringV(com.ibm.odm.ota.virtual.ParamNameType param);
+}
+
+public class Report
+{
+    public void addObjectEntry(com.ibm.odm.ota.virtual.FeedbackType arg1, ilog.rules.teamserver.brm.IlrRuleProject arg2, ilog.rules.teamserver.brm.IlrProjectElement arg3);
+    public void addObjectEntryV(com.ibm.odm.ota.virtual.FeedbackType type, ilog.rules.teamserver.brm.IlrRuleProject where, ilog.rules.teamserver.brm.IlrProjectElement what);
+    public void addTextEntry(string arg1, string arg2, string arg3, ilog.rules.teamserver.brm.IlrProjectElement arg4);
+    public void addTextEntryV(com.ibm.odm.ota.virtual.FeedbackType tag, string where, string what);
+}
+
+package com.ibm.odm.ota.virtual;
+
+
+public class BRMType
+        extends string
+        property "com.ibm.rules.domainProvider.msexcel.b2xColumn" "1"
+        property "com.ibm.rules.domainProvider.msexcel.hasHeader" "true"
+        property "com.ibm.rules.domainProvider.msexcel.labelColumn.en" "2"
+        property "com.ibm.rules.domainProvider.msexcel.sheetIndex" "0"
+        property "com.ibm.rules.domainProvider.msexcel.valueColumn" "0"
+        property domainProviderResource "domains.xlsx"
+        property domainValueProviderName "com.ibm.rules.domainProvider.msexcel2007"
+{
+    domain 
+    {
+        static TEMPLATE,
+        static DECISION_TABLE,
+        static DECISION_TREE,
+        static ACTION_RULE,
+        static RULE_FLOW,
+        static TECHNICAL_RULE,
+        static BOM,
+        static B2X,
+        static VOCABULARY,
+        static PACKAGE,
+        static VARIABLE_SET
+    }
+    public static final readonly com.ibm.odm.ota.virtual.BRMType ACTION_RULE;
+    public static final readonly com.ibm.odm.ota.virtual.BRMType B2X;
+    public static final readonly com.ibm.odm.ota.virtual.BRMType BOM;
+    public static final readonly com.ibm.odm.ota.virtual.BRMType DECISION_TABLE;
+    public static final readonly com.ibm.odm.ota.virtual.BRMType DECISION_TREE;
+    public static final readonly com.ibm.odm.ota.virtual.BRMType PACKAGE;
+    public static final readonly com.ibm.odm.ota.virtual.BRMType RULE_FLOW;
+    public static final readonly com.ibm.odm.ota.virtual.BRMType TECHNICAL_RULE;
+    public static final readonly com.ibm.odm.ota.virtual.BRMType TEMPLATE;
+    public static final readonly com.ibm.odm.ota.virtual.BRMType VARIABLE_SET;
+    public static final readonly com.ibm.odm.ota.virtual.BRMType VOCABULARY;
+}
+
+public class FeedbackType
+        extends string
+        property "com.ibm.rules.domainProvider.msexcel.b2xColumn" "5"
+        property "com.ibm.rules.domainProvider.msexcel.hasHeader" "true"
+        property "com.ibm.rules.domainProvider.msexcel.labelColumn.en" "4"
+        property "com.ibm.rules.domainProvider.msexcel.sheetIndex" "0"
+        property "com.ibm.rules.domainProvider.msexcel.valueColumn" "0"
+        property domainProviderResource "findings.xlsx"
+        property domainValueProviderName "com.ibm.rules.domainProvider.msexcel2007"
+{
+    domain 
+    {
+        static CLASSIC_ENGINE,
+        static CLASSIC_PROJECT,
+        static PERMISSIONS,
+        static ARCHIVING,
+        static PRIORITY,
+        static TEMPLATE,
+        static DECISION_TREE,
+        static TEMPLATED,
+        static EXIT_CRITERIA,
+        static TECHNICAL_RULE,
+        static CUSTOM_PROPERTY,
+        static USING_RETE,
+        static USING_SEQUENTIAL,
+        static USING_DIFFERENT_ALGORITHMS,
+        static BOM_WITH_RULES,
+        static DOMAIN_PROVIDER,
+        static VALUE_INFO,
+        static VALUE_EDITOR,
+        static RULE_UNDER_ROOT,
+        static JAVA_VERBALIZATION,
+        static VERBALIZATION_SPELLING,
+        static SAME_RULE_NAME,
+        static RULE_USING_ELSE
+    }
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType ARCHIVING;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType BOM_WITH_RULES;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType CLASSIC_ENGINE;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType CLASSIC_PROJECT;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType CUSTOM_PROPERTY;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType DECISION_TREE;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType DOMAIN_PROVIDER;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType EXIT_CRITERIA;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType JAVA_VERBALIZATION;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType PERMISSIONS;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType PRIORITY;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType RULE_UNDER_ROOT;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType RULE_USING_ELSE;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType SAME_RULE_NAME;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType TECHNICAL_RULE;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType TEMPLATE;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType TEMPLATED;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType USING_DIFFERENT_ALGORITHMS;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType USING_RETE;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType USING_SEQUENTIAL;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType VALUE_EDITOR;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType VALUE_INFO;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType VERBALIZATION_SPELLING;
+}
+
+public class ParamNameType
+        extends string
+        property "com.ibm.rules.domainProvider.msexcel.b2xColumn" "2"
+        property "com.ibm.rules.domainProvider.msexcel.documentationColumn.en" "1"
+        property "com.ibm.rules.domainProvider.msexcel.hasHeader" "true"
+        property "com.ibm.rules.domainProvider.msexcel.labelColumn.en" "1"
+        property "com.ibm.rules.domainProvider.msexcel.sheetIndex" "2"
+        property "com.ibm.rules.domainProvider.msexcel.valueColumn" "0"
+        property domainProviderResource "findings.xlsx"
+        property domainValueProviderName "com.ibm.rules.domainProvider.msexcel2007"
+{
+    public static final readonly com.ibm.odm.ota.virtual.ParamNameType maxProjectBranches;
+}
+

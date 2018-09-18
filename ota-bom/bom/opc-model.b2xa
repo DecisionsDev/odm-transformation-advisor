@@ -1,0 +1,267 @@
+<b2x:translation xmlns:b2x="http://schemas.ilog.com/JRules/1.3/Translation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://schemas.ilog.com/JRules/1.3/Translation ilog/rules/schemas/1_3/b2x.xsd">
+    <id>90788356-627f-4aa8-9eaa-30d7040353ce</id>
+    <lang>ARL</lang>
+    <class>
+        <businessName>com.ibm.odm.ota.ActionRuleInfo</businessName>
+    </class>
+    <class>
+        <businessName>com.ibm.odm.ota.Parameters</businessName>
+        <method>
+            <name>getIntV</name>
+            <parameter type="com.ibm.odm.ota.virtual.ParamNameType"/>
+            <body language="arl"><![CDATA[
+            return this.getInt(param);
+            ]]></body>
+        </method>
+        <method>
+            <name>getStringV</name>
+            <parameter type="com.ibm.odm.ota.virtual.ParamNameType"/>
+            <body language="arl"><![CDATA[
+            return this.getString(param);
+            ]]></body>
+        </method>
+    </class>
+    <class>
+        <businessName>com.ibm.odm.ota.Report</businessName>
+        <method>
+            <name>addObjectEntryV</name>
+            <parameter type="com.ibm.odm.ota.virtual.FeedbackType"/>
+            <parameter type="ilog.rules.teamserver.brm.IlrRuleProject"/>
+            <parameter type="ilog.rules.teamserver.brm.IlrProjectElement"/>
+            <body language="arl"><![CDATA[
+            this.addObjectEntry(type, where, what);
+            ]]></body>
+        </method>
+        <method>
+            <name>addTextEntryV</name>
+            <parameter type="com.ibm.odm.ota.virtual.FeedbackType"/>
+            <parameter type="java.lang.String"/>
+            <parameter type="java.lang.String"/>
+            <body language="arl"><![CDATA[
+            this.addTextEntry(tag, where, what, null);
+            ]]></body>
+        </method>
+    </class>
+    <class>
+        <businessName>com.ibm.odm.ota.virtual.BRMType</businessName>
+        <executionName>java.lang.String</executionName>
+        <attribute>
+            <name>ACTION_RULE</name>
+            <getter language="irl"><![CDATA[
+            return "brm.ActionRule";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>B2X</name>
+            <getter language="irl"><![CDATA[
+            return "brm.BOM2XOMMapping";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>BOM</name>
+            <getter language="irl"><![CDATA[
+            return "brm.BOM";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>DECISION_TABLE</name>
+            <getter language="irl"><![CDATA[
+            return "brm.DecisionTable";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>DECISION_TREE</name>
+            <getter language="irl"><![CDATA[
+            return "brm.DecisionTree";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>PACKAGE</name>
+            <getter language="irl"><![CDATA[
+            return "brm.RulePackage";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>RULE_FLOW</name>
+            <getter language="irl"><![CDATA[
+            return "brm.Ruleflow";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>TECHNICAL_RULE</name>
+            <getter language="irl"><![CDATA[
+            return "brm.TechnicalRule";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>TEMPLATE</name>
+            <getter language="irl"><![CDATA[
+            return "brm.Template";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>VARIABLE_SET</name>
+            <getter language="irl"><![CDATA[
+            return "brm.VariableSet";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>VOCABULARY</name>
+            <getter language="irl"><![CDATA[
+            return "brm.Vocabulary";
+            ]]></getter>
+        </attribute>
+    </class>
+    <class>
+        <businessName>com.ibm.odm.ota.virtual.FeedbackType</businessName>
+        <executionName>java.lang.String</executionName>
+        <attribute>
+            <name>ARCHIVING</name>
+            <getter language="irl"><![CDATA[
+            return "ARCHIVING";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>BOM_WITH_RULES</name>
+            <getter language="irl"><![CDATA[
+            return "BOM_WITH_RULES";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>CLASSIC_ENGINE</name>
+            <getter language="irl"><![CDATA[
+            return "CLASSIC_ENGINE";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>CLASSIC_PROJECT</name>
+            <getter language="irl"><![CDATA[
+            return "CLASSIC_PROJECT";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>CUSTOM_PROPERTY</name>
+            <getter language="irl"><![CDATA[
+            return "CUSTOM_PROPERTY";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>DECISION_TREE</name>
+            <getter language="irl"><![CDATA[
+            return "DECISION_TREE";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>DOMAIN_PROVIDER</name>
+            <getter language="irl"><![CDATA[
+            return "DOMAIN_PROVIDER";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>EXIT_CRITERIA</name>
+            <getter language="irl"><![CDATA[
+            return "EXIT_CRITERIA";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>JAVA_VERBALIZATION</name>
+            <getter language="irl"><![CDATA[
+            return "JAVA_VERBALIZATION";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>PERMISSIONS</name>
+            <getter language="irl"><![CDATA[
+            return "PERMISSIONS";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>PRIORITY</name>
+            <getter language="irl"><![CDATA[
+            return "PRIORITY";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>RULE_UNDER_ROOT</name>
+            <getter language="irl"><![CDATA[
+            return "RULE_UNDER_ROOT";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>RULE_USING_ELSE</name>
+            <getter language="irl"><![CDATA[
+            return "RULE_USING_ELSE";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>SAME_RULE_NAME</name>
+            <getter language="irl"><![CDATA[
+            return "SAME_RULE_NAME";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>TECHNICAL_RULE</name>
+            <getter language="irl"><![CDATA[
+            return "TECHNICAL_RULE";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>TEMPLATE</name>
+            <getter language="irl"><![CDATA[
+            return "TEMPLATE";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>TEMPLATED</name>
+            <getter language="irl"><![CDATA[
+            return "TEMPLATED";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>USING_DIFFERENT_ALGORITHMS</name>
+            <getter language="irl"><![CDATA[
+            return "USING_DIFFERENT_ALGORITHMS";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>USING_RETE</name>
+            <getter language="irl"><![CDATA[
+            return "USING_RETE";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>USING_SEQUENTIAL</name>
+            <getter language="irl"><![CDATA[
+            return "USING_SEQUENTIAL";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>VALUE_EDITOR</name>
+            <getter language="irl"><![CDATA[
+            return "VALUE_EDITOR";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>VALUE_INFO</name>
+            <getter language="irl"><![CDATA[
+            return "VALUE_INFO";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>VERBALIZATION_SPELLING</name>
+            <getter language="irl"><![CDATA[
+            return "VERBALIZATION_SPELLING";
+            ]]></getter>
+        </attribute>
+    </class>
+    <class>
+        <businessName>com.ibm.odm.ota.virtual.ParamNameType</businessName>
+        <executionName>java.lang.String</executionName>
+        <attribute>
+            <name>maxProjectBranches</name>
+            <getter language="irl"><![CDATA[
+            return "maxProjectBranches";
+            ]]></getter>
+        </attribute>
+    </class>
+</b2x:translation>

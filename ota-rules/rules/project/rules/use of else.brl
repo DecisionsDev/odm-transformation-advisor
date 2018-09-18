@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>use of else</name>
+  <uuid>99b31723-db13-4a6b-9e36-b5303c9183a4</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[definitions
+	set rule to an ilr action rule in elements ;
+	set info to the content summary of rule ; 
+if
+	the else count of info is not 0   
+then
+	add entry Rule Using Else : < project, rule > to report ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

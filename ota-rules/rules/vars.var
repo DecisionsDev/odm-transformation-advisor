@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.base:VariableSet xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.base="http://ilog.rules.studio/model/base.ecore">
+  <name>vars</name>
+  <uuid>2179695a-a420-4bfb-8cac-6a2d0b70f604</uuid>
+  <variables name="elements" type="java.util.List" initialValue="" verbalization="elements"/>
+  <variables name="project" type="ilog.rules.teamserver.brm.IlrRuleProject" initialValue="" verbalization="project"/>
+  <variables name="report" type="com.ibm.odm.ota.Report" initialValue="" verbalization="report"/>
+  <variables name="parameters" type="com.ibm.odm.ota.Parameters" initialValue="" verbalization="parameters"/>
+</ilog.rules.studio.model.base:VariableSet>

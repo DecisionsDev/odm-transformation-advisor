@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.base:RuleProject xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ilog.rules.studio.model.base="http://ilog.rules.studio/model/base.ecore" xmlns:ilog.rules.studio.model.bom="http://ilog.rules.studio/model/bom.ecore" xmlns:ilog.rules.studio.model.xom="http://ilog.rules.studio/model/xom.ecore" buildMode="DecisionEngine" migrationFlag="3">
+  <name>ota-bom</name>
+  <uuid>9b346c4b-1f5c-406a-b1b7-66ffc536f7ac</uuid>
+  <outputLocation>output</outputLocation>
+  <categories>any</categories>
+  <paths xsi:type="ilog.rules.studio.model.xom:XOMPath" pathID="XOM">
+    <entries xsi:type="ilog.rules.studio.model.xom:LibraryXOMPathEntry" name="org.eclipse.jdt.launching.JRE_CONTAINER" url="file:org.eclipse.jdt.launching.JRE_CONTAINER" kind="LIBRARY" exported="false"/>
+    <entries xsi:type="ilog.rules.studio.model.xom:SystemXOMPathEntry" name="ota-xom" url="platform:/ota-xom" kind="JAVA_PROJECT" exported="true"/>
+    <entries xsi:type="ilog.rules.studio.model.xom:SystemXOMPathEntry" name="jrules-ruleartifacts.jar" url="file:C:/Program Files/IBM/ODM891/teamserver/lib/jrules-ruleartifacts.jar" exported="true"/>
+    <entries xsi:type="ilog.rules.studio.model.xom:SystemXOMPathEntry" name="jrules-synchronization.jar" url="file:C:/Program Files/IBM/ODM891/teamserver/lib/jrules-synchronization.jar" exported="true"/>
+    <entries xsi:type="ilog.rules.studio.model.xom:SystemXOMPathEntry" name="jrules-teamserver.jar" url="file:C:/Program Files/IBM/ODM891/teamserver/lib/jrules-teamserver.jar" exported="true"/>
+  </paths>
+  <paths xsi:type="ilog.rules.studio.model.bom:BOMPath" pathID="BOM">
+    <entries xsi:type="ilog.rules.studio.model.bom:BOMEntry" name="opc-model" url="platform:/ota-bom/bom/opc-model.bom" origin="xom:/ota-bom//ota-xom"/>
+    <entries xsi:type="ilog.rules.studio.model.bom:BOMEntry" name="opc-ruleartifacts-model" url="platform:/ota-bom/bom/opc-ruleartifacts-model.bom" origin="xom:/ota-bom//opc-xom/lib/jrules-ruleartifacts.jar"/>
+    <entries xsi:type="ilog.rules.studio.model.bom:BOMEntry" name="opc-brm-model" url="platform:/ota-bom/bom/opc-brm-model.bom" origin="xom:/ota-bom//opc-xom/lib/jrules-teamserver.jar"/>
+  </paths>
+  <modelFolders xsi:type="ilog.rules.studio.model.bom:BOMFolder">
+    <name>bom</name>
+  </modelFolders>
+  <modelFolders xsi:type="ilog.rules.studio.model.base:ResourceFolder">
+    <name>resources</name>
+  </modelFolders>
+</ilog.rules.studio.model.base:RuleProject>

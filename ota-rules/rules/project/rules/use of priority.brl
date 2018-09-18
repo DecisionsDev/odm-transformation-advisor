@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>use of priority</name>
+  <uuid>d624b32f-3a8c-4e1f-9c66-9e0ef64a078e</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[definitions
+	set rule to an ilr business rule in elements ;
+if
+	the priority of rule is not null  
+then
+	add entry Rule Priorities : < project, rule > to report ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

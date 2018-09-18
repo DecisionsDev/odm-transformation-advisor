@@ -1,0 +1,67 @@
+# Vocabulary Properties
+uuid = 5264f783-68fe-4add-9a99-5bd3ff17127f
+
+# com.ibm.odm.ota.ActionRuleInfo
+com.ibm.odm.ota.ActionRuleInfo#concept.label = action rule info
+com.ibm.odm.ota.ActionRuleInfo.countOfConstantsInConditions#phrase.navigation = {count of constants in conditions} of {this}
+com.ibm.odm.ota.ActionRuleInfo.countOfConstantsInDefinitions#phrase.navigation = {count of constants in definitions} of {this}
+com.ibm.odm.ota.ActionRuleInfo.createActionRuleInfo(ilog.rules.teamserver.brm.IlrActionRule)#phrase.navigation = the content summary of {0}
+com.ibm.odm.ota.ActionRuleInfo.definitionsCount#phrase.navigation = {definitions count} of {this}
+com.ibm.odm.ota.ActionRuleInfo.elseCount#phrase.navigation = {else count} of {this}
+com.ibm.odm.ota.ActionRuleInfo.ifCount#phrase.navigation = {if count} of {this}
+com.ibm.odm.ota.ActionRuleInfo.thenCount#phrase.navigation = {then count} of {this}
+
+# com.ibm.odm.ota.Parameters
+com.ibm.odm.ota.Parameters#concept.label = parameters
+com.ibm.odm.ota.Parameters.getIntV(com.ibm.odm.ota.virtual.ParamNameType)#phrase.navigation = the value of {0} ({this})
+com.ibm.odm.ota.Parameters.getStringV(com.ibm.odm.ota.virtual.ParamNameType)#phrase.navigation = {0} ({this})
+
+# com.ibm.odm.ota.Report
+com.ibm.odm.ota.Report#concept.label = report
+com.ibm.odm.ota.Report.addObjectEntryV(com.ibm.odm.ota.virtual.FeedbackType,ilog.rules.teamserver.brm.IlrRuleProject,ilog.rules.teamserver.brm.IlrProjectElement)#phrase.action = add entry {0}: < {1}, {2}> to {this}
+com.ibm.odm.ota.Report.addTextEntryV(com.ibm.odm.ota.virtual.FeedbackType,java.lang.String,java.lang.String)#phrase.action = add project entry {0}: < {1}, {2}> to {this}
+
+# com.ibm.odm.ota.virtual.BRMType
+com.ibm.odm.ota.virtual.BRMType#concept.label = BRMType
+com.ibm.odm.ota.virtual.BRMType.ACTION_RULE#instance.label = Action Rule
+com.ibm.odm.ota.virtual.BRMType.B2X#instance.label = B2X
+com.ibm.odm.ota.virtual.BRMType.BOM#instance.label = BOM
+com.ibm.odm.ota.virtual.BRMType.DECISION_TABLE#instance.label = Decision Table
+com.ibm.odm.ota.virtual.BRMType.DECISION_TREE#instance.label = Decision Tree
+com.ibm.odm.ota.virtual.BRMType.PACKAGE#instance.label = Package
+com.ibm.odm.ota.virtual.BRMType.RULE_FLOW#instance.label = Rule Flow
+com.ibm.odm.ota.virtual.BRMType.TECHNICAL_RULE#instance.label = Technical Rule
+com.ibm.odm.ota.virtual.BRMType.TEMPLATE#instance.label = Template
+com.ibm.odm.ota.virtual.BRMType.VARIABLE_SET#instance.label = Variable Set
+com.ibm.odm.ota.virtual.BRMType.VOCABULARY#instance.label = Vocabulary
+
+# com.ibm.odm.ota.virtual.FeedbackType
+com.ibm.odm.ota.virtual.FeedbackType#concept.label = com.ibm.odm.opc.virtual.FeedbackType
+com.ibm.odm.ota.virtual.FeedbackType.ARCHIVING#instance.label = Branch Archiving
+com.ibm.odm.ota.virtual.FeedbackType.BOM_WITH_RULES#instance.label = BOM with Rules
+com.ibm.odm.ota.virtual.FeedbackType.CLASSIC_ENGINE#instance.label = Classic Rule Engine
+com.ibm.odm.ota.virtual.FeedbackType.CLASSIC_PROJECT#instance.label = Classic Rule Projects
+com.ibm.odm.ota.virtual.FeedbackType.CUSTOM_PROPERTY#instance.label = Custom properties
+com.ibm.odm.ota.virtual.FeedbackType.DECISION_TREE#instance.label = Decision Trees
+com.ibm.odm.ota.virtual.FeedbackType.DOMAIN_PROVIDER#instance.label = External Domain Provider
+com.ibm.odm.ota.virtual.FeedbackType.EXIT_CRITERIA#instance.label = Exit Criteria
+com.ibm.odm.ota.virtual.FeedbackType.JAVA_VERBALIZATION#instance.label = Java Verbalization
+com.ibm.odm.ota.virtual.FeedbackType.PERMISSIONS#instance.label = Artifact Permissions
+com.ibm.odm.ota.virtual.FeedbackType.PRIORITY#instance.label = Rule Priorities
+com.ibm.odm.ota.virtual.FeedbackType.RULE_UNDER_ROOT#instance.label = Rule Under Root
+com.ibm.odm.ota.virtual.FeedbackType.RULE_USING_ELSE#instance.label = Rule Using Else
+com.ibm.odm.ota.virtual.FeedbackType.SAME_RULE_NAME#instance.label = Same Rule Name
+com.ibm.odm.ota.virtual.FeedbackType.TECHNICAL_RULE#instance.label = Technical Rules
+com.ibm.odm.ota.virtual.FeedbackType.TEMPLATE#instance.label = Rule Templates
+com.ibm.odm.ota.virtual.FeedbackType.TEMPLATED#instance.label = Rules from Template
+com.ibm.odm.ota.virtual.FeedbackType.USING_DIFFERENT_ALGORITHMS#instance.label = Using Different Algorithms
+com.ibm.odm.ota.virtual.FeedbackType.USING_RETE#instance.label = Using Rete
+com.ibm.odm.ota.virtual.FeedbackType.USING_SEQUENTIAL#instance.label = Using Sequential
+com.ibm.odm.ota.virtual.FeedbackType.VALUE_EDITOR#instance.label = Using Value Editor
+com.ibm.odm.ota.virtual.FeedbackType.VALUE_INFO#instance.label = Using Value Info
+com.ibm.odm.ota.virtual.FeedbackType.VERBALIZATION_SPELLING#instance.label = Verbalizations Spelling
+
+# com.ibm.odm.ota.virtual.ParamNameType
+com.ibm.odm.ota.virtual.ParamNameType#concept.label = com.ibm.odm.ota.virtual.ParamNameType
+com.ibm.odm.ota.virtual.ParamNameType.maxProjectBranches#instance.documentation = Max Branch Count
+com.ibm.odm.ota.virtual.ParamNameType.maxProjectBranches#instance.label = Max Branch Count

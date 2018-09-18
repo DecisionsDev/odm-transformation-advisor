@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<com.ibm.rules.studio.model.decisionservice:Operation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:com.ibm.rules.studio.model.decisionservice="http://com.ibm.rules.studio/model/decisionservice.ecore" xmlns:ilog.rules.studio.model.query.extractor="http://ilog.rules.studio/model/query/extractor.ecore" rulesetName="project_validation_operation" usingRuleflow="true" ruleflowName="check project" targetRuleProjectName="ota-main">
+  <name>project_validation_operation</name>
+  <uuid>cd134a3b-aa87-46ec-850a-d40dbe8c4755</uuid>
+  <referencedVariables variableName="project" variableSetName="project">
+    <variableSet href="../../ota-rules/rules/vars.var#2179695a-a420-4bfb-8cac-6a2d0b70f604"/>
+  </referencedVariables>
+  <referencedVariables variableName="report" variableSetName="report" direction="IN_OUT">
+    <variableSet href="../../ota-rules/rules/vars.var#2179695a-a420-4bfb-8cac-6a2d0b70f604"/>
+  </referencedVariables>
+  <referencedVariables variableName="elements" variableSetName="elements">
+    <variableSet href="../../ota-rules/rules/vars.var#2179695a-a420-4bfb-8cac-6a2d0b70f604"/>
+  </referencedVariables>
+  <referencedVariables variableName="parameters" variableSetName="vars">
+    <variableSet href="../../ota-rules/rules/vars.var#2179695a-a420-4bfb-8cac-6a2d0b70f604"/>
+  </referencedVariables>
+  <ruleflow href="../../ota-rules/rules/check%20project.rfl#973d8b15-137a-4a2e-beb1-dbb41986bb21"/>
+  <extractor xsi:type="ilog.rules.studio.model.query.extractor:QueryExtractor" name="project_validation_operation_extractor" validator="Default Validator"/>
+  <targetRuleProject href="../../ota-main#96044a65-943c-44b8-ab91-3ba8b7ac525f"/>
+</com.ibm.rules.studio.model.decisionservice:Operation>

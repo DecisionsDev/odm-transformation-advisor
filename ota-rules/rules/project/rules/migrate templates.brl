@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>migrate templates</name>
+  <uuid>4dab2ac3-bfec-4e1a-af47-2e4dbbb30b72</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[definitions
+	set template to an ilr template in elements ;
+then
+	add entry Rule Templates : < project, template > to  report ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

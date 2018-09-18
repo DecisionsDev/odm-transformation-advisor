@@ -1,0 +1,400 @@
+# Vocabulary Properties
+uuid = 0372b972-bbfa-4665-9598-be77383fb7d5
+
+# ilog.rules.rf.model.IlrRFAbstractModelVisitor
+ilog.rules.rf.model.IlrRFAbstractModelVisitor#concept.label = ilr RFAbstract model visitor
+
+# ilog.rules.rf.model.IlrRFAlgorithm
+ilog.rules.rf.model.IlrRFAlgorithm#concept.label = ilr RFAlgorithm
+ilog.rules.rf.model.IlrRFAlgorithm.DEFAULT#instance.label = DEFAULT
+ilog.rules.rf.model.IlrRFAlgorithm.FASTPATH#instance.label = FASTPATH
+ilog.rules.rf.model.IlrRFAlgorithm.SEQUENTIAL#instance.label = SEQUENTIAL
+ilog.rules.rf.model.IlrRFAlgorithm.name#phrase.navigation = {name} of {this}
+ilog.rules.rf.model.IlrRFAlgorithm.values#phrase.navigation = the value
+
+# ilog.rules.rf.model.IlrRFBody
+ilog.rules.rf.model.IlrRFBody#concept.label = ilr RFBody
+ilog.rules.rf.model.IlrRFBody.kind#phrase.navigation = {kind} of {this}
+ilog.rules.rf.model.IlrRFBody.language#phrase.navigation = {language} of {this}
+ilog.rules.rf.model.IlrRFBody.text#phrase.navigation = {text} of {this}
+
+# ilog.rules.rf.model.IlrRFBodyKind
+ilog.rules.rf.model.IlrRFBodyKind#concept.label = ilr RFBody kind
+ilog.rules.rf.model.IlrRFBodyKind.ACTION#instance.label = ACTION
+ilog.rules.rf.model.IlrRFBodyKind.GUARD#instance.label = GUARD
+ilog.rules.rf.model.IlrRFBodyKind.SELECT#instance.label = SELECT
+
+# ilog.rules.rf.model.IlrRFBodyable
+ilog.rules.rf.model.IlrRFBodyable#concept.label = ilr RFBodyable
+ilog.rules.rf.model.IlrRFBodyable.BODY_PROPERTY#phrase.navigation = the BODY PROPERTY
+ilog.rules.rf.model.IlrRFBodyable.body#phrase.action = set the body of {this} to {body}
+ilog.rules.rf.model.IlrRFBodyable.body#phrase.navigation = {body} of {this}
+
+# ilog.rules.rf.model.IlrRFBranchNode
+ilog.rules.rf.model.IlrRFBranchNode#concept.label = ilr RFBranch node
+
+# ilog.rules.rf.model.IlrRFConcurrencyNode
+ilog.rules.rf.model.IlrRFConcurrencyNode#concept.label = ilr RFConcurrency node
+ilog.rules.rf.model.IlrRFConcurrencyNode.CONCURRENCY_KIND_PROPERTY#phrase.navigation = the CONCURRENCY KIND PROPERTY
+ilog.rules.rf.model.IlrRFConcurrencyNode.FORK_CONCURRENCY#phrase.navigation = the FORK CONCURRENCY
+ilog.rules.rf.model.IlrRFConcurrencyNode.JOIN_CONCURRENCY#phrase.navigation = the JOIN CONCURRENCY
+ilog.rules.rf.model.IlrRFConcurrencyNode.concurrencyKind#phrase.action = set the concurrency kind of {this} to {concurrency kind}
+ilog.rules.rf.model.IlrRFConcurrencyNode.concurrencyKind#phrase.navigation = {concurrency kind} of {this}
+
+# ilog.rules.rf.model.IlrRFElement
+ilog.rules.rf.model.IlrRFElement#concept.label = ilr RFElement
+ilog.rules.rf.model.IlrRFElement.LABEL_PROPERTY#phrase.navigation = the LABEL PROPERTY
+
+# ilog.rules.rf.model.IlrRFExitCriteria
+ilog.rules.rf.model.IlrRFExitCriteria#concept.label = ilr RFExit criteria
+ilog.rules.rf.model.IlrRFExitCriteria.NONE#instance.label = NONE
+ilog.rules.rf.model.IlrRFExitCriteria.RULE#instance.label = RULE
+ilog.rules.rf.model.IlrRFExitCriteria.RULEINSTANCE#instance.label = RULEINSTANCE
+ilog.rules.rf.model.IlrRFExitCriteria.name#phrase.navigation = {name} of {this}
+ilog.rules.rf.model.IlrRFExitCriteria.values#phrase.navigation = the value
+
+# ilog.rules.rf.model.IlrRFFactory
+ilog.rules.rf.model.IlrRFFactory#concept.label = ilr RFFactory
+ilog.rules.rf.model.IlrRFFactory.getInstance()#phrase.navigation = the instance
+
+# ilog.rules.rf.model.IlrRFFunctionTask
+ilog.rules.rf.model.IlrRFFunctionTask#concept.label = ilr RFFunction task
+
+# ilog.rules.rf.model.IlrRFGenericTask
+ilog.rules.rf.model.IlrRFGenericTask#concept.label = ilr RFGeneric task
+ilog.rules.rf.model.IlrRFGenericTask.FINAL_ACTIONS_PROPERTY#phrase.navigation = the FINAL ACTIONS PROPERTY
+ilog.rules.rf.model.IlrRFGenericTask.INITIAL_ACTIONS_PROPERTY#phrase.navigation = the INITIAL ACTIONS PROPERTY
+ilog.rules.rf.model.IlrRFGenericTask.finalActions#phrase.action = set the final actions of {this} to {final actions}
+ilog.rules.rf.model.IlrRFGenericTask.finalActions#phrase.navigation = {final actions} of {this}
+ilog.rules.rf.model.IlrRFGenericTask.initialActions#phrase.action = set the initial actions of {this} to {initial actions}
+ilog.rules.rf.model.IlrRFGenericTask.initialActions#phrase.navigation = {initial actions} of {this}
+
+# ilog.rules.rf.model.IlrRFGuardKind
+ilog.rules.rf.model.IlrRFGuardKind#concept.label = ilr RFGuard kind
+ilog.rules.rf.model.IlrRFGuardKind.ELSE#instance.label = ELSE
+ilog.rules.rf.model.IlrRFGuardKind.IF#instance.label = IF
+ilog.rules.rf.model.IlrRFGuardKind.NONE#instance.label = NONE
+ilog.rules.rf.model.IlrRFGuardKind.name#phrase.navigation = {name} of {this}
+ilog.rules.rf.model.IlrRFGuardKind.values#phrase.navigation = the value
+
+# ilog.rules.rf.model.IlrRFLanguage
+ilog.rules.rf.model.IlrRFLanguage#concept.label = ilr RFLanguage
+ilog.rules.rf.model.IlrRFLanguage.BAL#instance.label = BAL
+ilog.rules.rf.model.IlrRFLanguage.IRL#instance.label = IRL
+
+# ilog.rules.rf.model.IlrRFList
+ilog.rules.rf.model.IlrRFList#concept.label = ilr RFList
+
+# ilog.rules.rf.model.IlrRFModel
+ilog.rules.rf.model.IlrRFModel#concept.label = ilr RFModel
+ilog.rules.rf.model.IlrRFModel.ADJUSTING_PROPERTY#phrase.navigation = the ADJUSTING PROPERTY
+ilog.rules.rf.model.IlrRFModel.IMPORTS_PROPERTY#phrase.navigation = the IMPORTS PROPERTY
+ilog.rules.rf.model.IlrRFModel.NODELIST_PROPERTY#phrase.navigation = the NODELIST PROPERTY
+ilog.rules.rf.model.IlrRFModel.RESOURCES_PROPERTY#phrase.navigation = the RESOURCES PROPERTY
+ilog.rules.rf.model.IlrRFModel.TASKLIST_PROPERTY#phrase.navigation = the TASKLIST PROPERTY
+ilog.rules.rf.model.IlrRFModel.TRANSITIONLIST_PROPERTY#phrase.navigation = the TRANSITIONLIST PROPERTY
+ilog.rules.rf.model.IlrRFModel.adjusting#phrase.navigation = {this} is adjusting
+ilog.rules.rf.model.IlrRFModel.eventFiring#phrase.action = make it {event firing} that {this} is event firing
+ilog.rules.rf.model.IlrRFModel.eventFiring#phrase.navigation = {this} is event firing
+ilog.rules.rf.model.IlrRFModel.modelListeners#phrase.navigation = {model listener} of {this}
+ilog.rules.rf.model.IlrRFModel.nodeList#phrase.navigation = {node} of {this}
+ilog.rules.rf.model.IlrRFModel.taskList#phrase.navigation = {task} of {this}
+ilog.rules.rf.model.IlrRFModel.transitionList#phrase.navigation = {transition} of {this}
+
+# ilog.rules.rf.model.IlrRFModelElement
+ilog.rules.rf.model.IlrRFModelElement#concept.label = ilr RFModel element
+ilog.rules.rf.model.IlrRFModelElement.ID#phrase.action = set the ID of {this} to {ID}
+ilog.rules.rf.model.IlrRFModelElement.ID#phrase.navigation = {ID} of {this}
+ilog.rules.rf.model.IlrRFModelElement.ID_PROPERTY#phrase.navigation = the ID PROPERTY
+ilog.rules.rf.model.IlrRFModelElement.RFModel#phrase.navigation = {RFModel} of {this}
+
+# ilog.rules.rf.model.IlrRFModelVisitor
+ilog.rules.rf.model.IlrRFModelVisitor#concept.label = ilr RFModel visitor
+
+# ilog.rules.rf.model.IlrRFNode
+ilog.rules.rf.model.IlrRFNode#concept.label = ilr RFNode
+
+# ilog.rules.rf.model.IlrRFOrdering
+ilog.rules.rf.model.IlrRFOrdering#concept.label = ilr RFOrdering
+ilog.rules.rf.model.IlrRFOrdering.DEFAULT#instance.label = DEFAULT
+ilog.rules.rf.model.IlrRFOrdering.LITERAL#instance.label = LITERAL
+ilog.rules.rf.model.IlrRFOrdering.PRIORITY#instance.label = PRIORITY
+ilog.rules.rf.model.IlrRFOrdering.name#phrase.navigation = {name} of {this}
+ilog.rules.rf.model.IlrRFOrdering.values#phrase.navigation = the value
+
+# ilog.rules.rf.model.IlrRFRoutingNode
+ilog.rules.rf.model.IlrRFRoutingNode#concept.label = ilr RFRouting node
+
+# ilog.rules.rf.model.IlrRFRuleTask
+ilog.rules.rf.model.IlrRFRuleTask#concept.label = ilr RFRule task
+ilog.rules.rf.model.IlrRFRuleTask.ADVANCED_PROPERTIES#phrase.navigation = the ADVANCED PROPERTIES
+ilog.rules.rf.model.IlrRFRuleTask.ALGORITHM_PROPERTY#phrase.navigation = the ALGORITHM PROPERTY
+ilog.rules.rf.model.IlrRFRuleTask.DYNAMIC_PROPERTY#phrase.navigation = the DYNAMIC PROPERTY
+ilog.rules.rf.model.IlrRFRuleTask.EXIT_CRITERIA_PROPERTY#phrase.navigation = the EXIT CRITERIA PROPERTY
+ilog.rules.rf.model.IlrRFRuleTask.ORDERING_PROPERTY#phrase.navigation = the ORDERING PROPERTY
+ilog.rules.rf.model.IlrRFRuleTask.SCOPE_PROPERTY#phrase.navigation = the SCOPE PROPERTY
+ilog.rules.rf.model.IlrRFRuleTask.dynamic#phrase.action = make it {dynamic} that {this} is dynamic
+ilog.rules.rf.model.IlrRFRuleTask.dynamic#phrase.navigation = {this} is dynamic
+ilog.rules.rf.model.IlrRFRuleTask.executionMode#phrase.action = set the execution mode of {this} to {execution mode}
+ilog.rules.rf.model.IlrRFRuleTask.executionMode#phrase.navigation = {execution mode} of {this}
+ilog.rules.rf.model.IlrRFRuleTask.exitCriteria#phrase.action = set the exit criteria of {this} to {exit criteria}
+ilog.rules.rf.model.IlrRFRuleTask.exitCriteria#phrase.navigation = {exit criteria} of {this}
+ilog.rules.rf.model.IlrRFRuleTask.ordering#phrase.action = set the ordering of {this} to {ordering}
+ilog.rules.rf.model.IlrRFRuleTask.ordering#phrase.navigation = {ordering} of {this}
+ilog.rules.rf.model.IlrRFRuleTask.scope#phrase.action = set the scope of {this} to {scope}
+ilog.rules.rf.model.IlrRFRuleTask.scope#phrase.navigation = {scope} of {this}
+
+# ilog.rules.rf.model.IlrRFScope
+ilog.rules.rf.model.IlrRFScope#concept.label = ilr RFScope
+ilog.rules.rf.model.IlrRFScope.PACKAGE#phrase.navigation = the PACKAGE
+ilog.rules.rf.model.IlrRFScope.RULE#phrase.navigation = the RULE
+
+# ilog.rules.rf.model.IlrRFScope.ScopeEntry
+ilog.rules.rf.model.IlrRFScope.ScopeEntry#concept.label = scope entry
+ilog.rules.rf.model.IlrRFScope.ScopeEntry.ID#phrase.navigation = {ID} of {this}
+ilog.rules.rf.model.IlrRFScope.ScopeEntry.type#phrase.navigation = {type} of {this}
+ilog.rules.rf.model.IlrRFScope.entries#phrase.navigation = {entry} of {this}
+
+# ilog.rules.rf.model.IlrRFStartTask
+ilog.rules.rf.model.IlrRFStartTask#concept.label = ilr RFStart task
+
+# ilog.rules.rf.model.IlrRFStopTask
+ilog.rules.rf.model.IlrRFStopTask#concept.label = ilr RFStop task
+
+# ilog.rules.rf.model.IlrRFSubflowTask
+ilog.rules.rf.model.IlrRFSubflowTask#concept.label = ilr RFSubflow task
+ilog.rules.rf.model.IlrRFSubflowTask.UUID_PROPERTY#phrase.navigation = the UUID PROPERTY
+ilog.rules.rf.model.IlrRFSubflowTask.uuid#phrase.action = set the uuid of {this} to {uuid}
+ilog.rules.rf.model.IlrRFSubflowTask.uuid#phrase.navigation = {uuid} of {this}
+
+# ilog.rules.rf.model.IlrRFTask
+ilog.rules.rf.model.IlrRFTask#concept.label = ilr RFTask
+
+# ilog.rules.rf.model.IlrRFTaskNode
+ilog.rules.rf.model.IlrRFTaskNode#concept.label = ilr RFTask node
+ilog.rules.rf.model.IlrRFTaskNode.TASK_PROPERTY#phrase.navigation = the TASK PROPERTY
+ilog.rules.rf.model.IlrRFTaskNode.task#phrase.action = set the task of {this} to {task}
+ilog.rules.rf.model.IlrRFTaskNode.task#phrase.navigation = {task} of {this}
+
+# ilog.rules.rf.model.IlrRFTransition
+ilog.rules.rf.model.IlrRFTransition#concept.label = ilr RFTransition
+ilog.rules.rf.model.IlrRFTransition.FROM_NODE_PROPERTY#phrase.navigation = the FROM NODE PROPERTY
+ilog.rules.rf.model.IlrRFTransition.GUARD_KIND_PROPERTY#phrase.navigation = the GUARD KIND PROPERTY
+ilog.rules.rf.model.IlrRFTransition.GUARD_TEXT_PROPERTY#phrase.navigation = the GUARD TEXT PROPERTY
+ilog.rules.rf.model.IlrRFTransition.TO_NODE_PROPERTY#phrase.navigation = the TO NODE PROPERTY
+ilog.rules.rf.model.IlrRFTransition.guardKind#phrase.navigation = {guard kind} of {this}
+ilog.rules.rf.model.IlrRFTransition.hasGuard()#phrase.navigation = {this} is has guard
+ilog.rules.rf.model.IlrRFTransition.source#phrase.action = set the source of {this} to {source}
+ilog.rules.rf.model.IlrRFTransition.source#phrase.navigation = {source} of {this}
+ilog.rules.rf.model.IlrRFTransition.target#phrase.action = set the target of {this} to {target}
+ilog.rules.rf.model.IlrRFTransition.target#phrase.navigation = {target} of {this}
+
+# ilog.rules.rf.model.event.IlrRFEvent
+ilog.rules.rf.model.event.IlrRFEvent#concept.label = ilr RFEvent
+ilog.rules.rf.model.event.IlrRFEvent.ADD#phrase.navigation = the ADD
+ilog.rules.rf.model.event.IlrRFEvent.REMOVE#phrase.navigation = the REMOVE
+ilog.rules.rf.model.event.IlrRFEvent.SET#phrase.navigation = the SET
+ilog.rules.rf.model.event.IlrRFEvent.eventType#phrase.navigation = {event type} of {this}
+ilog.rules.rf.model.event.IlrRFEvent.newValue#phrase.navigation = {new value} of {this}
+ilog.rules.rf.model.event.IlrRFEvent.oldValue#phrase.navigation = {old value} of {this}
+ilog.rules.rf.model.event.IlrRFEvent.property#phrase.navigation = {property} of {this}
+ilog.rules.rf.model.event.IlrRFEvent.source#phrase.navigation = {source} of {this}
+
+# ilog.rules.rf.model.event.IlrRFModelListener
+ilog.rules.rf.model.event.IlrRFModelListener#concept.label = ilr RFModel listener
+
+# ilog.rules.rf.model.event.IlrRFModelListenerAdapter
+ilog.rules.rf.model.event.IlrRFModelListenerAdapter#concept.label = ilr RFModel listener adapter
+
+# ilog.rules.rf.model.impl.IlrRFBodyImpl
+ilog.rules.rf.model.impl.IlrRFBodyImpl#concept.label = ilr RFBody impl
+ilog.rules.rf.model.impl.IlrRFBodyImpl.kind#phrase.action = set the kind of {this} to {kind}
+ilog.rules.rf.model.impl.IlrRFBodyImpl.kind#phrase.navigation = {kind} of {this}
+ilog.rules.rf.model.impl.IlrRFBodyImpl.language#phrase.action = set the language of {this} to {language}
+ilog.rules.rf.model.impl.IlrRFBodyImpl.language#phrase.navigation = {language} of {this}
+ilog.rules.rf.model.impl.IlrRFBodyImpl.text#phrase.action = set the text of {this} to {text}
+ilog.rules.rf.model.impl.IlrRFBodyImpl.text#phrase.navigation = {text} of {this}
+
+# ilog.rules.rf.model.impl.IlrRFBranchNodeImpl
+ilog.rules.rf.model.impl.IlrRFBranchNodeImpl#concept.label = ilr RFBranch node impl
+
+# ilog.rules.rf.model.impl.IlrRFConcurrencyNodeImpl
+ilog.rules.rf.model.impl.IlrRFConcurrencyNodeImpl#concept.label = ilr RFConcurrency node impl
+ilog.rules.rf.model.impl.IlrRFConcurrencyNodeImpl.concurrencyKind#phrase.action = set the concurrency kind of {this} to {concurrency kind}
+ilog.rules.rf.model.impl.IlrRFConcurrencyNodeImpl.concurrencyKind#phrase.navigation = {concurrency kind} of {this}
+
+# ilog.rules.rf.model.impl.IlrRFElementImpl
+ilog.rules.rf.model.impl.IlrRFElementImpl#concept.label = ilr RFElement impl
+
+# ilog.rules.rf.model.impl.IlrRFFunctionTaskImpl
+ilog.rules.rf.model.impl.IlrRFFunctionTaskImpl#concept.label = ilr RFFunction task impl
+ilog.rules.rf.model.impl.IlrRFFunctionTaskImpl.body#phrase.action = set the body of {this} to {body}
+ilog.rules.rf.model.impl.IlrRFFunctionTaskImpl.body#phrase.navigation = {body} of {this}
+
+# ilog.rules.rf.model.impl.IlrRFGenericTaskImpl
+ilog.rules.rf.model.impl.IlrRFGenericTaskImpl#concept.label = ilr RFGeneric task impl
+ilog.rules.rf.model.impl.IlrRFGenericTaskImpl.finalActions#phrase.action = set the final actions of {this} to {final actions}
+ilog.rules.rf.model.impl.IlrRFGenericTaskImpl.finalActions#phrase.navigation = {final actions} of {this}
+ilog.rules.rf.model.impl.IlrRFGenericTaskImpl.initialActions#phrase.action = set the initial actions of {this} to {initial actions}
+ilog.rules.rf.model.impl.IlrRFGenericTaskImpl.initialActions#phrase.navigation = {initial actions} of {this}
+
+# ilog.rules.rf.model.impl.IlrRFListImpl
+ilog.rules.rf.model.impl.IlrRFListImpl#concept.label = ilr RFList impl
+ilog.rules.rf.model.impl.IlrRFListImpl.empty#phrase.navigation = {this} is empty
+
+# ilog.rules.rf.model.impl.IlrRFModelElementImpl
+ilog.rules.rf.model.impl.IlrRFModelElementImpl#concept.label = ilr RFModel element impl
+ilog.rules.rf.model.impl.IlrRFModelElementImpl.ID#phrase.action = set the ID of {this} to {ID}
+ilog.rules.rf.model.impl.IlrRFModelElementImpl.ID#phrase.navigation = {ID} of {this}
+ilog.rules.rf.model.impl.IlrRFModelElementImpl.RFModel#phrase.navigation = {RFModel} of {this}
+
+# ilog.rules.rf.model.impl.IlrRFModelImpl
+ilog.rules.rf.model.impl.IlrRFModelImpl#concept.label = ilr RFModel impl
+ilog.rules.rf.model.impl.IlrRFModelImpl.adjusting#phrase.navigation = {this} is adjusting
+ilog.rules.rf.model.impl.IlrRFModelImpl.eventFiring#phrase.action = make it {event firing} that {this} is event firing
+ilog.rules.rf.model.impl.IlrRFModelImpl.eventFiring#phrase.navigation = {this} is event firing
+ilog.rules.rf.model.impl.IlrRFModelImpl.modelListeners#phrase.navigation = {model listener} of {this}
+ilog.rules.rf.model.impl.IlrRFModelImpl.nodeIDSeed#phrase.action = set the node IDSeed of {this} to {node IDSeed}
+ilog.rules.rf.model.impl.IlrRFModelImpl.nodeIDSeed#phrase.navigation = {node IDSeed} of {this}
+ilog.rules.rf.model.impl.IlrRFModelImpl.nodeList#phrase.navigation = {node} of {this}
+ilog.rules.rf.model.impl.IlrRFModelImpl.taskIDSeed#phrase.action = set the task IDSeed of {this} to {task IDSeed}
+ilog.rules.rf.model.impl.IlrRFModelImpl.taskIDSeed#phrase.navigation = {task IDSeed} of {this}
+ilog.rules.rf.model.impl.IlrRFModelImpl.taskList#phrase.navigation = {task} of {this}
+ilog.rules.rf.model.impl.IlrRFModelImpl.transitionIDSeed#phrase.action = set the transition IDSeed of {this} to {transition IDSeed}
+ilog.rules.rf.model.impl.IlrRFModelImpl.transitionIDSeed#phrase.navigation = {transition IDSeed} of {this}
+ilog.rules.rf.model.impl.IlrRFModelImpl.transitionList#phrase.navigation = {transition} of {this}
+
+# ilog.rules.rf.model.impl.IlrRFNodeImpl
+ilog.rules.rf.model.impl.IlrRFNodeImpl#concept.label = ilr RFNode impl
+ilog.rules.rf.model.impl.IlrRFNodeImpl.incomingTransitions#phrase.navigation = {incoming transition} of {this}
+ilog.rules.rf.model.impl.IlrRFNodeImpl.outgoingTransitions#phrase.navigation = {outgoing transition} of {this}
+
+# ilog.rules.rf.model.impl.IlrRFRuleTaskImpl
+ilog.rules.rf.model.impl.IlrRFRuleTaskImpl#concept.label = ilr RFRule task impl
+ilog.rules.rf.model.impl.IlrRFRuleTaskImpl.body#phrase.action = set the body of {this} to {body}
+ilog.rules.rf.model.impl.IlrRFRuleTaskImpl.body#phrase.navigation = {body} of {this}
+ilog.rules.rf.model.impl.IlrRFRuleTaskImpl.dynamic#phrase.action = make it {dynamic} that {this} is dynamic
+ilog.rules.rf.model.impl.IlrRFRuleTaskImpl.dynamic#phrase.navigation = {this} is dynamic
+ilog.rules.rf.model.impl.IlrRFRuleTaskImpl.executionMode#phrase.action = set the execution mode of {this} to {execution mode}
+ilog.rules.rf.model.impl.IlrRFRuleTaskImpl.executionMode#phrase.navigation = {execution mode} of {this}
+ilog.rules.rf.model.impl.IlrRFRuleTaskImpl.exitCriteria#phrase.action = set the exit criteria of {this} to {exit criteria}
+ilog.rules.rf.model.impl.IlrRFRuleTaskImpl.exitCriteria#phrase.navigation = {exit criteria} of {this}
+ilog.rules.rf.model.impl.IlrRFRuleTaskImpl.ordering#phrase.action = set the ordering of {this} to {ordering}
+ilog.rules.rf.model.impl.IlrRFRuleTaskImpl.ordering#phrase.navigation = {ordering} of {this}
+ilog.rules.rf.model.impl.IlrRFRuleTaskImpl.scope#phrase.action = set the scope of {this} to {scope}
+ilog.rules.rf.model.impl.IlrRFRuleTaskImpl.scope#phrase.navigation = {scope} of {this}
+
+# ilog.rules.rf.model.impl.IlrRFScopeImpl
+ilog.rules.rf.model.impl.IlrRFScopeImpl#concept.label = ilr RFScope impl
+
+# ilog.rules.rf.model.impl.IlrRFScopeImpl.ScopeEntryImpl
+ilog.rules.rf.model.impl.IlrRFScopeImpl.ScopeEntryImpl#concept.label = scope entry impl
+ilog.rules.rf.model.impl.IlrRFScopeImpl.entries#phrase.navigation = {entry} of {this}
+
+# ilog.rules.rf.model.impl.IlrRFStartTaskImpl
+ilog.rules.rf.model.impl.IlrRFStartTaskImpl#concept.label = ilr RFStart task impl
+ilog.rules.rf.model.impl.IlrRFStartTaskImpl.body#phrase.action = set the body of {this} to {body}
+ilog.rules.rf.model.impl.IlrRFStartTaskImpl.body#phrase.navigation = {body} of {this}
+
+# ilog.rules.rf.model.impl.IlrRFStopTaskImpl
+ilog.rules.rf.model.impl.IlrRFStopTaskImpl#concept.label = ilr RFStop task impl
+ilog.rules.rf.model.impl.IlrRFStopTaskImpl.body#phrase.action = set the body of {this} to {body}
+ilog.rules.rf.model.impl.IlrRFStopTaskImpl.body#phrase.navigation = {body} of {this}
+
+# ilog.rules.rf.model.impl.IlrRFSubflowTaskImpl
+ilog.rules.rf.model.impl.IlrRFSubflowTaskImpl#concept.label = ilr RFSubflow task impl
+ilog.rules.rf.model.impl.IlrRFSubflowTaskImpl.uuid#phrase.action = set the uuid of {this} to {uuid}
+ilog.rules.rf.model.impl.IlrRFSubflowTaskImpl.uuid#phrase.navigation = {uuid} of {this}
+
+# ilog.rules.rf.model.impl.IlrRFTaskImpl
+ilog.rules.rf.model.impl.IlrRFTaskImpl#concept.label = ilr RFTask impl
+
+# ilog.rules.rf.model.impl.IlrRFTaskNodeImpl
+ilog.rules.rf.model.impl.IlrRFTaskNodeImpl#concept.label = ilr RFTask node impl
+ilog.rules.rf.model.impl.IlrRFTaskNodeImpl.task#phrase.action = set the task of {this} to {task}
+ilog.rules.rf.model.impl.IlrRFTaskNodeImpl.task#phrase.navigation = {task} of {this}
+
+# ilog.rules.rf.model.impl.IlrRFTransitionImpl
+ilog.rules.rf.model.impl.IlrRFTransitionImpl#concept.label = ilr RFTransition impl
+ilog.rules.rf.model.impl.IlrRFTransitionImpl.body#phrase.action = set the body of {this} to {body}
+ilog.rules.rf.model.impl.IlrRFTransitionImpl.body#phrase.navigation = {body} of {this}
+ilog.rules.rf.model.impl.IlrRFTransitionImpl.guardKind#phrase.navigation = {guard kind} of {this}
+ilog.rules.rf.model.impl.IlrRFTransitionImpl.hasGuard()#phrase.navigation = {this} is has guard
+ilog.rules.rf.model.impl.IlrRFTransitionImpl.source#phrase.action = set the source of {this} to {source}
+ilog.rules.rf.model.impl.IlrRFTransitionImpl.source#phrase.navigation = {source} of {this}
+ilog.rules.rf.model.impl.IlrRFTransitionImpl.target#phrase.action = set the target of {this} to {target}
+ilog.rules.rf.model.impl.IlrRFTransitionImpl.target#phrase.navigation = {target} of {this}
+
+# ilog.rules.rf.model.io.IlrRFModelSerializer
+ilog.rules.rf.model.io.IlrRFModelSerializer#concept.label = ilr RFModel serializer
+
+# ilog.rules.rf.model.io.IlrRFModelXmlReader
+ilog.rules.rf.model.io.IlrRFModelXmlReader#concept.label = ilr RFModel xml reader
+
+# ilog.rules.rf.model.io.IlrRFModelXmlSerializer
+ilog.rules.rf.model.io.IlrRFModelXmlSerializer#concept.label = ilr RFModel xml serializer
+
+# ilog.rules.rf.model.io.IlrRFModelXmlWriter
+ilog.rules.rf.model.io.IlrRFModelXmlWriter#concept.label = ilr RFModel xml writer
+
+# ilog.rules.rf.model.io.IlrRFSAXHandler
+ilog.rules.rf.model.io.IlrRFSAXHandler#concept.label = ilr RFSAXHandler
+ilog.rules.rf.model.io.IlrRFSAXHandler.RFModel#phrase.navigation = {RFModel} of {this}
+
+# ilog.rules.rf.model.io.IlrRFSAXWriter
+ilog.rules.rf.model.io.IlrRFSAXWriter#concept.label = ilr RFSAXWriter
+
+# ilog.rules.rf.model.io.IlrRFXmlTags
+ilog.rules.rf.model.io.IlrRFXmlTags#concept.label = ilr RFXml tags
+ilog.rules.rf.model.io.IlrRFXmlTags.BRL_TEXT_TAG#phrase.navigation = the BRL TEXT TAG
+ilog.rules.rf.model.io.IlrRFXmlTags.ELSE_VALUE#phrase.navigation = the ELSE VALUE
+ilog.rules.rf.model.io.IlrRFXmlTags.GUARD_TAG#phrase.navigation = the GUARD TAG
+ilog.rules.rf.model.io.IlrRFXmlTags.IF_VALUE#phrase.navigation = the IF VALUE
+ilog.rules.rf.model.io.IlrRFXmlTags.IRL_TEXT_TAG#phrase.navigation = the IRL TEXT TAG
+ilog.rules.rf.model.io.IlrRFXmlTags.NONE_VALUE#phrase.navigation = the NONE VALUE
+ilog.rules.rf.model.io.IlrRFXmlTags.Package#phrase.navigation = the package
+ilog.rules.rf.model.io.IlrRFXmlTags.Rule#phrase.navigation = the rule
+ilog.rules.rf.model.io.IlrRFXmlTags.SCHEMA_LOCATION_TAG#phrase.navigation = the SCHEMA LOCATION TAG
+ilog.rules.rf.model.io.IlrRFXmlTags.XSI_NS#phrase.navigation = the XSI NS
+ilog.rules.rf.model.io.IlrRFXmlTags.actionsTag#phrase.navigation = the actions tag
+ilog.rules.rf.model.io.IlrRFXmlTags.advancedTag#phrase.navigation = the advanced tag
+ilog.rules.rf.model.io.IlrRFXmlTags.bodyTag#phrase.navigation = the body tag
+ilog.rules.rf.model.io.IlrRFXmlTags.branchNodeTag#phrase.navigation = the branch node tag
+ilog.rules.rf.model.io.IlrRFXmlTags.dataTag#phrase.navigation = the data tag
+ilog.rules.rf.model.io.IlrRFXmlTags.dynamicTag#phrase.navigation = the dynamic tag
+ilog.rules.rf.model.io.IlrRFXmlTags.executionModeTag#phrase.navigation = the execution mode tag
+ilog.rules.rf.model.io.IlrRFXmlTags.exitCriteriaTag#phrase.navigation = the exit criteria tag
+ilog.rules.rf.model.io.IlrRFXmlTags.finalActionsTag#phrase.navigation = the final actions tag
+ilog.rules.rf.model.io.IlrRFXmlTags.finalTaskTag#phrase.navigation = the final task tag
+ilog.rules.rf.model.io.IlrRFXmlTags.forkNodeTag#phrase.navigation = the fork node tag
+ilog.rules.rf.model.io.IlrRFXmlTags.fromNodeTag#phrase.navigation = the from node tag
+ilog.rules.rf.model.io.IlrRFXmlTags.functionTaskTag#phrase.navigation = the function task tag
+ilog.rules.rf.model.io.IlrRFXmlTags.idTag#phrase.navigation = the id tag
+ilog.rules.rf.model.io.IlrRFXmlTags.initialActionsTag#phrase.navigation = the initial actions tag
+ilog.rules.rf.model.io.IlrRFXmlTags.joinNodeTag#phrase.navigation = the join node tag
+ilog.rules.rf.model.io.IlrRFXmlTags.languageTag#phrase.navigation = the language tag
+ilog.rules.rf.model.io.IlrRFXmlTags.localeTag#phrase.navigation = the locale tag
+ilog.rules.rf.model.io.IlrRFXmlTags.modelTag#phrase.navigation = the model tag
+ilog.rules.rf.model.io.IlrRFXmlTags.nameTag#phrase.navigation = the name tag
+ilog.rules.rf.model.io.IlrRFXmlTags.nodeTag#phrase.navigation = the node tag
+ilog.rules.rf.model.io.IlrRFXmlTags.orderingTag#phrase.navigation = the ordering tag
+ilog.rules.rf.model.io.IlrRFXmlTags.propertiesTag#phrase.navigation = the properties tag
+ilog.rules.rf.model.io.IlrRFXmlTags.propertyNS#phrase.navigation = the property NS
+ilog.rules.rf.model.io.IlrRFXmlTags.resourceSetTag#phrase.navigation = the resource set tag
+ilog.rules.rf.model.io.IlrRFXmlTags.resourcesTag#phrase.navigation = the resources tag
+ilog.rules.rf.model.io.IlrRFXmlTags.ruleTaskTag#phrase.navigation = the rule task tag
+ilog.rules.rf.model.io.IlrRFXmlTags.ruleflowNS#phrase.navigation = the ruleflow NS
+ilog.rules.rf.model.io.IlrRFXmlTags.ruleflowTag#phrase.navigation = the ruleflow tag
+ilog.rules.rf.model.io.IlrRFXmlTags.scopeEntryTag#phrase.navigation = the scope entry tag
+ilog.rules.rf.model.io.IlrRFXmlTags.scopeTag#phrase.navigation = the scope tag
+ilog.rules.rf.model.io.IlrRFXmlTags.selectTag#phrase.navigation = the select tag
+ilog.rules.rf.model.io.IlrRFXmlTags.startTaskTag#phrase.navigation = the start task tag
+ilog.rules.rf.model.io.IlrRFXmlTags.subflowTaskTag#phrase.navigation = the subflow task tag
+ilog.rules.rf.model.io.IlrRFXmlTags.taskNodeTag#phrase.navigation = the task node tag
+ilog.rules.rf.model.io.IlrRFXmlTags.taskTag#phrase.navigation = the task tag
+ilog.rules.rf.model.io.IlrRFXmlTags.toNodeTag#phrase.navigation = the to node tag
+ilog.rules.rf.model.io.IlrRFXmlTags.transitionTag#phrase.navigation = the transition tag
+ilog.rules.rf.model.io.IlrRFXmlTags.uuidTag#phrase.navigation = the uuid tag
+
+# ilog.rules.rf.model.io.util.IlrTaskSorter
+ilog.rules.rf.model.io.util.IlrTaskSorter#concept.label = ilr task sorter

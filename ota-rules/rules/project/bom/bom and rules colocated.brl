@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>bom and rules colocated</name>
+  <uuid>06592289-58a6-4077-a424-cf467a1e9df3</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[definitions
+	set 'bom' to an ilr BOM in elements ;
+if 
+	there is at least one ilr project element in elements 
+		where the type of this ilr project element is one of { Decision Table , Action Rule } and
+			the name of the project of bom is the name of the project of this ilr project element ,
+then
+	add entry BOM with Rules : < project , bom > to report ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

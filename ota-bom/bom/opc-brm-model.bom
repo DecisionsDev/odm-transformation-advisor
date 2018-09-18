@@ -1,0 +1,3255 @@
+
+property loadGetterSetterAsProperties "true"
+property origin "xom:/ota-bom//opc-xom/lib/jrules-teamserver.jar"
+property uuid "46da990c-6ac1-488d-888e-f864752e67df"
+package ilog.rules.teamserver.brm;
+
+
+public class Contributor
+        extends java.io.Serializable
+{
+
+    static public final class Role
+            extends java.lang.Enum
+    {
+        domain {static Author, static Approver}
+        public static final readonly ilog.rules.teamserver.brm.Contributor.Role Approver;
+        public static final readonly ilog.rules.teamserver.brm.Contributor.Role Author;
+        public static ilog.rules.teamserver.brm.Contributor.Role valueOf(string arg);
+        public static ilog.rules.teamserver.brm.Contributor.Role[] values();
+    }
+    public string fullname;
+    public string name;
+    public string status;
+    public Contributor(string arg);
+    public Contributor(string arg1, string arg2);
+    public static java.util.List convert(java.util.List arg domain 0,*) domain 0,* class ilog.rules.teamserver.brm.Contributor;
+    public boolean equals(object arg);
+    public static ilog.rules.teamserver.brm.Contributor find(string arg1, 
+        java.util.List arg2 domain 0,* class ilog.rules.teamserver.brm.Contributor);
+    public int hashCode();
+    public static boolean remove(string arg1, 
+        java.util.List arg2 domain 0,* class ilog.rules.teamserver.brm.Contributor);
+    public string toString();
+    public static java.util.List update(ilog.rules.teamserver.brm.Contributor arg1, 
+        java.util.List arg2 domain 0,* class ilog.rules.teamserver.brm.Contributor) domain 0,* class ilog.rules.teamserver.brm.Contributor;
+}
+
+public interface IlrAbstractQuery
+        extends ilog.rules.teamserver.brm.IlrPackageElement
+{
+    public readonly abstract string definition;
+    public readonly abstract boolean includeDependencies;
+    public readonly abstract string locale;
+}
+
+public interface IlrAction
+        extends ilog.rules.teamserver.brm.IlrEventElement
+{
+}
+
+public interface IlrActionObject
+        extends ilog.rules.teamserver.brm.IlrEventObjectArtifact
+{
+}
+
+public interface IlrActionRule
+        extends ilog.rules.teamserver.brm.IlrBRLRule
+{
+}
+
+public interface IlrActivity
+        extends ilog.rules.teamserver.brm.IlrManagedBranch
+{
+    public readonly abstract java.util.List authors domain 0,* class ilog.rules.teamserver.brm.Contributor;
+}
+
+public interface IlrActivityComment
+        extends ilog.rules.teamserver.brm.IlrBasicModelElement
+{
+    public readonly abstract ilog.rules.teamserver.brm.IlrBaseline baseline;
+    public readonly abstract int sourceArtifact;
+    public readonly abstract int sourceArtifactId;
+    public readonly abstract int sourceArtifactType;
+    public readonly abstract ilog.rules.teamserver.brm.IlrRuleArtifact sourceRuleArtifact;
+    public readonly abstract int sourceRuleArtifactId;
+}
+
+public interface IlrActivityCommentAccess
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract ilog.rules.teamserver.brm.IlrBaseline branch;
+    public readonly abstract ilog.rules.teamserver.brm.IlrRuleProject project;
+}
+
+public interface IlrActivityCommentAttachment
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract string contentType;
+    public readonly abstract byte[] data;
+    public readonly abstract string name;
+}
+
+public interface IlrActivityCommentEvent
+        extends ilog.rules.teamserver.brm.IlrActivityComment
+{
+    public readonly abstract string additionalDetails;
+    public readonly abstract string forUser;
+    public readonly abstract int majorVersion;
+    public readonly abstract int minorVersion;
+    public readonly abstract java.util.Date newDate;
+    public readonly abstract string newDesc;
+    public readonly abstract string newProperty;
+    public readonly abstract java.util.Date oldDate;
+    public readonly abstract string oldDesc;
+    public readonly abstract string oldName;
+    public readonly abstract string oldProperty;
+    public readonly abstract ilog.rules.teamserver.brm.IlrBaseline sourceBranch;
+    public readonly abstract ilog.rules.teamserver.brm.IlrRuleProject sourceRuleProject;
+    public readonly abstract ilog.rules.teamserver.brm.IlrUpdateTypeKind updateType;
+    public readonly abstract string versionComment;
+}
+
+public interface IlrActivityCommentLink
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract string url;
+}
+
+public interface IlrActivityLock
+        extends ilog.rules.teamserver.brm.IlrBasicLock
+{
+    public readonly abstract int eltBaseType;
+    public readonly abstract string eltName;
+    public readonly abstract ilog.rules.teamserver.brm.IlrRulePackage eltPackage;
+    public readonly abstract int justifyingVId;
+    public readonly abstract ilog.rules.teamserver.brm.IlrActivity owner;
+}
+
+public interface IlrActivitySubscription
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract int sourceArtifact;
+    public readonly abstract int sourceArtifactType;
+    public readonly abstract ilog.rules.teamserver.brm.IlrBaseline sourceBranch;
+    public readonly abstract ilog.rules.teamserver.brm.IlrRuleArtifact sourceRuleArtifact;
+    public readonly abstract ilog.rules.teamserver.brm.IlrRuleProject sourceRuleProject;
+    public readonly abstract string username;
+}
+
+public interface IlrActivityUserComment
+        extends ilog.rules.teamserver.brm.IlrActivityComment
+{
+    public readonly abstract java.util.List attachments domain 0,*;
+    public readonly abstract java.util.List links domain 0,*;
+    public readonly abstract ilog.rules.teamserver.brm.IlrActivityComment parent;
+    public readonly abstract string text;
+    public readonly abstract java.util.List visibility domain 0,*;
+    public java.util.List getAttachments(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+    public java.util.List getLinks(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+    public java.util.List getVisibility(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+}
+
+public final class IlrAlgorithmKind
+        extends org.eclipse.emf.common.util.AbstractEnumerator
+{
+    domain {static DEFAULT_LITERAL, static SEQUENTIAL_LITERAL}
+    public static final readonly int DEFAULT;
+    public static final readonly ilog.rules.teamserver.brm.IlrAlgorithmKind DEFAULT_LITERAL;
+    public static final readonly int SEQUENTIAL;
+    public static final readonly ilog.rules.teamserver.brm.IlrAlgorithmKind SEQUENTIAL_LITERAL;
+    public static final readonly java.util.List VALUES domain 0,*;
+    public static ilog.rules.teamserver.brm.IlrAlgorithmKind get(string arg);
+    public static ilog.rules.teamserver.brm.IlrAlgorithmKind get(int arg);
+}
+
+public interface IlrArgument
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract string argumentType;
+    public readonly abstract string name;
+    public readonly abstract int order;
+}
+
+public interface IlrBMD
+        extends ilog.rules.teamserver.brm.IlrPackageElement
+{
+    public readonly abstract string body;
+}
+
+public interface IlrBOM
+        extends ilog.rules.teamserver.brm.IlrPackageElement
+{
+    public readonly abstract string body;
+}
+
+public interface IlrBOM2XOMMapping
+        extends ilog.rules.teamserver.brm.IlrPackageElement
+{
+    public readonly abstract string body;
+    public readonly abstract string platform;
+}
+
+public interface IlrBOMEntry
+        extends ilog.rules.teamserver.brm.IlrBOMPathEntry
+{
+    public readonly abstract ilog.rules.teamserver.brm.IlrBOM2XOMMapping BOM2XOMMapping;
+    public readonly abstract ilog.rules.teamserver.brm.IlrBOM2XOMMapping DEBOM2XOMMapping;
+    public readonly abstract ilog.rules.teamserver.brm.IlrBOM bom;
+    public readonly abstract ilog.rules.teamserver.brm.IlrProjectInfo projectInfo;
+    public ilog.rules.teamserver.model.IlrObjectModelInfo computePartialObjectModel()
+                throws java.io.IOException, ilog.rules.bom.serializer.IlrSyntaxError, ilog.rules.teamserver.model.IlrObjectNotFoundException;
+    public ilog.rules.teamserver.model.IlrVocabularyInfo computePartialVocabularyInfo(ilog.rules.bom.IlrObjectModel arg1, ilog.rules.bom.IlrObjectModel arg2, java.util.Locale arg3)
+                throws ilog.rules.teamserver.model.permissions.IlrPermissionException, ilog.rules.vocabulary.model.io.IlrSerializerError, java.io.IOException, ilog.rules.teamserver.model.IlrObjectNotFoundException;
+}
+
+public interface IlrBOMPathEntry
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract int order;
+    public readonly abstract string url;
+    public void acceptVisitor(ilog.rules.teamserver.model.IlrBOMPathVisitor arg)
+                throws ilog.rules.teamserver.model.IlrApplicationException;
+}
+
+public interface IlrBRLRule
+        extends ilog.rules.teamserver.brm.IlrBusinessRule
+{
+}
+
+public interface IlrBaseline
+        extends ilog.rules.teamserver.brm.IlrModelElement
+{
+    public readonly abstract ilog.rules.teamserver.brm.IlrBaselineKind baselineKind;
+    public readonly abstract boolean branch;
+    public readonly abstract boolean decisionServiceBranch;
+    public readonly abstract string depName;
+    public readonly abstract string documentation;
+    public readonly abstract string eventIdString;
+    public readonly abstract boolean frozen;
+    public readonly abstract ilog.rules.teamserver.brm.IlrBaseline parent;
+    public readonly abstract boolean phantom;
+    public readonly abstract ilog.rules.teamserver.brm.IlrRuleProject project;
+    public readonly abstract ilog.rules.teamserver.model.IlrElementHandle projectHandle;
+    public readonly abstract ilog.rules.teamserver.brm.IlrProjectInfo projectInfo;
+    public readonly abstract int readableVersion;
+    public readonly abstract boolean recyclebin;
+    public readonly abstract boolean root;
+    public readonly abstract boolean snapshot;
+    public readonly abstract boolean system;
+    public readonly abstract boolean temporary;
+    public boolean isDecisionServiceBranch(ilog.rules.teamserver.model.IlrProjectInfoSummary arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException;
+    public boolean kindMatch(ilog.rules.teamserver.brm.IlrBaselineKind[] arg);
+    public boolean useBaselineContent();
+}
+
+public final class IlrBaselineKind
+        extends org.eclipse.emf.common.util.AbstractEnumerator
+{
+    domain 
+    {
+        static NULL_LITERAL,
+        static STANDARD_LITERAL,
+        static DEPLOYMENT_LITERAL,
+        static BRANCH_LITERAL,
+        static MIGRATED_LITERAL,
+        static RECYCLE_BIN_LITERAL,
+        static PHANTOM_LITERAL,
+        static TEMPORARY_LITERAL,
+        static DS_DEPLOYMENT_LITERAL,
+        static INTERNAL_LITERAL
+    }
+    public static final readonly int BRANCH;
+    public static final readonly ilog.rules.teamserver.brm.IlrBaselineKind BRANCH_LITERAL;
+    public static final readonly int DEPLOYMENT;
+    public static final readonly ilog.rules.teamserver.brm.IlrBaselineKind DEPLOYMENT_LITERAL;
+    public static final readonly int DS_DEPLOYMENT;
+    public static final readonly ilog.rules.teamserver.brm.IlrBaselineKind DS_DEPLOYMENT_LITERAL;
+    public static final readonly int INTERNAL;
+    public static final readonly ilog.rules.teamserver.brm.IlrBaselineKind INTERNAL_LITERAL;
+    public static final readonly int MIGRATED;
+    public static final readonly ilog.rules.teamserver.brm.IlrBaselineKind MIGRATED_LITERAL;
+    public static final readonly int NULL;
+    public static final readonly ilog.rules.teamserver.brm.IlrBaselineKind NULL_LITERAL;
+    public static final readonly int PHANTOM;
+    public static final readonly ilog.rules.teamserver.brm.IlrBaselineKind PHANTOM_LITERAL;
+    public static final readonly int RECYCLE_BIN;
+    public static final readonly ilog.rules.teamserver.brm.IlrBaselineKind RECYCLE_BIN_LITERAL;
+    public static final readonly int STANDARD;
+    public static final readonly ilog.rules.teamserver.brm.IlrBaselineKind STANDARD_LITERAL;
+    public static final readonly int TEMPORARY;
+    public static final readonly ilog.rules.teamserver.brm.IlrBaselineKind TEMPORARY_LITERAL;
+    public static final readonly java.util.List VALUES domain 0,*;
+    public static ilog.rules.teamserver.brm.IlrBaselineKind get(string arg);
+    public static ilog.rules.teamserver.brm.IlrBaselineKind get(int arg);
+}
+
+public interface IlrBasicLock
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract ilog.rules.teamserver.brm.IlrBranch branch;
+    public readonly abstract int elementId;
+    public readonly abstract string elementType;
+}
+
+public interface IlrBasicModelElement
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract string createdBy;
+    public readonly abstract java.util.Date createdOn;
+    public readonly abstract string lastChangedBy;
+    public readonly abstract java.util.Date lastChangedOn;
+    public string getType();
+}
+
+public interface IlrBranch
+        extends ilog.rules.teamserver.brm.IlrTimestampBsln
+{
+    public readonly abstract java.util.List groups domain 0,*;
+    public readonly abstract boolean securityEnforced;
+    public readonly abstract boolean securityInherited;
+}
+
+public interface IlrBrmFactory
+        extends org.eclipse.emf.ecore.EFactory
+{
+    domain {static eINSTANCE}
+    public static final readonly ilog.rules.teamserver.brm.IlrBrmFactory eINSTANCE;
+    public writeonly abstract ilog.rules.teamserver.brm.IlrBrmPackage @package;
+}
+
+public interface IlrBrmPackage
+        extends org.eclipse.emf.ecore.EPackage
+{
+    public static final readonly int ABSTRACT_QUERY;
+    public static final readonly int ABSTRACT_QUERY_FEATURE_COUNT;
+    public static final readonly int ABSTRACT_QUERY__CREATED_BY;
+    public static final readonly int ABSTRACT_QUERY__CREATED_ON;
+    public static final readonly int ABSTRACT_QUERY__DEFINITION;
+    public static final readonly int ABSTRACT_QUERY__DOCUMENTATION;
+    public static final readonly int ABSTRACT_QUERY__GROUP;
+    public static final readonly int ABSTRACT_QUERY__INCLUDE_DEPENDENCIES;
+    public static final readonly int ABSTRACT_QUERY__LAST_CHANGED_BY;
+    public static final readonly int ABSTRACT_QUERY__LAST_CHANGED_ON;
+    public static final readonly int ABSTRACT_QUERY__LOCALE;
+    public static final readonly int ABSTRACT_QUERY__NAME;
+    public static final readonly int ABSTRACT_QUERY__PROJECT;
+    public static final readonly int ABSTRACT_QUERY__RULE_PACKAGE;
+    public static final readonly int ABSTRACT_QUERY__TYPE;
+    public static final readonly int ABSTRACT_QUERY__UUID;
+    public static final readonly int ACTION;
+    public static final readonly int ACTION_FEATURE_COUNT;
+    public static final readonly int ACTION_OBJECT;
+    public static final readonly int ACTION_OBJECT_FEATURE_COUNT;
+    public static final readonly int ACTION_OBJECT__BODY;
+    public static final readonly int ACTION_OBJECT__CREATED_BY;
+    public static final readonly int ACTION_OBJECT__CREATED_ON;
+    public static final readonly int ACTION_OBJECT__DOCUMENTATION;
+    public static final readonly int ACTION_OBJECT__GROUP;
+    public static final readonly int ACTION_OBJECT__LAST_CHANGED_BY;
+    public static final readonly int ACTION_OBJECT__LAST_CHANGED_ON;
+    public static final readonly int ACTION_OBJECT__NAME;
+    public static final readonly int ACTION_OBJECT__PROJECT;
+    public static final readonly int ACTION_OBJECT__RULE_PACKAGE;
+    public static final readonly int ACTION_OBJECT__TYPE;
+    public static final readonly int ACTION_OBJECT__UUID;
+    public static final readonly int ACTION_RULE;
+    public static final readonly int ACTION_RULE_FEATURE_COUNT;
+    public static final readonly int ACTION_RULE__ACTIVE;
+    public static final readonly int ACTION_RULE__CATEGORIES;
+    public static final readonly int ACTION_RULE__CREATED_BY;
+    public static final readonly int ACTION_RULE__CREATED_ON;
+    public static final readonly int ACTION_RULE__DEFINITION;
+    public static final readonly int ACTION_RULE__DOCUMENTATION;
+    public static final readonly int ACTION_RULE__GROUP;
+    public static final readonly int ACTION_RULE__LAST_CHANGED_BY;
+    public static final readonly int ACTION_RULE__LAST_CHANGED_ON;
+    public static final readonly int ACTION_RULE__LOCALE;
+    public static final readonly int ACTION_RULE__NAME;
+    public static final readonly int ACTION_RULE__OVERRIDDEN_RULES;
+    public static final readonly int ACTION_RULE__PRIORITY;
+    public static final readonly int ACTION_RULE__PROJECT;
+    public static final readonly int ACTION_RULE__RULE_PACKAGE;
+    public static final readonly int ACTION_RULE__TAGS;
+    public static final readonly int ACTION_RULE__TEMPLATE;
+    public static final readonly int ACTION_RULE__TYPE;
+    public static final readonly int ACTION_RULE__UUID;
+    public static final readonly int ACTION__BODY;
+    public static final readonly int ACTION__CREATED_BY;
+    public static final readonly int ACTION__CREATED_ON;
+    public static final readonly int ACTION__DOCUMENTATION;
+    public static final readonly int ACTION__GROUP;
+    public static final readonly int ACTION__LAST_CHANGED_BY;
+    public static final readonly int ACTION__LAST_CHANGED_ON;
+    public static final readonly int ACTION__NAME;
+    public static final readonly int ACTION__PROJECT;
+    public static final readonly int ACTION__RULE_PACKAGE;
+    public static final readonly int ACTION__TYPE;
+    public static final readonly int ACTION__UUID;
+    public static final readonly int ACTIVITY;
+    public static final readonly int ACTIVITY_COMMENT;
+    public static final readonly int ACTIVITY_COMMENT_ACCESS;
+    public static final readonly int ACTIVITY_COMMENT_ACCESS_FEATURE_COUNT;
+    public static final readonly int ACTIVITY_COMMENT_ACCESS__BRANCH;
+    public static final readonly int ACTIVITY_COMMENT_ACCESS__PROJECT;
+    public static final readonly int ACTIVITY_COMMENT_ACCESS__TYPE;
+    public static final readonly int ACTIVITY_COMMENT_ATTACHMENT;
+    public static final readonly int ACTIVITY_COMMENT_ATTACHMENT_FEATURE_COUNT;
+    public static final readonly int ACTIVITY_COMMENT_ATTACHMENT__CONTENT_TYPE;
+    public static final readonly int ACTIVITY_COMMENT_ATTACHMENT__DATA;
+    public static final readonly int ACTIVITY_COMMENT_ATTACHMENT__NAME;
+    public static final readonly int ACTIVITY_COMMENT_ATTACHMENT__TYPE;
+    public static final readonly int ACTIVITY_COMMENT_EVENT;
+    public static final readonly int ACTIVITY_COMMENT_EVENT_FEATURE_COUNT;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__ADDITIONAL_DETAILS;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__BASELINE;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__CREATED_BY;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__CREATED_ON;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__FOR_USER;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__LAST_CHANGED_BY;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__LAST_CHANGED_ON;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__MAJOR_VERSION;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__MINOR_VERSION;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__NEW_DATE;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__NEW_DESC;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__NEW_PROPERTY;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__OLD_DATE;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__OLD_DESC;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__OLD_NAME;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__OLD_PROPERTY;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__SOURCE_ARTIFACT;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__SOURCE_ARTIFACT_ID;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__SOURCE_ARTIFACT_TYPE;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__SOURCE_BRANCH;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__SOURCE_RULE_ARTIFACT;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__SOURCE_RULE_ARTIFACT_ID;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__SOURCE_RULE_PROJECT;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__TYPE;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__UPDATE_TYPE;
+    public static final readonly int ACTIVITY_COMMENT_EVENT__VERSION_COMMENT;
+    public static final readonly int ACTIVITY_COMMENT_FEATURE_COUNT;
+    public static final readonly int ACTIVITY_COMMENT_LINK;
+    public static final readonly int ACTIVITY_COMMENT_LINK_FEATURE_COUNT;
+    public static final readonly int ACTIVITY_COMMENT_LINK__TYPE;
+    public static final readonly int ACTIVITY_COMMENT_LINK__URL;
+    public static final readonly int ACTIVITY_COMMENT__BASELINE;
+    public static final readonly int ACTIVITY_COMMENT__CREATED_BY;
+    public static final readonly int ACTIVITY_COMMENT__CREATED_ON;
+    public static final readonly int ACTIVITY_COMMENT__LAST_CHANGED_BY;
+    public static final readonly int ACTIVITY_COMMENT__LAST_CHANGED_ON;
+    public static final readonly int ACTIVITY_COMMENT__SOURCE_ARTIFACT;
+    public static final readonly int ACTIVITY_COMMENT__SOURCE_ARTIFACT_ID;
+    public static final readonly int ACTIVITY_COMMENT__SOURCE_ARTIFACT_TYPE;
+    public static final readonly int ACTIVITY_COMMENT__SOURCE_RULE_ARTIFACT;
+    public static final readonly int ACTIVITY_COMMENT__SOURCE_RULE_ARTIFACT_ID;
+    public static final readonly int ACTIVITY_COMMENT__TYPE;
+    public static final readonly int ACTIVITY_FEATURE_COUNT;
+    public static final readonly int ACTIVITY_LOCK;
+    public static final readonly int ACTIVITY_LOCK_FEATURE_COUNT;
+    public static final readonly int ACTIVITY_LOCK__BRANCH;
+    public static final readonly int ACTIVITY_LOCK__ELEMENT_ID;
+    public static final readonly int ACTIVITY_LOCK__ELEMENT_TYPE;
+    public static final readonly int ACTIVITY_LOCK__ELT_BASE_TYPE;
+    public static final readonly int ACTIVITY_LOCK__ELT_NAME;
+    public static final readonly int ACTIVITY_LOCK__ELT_PACKAGE;
+    public static final readonly int ACTIVITY_LOCK__JUSTIFYING_VID;
+    public static final readonly int ACTIVITY_LOCK__OWNER;
+    public static final readonly int ACTIVITY_LOCK__TYPE;
+    public static final readonly int ACTIVITY_SUBSCRIPTION;
+    public static final readonly int ACTIVITY_SUBSCRIPTION_FEATURE_COUNT;
+    public static final readonly int ACTIVITY_SUBSCRIPTION__SOURCE_ARTIFACT;
+    public static final readonly int ACTIVITY_SUBSCRIPTION__SOURCE_ARTIFACT_TYPE;
+    public static final readonly int ACTIVITY_SUBSCRIPTION__SOURCE_BRANCH;
+    public static final readonly int ACTIVITY_SUBSCRIPTION__SOURCE_RULE_ARTIFACT;
+    public static final readonly int ACTIVITY_SUBSCRIPTION__SOURCE_RULE_PROJECT;
+    public static final readonly int ACTIVITY_SUBSCRIPTION__TYPE;
+    public static final readonly int ACTIVITY_SUBSCRIPTION__USERNAME;
+    public static final readonly int ACTIVITY_USER_COMMENT;
+    public static final readonly int ACTIVITY_USER_COMMENT_FEATURE_COUNT;
+    public static final readonly int ACTIVITY_USER_COMMENT__ATTACHMENTS;
+    public static final readonly int ACTIVITY_USER_COMMENT__BASELINE;
+    public static final readonly int ACTIVITY_USER_COMMENT__CREATED_BY;
+    public static final readonly int ACTIVITY_USER_COMMENT__CREATED_ON;
+    public static final readonly int ACTIVITY_USER_COMMENT__LAST_CHANGED_BY;
+    public static final readonly int ACTIVITY_USER_COMMENT__LAST_CHANGED_ON;
+    public static final readonly int ACTIVITY_USER_COMMENT__LINKS;
+    public static final readonly int ACTIVITY_USER_COMMENT__PARENT;
+    public static final readonly int ACTIVITY_USER_COMMENT__SOURCE_ARTIFACT;
+    public static final readonly int ACTIVITY_USER_COMMENT__SOURCE_ARTIFACT_ID;
+    public static final readonly int ACTIVITY_USER_COMMENT__SOURCE_ARTIFACT_TYPE;
+    public static final readonly int ACTIVITY_USER_COMMENT__SOURCE_RULE_ARTIFACT;
+    public static final readonly int ACTIVITY_USER_COMMENT__SOURCE_RULE_ARTIFACT_ID;
+    public static final readonly int ACTIVITY_USER_COMMENT__TEXT;
+    public static final readonly int ACTIVITY_USER_COMMENT__TYPE;
+    public static final readonly int ACTIVITY_USER_COMMENT__VISIBILITY;
+    public static final readonly int ACTIVITY__APPROVERS;
+    public static final readonly int ACTIVITY__AUTHORS;
+    public static final readonly int ACTIVITY__BASELINE_KIND;
+    public static final readonly int ACTIVITY__CREATED_BY;
+    public static final readonly int ACTIVITY__CREATED_ON;
+    public static final readonly int ACTIVITY__DEP_NAME;
+    public static final readonly int ACTIVITY__DOCUMENTATION;
+    public static final readonly int ACTIVITY__EVENT_ID_STRING;
+    public static final readonly int ACTIVITY__FROZEN;
+    public static final readonly int ACTIVITY__GROUPS;
+    public static final readonly int ACTIVITY__LAST_CHANGED_BY;
+    public static final readonly int ACTIVITY__LAST_CHANGED_ON;
+    public static final readonly int ACTIVITY__MAX_VERSION_ID;
+    public static final readonly int ACTIVITY__NAME;
+    public static final readonly int ACTIVITY__OWNER;
+    public static final readonly int ACTIVITY__PARENT;
+    public static final readonly int ACTIVITY__READABLE_VERSION;
+    public static final readonly int ACTIVITY__SECURITY_ENFORCED;
+    public static final readonly int ACTIVITY__SECURITY_INHERITED;
+    public static final readonly int ACTIVITY__STATUS;
+    public static final readonly int ACTIVITY__TARGET_DATE;
+    public static final readonly int ACTIVITY__TYPE;
+    public static final readonly int ACTIVITY__UUID;
+    public static final readonly int ALGORITHM_KIND;
+    public static final readonly int ARGUMENT;
+    public static final readonly int ARGUMENT_FEATURE_COUNT;
+    public static final readonly int ARGUMENT__ARGUMENT_TYPE;
+    public static final readonly int ARGUMENT__NAME;
+    public static final readonly int ARGUMENT__ORDER;
+    public static final readonly int ARGUMENT__TYPE;
+    public static final readonly int BASELINE;
+    public static final readonly int BASELINE_FEATURE_COUNT;
+    public static final readonly int BASELINE_KIND;
+    public static final readonly int BASELINE__BASELINE_KIND;
+    public static final readonly int BASELINE__CREATED_BY;
+    public static final readonly int BASELINE__CREATED_ON;
+    public static final readonly int BASELINE__DEP_NAME;
+    public static final readonly int BASELINE__DOCUMENTATION;
+    public static final readonly int BASELINE__EVENT_ID_STRING;
+    public static final readonly int BASELINE__FROZEN;
+    public static final readonly int BASELINE__LAST_CHANGED_BY;
+    public static final readonly int BASELINE__LAST_CHANGED_ON;
+    public static final readonly int BASELINE__NAME;
+    public static final readonly int BASELINE__PARENT;
+    public static final readonly int BASELINE__READABLE_VERSION;
+    public static final readonly int BASELINE__TYPE;
+    public static final readonly int BASELINE__UUID;
+    public static final readonly int BASIC_LOCK;
+    public static final readonly int BASIC_LOCK_FEATURE_COUNT;
+    public static final readonly int BASIC_LOCK__BRANCH;
+    public static final readonly int BASIC_LOCK__ELEMENT_ID;
+    public static final readonly int BASIC_LOCK__ELEMENT_TYPE;
+    public static final readonly int BASIC_LOCK__TYPE;
+    public static final readonly int BASIC_MODEL_ELEMENT;
+    public static final readonly int BASIC_MODEL_ELEMENT_FEATURE_COUNT;
+    public static final readonly int BASIC_MODEL_ELEMENT__CREATED_BY;
+    public static final readonly int BASIC_MODEL_ELEMENT__CREATED_ON;
+    public static final readonly int BASIC_MODEL_ELEMENT__LAST_CHANGED_BY;
+    public static final readonly int BASIC_MODEL_ELEMENT__LAST_CHANGED_ON;
+    public static final readonly int BASIC_MODEL_ELEMENT__TYPE;
+    public static final readonly int BMD;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute BMD_Body;
+    public static final readonly int BMD_FEATURE_COUNT;
+    public static final readonly int BMD__BODY;
+    public static final readonly int BMD__CREATED_BY;
+    public static final readonly int BMD__CREATED_ON;
+    public static final readonly int BMD__DOCUMENTATION;
+    public static final readonly int BMD__GROUP;
+    public static final readonly int BMD__LAST_CHANGED_BY;
+    public static final readonly int BMD__LAST_CHANGED_ON;
+    public static final readonly int BMD__NAME;
+    public static final readonly int BMD__PROJECT;
+    public static final readonly int BMD__RULE_PACKAGE;
+    public static final readonly int BMD__TYPE;
+    public static final readonly int BMD__UUID;
+    public static final readonly int BOM;
+    public readonly abstract org.eclipse.emf.ecore.EClass BOM2XOMMapping;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute BOM2XOMMapping_Body;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute BOM2XOMMapping_Platform;
+    public static final readonly int BOM2XOM_MAPPING;
+    public static final readonly int BOM2XOM_MAPPING_FEATURE_COUNT;
+    public static final readonly int BOM2XOM_MAPPING__BODY;
+    public static final readonly int BOM2XOM_MAPPING__CREATED_BY;
+    public static final readonly int BOM2XOM_MAPPING__CREATED_ON;
+    public static final readonly int BOM2XOM_MAPPING__DOCUMENTATION;
+    public static final readonly int BOM2XOM_MAPPING__GROUP;
+    public static final readonly int BOM2XOM_MAPPING__LAST_CHANGED_BY;
+    public static final readonly int BOM2XOM_MAPPING__LAST_CHANGED_ON;
+    public static final readonly int BOM2XOM_MAPPING__NAME;
+    public static final readonly int BOM2XOM_MAPPING__PLATFORM;
+    public static final readonly int BOM2XOM_MAPPING__PROJECT;
+    public static final readonly int BOM2XOM_MAPPING__RULE_PACKAGE;
+    public static final readonly int BOM2XOM_MAPPING__TYPE;
+    public static final readonly int BOM2XOM_MAPPING__UUID;
+    public readonly abstract org.eclipse.emf.ecore.EClass BOMEntry;
+    public readonly abstract org.eclipse.emf.ecore.EReference BOMEntry_Bom;
+    public readonly abstract org.eclipse.emf.ecore.EClass BOMPathEntry;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute BOMPathEntry_Order;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute BOMPathEntry_Url;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute BOM_Body;
+    public static final readonly int BOM_ENTRY;
+    public static final readonly int BOM_ENTRY_FEATURE_COUNT;
+    public static final readonly int BOM_ENTRY__BOM;
+    public static final readonly int BOM_ENTRY__ORDER;
+    public static final readonly int BOM_ENTRY__TYPE;
+    public static final readonly int BOM_ENTRY__URL;
+    public static final readonly int BOM_FEATURE_COUNT;
+    public static final readonly int BOM_PATH_ENTRY;
+    public static final readonly int BOM_PATH_ENTRY_FEATURE_COUNT;
+    public static final readonly int BOM_PATH_ENTRY__ORDER;
+    public static final readonly int BOM_PATH_ENTRY__TYPE;
+    public static final readonly int BOM_PATH_ENTRY__URL;
+    public static final readonly int BOM__BODY;
+    public static final readonly int BOM__CREATED_BY;
+    public static final readonly int BOM__CREATED_ON;
+    public static final readonly int BOM__DOCUMENTATION;
+    public static final readonly int BOM__GROUP;
+    public static final readonly int BOM__LAST_CHANGED_BY;
+    public static final readonly int BOM__LAST_CHANGED_ON;
+    public static final readonly int BOM__NAME;
+    public static final readonly int BOM__PROJECT;
+    public static final readonly int BOM__RULE_PACKAGE;
+    public static final readonly int BOM__TYPE;
+    public static final readonly int BOM__UUID;
+    public static final readonly int BRANCH;
+    public static final readonly int BRANCH_FEATURE_COUNT;
+    public static final readonly int BRANCH__BASELINE_KIND;
+    public static final readonly int BRANCH__CREATED_BY;
+    public static final readonly int BRANCH__CREATED_ON;
+    public static final readonly int BRANCH__DEP_NAME;
+    public static final readonly int BRANCH__DOCUMENTATION;
+    public static final readonly int BRANCH__EVENT_ID_STRING;
+    public static final readonly int BRANCH__FROZEN;
+    public static final readonly int BRANCH__GROUPS;
+    public static final readonly int BRANCH__LAST_CHANGED_BY;
+    public static final readonly int BRANCH__LAST_CHANGED_ON;
+    public static final readonly int BRANCH__MAX_VERSION_ID;
+    public static final readonly int BRANCH__NAME;
+    public static final readonly int BRANCH__PARENT;
+    public static final readonly int BRANCH__READABLE_VERSION;
+    public static final readonly int BRANCH__SECURITY_ENFORCED;
+    public static final readonly int BRANCH__SECURITY_INHERITED;
+    public static final readonly int BRANCH__TYPE;
+    public static final readonly int BRANCH__UUID;
+    public readonly abstract org.eclipse.emf.ecore.EClass BRLRule;
+    public static final readonly int BRL_RULE;
+    public static final readonly int BRL_RULE_FEATURE_COUNT;
+    public static final readonly int BRL_RULE__ACTIVE;
+    public static final readonly int BRL_RULE__CATEGORIES;
+    public static final readonly int BRL_RULE__CREATED_BY;
+    public static final readonly int BRL_RULE__CREATED_ON;
+    public static final readonly int BRL_RULE__DEFINITION;
+    public static final readonly int BRL_RULE__DOCUMENTATION;
+    public static final readonly int BRL_RULE__GROUP;
+    public static final readonly int BRL_RULE__LAST_CHANGED_BY;
+    public static final readonly int BRL_RULE__LAST_CHANGED_ON;
+    public static final readonly int BRL_RULE__LOCALE;
+    public static final readonly int BRL_RULE__NAME;
+    public static final readonly int BRL_RULE__OVERRIDDEN_RULES;
+    public static final readonly int BRL_RULE__PRIORITY;
+    public static final readonly int BRL_RULE__PROJECT;
+    public static final readonly int BRL_RULE__RULE_PACKAGE;
+    public static final readonly int BRL_RULE__TAGS;
+    public static final readonly int BRL_RULE__TEMPLATE;
+    public static final readonly int BRL_RULE__TYPE;
+    public static final readonly int BRL_RULE__UUID;
+    public static final readonly int BUSINESS_OBJECT;
+    public static final readonly int BUSINESS_OBJECT_FEATURE_COUNT;
+    public static final readonly int BUSINESS_OBJECT__BODY;
+    public static final readonly int BUSINESS_OBJECT__CREATED_BY;
+    public static final readonly int BUSINESS_OBJECT__CREATED_ON;
+    public static final readonly int BUSINESS_OBJECT__DOCUMENTATION;
+    public static final readonly int BUSINESS_OBJECT__GROUP;
+    public static final readonly int BUSINESS_OBJECT__LAST_CHANGED_BY;
+    public static final readonly int BUSINESS_OBJECT__LAST_CHANGED_ON;
+    public static final readonly int BUSINESS_OBJECT__NAME;
+    public static final readonly int BUSINESS_OBJECT__PROJECT;
+    public static final readonly int BUSINESS_OBJECT__RULE_PACKAGE;
+    public static final readonly int BUSINESS_OBJECT__TYPE;
+    public static final readonly int BUSINESS_OBJECT__UUID;
+    public static final readonly int BUSINESS_RULE;
+    public static final readonly int BUSINESS_RULE_FEATURE_COUNT;
+    public static final readonly int BUSINESS_RULE__ACTIVE;
+    public static final readonly int BUSINESS_RULE__CATEGORIES;
+    public static final readonly int BUSINESS_RULE__CREATED_BY;
+    public static final readonly int BUSINESS_RULE__CREATED_ON;
+    public static final readonly int BUSINESS_RULE__DEFINITION;
+    public static final readonly int BUSINESS_RULE__DOCUMENTATION;
+    public static final readonly int BUSINESS_RULE__GROUP;
+    public static final readonly int BUSINESS_RULE__LAST_CHANGED_BY;
+    public static final readonly int BUSINESS_RULE__LAST_CHANGED_ON;
+    public static final readonly int BUSINESS_RULE__LOCALE;
+    public static final readonly int BUSINESS_RULE__NAME;
+    public static final readonly int BUSINESS_RULE__OVERRIDDEN_RULES;
+    public static final readonly int BUSINESS_RULE__PRIORITY;
+    public static final readonly int BUSINESS_RULE__PROJECT;
+    public static final readonly int BUSINESS_RULE__RULE_PACKAGE;
+    public static final readonly int BUSINESS_RULE__TAGS;
+    public static final readonly int BUSINESS_RULE__TEMPLATE;
+    public static final readonly int BUSINESS_RULE__TYPE;
+    public static final readonly int BUSINESS_RULE__UUID;
+    public static final readonly int CHANGE_ACT;
+    public static final readonly int CHANGE_ACT_FEATURE_COUNT;
+    public static final readonly int CHANGE_ACT__APPROVERS;
+    public static final readonly int CHANGE_ACT__AUTHORS;
+    public static final readonly int CHANGE_ACT__BASELINE_KIND;
+    public static final readonly int CHANGE_ACT__CREATED_BY;
+    public static final readonly int CHANGE_ACT__CREATED_ON;
+    public static final readonly int CHANGE_ACT__DEP_NAME;
+    public static final readonly int CHANGE_ACT__DOCUMENTATION;
+    public static final readonly int CHANGE_ACT__EVENT_ID_STRING;
+    public static final readonly int CHANGE_ACT__FROZEN;
+    public static final readonly int CHANGE_ACT__GROUPS;
+    public static final readonly int CHANGE_ACT__LAST_CHANGED_BY;
+    public static final readonly int CHANGE_ACT__LAST_CHANGED_ON;
+    public static final readonly int CHANGE_ACT__MAX_VERSION_ID;
+    public static final readonly int CHANGE_ACT__NAME;
+    public static final readonly int CHANGE_ACT__OWNER;
+    public static final readonly int CHANGE_ACT__PARENT;
+    public static final readonly int CHANGE_ACT__READABLE_VERSION;
+    public static final readonly int CHANGE_ACT__SECURITY_ENFORCED;
+    public static final readonly int CHANGE_ACT__SECURITY_INHERITED;
+    public static final readonly int CHANGE_ACT__STATUS;
+    public static final readonly int CHANGE_ACT__TARGET_DATE;
+    public static final readonly int CHANGE_ACT__TYPE;
+    public static final readonly int CHANGE_ACT__UUID;
+    public static final readonly int CHART;
+    public static final readonly int CHART_FEATURE_COUNT;
+    public static final readonly int CHART__BODY;
+    public static final readonly int CHART__CREATED_BY;
+    public static final readonly int CHART__CREATED_ON;
+    public static final readonly int CHART__DOCUMENTATION;
+    public static final readonly int CHART__GROUP;
+    public static final readonly int CHART__LAST_CHANGED_BY;
+    public static final readonly int CHART__LAST_CHANGED_ON;
+    public static final readonly int CHART__NAME;
+    public static final readonly int CHART__PROJECT;
+    public static final readonly int CHART__RULE_PACKAGE;
+    public static final readonly int CHART__TYPE;
+    public static final readonly int CHART__UUID;
+    public static final readonly int CONNECTION_ENTRY;
+    public static final readonly int CONNECTION_ENTRY_FEATURE_COUNT;
+    public static final readonly int CONNECTION_ENTRY__BASE_TYPE;
+    public static final readonly int CONNECTION_ENTRY__BRANCH;
+    public static final readonly int CONNECTION_ENTRY__ENTRY_TYPE;
+    public static final readonly int CONNECTION_ENTRY__LOCAL_CHECKSUM;
+    public static final readonly int CONNECTION_ENTRY__QUALIFIED_NAME;
+    public static final readonly int CONNECTION_ENTRY__REMOTE_CHECKSUM;
+    public static final readonly int CONNECTION_ENTRY__TYPE;
+    public static final readonly int CONNECTION_ENTRY__URL;
+    public static final readonly int CONNECTION_ENTRY__UUID;
+    public static final readonly int DATA_CONNECTION;
+    public static final readonly int DATA_CONNECTION_FEATURE_COUNT;
+    public static final readonly int DATA_CONNECTION__BODY;
+    public static final readonly int DATA_CONNECTION__CREATED_BY;
+    public static final readonly int DATA_CONNECTION__CREATED_ON;
+    public static final readonly int DATA_CONNECTION__DOCUMENTATION;
+    public static final readonly int DATA_CONNECTION__GROUP;
+    public static final readonly int DATA_CONNECTION__LAST_CHANGED_BY;
+    public static final readonly int DATA_CONNECTION__LAST_CHANGED_ON;
+    public static final readonly int DATA_CONNECTION__NAME;
+    public static final readonly int DATA_CONNECTION__PROJECT;
+    public static final readonly int DATA_CONNECTION__RULE_PACKAGE;
+    public static final readonly int DATA_CONNECTION__TYPE;
+    public static final readonly int DATA_CONNECTION__UUID;
+    public static final readonly int DATE;
+    public static final readonly int DECISION_TABLE;
+    public static final readonly int DECISION_TABLE_FEATURE_COUNT;
+    public static final readonly int DECISION_TABLE__ACTIVE;
+    public static final readonly int DECISION_TABLE__CATEGORIES;
+    public static final readonly int DECISION_TABLE__CREATED_BY;
+    public static final readonly int DECISION_TABLE__CREATED_ON;
+    public static final readonly int DECISION_TABLE__DEFINITION;
+    public static final readonly int DECISION_TABLE__DOCUMENTATION;
+    public static final readonly int DECISION_TABLE__GROUP;
+    public static final readonly int DECISION_TABLE__LAST_CHANGED_BY;
+    public static final readonly int DECISION_TABLE__LAST_CHANGED_ON;
+    public static final readonly int DECISION_TABLE__LOCALE;
+    public static final readonly int DECISION_TABLE__NAME;
+    public static final readonly int DECISION_TABLE__OVERRIDDEN_RULES;
+    public static final readonly int DECISION_TABLE__PRIORITY;
+    public static final readonly int DECISION_TABLE__PROJECT;
+    public static final readonly int DECISION_TABLE__RULE_PACKAGE;
+    public static final readonly int DECISION_TABLE__TAGS;
+    public static final readonly int DECISION_TABLE__TEMPLATE;
+    public static final readonly int DECISION_TABLE__TYPE;
+    public static final readonly int DECISION_TABLE__UUID;
+    public static final readonly int DECISION_TREE;
+    public static final readonly int DECISION_TREE_FEATURE_COUNT;
+    public static final readonly int DECISION_TREE__ACTIVE;
+    public static final readonly int DECISION_TREE__CATEGORIES;
+    public static final readonly int DECISION_TREE__CREATED_BY;
+    public static final readonly int DECISION_TREE__CREATED_ON;
+    public static final readonly int DECISION_TREE__DEFINITION;
+    public static final readonly int DECISION_TREE__DOCUMENTATION;
+    public static final readonly int DECISION_TREE__GROUP;
+    public static final readonly int DECISION_TREE__LAST_CHANGED_BY;
+    public static final readonly int DECISION_TREE__LAST_CHANGED_ON;
+    public static final readonly int DECISION_TREE__LOCALE;
+    public static final readonly int DECISION_TREE__NAME;
+    public static final readonly int DECISION_TREE__OVERRIDDEN_RULES;
+    public static final readonly int DECISION_TREE__PRIORITY;
+    public static final readonly int DECISION_TREE__PROJECT;
+    public static final readonly int DECISION_TREE__RULE_PACKAGE;
+    public static final readonly int DECISION_TREE__TAGS;
+    public static final readonly int DECISION_TREE__TEMPLATE;
+    public static final readonly int DECISION_TREE__TYPE;
+    public static final readonly int DECISION_TREE__UUID;
+    public static final readonly int DEFINITION;
+    public static final readonly int DEFINITION_FEATURE_COUNT;
+    public static final readonly int DEFINITION__BODY;
+    public static final readonly int DEFINITION__INFO;
+    public static final readonly int DEFINITION__TYPE;
+    public static final readonly int DEPENDENCY;
+    public static final readonly int DEPENDENCY_FEATURE_COUNT;
+    public static final readonly int DEPENDENCY__BASELINE_NAME;
+    public static final readonly int DEPENDENCY__PROJECT_NAME;
+    public static final readonly int DEPENDENCY__TYPE;
+    public static final readonly int DIRECTION_KIND;
+    public static final readonly int ELEMENT;
+    public static final readonly int ELEMENT_FEATURE_COUNT;
+    public static final readonly int ELEMENT__TYPE;
+    public static final readonly int EVENT;
+    public static final readonly int EVENT_ARTIFACT;
+    public static final readonly int EVENT_ARTIFACT_FEATURE_COUNT;
+    public static final readonly int EVENT_ARTIFACT__BODY;
+    public static final readonly int EVENT_ARTIFACT__CREATED_BY;
+    public static final readonly int EVENT_ARTIFACT__CREATED_ON;
+    public static final readonly int EVENT_ARTIFACT__DOCUMENTATION;
+    public static final readonly int EVENT_ARTIFACT__GROUP;
+    public static final readonly int EVENT_ARTIFACT__LAST_CHANGED_BY;
+    public static final readonly int EVENT_ARTIFACT__LAST_CHANGED_ON;
+    public static final readonly int EVENT_ARTIFACT__NAME;
+    public static final readonly int EVENT_ARTIFACT__PROJECT;
+    public static final readonly int EVENT_ARTIFACT__RULE_PACKAGE;
+    public static final readonly int EVENT_ARTIFACT__TYPE;
+    public static final readonly int EVENT_ARTIFACT__UUID;
+    public static final readonly int EVENT_ELEMENT;
+    public static final readonly int EVENT_ELEMENT_FEATURE_COUNT;
+    public static final readonly int EVENT_ELEMENT__BODY;
+    public static final readonly int EVENT_ELEMENT__CREATED_BY;
+    public static final readonly int EVENT_ELEMENT__CREATED_ON;
+    public static final readonly int EVENT_ELEMENT__DOCUMENTATION;
+    public static final readonly int EVENT_ELEMENT__GROUP;
+    public static final readonly int EVENT_ELEMENT__LAST_CHANGED_BY;
+    public static final readonly int EVENT_ELEMENT__LAST_CHANGED_ON;
+    public static final readonly int EVENT_ELEMENT__NAME;
+    public static final readonly int EVENT_ELEMENT__PROJECT;
+    public static final readonly int EVENT_ELEMENT__RULE_PACKAGE;
+    public static final readonly int EVENT_ELEMENT__TYPE;
+    public static final readonly int EVENT_ELEMENT__UUID;
+    public static final readonly int EVENT_FEATURE_COUNT;
+    public static final readonly int EVENT_FLOW;
+    public static final readonly int EVENT_FLOW_FEATURE_COUNT;
+    public static final readonly int EVENT_FLOW__BODY;
+    public static final readonly int EVENT_FLOW__CREATED_BY;
+    public static final readonly int EVENT_FLOW__CREATED_ON;
+    public static final readonly int EVENT_FLOW__DOCUMENTATION;
+    public static final readonly int EVENT_FLOW__GROUP;
+    public static final readonly int EVENT_FLOW__LAST_CHANGED_BY;
+    public static final readonly int EVENT_FLOW__LAST_CHANGED_ON;
+    public static final readonly int EVENT_FLOW__NAME;
+    public static final readonly int EVENT_FLOW__PROJECT;
+    public static final readonly int EVENT_FLOW__RULE_PACKAGE;
+    public static final readonly int EVENT_FLOW__TYPE;
+    public static final readonly int EVENT_FLOW__UUID;
+    public static final readonly int EVENT_OBJECT;
+    public static final readonly int EVENT_OBJECT_ARTIFACT;
+    public static final readonly int EVENT_OBJECT_ARTIFACT_FEATURE_COUNT;
+    public static final readonly int EVENT_OBJECT_ARTIFACT__BODY;
+    public static final readonly int EVENT_OBJECT_ARTIFACT__CREATED_BY;
+    public static final readonly int EVENT_OBJECT_ARTIFACT__CREATED_ON;
+    public static final readonly int EVENT_OBJECT_ARTIFACT__DOCUMENTATION;
+    public static final readonly int EVENT_OBJECT_ARTIFACT__GROUP;
+    public static final readonly int EVENT_OBJECT_ARTIFACT__LAST_CHANGED_BY;
+    public static final readonly int EVENT_OBJECT_ARTIFACT__LAST_CHANGED_ON;
+    public static final readonly int EVENT_OBJECT_ARTIFACT__NAME;
+    public static final readonly int EVENT_OBJECT_ARTIFACT__PROJECT;
+    public static final readonly int EVENT_OBJECT_ARTIFACT__RULE_PACKAGE;
+    public static final readonly int EVENT_OBJECT_ARTIFACT__TYPE;
+    public static final readonly int EVENT_OBJECT_ARTIFACT__UUID;
+    public static final readonly int EVENT_OBJECT_FEATURE_COUNT;
+    public static final readonly int EVENT_OBJECT__BODY;
+    public static final readonly int EVENT_OBJECT__CREATED_BY;
+    public static final readonly int EVENT_OBJECT__CREATED_ON;
+    public static final readonly int EVENT_OBJECT__DOCUMENTATION;
+    public static final readonly int EVENT_OBJECT__GROUP;
+    public static final readonly int EVENT_OBJECT__LAST_CHANGED_BY;
+    public static final readonly int EVENT_OBJECT__LAST_CHANGED_ON;
+    public static final readonly int EVENT_OBJECT__NAME;
+    public static final readonly int EVENT_OBJECT__PROJECT;
+    public static final readonly int EVENT_OBJECT__RULE_PACKAGE;
+    public static final readonly int EVENT_OBJECT__TYPE;
+    public static final readonly int EVENT_OBJECT__UUID;
+    public static final readonly int EVENT_RULE;
+    public static final readonly int EVENT_RULE_ARTIFACT;
+    public static final readonly int EVENT_RULE_ARTIFACT_FEATURE_COUNT;
+    public static final readonly int EVENT_RULE_ARTIFACT__BODY;
+    public static final readonly int EVENT_RULE_ARTIFACT__CREATED_BY;
+    public static final readonly int EVENT_RULE_ARTIFACT__CREATED_ON;
+    public static final readonly int EVENT_RULE_ARTIFACT__DOCUMENTATION;
+    public static final readonly int EVENT_RULE_ARTIFACT__GROUP;
+    public static final readonly int EVENT_RULE_ARTIFACT__LAST_CHANGED_BY;
+    public static final readonly int EVENT_RULE_ARTIFACT__LAST_CHANGED_ON;
+    public static final readonly int EVENT_RULE_ARTIFACT__NAME;
+    public static final readonly int EVENT_RULE_ARTIFACT__PROJECT;
+    public static final readonly int EVENT_RULE_ARTIFACT__RULE_PACKAGE;
+    public static final readonly int EVENT_RULE_ARTIFACT__TYPE;
+    public static final readonly int EVENT_RULE_ARTIFACT__UUID;
+    public static final readonly int EVENT_RULE_FEATURE_COUNT;
+    public static final readonly int EVENT_RULE_GROUP;
+    public static final readonly int EVENT_RULE_GROUP_FEATURE_COUNT;
+    public static final readonly int EVENT_RULE_GROUP__BODY;
+    public static final readonly int EVENT_RULE_GROUP__CREATED_BY;
+    public static final readonly int EVENT_RULE_GROUP__CREATED_ON;
+    public static final readonly int EVENT_RULE_GROUP__DOCUMENTATION;
+    public static final readonly int EVENT_RULE_GROUP__GROUP;
+    public static final readonly int EVENT_RULE_GROUP__LAST_CHANGED_BY;
+    public static final readonly int EVENT_RULE_GROUP__LAST_CHANGED_ON;
+    public static final readonly int EVENT_RULE_GROUP__NAME;
+    public static final readonly int EVENT_RULE_GROUP__PROJECT;
+    public static final readonly int EVENT_RULE_GROUP__RULE_PACKAGE;
+    public static final readonly int EVENT_RULE_GROUP__TYPE;
+    public static final readonly int EVENT_RULE_GROUP__UUID;
+    public static final readonly int EVENT_RULE__BODY;
+    public static final readonly int EVENT_RULE__CREATED_BY;
+    public static final readonly int EVENT_RULE__CREATED_ON;
+    public static final readonly int EVENT_RULE__DOCUMENTATION;
+    public static final readonly int EVENT_RULE__GROUP;
+    public static final readonly int EVENT_RULE__LAST_CHANGED_BY;
+    public static final readonly int EVENT_RULE__LAST_CHANGED_ON;
+    public static final readonly int EVENT_RULE__NAME;
+    public static final readonly int EVENT_RULE__PROJECT;
+    public static final readonly int EVENT_RULE__RULE_PACKAGE;
+    public static final readonly int EVENT_RULE__TYPE;
+    public static final readonly int EVENT_RULE__UUID;
+    public static final readonly int EVENT__BODY;
+    public static final readonly int EVENT__CREATED_BY;
+    public static final readonly int EVENT__CREATED_ON;
+    public static final readonly int EVENT__DOCUMENTATION;
+    public static final readonly int EVENT__GROUP;
+    public static final readonly int EVENT__LAST_CHANGED_BY;
+    public static final readonly int EVENT__LAST_CHANGED_ON;
+    public static final readonly int EVENT__NAME;
+    public static final readonly int EVENT__PROJECT;
+    public static final readonly int EVENT__RULE_PACKAGE;
+    public static final readonly int EVENT__TYPE;
+    public static final readonly int EVENT__UUID;
+    public static final readonly int EXIT_CRITERIA_KIND;
+    public static final readonly int EXTRACTOR;
+    public static final readonly int EXTRACTOR_FEATURE_COUNT;
+    public static final readonly int EXTRACTOR__NAME;
+    public static final readonly int EXTRACTOR__QUERY;
+    public static final readonly int EXTRACTOR__TYPE;
+    public static final readonly int EXTRACTOR__VALIDATOR;
+    public static final readonly int FILE;
+    public static final readonly int FILE_FEATURE_COUNT;
+    public static final readonly int FILE__BODY;
+    public static final readonly int FILE__CREATED_BY;
+    public static final readonly int FILE__CREATED_ON;
+    public static final readonly int FILE__DOCUMENTATION;
+    public static final readonly int FILE__GROUP;
+    public static final readonly int FILE__LAST_CHANGED_BY;
+    public static final readonly int FILE__LAST_CHANGED_ON;
+    public static final readonly int FILE__NAME;
+    public static final readonly int FILE__PROJECT;
+    public static final readonly int FILE__RULE_PACKAGE;
+    public static final readonly int FILE__TYPE;
+    public static final readonly int FILE__UUID;
+    public static final readonly int FILTER;
+    public static final readonly int FILTER_FEATURE_COUNT;
+    public static final readonly int FILTER__BODY;
+    public static final readonly int FILTER__CREATED_BY;
+    public static final readonly int FILTER__CREATED_ON;
+    public static final readonly int FILTER__DOCUMENTATION;
+    public static final readonly int FILTER__GROUP;
+    public static final readonly int FILTER__LAST_CHANGED_BY;
+    public static final readonly int FILTER__LAST_CHANGED_ON;
+    public static final readonly int FILTER__NAME;
+    public static final readonly int FILTER__PROJECT;
+    public static final readonly int FILTER__RULE_PACKAGE;
+    public static final readonly int FILTER__TYPE;
+    public static final readonly int FILTER__UUID;
+    public static final readonly int FUNCTION;
+    public static final readonly int FUNCTION_FEATURE_COUNT;
+    public static final readonly int FUNCTION_TASK;
+    public static final readonly int FUNCTION_TASK_FEATURE_COUNT;
+    public static final readonly int FUNCTION_TASK__DEFINITION;
+    public static final readonly int FUNCTION_TASK__DOCUMENTATION;
+    public static final readonly int FUNCTION_TASK__FINAL_ACTIONS;
+    public static final readonly int FUNCTION_TASK__INITIAL_ACTIONS;
+    public static final readonly int FUNCTION_TASK__NAME;
+    public static final readonly int FUNCTION_TASK__TYPE;
+    public static final readonly int FUNCTION__ACTIVE;
+    public static final readonly int FUNCTION__ARGUMENTS;
+    public static final readonly int FUNCTION__CREATED_BY;
+    public static final readonly int FUNCTION__CREATED_ON;
+    public static final readonly int FUNCTION__DEFINITION;
+    public static final readonly int FUNCTION__DOCUMENTATION;
+    public static final readonly int FUNCTION__GROUP;
+    public static final readonly int FUNCTION__IMPORTS;
+    public static final readonly int FUNCTION__LAST_CHANGED_BY;
+    public static final readonly int FUNCTION__LAST_CHANGED_ON;
+    public static final readonly int FUNCTION__NAME;
+    public static final readonly int FUNCTION__PROJECT;
+    public static final readonly int FUNCTION__RETURN_TYPE;
+    public static final readonly int FUNCTION__RULE_PACKAGE;
+    public static final readonly int FUNCTION__TAGS;
+    public static final readonly int FUNCTION__TYPE;
+    public static final readonly int FUNCTION__UUID;
+    public static final readonly int HIERARCHY;
+    public static final readonly int HIERARCHY_FEATURE_COUNT;
+    public static final readonly int HIERARCHY__CREATED_BY;
+    public static final readonly int HIERARCHY__CREATED_ON;
+    public static final readonly int HIERARCHY__LAST_CHANGED_BY;
+    public static final readonly int HIERARCHY__LAST_CHANGED_ON;
+    public static final readonly int HIERARCHY__NAME;
+    public static final readonly int HIERARCHY__PARENT;
+    public static final readonly int HIERARCHY__TYPE;
+    public static final readonly int HIERARCHY__UUID;
+    public static final readonly int INITIAL_VALUE;
+    public static final readonly int INITIAL_VALUE_FEATURE_COUNT;
+    public static final readonly int INITIAL_VALUE__NAME;
+    public static final readonly int INITIAL_VALUE__TYPE;
+    public static final readonly int INITIAL_VALUE__VALUE;
+    public static final readonly int LOCK;
+    public static final readonly int LOCK_FEATURE_COUNT;
+    public static final readonly int LOCK__BRANCH;
+    public static final readonly int LOCK__ELEMENT_ID;
+    public static final readonly int LOCK__ELEMENT_TYPE;
+    public static final readonly int LOCK__OWNER;
+    public static final readonly int LOCK__PERSISTENT;
+    public static final readonly int LOCK__ROOT_LOCK_ID;
+    public static final readonly int LOCK__SESSION_ID;
+    public static final readonly int LOCK__SYSTEM;
+    public static final readonly int LOCK__TYPE;
+    public static final readonly int MANAGED_BRANCH;
+    public static final readonly int MANAGED_BRANCH_FEATURE_COUNT;
+    public static final readonly int MANAGED_BRANCH__APPROVERS;
+    public static final readonly int MANAGED_BRANCH__BASELINE_KIND;
+    public static final readonly int MANAGED_BRANCH__CREATED_BY;
+    public static final readonly int MANAGED_BRANCH__CREATED_ON;
+    public static final readonly int MANAGED_BRANCH__DEP_NAME;
+    public static final readonly int MANAGED_BRANCH__DOCUMENTATION;
+    public static final readonly int MANAGED_BRANCH__EVENT_ID_STRING;
+    public static final readonly int MANAGED_BRANCH__FROZEN;
+    public static final readonly int MANAGED_BRANCH__GROUPS;
+    public static final readonly int MANAGED_BRANCH__LAST_CHANGED_BY;
+    public static final readonly int MANAGED_BRANCH__LAST_CHANGED_ON;
+    public static final readonly int MANAGED_BRANCH__MAX_VERSION_ID;
+    public static final readonly int MANAGED_BRANCH__NAME;
+    public static final readonly int MANAGED_BRANCH__OWNER;
+    public static final readonly int MANAGED_BRANCH__PARENT;
+    public static final readonly int MANAGED_BRANCH__READABLE_VERSION;
+    public static final readonly int MANAGED_BRANCH__SECURITY_ENFORCED;
+    public static final readonly int MANAGED_BRANCH__SECURITY_INHERITED;
+    public static final readonly int MANAGED_BRANCH__STATUS;
+    public static final readonly int MANAGED_BRANCH__TARGET_DATE;
+    public static final readonly int MANAGED_BRANCH__TYPE;
+    public static final readonly int MANAGED_BRANCH__UUID;
+    public static final readonly int MERGE_REPORT;
+    public static final readonly int MERGE_REPORT_FEATURE_COUNT;
+    public static final readonly int MERGE_REPORT__CREATED_BY;
+    public static final readonly int MERGE_REPORT__CREATED_ON;
+    public static final readonly int MERGE_REPORT__LAST_CHANGED_BY;
+    public static final readonly int MERGE_REPORT__LAST_CHANGED_ON;
+    public static final readonly int MERGE_REPORT__NAME;
+    public static final readonly int MERGE_REPORT__PROJECT;
+    public static final readonly int MERGE_REPORT__SOURCE_BRANCH;
+    public static final readonly int MERGE_REPORT__TARGET_BRANCH;
+    public static final readonly int MERGE_REPORT__TYPE;
+    public static final readonly int MERGE_REPORT__UUID;
+    public static final readonly int MERGE_REPORT__VALUE;
+    public static final readonly int MESSAGE_MAP;
+    public static final readonly int MESSAGE_MAP_FEATURE_COUNT;
+    public static final readonly int MESSAGE_MAP__BODY;
+    public static final readonly int MESSAGE_MAP__LOCALE;
+    public static final readonly int MESSAGE_MAP__TYPE;
+    public static final readonly int MODEL_ELEMENT;
+    public static final readonly int MODEL_ELEMENT_FEATURE_COUNT;
+    public static final readonly int MODEL_ELEMENT__CREATED_BY;
+    public static final readonly int MODEL_ELEMENT__CREATED_ON;
+    public static final readonly int MODEL_ELEMENT__LAST_CHANGED_BY;
+    public static final readonly int MODEL_ELEMENT__LAST_CHANGED_ON;
+    public static final readonly int MODEL_ELEMENT__NAME;
+    public static final readonly int MODEL_ELEMENT__TYPE;
+    public static final readonly int MODEL_ELEMENT__UUID;
+    public static final readonly int NAMED_CONSTANT;
+    public static final readonly int NAMED_CONSTANT_FEATURE_COUNT;
+    public static final readonly int NAMED_CONSTANT_TYPE;
+    public static final readonly int NAMED_CONSTANT__BODY;
+    public static final readonly int NAMED_CONSTANT__CREATED_BY;
+    public static final readonly int NAMED_CONSTANT__CREATED_ON;
+    public static final readonly int NAMED_CONSTANT__DOCUMENTATION;
+    public static final readonly int NAMED_CONSTANT__GROUP;
+    public static final readonly int NAMED_CONSTANT__LAST_CHANGED_BY;
+    public static final readonly int NAMED_CONSTANT__LAST_CHANGED_ON;
+    public static final readonly int NAMED_CONSTANT__NAME;
+    public static final readonly int NAMED_CONSTANT__PROJECT;
+    public static final readonly int NAMED_CONSTANT__RULE_PACKAGE;
+    public static final readonly int NAMED_CONSTANT__TYPE;
+    public static final readonly int NAMED_CONSTANT__UUID;
+    public static final readonly int NAMED_CONSTANT__VALUE;
+    public static final readonly int NAMED_CONSTANT__VALUE_TYPE;
+    public static final readonly int ORDERING_KIND;
+    public static final readonly int OVERRIDDEN_RULE;
+    public static final readonly int OVERRIDDEN_RULE_FEATURE_COUNT;
+    public static final readonly int OVERRIDDEN_RULE__RULE;
+    public static final readonly int OVERRIDDEN_RULE__TYPE;
+    public static final readonly int PACKAGE_ELEMENT;
+    public static final readonly int PACKAGE_ELEMENT_FEATURE_COUNT;
+    public static final readonly int PACKAGE_ELEMENT__CREATED_BY;
+    public static final readonly int PACKAGE_ELEMENT__CREATED_ON;
+    public static final readonly int PACKAGE_ELEMENT__DOCUMENTATION;
+    public static final readonly int PACKAGE_ELEMENT__GROUP;
+    public static final readonly int PACKAGE_ELEMENT__LAST_CHANGED_BY;
+    public static final readonly int PACKAGE_ELEMENT__LAST_CHANGED_ON;
+    public static final readonly int PACKAGE_ELEMENT__NAME;
+    public static final readonly int PACKAGE_ELEMENT__PROJECT;
+    public static final readonly int PACKAGE_ELEMENT__RULE_PACKAGE;
+    public static final readonly int PACKAGE_ELEMENT__TYPE;
+    public static final readonly int PACKAGE_ELEMENT__UUID;
+    public static final readonly int PACKAGE_KIND;
+    public static final readonly int PARAMETER;
+    public static final readonly int PARAMETER_FEATURE_COUNT;
+    public static final readonly int PARAMETER__BOM_TYPE;
+    public static final readonly int PARAMETER__DIRECTION;
+    public static final readonly int PARAMETER__INITIAL_VALUE;
+    public static final readonly int PARAMETER__NAME;
+    public static final readonly int PARAMETER__ORDER;
+    public static final readonly int PARAMETER__TYPE;
+    public static final readonly int PARAMETER__VERBALIZATION;
+    public static final readonly int PROFILE;
+    public static final readonly int PROFILE_FEATURE_COUNT;
+    public static final readonly int PROFILE__PICTURE;
+    public static final readonly int PROFILE__TYPE;
+    public static final readonly int PROFILE__USER_ID;
+    public static final readonly int PROJECT_BOM_ENTRY;
+    public static final readonly int PROJECT_BOM_ENTRY_FEATURE_COUNT;
+    public static final readonly int PROJECT_BOM_ENTRY__ORDER;
+    public static final readonly int PROJECT_BOM_ENTRY__PROJECT_NAME;
+    public static final readonly int PROJECT_BOM_ENTRY__TYPE;
+    public static final readonly int PROJECT_BOM_ENTRY__URL;
+    public static final readonly int PROJECT_ELEMENT;
+    public static final readonly int PROJECT_ELEMENT_FEATURE_COUNT;
+    public static final readonly int PROJECT_ELEMENT__CREATED_BY;
+    public static final readonly int PROJECT_ELEMENT__CREATED_ON;
+    public static final readonly int PROJECT_ELEMENT__DOCUMENTATION;
+    public static final readonly int PROJECT_ELEMENT__GROUP;
+    public static final readonly int PROJECT_ELEMENT__LAST_CHANGED_BY;
+    public static final readonly int PROJECT_ELEMENT__LAST_CHANGED_ON;
+    public static final readonly int PROJECT_ELEMENT__NAME;
+    public static final readonly int PROJECT_ELEMENT__PROJECT;
+    public static final readonly int PROJECT_ELEMENT__TYPE;
+    public static final readonly int PROJECT_ELEMENT__UUID;
+    public static final readonly int PROJECT_INFO;
+    public static final readonly int PROJECT_INFO_FEATURE_COUNT;
+    public static final readonly int PROJECT_INFO__BASELINE;
+    public static final readonly int PROJECT_INFO__BOM_PATH_ENTRIES;
+    public static final readonly int PROJECT_INFO__BUILD_MODE;
+    public static final readonly int PROJECT_INFO__CATEGORIES;
+    public static final readonly int PROJECT_INFO__CONFIG_FILE;
+    public static final readonly int PROJECT_INFO__DECISION_SERVICE;
+    public static final readonly int PROJECT_INFO__DEPENDENCIES;
+    public static final readonly int PROJECT_INFO__DYNAMIC_XOM;
+    public static final readonly int PROJECT_INFO__EXTRACTORS;
+    public static final readonly int PROJECT_INFO__MESSAGES;
+    public static final readonly int PROJECT_INFO__MIGRATED_TO_OPERATION_ID;
+    public static final readonly int PROJECT_INFO__MIGRATION_FLAG;
+    public static final readonly int PROJECT_INFO__PARAMETERS;
+    public static final readonly int PROJECT_INFO__PROJECT;
+    public static final readonly int PROJECT_INFO__RULESET_PROPERTIES;
+    public static final readonly int PROJECT_INFO__SCHEMAS;
+    public static final readonly int PROJECT_INFO__TAGS;
+    public static final readonly int PROJECT_INFO__TYPE;
+    public static final readonly int PROXY;
+    public static final readonly int PROXY_FEATURE_COUNT;
+    public static final readonly int PROXY__DEST_NAME;
+    public static final readonly int PROXY__DEST_UUID;
+    public static final readonly int PROXY__REFERENCE;
+    public static final readonly int PROXY__SOURCE_UUID;
+    public static final readonly int PROXY__TYPE;
+    public static final readonly int QUERY;
+    public static final readonly int QUERY_FEATURE_COUNT;
+    public static final readonly int QUERY__CREATED_BY;
+    public static final readonly int QUERY__CREATED_ON;
+    public static final readonly int QUERY__DEFINITION;
+    public static final readonly int QUERY__DOCUMENTATION;
+    public static final readonly int QUERY__GROUP;
+    public static final readonly int QUERY__INCLUDE_DEPENDENCIES;
+    public static final readonly int QUERY__LAST_CHANGED_BY;
+    public static final readonly int QUERY__LAST_CHANGED_ON;
+    public static final readonly int QUERY__LOCALE;
+    public static final readonly int QUERY__NAME;
+    public static final readonly int QUERY__PROJECT;
+    public static final readonly int QUERY__RULE_PACKAGE;
+    public static final readonly int QUERY__TYPE;
+    public static final readonly int QUERY__UUID;
+    public static final readonly int REFERENCING_BSLN;
+    public static final readonly int REFERENCING_BSLN_FEATURE_COUNT;
+    public static final readonly int REFERENCING_BSLN__BASELINE_KIND;
+    public static final readonly int REFERENCING_BSLN__CREATED_BY;
+    public static final readonly int REFERENCING_BSLN__CREATED_ON;
+    public static final readonly int REFERENCING_BSLN__DEP_NAME;
+    public static final readonly int REFERENCING_BSLN__DOCUMENTATION;
+    public static final readonly int REFERENCING_BSLN__EVENT_ID_STRING;
+    public static final readonly int REFERENCING_BSLN__FROZEN;
+    public static final readonly int REFERENCING_BSLN__LAST_CHANGED_BY;
+    public static final readonly int REFERENCING_BSLN__LAST_CHANGED_ON;
+    public static final readonly int REFERENCING_BSLN__NAME;
+    public static final readonly int REFERENCING_BSLN__PARENT;
+    public static final readonly int REFERENCING_BSLN__READABLE_VERSION;
+    public static final readonly int REFERENCING_BSLN__RULESET;
+    public static final readonly int REFERENCING_BSLN__RULE_APP;
+    public static final readonly int REFERENCING_BSLN__TYPE;
+    public static final readonly int REFERENCING_BSLN__UUID;
+    public static final readonly int RELEASE;
+    public static final readonly int RELEASE_FEATURE_COUNT;
+    public static final readonly int RELEASE__APPROVERS;
+    public static final readonly int RELEASE__BASELINE_KIND;
+    public static final readonly int RELEASE__CREATED_BY;
+    public static final readonly int RELEASE__CREATED_ON;
+    public static final readonly int RELEASE__DEP_NAME;
+    public static final readonly int RELEASE__DOCUMENTATION;
+    public static final readonly int RELEASE__EVENT_ID_STRING;
+    public static final readonly int RELEASE__FROZEN;
+    public static final readonly int RELEASE__GROUPS;
+    public static final readonly int RELEASE__LAST_CHANGED_BY;
+    public static final readonly int RELEASE__LAST_CHANGED_ON;
+    public static final readonly int RELEASE__MAX_VERSION_ID;
+    public static final readonly int RELEASE__NAME;
+    public static final readonly int RELEASE__OWNER;
+    public static final readonly int RELEASE__PARENT;
+    public static final readonly int RELEASE__READABLE_VERSION;
+    public static final readonly int RELEASE__SECURITY_ENFORCED;
+    public static final readonly int RELEASE__SECURITY_INHERITED;
+    public static final readonly int RELEASE__STATUS;
+    public static final readonly int RELEASE__TARGET_DATE;
+    public static final readonly int RELEASE__TYPE;
+    public static final readonly int RELEASE__UUID;
+    public static final readonly int REPORT_STATUS_KIND;
+    public static final readonly int RESOURCE;
+    public static final readonly int RESOURCE_FEATURE_COUNT;
+    public static final readonly int RESOURCE__BODY;
+    public static final readonly int RESOURCE__CREATED_BY;
+    public static final readonly int RESOURCE__CREATED_ON;
+    public static final readonly int RESOURCE__DOCUMENTATION;
+    public static final readonly int RESOURCE__EXTENSION;
+    public static final readonly int RESOURCE__GROUP;
+    public static final readonly int RESOURCE__LAST_CHANGED_BY;
+    public static final readonly int RESOURCE__LAST_CHANGED_ON;
+    public static final readonly int RESOURCE__NAME;
+    public static final readonly int RESOURCE__PROJECT;
+    public static final readonly int RESOURCE__RULE_PACKAGE;
+    public static final readonly int RESOURCE__TYPE;
+    public static final readonly int RESOURCE__UUID;
+    public static final readonly int RULE;
+    public static final readonly int RULEFLOW;
+    public static final readonly int RULEFLOW_FEATURE_COUNT;
+    public static final readonly int RULEFLOW_TAG;
+    public static final readonly int RULEFLOW_TAG_FEATURE_COUNT;
+    public static final readonly int RULEFLOW_TAG__NAME;
+    public static final readonly int RULEFLOW_TAG__TYPE;
+    public static final readonly int RULEFLOW_TAG__VALUE;
+    public static final readonly int RULEFLOW__BODY;
+    public static final readonly int RULEFLOW__CREATED_BY;
+    public static final readonly int RULEFLOW__CREATED_ON;
+    public static final readonly int RULEFLOW__DIAGRAM;
+    public static final readonly int RULEFLOW__DOCUMENTATION;
+    public static final readonly int RULEFLOW__FINAL_ACTIONS;
+    public static final readonly int RULEFLOW__GROUP;
+    public static final readonly int RULEFLOW__IMPORTS;
+    public static final readonly int RULEFLOW__INITIAL_ACTIONS;
+    public static final readonly int RULEFLOW__LAST_CHANGED_BY;
+    public static final readonly int RULEFLOW__LAST_CHANGED_ON;
+    public static final readonly int RULEFLOW__LOCALE;
+    public static final readonly int RULEFLOW__MAIN_FLOW_TASK;
+    public static final readonly int RULEFLOW__NAME;
+    public static final readonly int RULEFLOW__PROJECT;
+    public static final readonly int RULEFLOW__RULE_PACKAGE;
+    public static final readonly int RULEFLOW__SCOPES;
+    public static final readonly int RULEFLOW__TAGS;
+    public static final readonly int RULEFLOW__TASKS;
+    public static final readonly int RULEFLOW__TYPE;
+    public static final readonly int RULEFLOW__UUID;
+    public static final readonly int RULESET;
+    public static final readonly int RULESET_FEATURE_COUNT;
+    public static final readonly int RULESET_PROPERTY;
+    public static final readonly int RULESET_PROPERTY_FEATURE_COUNT;
+    public static final readonly int RULESET_PROPERTY__KEY;
+    public static final readonly int RULESET_PROPERTY__TYPE;
+    public static final readonly int RULESET_PROPERTY__VALUE;
+    public static final readonly int RULESET__BASELINE;
+    public static final readonly int RULESET__DEBUG;
+    public static final readonly int RULESET__DESCRIPTION;
+    public static final readonly int RULESET__DISPLAY_NAME;
+    public static final readonly int RULESET__ENABLED;
+    public static final readonly int RULESET__EXTRACTOR;
+    public static final readonly int RULESET__MAJOR;
+    public static final readonly int RULESET__MINOR;
+    public static final readonly int RULESET__NAME;
+    public static final readonly int RULESET__PROJECT;
+    public static final readonly int RULESET__RULESET_PROPERTIES;
+    public static final readonly int RULESET__TYPE;
+    public static final readonly int RULESET__URL;
+    public static final readonly int RULE_APP;
+    public static final readonly int RULE_APP_FEATURE_COUNT;
+    public static final readonly int RULE_APP_PROPERTY;
+    public static final readonly int RULE_APP_PROPERTY_FEATURE_COUNT;
+    public static final readonly int RULE_APP_PROPERTY__NAME;
+    public static final readonly int RULE_APP_PROPERTY__TYPE;
+    public static final readonly int RULE_APP_PROPERTY__VALUE;
+    public static final readonly int RULE_APP__CREATED_BY;
+    public static final readonly int RULE_APP__CREATED_ON;
+    public static final readonly int RULE_APP__DEPLOYED_BASELINES;
+    public static final readonly int RULE_APP__DESCRIPTION;
+    public static final readonly int RULE_APP__DISPLAY_NAME;
+    public static final readonly int RULE_APP__LAST_CHANGED_BY;
+    public static final readonly int RULE_APP__LAST_CHANGED_ON;
+    public static final readonly int RULE_APP__MAJOR;
+    public static final readonly int RULE_APP__MINOR;
+    public static final readonly int RULE_APP__NAME;
+    public static final readonly int RULE_APP__RULESETS;
+    public static final readonly int RULE_APP__TAGS;
+    public static final readonly int RULE_APP__TYPE;
+    public static final readonly int RULE_APP__UUID;
+    public static final readonly int RULE_ARTIFACT;
+    public static final readonly int RULE_ARTIFACT_FEATURE_COUNT;
+    public static final readonly int RULE_ARTIFACT_TAG;
+    public static final readonly int RULE_ARTIFACT_TAG_FEATURE_COUNT;
+    public static final readonly int RULE_ARTIFACT_TAG__NAME;
+    public static final readonly int RULE_ARTIFACT_TAG__TYPE;
+    public static final readonly int RULE_ARTIFACT_TAG__VALUE;
+    public static final readonly int RULE_ARTIFACT__ACTIVE;
+    public static final readonly int RULE_ARTIFACT__CREATED_BY;
+    public static final readonly int RULE_ARTIFACT__CREATED_ON;
+    public static final readonly int RULE_ARTIFACT__DEFINITION;
+    public static final readonly int RULE_ARTIFACT__DOCUMENTATION;
+    public static final readonly int RULE_ARTIFACT__GROUP;
+    public static final readonly int RULE_ARTIFACT__LAST_CHANGED_BY;
+    public static final readonly int RULE_ARTIFACT__LAST_CHANGED_ON;
+    public static final readonly int RULE_ARTIFACT__NAME;
+    public static final readonly int RULE_ARTIFACT__PROJECT;
+    public static final readonly int RULE_ARTIFACT__RULE_PACKAGE;
+    public static final readonly int RULE_ARTIFACT__TAGS;
+    public static final readonly int RULE_ARTIFACT__TYPE;
+    public static final readonly int RULE_ARTIFACT__UUID;
+    public static final readonly int RULE_FEATURE_COUNT;
+    public static final readonly int RULE_PACKAGE;
+    public static final readonly int RULE_PACKAGE_FEATURE_COUNT;
+    public static final readonly int RULE_PACKAGE__CREATED_BY;
+    public static final readonly int RULE_PACKAGE__CREATED_ON;
+    public static final readonly int RULE_PACKAGE__DOCUMENTATION;
+    public static final readonly int RULE_PACKAGE__GROUP;
+    public static final readonly int RULE_PACKAGE__LAST_CHANGED_BY;
+    public static final readonly int RULE_PACKAGE__LAST_CHANGED_ON;
+    public static final readonly int RULE_PACKAGE__NAME;
+    public static final readonly int RULE_PACKAGE__PACKAGE_KIND;
+    public static final readonly int RULE_PACKAGE__PARENT;
+    public static final readonly int RULE_PACKAGE__PROJECT;
+    public static final readonly int RULE_PACKAGE__RULE_ORDER;
+    public static final readonly int RULE_PACKAGE__TYPE;
+    public static final readonly int RULE_PACKAGE__UUID;
+    public static final readonly int RULE_PROJECT;
+    public static final readonly int RULE_PROJECT_FEATURE_COUNT;
+    public static final readonly int RULE_PROJECT_TAG;
+    public static final readonly int RULE_PROJECT_TAG_FEATURE_COUNT;
+    public static final readonly int RULE_PROJECT_TAG__NAME;
+    public static final readonly int RULE_PROJECT_TAG__TYPE;
+    public static final readonly int RULE_PROJECT_TAG__VALUE;
+    public static final readonly int RULE_PROJECT__ADVANCED_PROPERTIES;
+    public static final readonly int RULE_PROJECT__BASELINES;
+    public static final readonly int RULE_PROJECT__CONNECTION_ENTRIES;
+    public static final readonly int RULE_PROJECT__CREATED_BY;
+    public static final readonly int RULE_PROJECT__CREATED_ON;
+    public static final readonly int RULE_PROJECT__DECISION_SERVICE;
+    public static final readonly int RULE_PROJECT__DESCRIPTION;
+    public static final readonly int RULE_PROJECT__LAST_CHANGED_BY;
+    public static final readonly int RULE_PROJECT__LAST_CHANGED_ON;
+    public static final readonly int RULE_PROJECT__NAME;
+    public static final readonly int RULE_PROJECT__PLATFORM;
+    public static final readonly int RULE_PROJECT__TYPE;
+    public static final readonly int RULE_PROJECT__UUID;
+    public static final readonly int RULE_PROJECT__VERSION;
+    public static final readonly int RULE_TASK;
+    public static final readonly int RULE_TASK_FEATURE_COUNT;
+    public static final readonly int RULE_TASK__ADVANCED_PROPERTIES;
+    public static final readonly int RULE_TASK__ALGORITHM;
+    public static final readonly int RULE_TASK__DOCUMENTATION;
+    public static final readonly int RULE_TASK__DYNAMIC;
+    public static final readonly int RULE_TASK__EXIT_CRITERIA;
+    public static final readonly int RULE_TASK__FINAL_ACTIONS;
+    public static final readonly int RULE_TASK__INITIAL_ACTIONS;
+    public static final readonly int RULE_TASK__NAME;
+    public static final readonly int RULE_TASK__ORDERING;
+    public static final readonly int RULE_TASK__SELECT;
+    public static final readonly int RULE_TASK__TYPE;
+    public static final readonly int RULE__ACTIVE;
+    public static final readonly int RULE__CREATED_BY;
+    public static final readonly int RULE__CREATED_ON;
+    public static final readonly int RULE__DEFINITION;
+    public static final readonly int RULE__DOCUMENTATION;
+    public static final readonly int RULE__GROUP;
+    public static final readonly int RULE__LAST_CHANGED_BY;
+    public static final readonly int RULE__LAST_CHANGED_ON;
+    public static final readonly int RULE__NAME;
+    public static final readonly int RULE__OVERRIDDEN_RULES;
+    public static final readonly int RULE__PRIORITY;
+    public static final readonly int RULE__PROJECT;
+    public static final readonly int RULE__RULE_PACKAGE;
+    public static final readonly int RULE__TAGS;
+    public static final readonly int RULE__TYPE;
+    public static final readonly int RULE__UUID;
+    public static final readonly int SCENARIO_SUITE;
+    public static final readonly int SCENARIO_SUITE_FEATURE_COUNT;
+    public static final readonly int SCENARIO_SUITE_KPI_REPORT;
+    public static final readonly int SCENARIO_SUITE_KPI_REPORT_FEATURE_COUNT;
+    public static final readonly int SCENARIO_SUITE_KPI_REPORT__DATA;
+    public static final readonly int SCENARIO_SUITE_KPI_REPORT__INDEX;
+    public static final readonly int SCENARIO_SUITE_KPI_REPORT__KPI_CLASS_NAME;
+    public static final readonly int SCENARIO_SUITE_KPI_REPORT__KPI_RESULT_CLASS_NAME;
+    public static final readonly int SCENARIO_SUITE_KPI_REPORT__TYPE;
+    public static final readonly int SCENARIO_SUITE_REPORT;
+    public static final readonly int SCENARIO_SUITE_REPORT_FEATURE_COUNT;
+    public static final readonly int SCENARIO_SUITE_REPORT__ARCHIVE_ERRORS;
+    public static final readonly int SCENARIO_SUITE_REPORT__ARCHIVE_WARNINGS;
+    public static final readonly int SCENARIO_SUITE_REPORT__BRANCH;
+    public static final readonly int SCENARIO_SUITE_REPORT__CREATED_BY;
+    public static final readonly int SCENARIO_SUITE_REPORT__CREATED_ON;
+    public static final readonly int SCENARIO_SUITE_REPORT__EXECUTED_BY;
+    public static final readonly int SCENARIO_SUITE_REPORT__LAST_CHANGED_BY;
+    public static final readonly int SCENARIO_SUITE_REPORT__LAST_CHANGED_ON;
+    public static final readonly int SCENARIO_SUITE_REPORT__NAME;
+    public static final readonly int SCENARIO_SUITE_REPORT__NB_ERRORS;
+    public static final readonly int SCENARIO_SUITE_REPORT__NB_FAILURES;
+    public static final readonly int SCENARIO_SUITE_REPORT__NB_SCENARIOS;
+    public static final readonly int SCENARIO_SUITE_REPORT__OPTIONS;
+    public static final readonly int SCENARIO_SUITE_REPORT__PROJECT;
+    public static final readonly int SCENARIO_SUITE_REPORT__RUN_BASELINE;
+    public static final readonly int SCENARIO_SUITE_REPORT__SCENARIO_SUITE_FQN;
+    public static final readonly int SCENARIO_SUITE_REPORT__SCENARIO_SUITE_ID;
+    public static final readonly int SCENARIO_SUITE_REPORT__SCENARIO_SUITE_KPI_REPORTS;
+    public static final readonly int SCENARIO_SUITE_REPORT__SCENARIO_SUITE_OID;
+    public static final readonly int SCENARIO_SUITE_REPORT__SCENARIO_TEST_REPORTS;
+    public static final readonly int SCENARIO_SUITE_REPORT__SERVER_NAME;
+    public static final readonly int SCENARIO_SUITE_REPORT__TEST_REPORTS;
+    public static final readonly int SCENARIO_SUITE_REPORT__TYPE;
+    public static final readonly int SCENARIO_SUITE_REPORT__UUID;
+    public static final readonly int SCENARIO_SUITE_RESOURCE;
+    public static final readonly int SCENARIO_SUITE_RESOURCE_FEATURE_COUNT;
+    public static final readonly int SCENARIO_SUITE_RESOURCE__KEY;
+    public static final readonly int SCENARIO_SUITE_RESOURCE__TYPE;
+    public static final readonly int SCENARIO_SUITE_RESOURCE__VALUE;
+    public static final readonly int SCENARIO_SUITE__CREATED_BY;
+    public static final readonly int SCENARIO_SUITE__CREATED_ON;
+    public static final readonly int SCENARIO_SUITE__DOCUMENTATION;
+    public static final readonly int SCENARIO_SUITE__ENTRY_POINT;
+    public static final readonly int SCENARIO_SUITE__FORMAT;
+    public static final readonly int SCENARIO_SUITE__GROUP;
+    public static final readonly int SCENARIO_SUITE__LAST_CHANGED_BY;
+    public static final readonly int SCENARIO_SUITE__LAST_CHANGED_ON;
+    public static final readonly int SCENARIO_SUITE__NAME;
+    public static final readonly int SCENARIO_SUITE__PROJECT;
+    public static final readonly int SCENARIO_SUITE__RESOURCES;
+    public static final readonly int SCENARIO_SUITE__RULE_PACKAGE;
+    public static final readonly int SCENARIO_SUITE__TEST_BASELINE;
+    public static final readonly int SCENARIO_SUITE__TEST_EXTRACTOR;
+    public static final readonly int SCENARIO_SUITE__TYPE;
+    public static final readonly int SCENARIO_SUITE__UUID;
+    public static final readonly int SCENARIO_TEST_REPORT;
+    public static final readonly int SCENARIO_TEST_REPORT_FEATURE_COUNT;
+    public static final readonly int SCENARIO_TEST_REPORT__ERROR_CAUSE;
+    public static final readonly int SCENARIO_TEST_REPORT__ERROR_MESSAGE;
+    public static final readonly int SCENARIO_TEST_REPORT__EXECUTION_ID;
+    public static final readonly int SCENARIO_TEST_REPORT__INDEX;
+    public static final readonly int SCENARIO_TEST_REPORT__NAME;
+    public static final readonly int SCENARIO_TEST_REPORT__NB_ERRORS;
+    public static final readonly int SCENARIO_TEST_REPORT__NB_FAILURES;
+    public static final readonly int SCENARIO_TEST_REPORT__NB_TESTS;
+    public static final readonly int SCENARIO_TEST_REPORT__STATUS;
+    public static final readonly int SCENARIO_TEST_REPORT__TYPE;
+    public static final readonly int SCHEMA;
+    public static final readonly int SCHEMA_FEATURE_COUNT;
+    public static final readonly int SCHEMA__BODY;
+    public static final readonly int SCHEMA__LOCATION;
+    public static final readonly int SCHEMA__NAMESPACE;
+    public static final readonly int SCHEMA__TYPE;
+    public static final readonly int SCOPE_ELEMENT;
+    public static final readonly int SCOPE_ELEMENT_FEATURE_COUNT;
+    public static final readonly int SCOPE_ELEMENT__ORDER;
+    public static final readonly int SCOPE_ELEMENT__RULE;
+    public static final readonly int SCOPE_ELEMENT__RULE_PACKAGE;
+    public static final readonly int SCOPE_ELEMENT__RULE_TASK_NAME;
+    public static final readonly int SCOPE_ELEMENT__TYPE;
+    public static final readonly int SERVER;
+    public static final readonly int SERVER_FEATURE_COUNT;
+    public static final readonly int SERVER_KIND;
+    public static final readonly int SERVER__CREATED_BY;
+    public static final readonly int SERVER__CREATED_ON;
+    public static final readonly int SERVER__DESCRIPTION;
+    public static final readonly int SERVER__LAST_CHANGED_BY;
+    public static final readonly int SERVER__LAST_CHANGED_ON;
+    public static final readonly int SERVER__LOGIN_SERVER;
+    public static final readonly int SERVER__NAME;
+    public static final readonly int SERVER__PASSWORD;
+    public static final readonly int SERVER__SERVER_KIND;
+    public static final readonly int SERVER__TYPE;
+    public static final readonly int SERVER__URL;
+    public static final readonly int SERVER__UUID;
+    public static final readonly int SIMULATION;
+    public static final readonly int SIMULATION_FEATURE_COUNT;
+    public static final readonly int SIMULATION__CREATED_BY;
+    public static final readonly int SIMULATION__CREATED_ON;
+    public static final readonly int SIMULATION__DOCUMENTATION;
+    public static final readonly int SIMULATION__ENTRY_POINT;
+    public static final readonly int SIMULATION__FORMAT;
+    public static final readonly int SIMULATION__GROUP;
+    public static final readonly int SIMULATION__LAST_CHANGED_BY;
+    public static final readonly int SIMULATION__LAST_CHANGED_ON;
+    public static final readonly int SIMULATION__NAME;
+    public static final readonly int SIMULATION__PROJECT;
+    public static final readonly int SIMULATION__RESOURCES;
+    public static final readonly int SIMULATION__RULE_PACKAGE;
+    public static final readonly int SIMULATION__TEST_BASELINE;
+    public static final readonly int SIMULATION__TEST_EXTRACTOR;
+    public static final readonly int SIMULATION__TYPE;
+    public static final readonly int SIMULATION__UUID;
+    public static final readonly int SMART_VIEW;
+    public static final readonly int SMART_VIEW_FEATURE_COUNT;
+    public static final readonly int SMART_VIEW__CREATED_BY;
+    public static final readonly int SMART_VIEW__CREATED_ON;
+    public static final readonly int SMART_VIEW__DEFINITION;
+    public static final readonly int SMART_VIEW__DOCUMENTATION;
+    public static final readonly int SMART_VIEW__GROUP;
+    public static final readonly int SMART_VIEW__INCLUDE_DEPENDENCIES;
+    public static final readonly int SMART_VIEW__LAST_CHANGED_BY;
+    public static final readonly int SMART_VIEW__LAST_CHANGED_ON;
+    public static final readonly int SMART_VIEW__LOCALE;
+    public static final readonly int SMART_VIEW__NAME;
+    public static final readonly int SMART_VIEW__PROJECT;
+    public static final readonly int SMART_VIEW__PROPERTY_PATH;
+    public static final readonly int SMART_VIEW__RULE_PACKAGE;
+    public static final readonly int SMART_VIEW__TYPE;
+    public static final readonly int SMART_VIEW__UUID;
+    public static final readonly int SNAPSHOT;
+    public static final readonly int SNAPSHOT_FEATURE_COUNT;
+    public static final readonly int SNAPSHOT__BASELINE_KIND;
+    public static final readonly int SNAPSHOT__CREATED_BY;
+    public static final readonly int SNAPSHOT__CREATED_ON;
+    public static final readonly int SNAPSHOT__DEP_NAME;
+    public static final readonly int SNAPSHOT__DOCUMENTATION;
+    public static final readonly int SNAPSHOT__EVENT_ID_STRING;
+    public static final readonly int SNAPSHOT__FROZEN;
+    public static final readonly int SNAPSHOT__LAST_CHANGED_BY;
+    public static final readonly int SNAPSHOT__LAST_CHANGED_ON;
+    public static final readonly int SNAPSHOT__MAX_VERSION_ID;
+    public static final readonly int SNAPSHOT__NAME;
+    public static final readonly int SNAPSHOT__PARENT;
+    public static final readonly int SNAPSHOT__READABLE_VERSION;
+    public static final readonly int SNAPSHOT__TYPE;
+    public static final readonly int SNAPSHOT__UUID;
+    public static final readonly int SYSTEM_LOCK;
+    public static final readonly int SYSTEM_LOCK_FEATURE_COUNT;
+    public static final readonly int SYSTEM_LOCK__BRANCH;
+    public static final readonly int SYSTEM_LOCK__ELEMENT_ID;
+    public static final readonly int SYSTEM_LOCK__ELEMENT_TYPE;
+    public static final readonly int SYSTEM_LOCK__TOGGLE;
+    public static final readonly int SYSTEM_LOCK__TYPE;
+    public static final readonly int TAG;
+    public static final readonly int TAG_FEATURE_COUNT;
+    public static final readonly int TAG__NAME;
+    public static final readonly int TAG__TYPE;
+    public static final readonly int TAG__VALUE;
+    public static final readonly int TASK;
+    public static final readonly int TASK_FEATURE_COUNT;
+    public static final readonly int TASK__DOCUMENTATION;
+    public static final readonly int TASK__FINAL_ACTIONS;
+    public static final readonly int TASK__INITIAL_ACTIONS;
+    public static final readonly int TASK__NAME;
+    public static final readonly int TASK__TYPE;
+    public static final readonly int TECHNICAL_RULE;
+    public static final readonly int TECHNICAL_RULE_FEATURE_COUNT;
+    public static final readonly int TECHNICAL_RULE__ACTIVE;
+    public static final readonly int TECHNICAL_RULE__CREATED_BY;
+    public static final readonly int TECHNICAL_RULE__CREATED_ON;
+    public static final readonly int TECHNICAL_RULE__DEFINITION;
+    public static final readonly int TECHNICAL_RULE__DOCUMENTATION;
+    public static final readonly int TECHNICAL_RULE__GROUP;
+    public static final readonly int TECHNICAL_RULE__IMPORTS;
+    public static final readonly int TECHNICAL_RULE__LAST_CHANGED_BY;
+    public static final readonly int TECHNICAL_RULE__LAST_CHANGED_ON;
+    public static final readonly int TECHNICAL_RULE__NAME;
+    public static final readonly int TECHNICAL_RULE__OVERRIDDEN_RULES;
+    public static final readonly int TECHNICAL_RULE__PRIORITY;
+    public static final readonly int TECHNICAL_RULE__PROJECT;
+    public static final readonly int TECHNICAL_RULE__RULE_PACKAGE;
+    public static final readonly int TECHNICAL_RULE__TAGS;
+    public static final readonly int TECHNICAL_RULE__TYPE;
+    public static final readonly int TECHNICAL_RULE__UUID;
+    public static final readonly int TEMPLATE;
+    public static final readonly int TEMPLATE_FEATURE_COUNT;
+    public static final readonly int TEMPLATE__CREATED_BY;
+    public static final readonly int TEMPLATE__CREATED_ON;
+    public static final readonly int TEMPLATE__DEFINITION;
+    public static final readonly int TEMPLATE__DEFINITION_INFO;
+    public static final readonly int TEMPLATE__DOCUMENTATION;
+    public static final readonly int TEMPLATE__GROUP;
+    public static final readonly int TEMPLATE__INITIAL_VALUES;
+    public static final readonly int TEMPLATE__LAST_CHANGED_BY;
+    public static final readonly int TEMPLATE__LAST_CHANGED_ON;
+    public static final readonly int TEMPLATE__LOCALE;
+    public static final readonly int TEMPLATE__NAME;
+    public static final readonly int TEMPLATE__PROJECT;
+    public static final readonly int TEMPLATE__RULE_PACKAGE;
+    public static final readonly int TEMPLATE__RULE_TYPE;
+    public static final readonly int TEMPLATE__TYPE;
+    public static final readonly int TEMPLATE__UUID;
+    public static final readonly int TEST_REPORT;
+    public static final readonly int TEST_REPORT_FEATURE_COUNT;
+    public static final readonly int TEST_REPORT__ERROR_CAUSE;
+    public static final readonly int TEST_REPORT__ERROR_MESSAGE;
+    public static final readonly int TEST_REPORT__EXPECTED_VALUES;
+    public static final readonly int TEST_REPORT__HIGHLIGHT;
+    public static final readonly int TEST_REPORT__MESSAGE;
+    public static final readonly int TEST_REPORT__NAME;
+    public static final readonly int TEST_REPORT__OBSERVED_VALUES;
+    public static final readonly int TEST_REPORT__SCENARIO_TEST_REPORT_INDEX;
+    public static final readonly int TEST_REPORT__STATUS;
+    public static final readonly int TEST_REPORT__TYPE;
+    public static final readonly int TEST_SUITE;
+    public static final readonly int TEST_SUITE_FEATURE_COUNT;
+    public static final readonly int TEST_SUITE__CREATED_BY;
+    public static final readonly int TEST_SUITE__CREATED_ON;
+    public static final readonly int TEST_SUITE__DOCUMENTATION;
+    public static final readonly int TEST_SUITE__ENTRY_POINT;
+    public static final readonly int TEST_SUITE__FORMAT;
+    public static final readonly int TEST_SUITE__GROUP;
+    public static final readonly int TEST_SUITE__LAST_CHANGED_BY;
+    public static final readonly int TEST_SUITE__LAST_CHANGED_ON;
+    public static final readonly int TEST_SUITE__NAME;
+    public static final readonly int TEST_SUITE__PROJECT;
+    public static final readonly int TEST_SUITE__RESOURCES;
+    public static final readonly int TEST_SUITE__RULE_PACKAGE;
+    public static final readonly int TEST_SUITE__TEST_BASELINE;
+    public static final readonly int TEST_SUITE__TEST_EXTRACTOR;
+    public static final readonly int TEST_SUITE__TYPE;
+    public static final readonly int TEST_SUITE__UUID;
+    public static final readonly int TEXT;
+    public static final readonly int TIMESTAMP_BSLN;
+    public static final readonly int TIMESTAMP_BSLN_FEATURE_COUNT;
+    public static final readonly int TIMESTAMP_BSLN__BASELINE_KIND;
+    public static final readonly int TIMESTAMP_BSLN__CREATED_BY;
+    public static final readonly int TIMESTAMP_BSLN__CREATED_ON;
+    public static final readonly int TIMESTAMP_BSLN__DEP_NAME;
+    public static final readonly int TIMESTAMP_BSLN__DOCUMENTATION;
+    public static final readonly int TIMESTAMP_BSLN__EVENT_ID_STRING;
+    public static final readonly int TIMESTAMP_BSLN__FROZEN;
+    public static final readonly int TIMESTAMP_BSLN__LAST_CHANGED_BY;
+    public static final readonly int TIMESTAMP_BSLN__LAST_CHANGED_ON;
+    public static final readonly int TIMESTAMP_BSLN__MAX_VERSION_ID;
+    public static final readonly int TIMESTAMP_BSLN__NAME;
+    public static final readonly int TIMESTAMP_BSLN__PARENT;
+    public static final readonly int TIMESTAMP_BSLN__READABLE_VERSION;
+    public static final readonly int TIMESTAMP_BSLN__TYPE;
+    public static final readonly int TIMESTAMP_BSLN__UUID;
+    public static final readonly int TYPED_ELEMENT;
+    public static final readonly int TYPED_ELEMENT_FEATURE_COUNT;
+    public static final readonly int TYPED_ELEMENT__BOM_TYPE;
+    public static final readonly int TYPED_ELEMENT__INITIAL_VALUE;
+    public static final readonly int TYPED_ELEMENT__NAME;
+    public static final readonly int TYPED_ELEMENT__TYPE;
+    public static final readonly int TYPED_ELEMENT__VERBALIZATION;
+    public static final readonly int UPDATE_TYPE_KIND;
+    public static final readonly int URL;
+    public static final readonly int USER_SETTING;
+    public static final readonly int USER_SETTING_FEATURE_COUNT;
+    public static final readonly int USER_SETTING__KEY;
+    public static final readonly int USER_SETTING__TYPE;
+    public static final readonly int USER_SETTING__USER_NAME;
+    public static final readonly int USER_SETTING__VALUE;
+    public static final readonly int VALIDATION_ACT;
+    public static final readonly int VALIDATION_ACT_FEATURE_COUNT;
+    public static final readonly int VALIDATION_ACT__APPROVERS;
+    public static final readonly int VALIDATION_ACT__AUTHORS;
+    public static final readonly int VALIDATION_ACT__BASELINE_KIND;
+    public static final readonly int VALIDATION_ACT__CREATED_BY;
+    public static final readonly int VALIDATION_ACT__CREATED_ON;
+    public static final readonly int VALIDATION_ACT__DEP_NAME;
+    public static final readonly int VALIDATION_ACT__DOCUMENTATION;
+    public static final readonly int VALIDATION_ACT__EVENT_ID_STRING;
+    public static final readonly int VALIDATION_ACT__FROZEN;
+    public static final readonly int VALIDATION_ACT__GROUPS;
+    public static final readonly int VALIDATION_ACT__LAST_CHANGED_BY;
+    public static final readonly int VALIDATION_ACT__LAST_CHANGED_ON;
+    public static final readonly int VALIDATION_ACT__MAX_VERSION_ID;
+    public static final readonly int VALIDATION_ACT__NAME;
+    public static final readonly int VALIDATION_ACT__OWNER;
+    public static final readonly int VALIDATION_ACT__PARENT;
+    public static final readonly int VALIDATION_ACT__READABLE_VERSION;
+    public static final readonly int VALIDATION_ACT__SECURITY_ENFORCED;
+    public static final readonly int VALIDATION_ACT__SECURITY_INHERITED;
+    public static final readonly int VALIDATION_ACT__STATUS;
+    public static final readonly int VALIDATION_ACT__TARGET_DATE;
+    public static final readonly int VALIDATION_ACT__TYPE;
+    public static final readonly int VALIDATION_ACT__UUID;
+    public static final readonly int VARIABLE;
+    public static final readonly int VARIABLE_FEATURE_COUNT;
+    public static final readonly int VARIABLE_SET;
+    public static final readonly int VARIABLE_SET_FEATURE_COUNT;
+    public static final readonly int VARIABLE_SET__CREATED_BY;
+    public static final readonly int VARIABLE_SET__CREATED_ON;
+    public static final readonly int VARIABLE_SET__DOCUMENTATION;
+    public static final readonly int VARIABLE_SET__GROUP;
+    public static final readonly int VARIABLE_SET__LAST_CHANGED_BY;
+    public static final readonly int VARIABLE_SET__LAST_CHANGED_ON;
+    public static final readonly int VARIABLE_SET__NAME;
+    public static final readonly int VARIABLE_SET__PROJECT;
+    public static final readonly int VARIABLE_SET__RULE_PACKAGE;
+    public static final readonly int VARIABLE_SET__TYPE;
+    public static final readonly int VARIABLE_SET__UUID;
+    public static final readonly int VARIABLE_SET__VARIABLES;
+    public static final readonly int VARIABLE__BOM_TYPE;
+    public static final readonly int VARIABLE__INITIAL_VALUE;
+    public static final readonly int VARIABLE__NAME;
+    public static final readonly int VARIABLE__TYPE;
+    public static final readonly int VARIABLE__VERBALIZATION;
+    public static final readonly int VOCABULARY;
+    public static final readonly int VOCABULARY_FEATURE_COUNT;
+    public static final readonly int VOCABULARY__BODY;
+    public static final readonly int VOCABULARY__CREATED_BY;
+    public static final readonly int VOCABULARY__CREATED_ON;
+    public static final readonly int VOCABULARY__DOCUMENTATION;
+    public static final readonly int VOCABULARY__GROUP;
+    public static final readonly int VOCABULARY__LAST_CHANGED_BY;
+    public static final readonly int VOCABULARY__LAST_CHANGED_ON;
+    public static final readonly int VOCABULARY__LOCALE;
+    public static final readonly int VOCABULARY__NAME;
+    public static final readonly int VOCABULARY__PROJECT;
+    public static final readonly int VOCABULARY__RULE_PACKAGE;
+    public static final readonly int VOCABULARY__TYPE;
+    public static final readonly int VOCABULARY__UUID;
+    public readonly abstract org.eclipse.emf.ecore.EClass abstractQuery;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute abstractQuery_Definition;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute abstractQuery_IncludeDependencies;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute abstractQuery_Locale;
+    public readonly abstract org.eclipse.emf.ecore.EClass action;
+    public readonly abstract org.eclipse.emf.ecore.EClass actionObject;
+    public readonly abstract org.eclipse.emf.ecore.EClass actionRule;
+    public readonly abstract org.eclipse.emf.ecore.EClass activity;
+    public readonly abstract org.eclipse.emf.ecore.EClass activityComment;
+    public readonly abstract org.eclipse.emf.ecore.EClass activityCommentAccess;
+    public readonly abstract org.eclipse.emf.ecore.EReference activityCommentAccess_Branch;
+    public readonly abstract org.eclipse.emf.ecore.EReference activityCommentAccess_Project;
+    public readonly abstract org.eclipse.emf.ecore.EClass activityCommentAttachment;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityCommentAttachment_ContentType;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityCommentAttachment_Data;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityCommentAttachment_Name;
+    public readonly abstract org.eclipse.emf.ecore.EClass activityCommentEvent;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityCommentEvent_AdditionalDetails;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityCommentEvent_ForUser;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityCommentEvent_MajorVersion;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityCommentEvent_MinorVersion;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityCommentEvent_NewDate;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityCommentEvent_NewDesc;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityCommentEvent_NewProperty;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityCommentEvent_OldDate;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityCommentEvent_OldDesc;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityCommentEvent_OldName;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityCommentEvent_OldProperty;
+    public readonly abstract org.eclipse.emf.ecore.EReference activityCommentEvent_SourceBranch;
+    public readonly abstract org.eclipse.emf.ecore.EReference activityCommentEvent_SourceRuleProject;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityCommentEvent_UpdateType;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityCommentEvent_VersionComment;
+    public readonly abstract org.eclipse.emf.ecore.EClass activityCommentLink;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityCommentLink_Url;
+    public readonly abstract org.eclipse.emf.ecore.EReference activityComment_Baseline;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityComment_SourceArtifact;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityComment_SourceArtifactId;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityComment_SourceArtifactType;
+    public readonly abstract org.eclipse.emf.ecore.EReference activityComment_SourceRuleArtifact;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityComment_SourceRuleArtifactId;
+    public readonly abstract org.eclipse.emf.ecore.EClass activityLock;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityLock_EltBaseType;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityLock_EltName;
+    public readonly abstract org.eclipse.emf.ecore.EReference activityLock_EltPackage;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityLock_JustifyingVId;
+    public readonly abstract org.eclipse.emf.ecore.EReference activityLock_Owner;
+    public readonly abstract org.eclipse.emf.ecore.EClass activitySubscription;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activitySubscription_SourceArtifact;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activitySubscription_SourceArtifactType;
+    public readonly abstract org.eclipse.emf.ecore.EReference activitySubscription_SourceBranch;
+    public readonly abstract org.eclipse.emf.ecore.EReference activitySubscription_SourceRuleArtifact;
+    public readonly abstract org.eclipse.emf.ecore.EReference activitySubscription_SourceRuleProject;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activitySubscription_Username;
+    public readonly abstract org.eclipse.emf.ecore.EClass activityUserComment;
+    public readonly abstract org.eclipse.emf.ecore.EReference activityUserComment_Attachments;
+    public readonly abstract org.eclipse.emf.ecore.EReference activityUserComment_Links;
+    public readonly abstract org.eclipse.emf.ecore.EReference activityUserComment_Parent;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activityUserComment_Text;
+    public readonly abstract org.eclipse.emf.ecore.EReference activityUserComment_Visibility;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute activity_Authors;
+    public readonly abstract org.eclipse.emf.ecore.EEnum algorithmKind;
+    public readonly abstract org.eclipse.emf.ecore.EClass argument;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute argument_ArgumentType;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute argument_Name;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute argument_Order;
+    public readonly abstract org.eclipse.emf.ecore.EClass baseline;
+    public readonly abstract org.eclipse.emf.ecore.EEnum baselineKind;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute baseline_BaselineKind;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute baseline_DepName;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute baseline_Documentation;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute baseline_EventIdString;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute baseline_Frozen;
+    public readonly abstract org.eclipse.emf.ecore.EReference baseline_Parent;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute baseline_ReadableVersion;
+    public readonly abstract org.eclipse.emf.ecore.EClass basicLock;
+    public readonly abstract org.eclipse.emf.ecore.EReference basicLock_Branch;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute basicLock_ElementId;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute basicLock_ElementType;
+    public readonly abstract org.eclipse.emf.ecore.EClass basicModelElement;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute basicModelElement_CreatedBy;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute basicModelElement_CreatedOn;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute basicModelElement_LastChangedBy;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute basicModelElement_LastChangedOn;
+    public readonly abstract org.eclipse.emf.ecore.EClass branch;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute branch_Groups;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute branch_SecurityEnforced;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute branch_SecurityInherited;
+    public readonly abstract ilog.rules.teamserver.brm.IlrBrmFactory brmFactory;
+    public readonly abstract org.eclipse.emf.ecore.EClass businessObject;
+    public readonly abstract org.eclipse.emf.ecore.EClass businessRule;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute businessRule_Categories;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute businessRule_Locale;
+    public readonly abstract org.eclipse.emf.ecore.EReference businessRule_Template;
+    public readonly abstract org.eclipse.emf.ecore.EClass changeAct;
+    public readonly abstract org.eclipse.emf.ecore.EClass chart;
+    public readonly abstract org.eclipse.emf.ecore.EClass connectionEntry;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute connectionEntry_BaseType;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute connectionEntry_Branch;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute connectionEntry_EntryType;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute connectionEntry_LocalChecksum;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute connectionEntry_QualifiedName;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute connectionEntry_RemoteChecksum;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute connectionEntry_Url;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute connectionEntry_Uuid;
+    public readonly abstract org.eclipse.emf.ecore.EClass dataConnection;
+    public readonly abstract org.eclipse.emf.ecore.EDataType date;
+    public readonly abstract org.eclipse.emf.ecore.EClass decisionTable;
+    public readonly abstract org.eclipse.emf.ecore.EClass decisionTree;
+    public readonly abstract org.eclipse.emf.ecore.EClass definition;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute definition_Body;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute definition_Info;
+    public readonly abstract org.eclipse.emf.ecore.EClass dependency;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute dependency_BaselineName;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute dependency_ProjectName;
+    public readonly abstract org.eclipse.emf.ecore.EEnum directionKind;
+    public static final readonly string eNAME;
+    public static final readonly string eNS_PREFIX;
+    public static final readonly string eNS_URI;
+    public readonly abstract org.eclipse.emf.ecore.EClass element;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute element_Type;
+    public readonly abstract org.eclipse.emf.ecore.EClass event;
+    public readonly abstract org.eclipse.emf.ecore.EClass eventArtifact;
+    public readonly abstract org.eclipse.emf.ecore.EClass eventElement;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute eventElement_Body;
+    public readonly abstract org.eclipse.emf.ecore.EClass eventFlow;
+    public readonly abstract org.eclipse.emf.ecore.EClass eventObject;
+    public readonly abstract org.eclipse.emf.ecore.EClass eventObjectArtifact;
+    public readonly abstract org.eclipse.emf.ecore.EClass eventRule;
+    public readonly abstract org.eclipse.emf.ecore.EClass eventRuleArtifact;
+    public readonly abstract org.eclipse.emf.ecore.EClass eventRuleGroup;
+    public readonly abstract org.eclipse.emf.ecore.EEnum exitCriteriaKind;
+    public readonly abstract org.eclipse.emf.ecore.EClass extractor;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute extractor_Name;
+    public readonly abstract org.eclipse.emf.ecore.EReference extractor_Query;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute extractor_Validator;
+    public readonly abstract org.eclipse.emf.ecore.EClass file;
+    public readonly abstract org.eclipse.emf.ecore.EClass filter;
+    public readonly abstract org.eclipse.emf.ecore.EClass function;
+    public readonly abstract org.eclipse.emf.ecore.EClass functionTask;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute functionTask_Definition;
+    public readonly abstract org.eclipse.emf.ecore.EReference function_Arguments;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute function_Imports;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute function_ReturnType;
+    public readonly abstract org.eclipse.emf.ecore.EClass hierarchy;
+    public readonly abstract org.eclipse.emf.ecore.EReference hierarchy_Parent;
+    public readonly abstract org.eclipse.emf.ecore.EClass initialValue;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute initialValue_Name;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute initialValue_Value;
+    public readonly abstract org.eclipse.emf.ecore.EClass lock;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute lock_Owner;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute lock_Persistent;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute lock_RootLockId;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute lock_SessionId;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute lock_System;
+    public readonly abstract org.eclipse.emf.ecore.EClass managedBranch;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute managedBranch_Approvers;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute managedBranch_Owner;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute managedBranch_Status;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute managedBranch_TargetDate;
+    public readonly abstract org.eclipse.emf.ecore.EClass mergeReport;
+    public readonly abstract org.eclipse.emf.ecore.EReference mergeReport_Project;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute mergeReport_SourceBranch;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute mergeReport_TargetBranch;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute mergeReport_Value;
+    public readonly abstract org.eclipse.emf.ecore.EClass messageMap;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute messageMap_Body;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute messageMap_Locale;
+    public readonly abstract org.eclipse.emf.ecore.EClass modelElement;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute modelElement_CreatedBy;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute modelElement_CreatedOn;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute modelElement_LastChangedBy;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute modelElement_LastChangedOn;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute modelElement_Name;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute modelElement_Uuid;
+    public readonly abstract org.eclipse.emf.ecore.EClass namedConstant;
+    public readonly abstract org.eclipse.emf.ecore.EEnum namedConstantType;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute namedConstant_Value;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute namedConstant_ValueType;
+    public readonly abstract org.eclipse.emf.ecore.EEnum orderingKind;
+    public readonly abstract org.eclipse.emf.ecore.EClass overriddenRule;
+    public readonly abstract org.eclipse.emf.ecore.EReference overriddenRule_Rule;
+    public readonly abstract org.eclipse.emf.ecore.EClass packageElement;
+    public readonly abstract org.eclipse.emf.ecore.EReference packageElement_RulePackage;
+    public readonly abstract org.eclipse.emf.ecore.EEnum packageKind;
+    public readonly abstract org.eclipse.emf.ecore.EClass parameter;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute parameter_Direction;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute parameter_Order;
+    public readonly abstract org.eclipse.emf.ecore.EClass profile;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute profile_Picture;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute profile_UserId;
+    public readonly abstract org.eclipse.emf.ecore.EClass projectBOMEntry;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute projectBOMEntry_ProjectName;
+    public readonly abstract org.eclipse.emf.ecore.EClass projectElement;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute projectElement_Documentation;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute projectElement_Group;
+    public readonly abstract org.eclipse.emf.ecore.EReference projectElement_Project;
+    public readonly abstract org.eclipse.emf.ecore.EClass projectInfo;
+    public readonly abstract org.eclipse.emf.ecore.EReference projectInfo_Baseline;
+    public readonly abstract org.eclipse.emf.ecore.EReference projectInfo_BomPathEntries;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute projectInfo_BuildMode;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute projectInfo_Categories;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute projectInfo_ConfigFile;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute projectInfo_DecisionService;
+    public readonly abstract org.eclipse.emf.ecore.EReference projectInfo_Dependencies;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute projectInfo_DynamicXOM;
+    public readonly abstract org.eclipse.emf.ecore.EReference projectInfo_Extractors;
+    public readonly abstract org.eclipse.emf.ecore.EReference projectInfo_Messages;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute projectInfo_MigratedToOperationId;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute projectInfo_MigrationFlag;
+    public readonly abstract org.eclipse.emf.ecore.EReference projectInfo_Parameters;
+    public readonly abstract org.eclipse.emf.ecore.EReference projectInfo_Project;
+    public readonly abstract org.eclipse.emf.ecore.EReference projectInfo_RulesetProperties;
+    public readonly abstract org.eclipse.emf.ecore.EReference projectInfo_Schemas;
+    public readonly abstract org.eclipse.emf.ecore.EReference projectInfo_Tags;
+    public readonly abstract org.eclipse.emf.ecore.EClass proxy;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute proxy_DestName;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute proxy_DestUuid;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute proxy_Reference;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute proxy_SourceUuid;
+    public readonly abstract org.eclipse.emf.ecore.EClass query;
+    public readonly abstract org.eclipse.emf.ecore.EClass referencingBsln;
+    public readonly abstract org.eclipse.emf.ecore.EReference referencingBsln_RuleApp;
+    public readonly abstract org.eclipse.emf.ecore.EReference referencingBsln_Ruleset;
+    public readonly abstract org.eclipse.emf.ecore.EClass release;
+    public readonly abstract org.eclipse.emf.ecore.EEnum reportStatusKind;
+    public readonly abstract org.eclipse.emf.ecore.EClass resource;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute resource_Body;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute resource_Extension;
+    public readonly abstract org.eclipse.emf.ecore.EClass rule;
+    public readonly abstract org.eclipse.emf.ecore.EClass ruleApp;
+    public readonly abstract org.eclipse.emf.ecore.EClass ruleAppProperty;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleApp_DeployedBaselines;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleApp_Description;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleApp_DisplayName;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleApp_Major;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleApp_Minor;
+    public readonly abstract org.eclipse.emf.ecore.EReference ruleApp_Rulesets;
+    public readonly abstract org.eclipse.emf.ecore.EReference ruleApp_Tags;
+    public readonly abstract org.eclipse.emf.ecore.EClass ruleArtifact;
+    public readonly abstract org.eclipse.emf.ecore.EClass ruleArtifactTag;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleArtifact_Active;
+    public readonly abstract org.eclipse.emf.ecore.EReference ruleArtifact_Definition;
+    public readonly abstract org.eclipse.emf.ecore.EReference ruleArtifact_Tags;
+    public readonly abstract org.eclipse.emf.ecore.EClass rulePackage;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute rulePackage_PackageKind;
+    public readonly abstract org.eclipse.emf.ecore.EReference rulePackage_Parent;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute rulePackage_RuleOrder;
+    public readonly abstract org.eclipse.emf.ecore.EClass ruleProject;
+    public readonly abstract org.eclipse.emf.ecore.EClass ruleProjectTag;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleProject_AdvancedProperties;
+    public readonly abstract org.eclipse.emf.ecore.EReference ruleProject_Baselines;
+    public readonly abstract org.eclipse.emf.ecore.EReference ruleProject_ConnectionEntries;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleProject_DecisionService;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleProject_Description;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleProject_Platform;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleProject_Version;
+    public readonly abstract org.eclipse.emf.ecore.EClass ruleTask;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleTask_AdvancedProperties;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleTask_Algorithm;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleTask_Dynamic;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleTask_ExitCriteria;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleTask_Ordering;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleTask_Select;
+    public readonly abstract org.eclipse.emf.ecore.EReference rule_OverriddenRules;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute rule_Priority;
+    public readonly abstract org.eclipse.emf.ecore.EClass ruleflow;
+    public readonly abstract org.eclipse.emf.ecore.EClass ruleflowTag;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleflow_Body;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleflow_Diagram;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleflow_FinalActions;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleflow_Imports;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleflow_InitialActions;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleflow_Locale;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleflow_MainFlowTask;
+    public readonly abstract org.eclipse.emf.ecore.EReference ruleflow_Scopes;
+    public readonly abstract org.eclipse.emf.ecore.EReference ruleflow_Tags;
+    public readonly abstract org.eclipse.emf.ecore.EReference ruleflow_Tasks;
+    public readonly abstract org.eclipse.emf.ecore.EClass ruleset;
+    public readonly abstract org.eclipse.emf.ecore.EClass rulesetProperty;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute rulesetProperty_Key;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute rulesetProperty_Value;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleset_Baseline;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleset_Debug;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleset_Description;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleset_DisplayName;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleset_Enabled;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleset_Extractor;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleset_Major;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleset_Minor;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleset_Name;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleset_Project;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleset_RulesetProperties;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute ruleset_Url;
+    public readonly abstract org.eclipse.emf.ecore.EClass scenarioSuite;
+    public readonly abstract org.eclipse.emf.ecore.EClass scenarioSuiteKPIReport;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuiteKPIReport_Data;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuiteKPIReport_Index;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuiteKPIReport_KpiClassName;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuiteKPIReport_KpiResultClassName;
+    public readonly abstract org.eclipse.emf.ecore.EClass scenarioSuiteReport;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuiteReport_ArchiveErrors;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuiteReport_ArchiveWarnings;
+    public readonly abstract org.eclipse.emf.ecore.EReference scenarioSuiteReport_Branch;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuiteReport_ExecutedBy;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuiteReport_NbErrors;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuiteReport_NbFailures;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuiteReport_NbScenarios;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuiteReport_Options;
+    public readonly abstract org.eclipse.emf.ecore.EReference scenarioSuiteReport_Project;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuiteReport_RunBaseline;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuiteReport_ScenarioSuiteFQN;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuiteReport_ScenarioSuiteID;
+    public readonly abstract org.eclipse.emf.ecore.EReference scenarioSuiteReport_ScenarioSuiteKPIReports;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuiteReport_ScenarioSuiteOID;
+    public readonly abstract org.eclipse.emf.ecore.EReference scenarioSuiteReport_ScenarioTestReports;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuiteReport_ServerName;
+    public readonly abstract org.eclipse.emf.ecore.EReference scenarioSuiteReport_TestReports;
+    public readonly abstract org.eclipse.emf.ecore.EClass scenarioSuiteResource;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuiteResource_Key;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuiteResource_Value;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuite_EntryPoint;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuite_Format;
+    public readonly abstract org.eclipse.emf.ecore.EReference scenarioSuite_Resources;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuite_TestBaseline;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioSuite_TestExtractor;
+    public readonly abstract org.eclipse.emf.ecore.EClass scenarioTestReport;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioTestReport_ErrorCause;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioTestReport_ErrorMessage;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioTestReport_ExecutionID;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioTestReport_Index;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioTestReport_Name;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioTestReport_NbErrors;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioTestReport_NbFailures;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioTestReport_NbTests;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scenarioTestReport_Status;
+    public readonly abstract org.eclipse.emf.ecore.EClass schema;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute schema_Body;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute schema_Location;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute schema_Namespace;
+    public readonly abstract org.eclipse.emf.ecore.EClass scopeElement;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scopeElement_Order;
+    public readonly abstract org.eclipse.emf.ecore.EReference scopeElement_Rule;
+    public readonly abstract org.eclipse.emf.ecore.EReference scopeElement_RulePackage;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute scopeElement_RuleTaskName;
+    public readonly abstract org.eclipse.emf.ecore.EClass server;
+    public readonly abstract org.eclipse.emf.ecore.EEnum serverKind;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute server_Description;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute server_LoginServer;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute server_Password;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute server_ServerKind;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute server_Url;
+    public readonly abstract org.eclipse.emf.ecore.EClass simulation;
+    public readonly abstract org.eclipse.emf.ecore.EClass smartView;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute smartView_PropertyPath;
+    public readonly abstract org.eclipse.emf.ecore.EClass snapshot;
+    public readonly abstract org.eclipse.emf.ecore.EClass systemLock;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute systemLock_Toggle;
+    public readonly abstract org.eclipse.emf.ecore.EClass tag;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute tag_Name;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute tag_Value;
+    public readonly abstract org.eclipse.emf.ecore.EClass task;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute task_Documentation;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute task_FinalActions;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute task_InitialActions;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute task_Name;
+    public readonly abstract org.eclipse.emf.ecore.EClass technicalRule;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute technicalRule_Imports;
+    public readonly abstract org.eclipse.emf.ecore.EClass template;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute template_Definition;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute template_DefinitionInfo;
+    public readonly abstract org.eclipse.emf.ecore.EReference template_InitialValues;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute template_Locale;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute template_RuleType;
+    public readonly abstract org.eclipse.emf.ecore.EClass testReport;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute testReport_ErrorCause;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute testReport_ErrorMessage;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute testReport_ExpectedValues;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute testReport_Highlight;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute testReport_Message;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute testReport_Name;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute testReport_ObservedValues;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute testReport_ScenarioTestReportIndex;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute testReport_Status;
+    public readonly abstract org.eclipse.emf.ecore.EClass testSuite;
+    public readonly abstract org.eclipse.emf.ecore.EDataType text;
+    public readonly abstract org.eclipse.emf.ecore.EClass timestampBsln;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute timestampBsln_MaxVersionId;
+    public readonly abstract org.eclipse.emf.ecore.EClass typedElement;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute typedElement_BomType;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute typedElement_InitialValue;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute typedElement_Name;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute typedElement_Verbalization;
+    public readonly abstract org.eclipse.emf.ecore.EEnum updateTypeKind;
+    public readonly abstract org.eclipse.emf.ecore.EDataType url;
+    public readonly abstract org.eclipse.emf.ecore.EClass userSetting;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute userSetting_Key;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute userSetting_UserName;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute userSetting_Value;
+    public readonly abstract org.eclipse.emf.ecore.EClass validationAct;
+    public readonly abstract org.eclipse.emf.ecore.EClass variable;
+    public readonly abstract org.eclipse.emf.ecore.EClass variableSet;
+    public readonly abstract org.eclipse.emf.ecore.EReference variableSet_Variables;
+    public readonly abstract org.eclipse.emf.ecore.EClass vocabulary;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute vocabulary_Body;
+    public readonly abstract org.eclipse.emf.ecore.EAttribute vocabulary_Locale;
+}
+
+public interface IlrBusinessObject
+        extends ilog.rules.teamserver.brm.IlrEventObjectArtifact
+{
+}
+
+public interface IlrBusinessRule
+        extends ilog.rules.teamserver.brm.IlrRule
+{
+    public readonly abstract java.util.List categories domain 0,*;
+    public readonly abstract java.util.Set categoryFilter domain 0,*;
+    public readonly abstract string locale;
+    public readonly abstract ilog.rules.teamserver.brm.IlrTemplate template;
+}
+
+public interface IlrChangeAct
+        extends ilog.rules.teamserver.brm.IlrActivity
+{
+}
+
+public interface IlrChart
+        extends ilog.rules.teamserver.brm.IlrEventElement
+{
+}
+
+public interface IlrConnectionEntry
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract string baseType;
+    public readonly abstract string branch;
+    public readonly abstract string entryType;
+    public readonly abstract string localChecksum;
+    public readonly abstract string qualifiedName;
+    public readonly abstract string remoteChecksum;
+    public readonly abstract string url;
+    public readonly abstract string uuid;
+}
+
+public interface IlrDataConnection
+        extends ilog.rules.teamserver.brm.IlrEventElement
+{
+}
+
+public interface IlrDecisionTable
+        extends ilog.rules.teamserver.brm.IlrBusinessRule
+{
+}
+
+public interface IlrDecisionTree
+        extends ilog.rules.teamserver.brm.IlrBusinessRule
+{
+}
+
+public interface IlrDefinition
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract string body;
+    public readonly abstract string info;
+}
+
+public interface IlrDependency
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public abstract string baselineName;
+    public abstract string projectName;
+}
+
+public final class IlrDirectionKind
+        extends org.eclipse.emf.common.util.AbstractEnumerator
+{
+    domain {static IN_LITERAL, static OUT_LITERAL, static INOUT_LITERAL}
+    public static final readonly int IN;
+    public static final readonly int INOUT;
+    public static final readonly ilog.rules.teamserver.brm.IlrDirectionKind INOUT_LITERAL;
+    public static final readonly ilog.rules.teamserver.brm.IlrDirectionKind IN_LITERAL;
+    public static final readonly int OUT;
+    public static final readonly ilog.rules.teamserver.brm.IlrDirectionKind OUT_LITERAL;
+    public static final readonly java.util.List VALUES domain 0,*;
+    public static ilog.rules.teamserver.brm.IlrDirectionKind get(string arg);
+    public static ilog.rules.teamserver.brm.IlrDirectionKind get(int arg);
+}
+
+public class IlrElement
+{
+    public IlrElement();
+}
+
+public interface IlrEvent
+        extends ilog.rules.teamserver.brm.IlrEventElement
+{
+}
+
+public interface IlrEventArtifact
+        extends ilog.rules.teamserver.brm.IlrEventElement
+{
+}
+
+public interface IlrEventElement
+        extends ilog.rules.teamserver.brm.IlrPackageElement
+{
+    public readonly abstract string body;
+}
+
+public interface IlrEventFlow
+        extends ilog.rules.teamserver.brm.IlrEventElement
+{
+}
+
+public interface IlrEventObject
+        extends ilog.rules.teamserver.brm.IlrEventObjectArtifact
+{
+}
+
+public interface IlrEventObjectArtifact
+        extends ilog.rules.teamserver.brm.IlrEventElement
+{
+}
+
+public interface IlrEventRule
+        extends ilog.rules.teamserver.brm.IlrEventRuleArtifact
+{
+}
+
+public interface IlrEventRuleArtifact
+        extends ilog.rules.teamserver.brm.IlrEventArtifact
+{
+}
+
+public interface IlrEventRuleGroup
+        extends ilog.rules.teamserver.brm.IlrEventRuleArtifact
+{
+}
+
+public final class IlrExitCriteriaKind
+        extends org.eclipse.emf.common.util.AbstractEnumerator
+{
+    domain {static NONE_LITERAL, static RULE_LITERAL, static RULEINSTANCE_LITERAL}
+    public static final readonly int NONE;
+    public static final readonly ilog.rules.teamserver.brm.IlrExitCriteriaKind NONE_LITERAL;
+    public static final readonly int RULE;
+    public static final readonly int RULEINSTANCE;
+    public static final readonly ilog.rules.teamserver.brm.IlrExitCriteriaKind RULEINSTANCE_LITERAL;
+    public static final readonly ilog.rules.teamserver.brm.IlrExitCriteriaKind RULE_LITERAL;
+    public static final readonly java.util.List VALUES domain 0,*;
+    public static ilog.rules.teamserver.brm.IlrExitCriteriaKind get(string arg);
+    public static ilog.rules.teamserver.brm.IlrExitCriteriaKind get(int arg);
+}
+
+public interface IlrExtractor
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public abstract string name;
+    public readonly abstract ilog.rules.teamserver.brm.IlrProjectInfo projectInfo;
+    public readonly abstract ilog.rules.teamserver.brm.IlrQuery query;
+    public abstract string validator;
+}
+
+public interface IlrFile
+        extends ilog.rules.teamserver.brm.IlrEventElement
+{
+}
+
+public interface IlrFilter
+        extends ilog.rules.teamserver.brm.IlrEventArtifact
+{
+}
+
+public interface IlrFunction
+        extends ilog.rules.teamserver.brm.IlrRuleArtifact
+{
+    public readonly abstract java.util.List arguments domain 0,*;
+    public readonly abstract java.util.List imports domain 0,*;
+    public readonly abstract string returnType;
+    public java.util.List getArguments(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+}
+
+public interface IlrFunctionTask
+        extends ilog.rules.teamserver.brm.IlrTask
+{
+    public readonly abstract string definition;
+}
+
+public interface IlrHierarchy
+        extends ilog.rules.teamserver.brm.IlrModelElement
+{
+    public readonly abstract ilog.rules.teamserver.brm.IlrHierarchy parent;
+}
+
+public interface IlrInitialValue
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract string name;
+    public readonly abstract string value;
+}
+
+public interface IlrLock
+        extends ilog.rules.teamserver.brm.IlrBasicLock
+{
+    public readonly abstract ilog.rules.teamserver.model.IlrElementHandle element;
+    public readonly abstract string owner;
+    public readonly abstract boolean persistent;
+    public readonly abstract int rootLockId;
+    public readonly abstract string sessionId;
+    public readonly abstract boolean system;
+}
+
+public interface IlrManagedBranch
+        extends ilog.rules.teamserver.brm.IlrBranch
+{
+    public readonly abstract java.util.List approvers domain 0,* class ilog.rules.teamserver.brm.Contributor;
+    public readonly abstract string owner;
+    public readonly abstract string status;
+    public readonly abstract java.util.Date targetDate;
+    public java.util.List getContributors(ilog.rules.teamserver.brm.Contributor.Role arg) domain 0,* class ilog.rules.teamserver.brm.Contributor;
+}
+
+public interface IlrMergeReport
+        extends ilog.rules.teamserver.brm.IlrModelElement
+{
+    public readonly abstract ilog.rules.teamserver.brm.IlrRuleProject project;
+    public readonly abstract string sourceBranch;
+    public readonly abstract string targetBranch;
+    public readonly abstract byte[] value;
+}
+
+public interface IlrMessageMap
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract string body;
+    public readonly abstract string locale;
+}
+
+public interface IlrModelElement
+        extends ilog.rules.teamserver.brm.IlrBasicModelElement
+{
+    public abstract string name;
+    public readonly abstract string uuid;
+}
+
+public interface IlrNamedConstant
+        extends ilog.rules.teamserver.brm.IlrEventElement
+{
+    public readonly abstract string value;
+    public readonly abstract ilog.rules.teamserver.brm.IlrNamedConstantType valueType;
+}
+
+public final class IlrNamedConstantType
+        extends org.eclipse.emf.common.util.AbstractEnumerator
+{
+    domain {static UNSPECIFIED_LITERAL, static STRING_LITERAL, static INTEGER_LITERAL, static REAL_LITERAL, static DATE_TIME_LITERAL, static BOOLEAN_LITERAL}
+    public static final readonly int BOOLEAN;
+    public static final readonly ilog.rules.teamserver.brm.IlrNamedConstantType BOOLEAN_LITERAL;
+    public static final readonly int DATE_TIME;
+    public static final readonly ilog.rules.teamserver.brm.IlrNamedConstantType DATE_TIME_LITERAL;
+    public static final readonly int INTEGER;
+    public static final readonly ilog.rules.teamserver.brm.IlrNamedConstantType INTEGER_LITERAL;
+    public static final readonly int REAL;
+    public static final readonly ilog.rules.teamserver.brm.IlrNamedConstantType REAL_LITERAL;
+    public static final readonly int STRING;
+    public static final readonly ilog.rules.teamserver.brm.IlrNamedConstantType STRING_LITERAL;
+    public static final readonly int UNSPECIFIED;
+    public static final readonly ilog.rules.teamserver.brm.IlrNamedConstantType UNSPECIFIED_LITERAL;
+    public static final readonly java.util.List VALUES domain 0,*;
+    public static ilog.rules.teamserver.brm.IlrNamedConstantType get(string arg);
+    public static ilog.rules.teamserver.brm.IlrNamedConstantType get(int arg);
+}
+
+public final class IlrOrderingKind
+        extends org.eclipse.emf.common.util.AbstractEnumerator
+{
+    domain {static DEFAULT_LITERAL, static LITERAL_LITERAL, static SORTED_LITERAL}
+    public static final readonly int DEFAULT;
+    public static final readonly ilog.rules.teamserver.brm.IlrOrderingKind DEFAULT_LITERAL;
+    public static final readonly int LITERAL;
+    public static final readonly ilog.rules.teamserver.brm.IlrOrderingKind LITERAL_LITERAL;
+    public static final readonly int SORTED;
+    public static final readonly ilog.rules.teamserver.brm.IlrOrderingKind SORTED_LITERAL;
+    public static final readonly java.util.List VALUES domain 0,*;
+    public static ilog.rules.teamserver.brm.IlrOrderingKind get(string arg);
+    public static ilog.rules.teamserver.brm.IlrOrderingKind get(int arg);
+}
+
+public interface IlrOverriddenRule
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract ilog.rules.teamserver.brm.IlrRule rule;
+}
+
+public interface IlrPackageElement
+        extends ilog.rules.teamserver.brm.IlrProjectElement
+{
+    public readonly abstract ilog.rules.teamserver.brm.IlrRulePackage rulePackage;
+}
+
+public final class IlrPackageKind
+        extends org.eclipse.emf.common.util.AbstractEnumerator
+{
+    domain 
+    {
+        static RULE_LITERAL,
+        static TEMPLATE_LITERAL,
+        static QUERY_LITERAL,
+        static RESOURCE_LITERAL,
+        static BOM_LITERAL,
+        static TESTING_LITERAL,
+        static EVENT_ARTIFACT_LITERAL,
+        static EVENT_OBJECT_LITERAL,
+        static ACTION_OBJECT_LITERAL,
+        static BUSINESS_OBJECT_LITERAL,
+        static NAMED_CONSTANT_LITERAL,
+        static EVENT_LITERAL,
+        static ACTION_LITERAL,
+        static FILE_LITERAL,
+        static DATA_CONNECTION_LITERAL,
+        static EVENT_FLOW_LITERAL,
+        static CHART_LITERAL,
+        static OPERATION_LITERAL,
+        static DEPLOYMENT_LITERAL,
+        static DS_DEPLOYMENT_REPORT_LITERAL,
+        static TEST_SUITE_LITERAL,
+        static TEST_REPORT_LITERAL,
+        static TEST_CASE_LITERAL,
+        static METRIC_LITERAL,
+        static KPI_LITERAL,
+        static INPUT_DATA_LITERAL,
+        static SIMULATION_MODEL_LITERAL,
+        static SIMULATION_CONFIGURATION_LITERAL,
+        static SIMULATION_REPORT_LITERAL
+    }
+    public static final readonly int ACTION;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind ACTION_LITERAL;
+    public static final readonly int ACTION_OBJECT;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind ACTION_OBJECT_LITERAL;
+    public static final readonly int BOM;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind BOM_LITERAL;
+    public static final readonly int BUSINESS_OBJECT;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind BUSINESS_OBJECT_LITERAL;
+    public static final readonly int CHART;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind CHART_LITERAL;
+    public static final readonly int DATA_CONNECTION;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind DATA_CONNECTION_LITERAL;
+    public static final readonly int DEPLOYMENT;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind DEPLOYMENT_LITERAL;
+    public static final readonly int DS_DEPLOYMENT_REPORT;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind DS_DEPLOYMENT_REPORT_LITERAL;
+    public static final readonly int EVENT;
+    public static final readonly int EVENT_ARTIFACT;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind EVENT_ARTIFACT_LITERAL;
+    public static final readonly int EVENT_FLOW;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind EVENT_FLOW_LITERAL;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind EVENT_LITERAL;
+    public static final readonly int EVENT_OBJECT;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind EVENT_OBJECT_LITERAL;
+    public static final readonly int FILE;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind FILE_LITERAL;
+    public static final readonly int INPUT_DATA;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind INPUT_DATA_LITERAL;
+    public static final readonly int KPI;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind KPI_LITERAL;
+    public static final readonly int METRIC;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind METRIC_LITERAL;
+    public static final readonly int NAMED_CONSTANT;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind NAMED_CONSTANT_LITERAL;
+    public static final readonly int OPERATION;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind OPERATION_LITERAL;
+    public static final readonly int QUERY;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind QUERY_LITERAL;
+    public static final readonly int RESOURCE;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind RESOURCE_LITERAL;
+    public static final readonly int RULE;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind RULE_LITERAL;
+    public static final readonly int SIMULATION_CONFIGURATION;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind SIMULATION_CONFIGURATION_LITERAL;
+    public static final readonly int SIMULATION_MODEL;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind SIMULATION_MODEL_LITERAL;
+    public static final readonly int SIMULATION_REPORT;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind SIMULATION_REPORT_LITERAL;
+    public static final readonly int TEMPLATE;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind TEMPLATE_LITERAL;
+    public static final readonly int TESTING;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind TESTING_LITERAL;
+    public static final readonly int TEST_CASE;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind TEST_CASE_LITERAL;
+    public static final readonly int TEST_REPORT;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind TEST_REPORT_LITERAL;
+    public static final readonly int TEST_SUITE;
+    public static final readonly ilog.rules.teamserver.brm.IlrPackageKind TEST_SUITE_LITERAL;
+    public static final readonly java.util.List VALUES domain 0,*;
+    public static ilog.rules.teamserver.brm.IlrPackageKind get(string arg);
+    public static ilog.rules.teamserver.brm.IlrPackageKind get(int arg);
+}
+
+public interface IlrParameter
+        extends ilog.rules.teamserver.brm.IlrTypedElement
+{
+    public static final readonly int IN;
+    public static final readonly int INOUT;
+    public static final readonly int OUT;
+    public readonly abstract ilog.rules.teamserver.brm.IlrDirectionKind direction;
+    public readonly abstract int order;
+}
+
+public interface IlrProfile
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract byte[] picture;
+    public readonly abstract string userId;
+}
+
+public interface IlrProjectBOMEntry
+        extends ilog.rules.teamserver.brm.IlrBOMPathEntry
+{
+    public readonly abstract string projectName;
+    public readonly abstract ilog.rules.teamserver.brm.IlrBaseline targetBaseline;
+}
+
+public interface IlrProjectElement
+        extends ilog.rules.teamserver.brm.IlrModelElement
+{
+    public abstract string documentation;
+    public readonly abstract string group;
+    public readonly abstract ilog.rules.teamserver.brm.IlrRuleProject project;
+    public ilog.rules.teamserver.brm.IlrProjectElement getVersion(string arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException;
+}
+
+public interface IlrProjectInfo
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract java.util.List allCategories domain 0,*;
+    public readonly abstract java.util.List allParameters domain 0,*;
+    public readonly abstract java.util.List allSchemas domain 0,*;
+    public readonly abstract ilog.rules.teamserver.brm.IlrBaseline baseline;
+    public readonly abstract java.util.List bomPathEntries domain 0,*;
+    public readonly abstract string buildMode;
+    public abstract java.util.List categories domain 0,*;
+    public readonly abstract string configFile;
+    public readonly abstract boolean decisionService;
+    public readonly abstract java.util.List dependencies domain 0,*;
+    public readonly abstract string dynamicXOM;
+    public readonly abstract java.util.List extractors domain 0,*;
+    public readonly abstract java.util.Map messageMap;
+    public readonly abstract java.util.List messages domain 0,*;
+    public readonly abstract string migratedToOperationId;
+    public readonly abstract int migrationFlag;
+    public readonly abstract java.util.List parameters domain 0,*;
+    public readonly abstract ilog.rules.teamserver.brm.IlrRuleProject project;
+    public readonly abstract java.util.List rulesetProperties domain 0,*;
+    public readonly abstract java.util.Map rulesetPropertiesAsMap;
+    public readonly abstract java.util.List schemas domain 0,*;
+    public readonly abstract java.util.List tags domain 0,*;
+    public ilog.rules.teamserver.brm.IlrTag createOrUpdateTag(string arg1, string arg2);
+    public ilog.rules.teamserver.brm.IlrTag createTag(string arg1, string arg2);
+    public java.util.List getBomPathEntries(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+    public java.util.List getDependencies(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+    public java.util.List getExtractors(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+    public java.util.List getMessages(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+    public java.util.List getParameters(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+    public java.util.List getRulesetProperties(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+    public java.util.List getSchemas(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+    public ilog.rules.teamserver.brm.IlrTag getTag(string arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException;
+    public java.util.List getTags(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+}
+
+public interface IlrProxy
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public abstract string destName;
+    public abstract string destUuid;
+    public abstract string reference;
+    public abstract string sourceUuid;
+}
+
+public interface IlrQuery
+        extends ilog.rules.teamserver.brm.IlrAbstractQuery
+{
+}
+
+public interface IlrReferencingBsln
+        extends ilog.rules.teamserver.brm.IlrBaseline
+{
+    public readonly abstract ilog.rules.teamserver.brm.IlrRuleApp ruleApp;
+    public readonly abstract ilog.rules.teamserver.brm.IlrRuleset ruleset;
+}
+
+public interface IlrRelease
+        extends ilog.rules.teamserver.brm.IlrManagedBranch
+{
+    public readonly abstract boolean initialRelease;
+}
+
+public final class IlrReportStatusKind
+        extends org.eclipse.emf.common.util.AbstractEnumerator
+{
+    domain 
+    {
+        static STARTING_LITERAL,
+        static STARTED_LITERAL,
+        static STOPPING_LITERAL,
+        static STOPPED_LITERAL,
+        static FAILED_LITERAL,
+        static COMPLETED_LITERAL,
+        static ABORTED_LITERAL
+    }
+    public static final readonly int ABORTED;
+    public static final readonly ilog.rules.teamserver.brm.IlrReportStatusKind ABORTED_LITERAL;
+    public static final readonly int COMPLETED;
+    public static final readonly ilog.rules.teamserver.brm.IlrReportStatusKind COMPLETED_LITERAL;
+    public static final readonly int FAILED;
+    public static final readonly ilog.rules.teamserver.brm.IlrReportStatusKind FAILED_LITERAL;
+    public static final readonly int STARTED;
+    public static final readonly ilog.rules.teamserver.brm.IlrReportStatusKind STARTED_LITERAL;
+    public static final readonly int STARTING;
+    public static final readonly ilog.rules.teamserver.brm.IlrReportStatusKind STARTING_LITERAL;
+    public static final readonly int STOPPED;
+    public static final readonly ilog.rules.teamserver.brm.IlrReportStatusKind STOPPED_LITERAL;
+    public static final readonly int STOPPING;
+    public static final readonly ilog.rules.teamserver.brm.IlrReportStatusKind STOPPING_LITERAL;
+    public static final readonly java.util.List VALUES domain 0,*;
+    public static ilog.rules.teamserver.brm.IlrReportStatusKind get(string arg);
+    public static ilog.rules.teamserver.brm.IlrReportStatusKind get(int arg);
+}
+
+public interface IlrResource
+        extends ilog.rules.teamserver.brm.IlrPackageElement
+{
+    public readonly abstract byte[] body;
+    public readonly abstract string extension;
+}
+
+public interface IlrRule
+        extends ilog.rules.teamserver.brm.IlrRuleArtifact
+{
+    public readonly abstract java.util.List overriddenRules domain 0,*;
+    public readonly abstract java.util.List overriddenRulesReferences domain 0,*;
+    public readonly abstract string priority;
+    public java.util.List getOverriddenRules(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+}
+
+public interface IlrRuleApp
+        extends ilog.rules.teamserver.brm.IlrModelElement
+{
+    public readonly abstract java.util.List deployedBaselines domain 0,*;
+    public readonly abstract string description;
+    public readonly abstract string displayName;
+    public readonly abstract int major;
+    public readonly abstract int minor;
+    public readonly abstract java.util.List rulesets domain 0,*;
+    public readonly abstract java.util.List tags domain 0,*;
+    public java.util.List getRulesets(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+    public java.util.List getTags(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+}
+
+public interface IlrRuleAppProperty
+        extends ilog.rules.teamserver.brm.IlrTag
+{
+}
+
+public interface IlrRuleArtifact
+        extends ilog.rules.teamserver.brm.IlrPackageElement
+{
+    public readonly abstract boolean active;
+    public readonly abstract ilog.rules.teamserver.brm.IlrDefinition definition;
+    public readonly abstract java.util.List tags domain 0,*;
+    public ilog.rules.teamserver.brm.IlrTag addTag(string arg1, string arg2);
+    public ilog.rules.teamserver.brm.IlrDefinition getDefinition(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException;
+    public ilog.rules.teamserver.brm.IlrTag getTag(string arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException;
+    public java.util.List getTags(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+}
+
+public interface IlrRuleArtifactTag
+        extends ilog.rules.teamserver.brm.IlrTag
+{
+}
+
+public interface IlrRulePackage
+        extends ilog.rules.teamserver.brm.IlrProjectElement, ilog.rules.teamserver.model.IlrHierarchyDetails
+{
+    public readonly abstract java.util.List children domain 0,*;
+    public readonly abstract ilog.rules.teamserver.brm.IlrPackageKind packageKind;
+    public readonly abstract ilog.rules.teamserver.brm.IlrRulePackage parent;
+    public readonly abstract java.util.List ruleOrder domain 0,*;
+}
+
+public interface IlrRuleProject
+        extends ilog.rules.teamserver.brm.IlrModelElement
+{
+    public readonly abstract string advancedProperties;
+    public readonly abstract java.util.List baselines domain 0,*;
+    public readonly abstract java.util.List connectionEntries domain 0,*;
+    public readonly abstract ilog.rules.teamserver.brm.IlrBaseline currentBaseline;
+    public readonly abstract boolean decisionService;
+    public readonly abstract string description;
+    public readonly abstract string platform;
+    public readonly abstract ilog.rules.teamserver.brm.IlrBaseline recyclebinBaseline;
+    public readonly abstract int version;
+    public ilog.rules.teamserver.brm.IlrBaseline getBaselineNamed(string arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException;
+    public java.util.List getBaselines(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+    public java.util.List getConnectionEntries(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+}
+
+public interface IlrRuleProjectTag
+        extends ilog.rules.teamserver.brm.IlrTag
+{
+}
+
+public interface IlrRuleTask
+        extends ilog.rules.teamserver.brm.IlrTask
+{
+    public readonly abstract string advancedProperties;
+    public readonly abstract ilog.rules.teamserver.brm.IlrAlgorithmKind algorithm;
+    public readonly abstract boolean dynamic;
+    public readonly abstract ilog.rules.teamserver.brm.IlrExitCriteriaKind exitCriteria;
+    public readonly abstract ilog.rules.teamserver.brm.IlrOrderingKind ordering;
+    public readonly abstract string select;
+}
+
+public interface IlrRuleflow
+        extends ilog.rules.teamserver.brm.IlrPackageElement
+{
+    public readonly abstract ilog.rules.rf.model.IlrRFModel RFModel;
+    public readonly abstract java.util.List allSubflows domain 0,* class ilog.rules.teamserver.brm.IlrRuleflow;
+    public readonly abstract string body;
+    public readonly abstract string diagram;
+    public readonly abstract string finalActions;
+    public readonly abstract java.util.List imports domain 0,*;
+    public readonly abstract string initialActions;
+    public readonly abstract string locale;
+    public readonly abstract boolean mainFlowTask;
+    public readonly abstract java.util.List scopes domain 0,*;
+    public readonly abstract java.util.List subflows domain 0,* class ilog.rules.teamserver.brm.IlrRuleflow;
+    public readonly abstract java.util.List tags domain 0,*;
+    public readonly abstract java.util.List tasks domain 0,*;
+    public ilog.rules.teamserver.brm.IlrTag addTag(string arg1, string arg2);
+    public java.util.List getScopes(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+    public ilog.rules.teamserver.brm.IlrTag getTag(string arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException;
+    public java.util.List getTags(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+    public java.util.List getTasks(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+}
+
+public interface IlrRuleflowTag
+        extends ilog.rules.teamserver.brm.IlrTag
+{
+}
+
+public interface IlrRuleset
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract string baseline;
+    public readonly abstract boolean debug;
+    public readonly abstract string description;
+    public readonly abstract string displayName;
+    public readonly abstract boolean enabled;
+    public readonly abstract string extractor;
+    public readonly abstract int major;
+    public readonly abstract int minor;
+    public readonly abstract string name;
+    public readonly abstract string project;
+    public readonly abstract java.util.List rulesetProperties domain 0,*;
+    public readonly abstract string url;
+}
+
+public interface IlrRulesetProperty
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract string key;
+    public readonly abstract string value;
+}
+
+public interface IlrScenarioSuite
+        extends ilog.rules.teamserver.brm.IlrPackageElement
+{
+    public readonly abstract string entryPoint;
+    public readonly abstract string format;
+    public readonly abstract java.util.List resources domain 0,*;
+    public readonly abstract string testBaseline;
+    public readonly abstract string testExtractor;
+    public java.util.List getResources(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+}
+
+public interface IlrScenarioSuiteKPIReport
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract byte[] data;
+    public readonly abstract int index;
+    public readonly abstract string kpiClassName;
+    public readonly abstract string kpiResultClassName;
+}
+
+public interface IlrScenarioSuiteReport
+        extends ilog.rules.teamserver.brm.IlrModelElement
+{
+    public readonly abstract boolean archiveErrors;
+    public readonly abstract boolean archiveWarnings;
+    public readonly abstract ilog.rules.teamserver.brm.IlrBaseline branch;
+    public readonly abstract string executedBy;
+    public readonly abstract int nbErrors;
+    public readonly abstract int nbFailures;
+    public readonly abstract int nbScenarios;
+    public readonly abstract java.util.List options domain 0,*;
+    public readonly abstract ilog.rules.teamserver.brm.IlrRuleProject project;
+    public readonly abstract string runBaseline;
+    public readonly abstract string scenarioSuiteFQN;
+    public readonly abstract int scenarioSuiteID;
+    public readonly abstract java.util.List scenarioSuiteKPIReports domain 0,*;
+    public readonly abstract int scenarioSuiteOID;
+    public readonly abstract java.util.List scenarioTestReports domain 0,*;
+    public readonly abstract string serverName;
+    public readonly abstract java.util.List testReports domain 0,*;
+    public java.util.List getScenarioSuiteKPIReports(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+    public java.util.List getScenarioTestReports(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+    public java.util.List getTestReports(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+}
+
+public interface IlrScenarioSuiteResource
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract string key;
+    public readonly abstract byte[] value;
+}
+
+public interface IlrScenarioTestReport
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract string errorCause;
+    public readonly abstract string errorMessage;
+    public readonly abstract string executionID;
+    public readonly abstract int index;
+    public readonly abstract string name;
+    public readonly abstract int nbErrors;
+    public readonly abstract int nbFailures;
+    public readonly abstract int nbTests;
+    public readonly abstract string status;
+}
+
+public interface IlrSchema
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract string body;
+    public readonly abstract string location;
+    public readonly abstract string namespace;
+}
+
+public interface IlrScopeElement
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public abstract int order;
+    public abstract ilog.rules.teamserver.brm.IlrRule rule;
+    public abstract ilog.rules.teamserver.brm.IlrRulePackage rulePackage;
+    public abstract string ruleTaskName;
+    public readonly abstract ilog.rules.teamserver.brm.IlrRuleflow ruleflow;
+    public readonly abstract ilog.rules.teamserver.model.IlrElementHandle ruleflowHandle;
+}
+
+public interface IlrServer
+        extends ilog.rules.teamserver.brm.IlrModelElement
+{
+    public readonly abstract string description;
+    public readonly abstract string loginServer;
+    public readonly abstract string password;
+    public readonly abstract ilog.rules.teamserver.brm.IlrServerKind serverKind;
+    public readonly abstract string url;
+}
+
+public final class IlrServerKind
+        extends org.eclipse.emf.common.util.AbstractEnumerator
+{
+    domain {static RES_LITERAL, static RSO_LITERAL, static EVENT_LITERAL, static DECISION_RUNNER_LITERAL}
+    public static final readonly int DECISION_RUNNER;
+    public static final readonly ilog.rules.teamserver.brm.IlrServerKind DECISION_RUNNER_LITERAL;
+    public static final readonly int EVENT;
+    public static final readonly ilog.rules.teamserver.brm.IlrServerKind EVENT_LITERAL;
+    public static final readonly int RES;
+    public static final readonly ilog.rules.teamserver.brm.IlrServerKind RES_LITERAL;
+    public static final readonly int RSO;
+    public static final readonly ilog.rules.teamserver.brm.IlrServerKind RSO_LITERAL;
+    public static final readonly java.util.List VALUES domain 0,*;
+    public static ilog.rules.teamserver.brm.IlrServerKind get(string arg);
+    public static ilog.rules.teamserver.brm.IlrServerKind get(int arg);
+}
+
+public interface IlrSimulation
+        extends ilog.rules.teamserver.brm.IlrScenarioSuite
+{
+}
+
+public interface IlrSmartView
+        extends ilog.rules.teamserver.brm.IlrAbstractQuery
+{
+    public readonly abstract string propertyPath;
+}
+
+public interface IlrSnapshot
+        extends ilog.rules.teamserver.brm.IlrTimestampBsln
+{
+}
+
+public interface IlrSystemLock
+        extends ilog.rules.teamserver.brm.IlrBasicLock
+{
+    public readonly abstract string toggle;
+}
+
+public interface IlrTag
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public abstract string name;
+    public abstract string value;
+}
+
+public interface IlrTask
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract string documentation;
+    public readonly abstract string finalActions;
+    public readonly abstract string initialActions;
+    public readonly abstract string name;
+}
+
+public interface IlrTechnicalRule
+        extends ilog.rules.teamserver.brm.IlrRule
+{
+    public readonly abstract java.util.List imports domain 0,*;
+}
+
+public interface IlrTemplate
+        extends ilog.rules.teamserver.brm.IlrPackageElement
+{
+    public readonly abstract string definition;
+    public readonly abstract string definitionInfo;
+    public readonly abstract java.util.List initialValues domain 0,*;
+    public readonly abstract string locale;
+    public abstract org.eclipse.emf.ecore.EClass ruleClass;
+    public abstract string ruleType;
+    public java.util.List getInitialValues(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+}
+
+public interface IlrTestReport
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract string errorCause;
+    public readonly abstract string errorMessage;
+    public readonly abstract java.util.List expectedValues domain 0,*;
+    public readonly abstract boolean highlight;
+    public readonly abstract string message;
+    public readonly abstract string name;
+    public readonly abstract java.util.List observedValues domain 0,*;
+    public readonly abstract int scenarioTestReportIndex;
+    public readonly abstract string status;
+}
+
+public interface IlrTestSuite
+        extends ilog.rules.teamserver.brm.IlrScenarioSuite
+{
+}
+
+public interface IlrTimestampBsln
+        extends ilog.rules.teamserver.brm.IlrBaseline
+{
+    public readonly abstract int maxVersionId;
+}
+
+public interface IlrTypedElement
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract boolean assignable;
+    public abstract string bomType;
+    public abstract string initialValue;
+    public abstract string name;
+    public readonly abstract boolean rulesetParameter;
+    public readonly abstract boolean rulesetVariable;
+    public abstract string verbalization;
+    public string getExecutableName(ilog.rules.teamserver.brm.IlrBaseline arg);
+    public object getProperty(string arg);
+    public void setProperty(string arg1, object arg2);
+}
+
+public final class IlrUpdateTypeKind
+        extends org.eclipse.emf.common.util.AbstractEnumerator
+{
+    domain 
+    {
+        static CREATE_LITERAL,
+        static UPDATE_LITERAL,
+        static BRANCH_CREATE_LITERAL,
+        static SNAPSHOT_CREATE_LITERAL,
+        static SNAPSHOT_RESTORE_LITERAL,
+        static DELETE_LITERAL,
+        static RENAME_LITERAL,
+        static BRANCH_UPDATE_LITERAL,
+        static BRANCH_RENAME_LITERAL,
+        static SNAPSHOT_UPDATE_LITERAL,
+        static SNAPSHOT_RENAME_LITERAL,
+        static DECISION_SERVICE_CREATE_LITERAL,
+        static RELEASE_DEPLOY_LITERAL,
+        static RELEASE_UNDEPLOY_LITERAL,
+        static ACTIVITY_CREATE_LITERAL,
+        static ACTIVITY_CANCEL_LITERAL,
+        static ACTIVITY_UPDATE_LITERAL,
+        static ACTIVITY_RENAME_LITERAL,
+        static ACTIVITY_OWNER_ASSIGN_LITERAL,
+        static ACTIVITY_APPROVER_ASSIGN_LITERAL,
+        static ACTIVITY_APPROVER_REMOVE_LITERAL,
+        static ACTIVITY_STATUS_UPDATE_LITERAL,
+        static ACTIVITY_APPROVE_LITERAL,
+        static ACTIVITY_REJECT_LITERAL,
+        static ACTIVITY_GOAL_UPDATE_LITERAL,
+        static ACTIVITY_DUE_DATE_UPDATE_LITERAL,
+        static ACTIVITY_AUTHOR_COMPLETE_LITERAL,
+        static ACTIVITY_AUTHOR_ASSIGN_LITERAL,
+        static ACTIVITY_AUTHOR_REMOVE_LITERAL,
+        static ACTIVITY_TESTER_COMPLETE_LITERAL,
+        static ACTIVITY_TESTER_ASSIGN_LITERAL,
+        static ACTIVITY_TESTER_REMOVE_LITERAL,
+        static ACTIVITY_TEST_PLAN_UPDATE_LITERAL,
+        static ACTIVITY_REOPEN_LITERAL,
+        static ACTIVITY_CLOSE_LITERAL,
+        static ACTIVITY_DELETE_LITERAL,
+        static ACTIVITY_MERGE_LITERAL,
+        static ACTIVITY_AUTHOR_RESUME_LITERAL,
+        static ACTIVITY_TESTER_RESUME_LITERAL,
+        static TEST_SUITE_CREATE_LITERAL,
+        static TEST_SUITE_UPDATE_MULTI_LITERAL,
+        static TEST_SUITE_UPDATE_SINGLE_LITERAL,
+        static TEST_SUITE_RENAME_LITERAL,
+        static TEST_SUITE_DELETE_LITERAL,
+        static TEST_CASE_UPLOAD_LITERAL,
+        static TEST_CASE_DELETE_LITERAL,
+        static TEST_REPORT_MERGE_LITERAL,
+        static DCONFIG_CREATE_LITERAL,
+        static DCONFIG_UPDATE_LITERAL,
+        static DCONFIG_RENAME_LITERAL,
+        static DCONFIG_DELETE_LITERAL,
+        static DREPORT_CREATE_LITERAL,
+        static DREPORT_UPDATE_LITERAL,
+        static DREPORT_DELETE_LITERAL,
+        static DEPLOYMENT_STARTED_LITERAL,
+        static DEPLOYMENT_COMPLETE_LITERAL
+    }
+    public static final readonly int ACTIVITY_APPROVE;
+    public static final readonly int ACTIVITY_APPROVER_ASSIGN;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_APPROVER_ASSIGN_LITERAL;
+    public static final readonly int ACTIVITY_APPROVER_REMOVE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_APPROVER_REMOVE_LITERAL;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_APPROVE_LITERAL;
+    public static final readonly int ACTIVITY_AUTHOR_ASSIGN;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_AUTHOR_ASSIGN_LITERAL;
+    public static final readonly int ACTIVITY_AUTHOR_COMPLETE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_AUTHOR_COMPLETE_LITERAL;
+    public static final readonly int ACTIVITY_AUTHOR_REMOVE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_AUTHOR_REMOVE_LITERAL;
+    public static final readonly int ACTIVITY_AUTHOR_RESUME;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_AUTHOR_RESUME_LITERAL;
+    public static final readonly int ACTIVITY_CANCEL;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_CANCEL_LITERAL;
+    public static final readonly int ACTIVITY_CLOSE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_CLOSE_LITERAL;
+    public static final readonly int ACTIVITY_CREATE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_CREATE_LITERAL;
+    public static final readonly int ACTIVITY_DELETE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_DELETE_LITERAL;
+    public static final readonly int ACTIVITY_DUE_DATE_UPDATE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_DUE_DATE_UPDATE_LITERAL;
+    public static final readonly int ACTIVITY_GOAL_UPDATE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_GOAL_UPDATE_LITERAL;
+    public static final readonly int ACTIVITY_MERGE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_MERGE_LITERAL;
+    public static final readonly int ACTIVITY_OWNER_ASSIGN;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_OWNER_ASSIGN_LITERAL;
+    public static final readonly int ACTIVITY_REJECT;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_REJECT_LITERAL;
+    public static final readonly int ACTIVITY_RENAME;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_RENAME_LITERAL;
+    public static final readonly int ACTIVITY_REOPEN;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_REOPEN_LITERAL;
+    public static final readonly int ACTIVITY_STATUS_UPDATE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_STATUS_UPDATE_LITERAL;
+    public static final readonly int ACTIVITY_TESTER_ASSIGN;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_TESTER_ASSIGN_LITERAL;
+    public static final readonly int ACTIVITY_TESTER_COMPLETE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_TESTER_COMPLETE_LITERAL;
+    public static final readonly int ACTIVITY_TESTER_REMOVE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_TESTER_REMOVE_LITERAL;
+    public static final readonly int ACTIVITY_TESTER_RESUME;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_TESTER_RESUME_LITERAL;
+    public static final readonly int ACTIVITY_TEST_PLAN_UPDATE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_TEST_PLAN_UPDATE_LITERAL;
+    public static final readonly int ACTIVITY_UPDATE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind ACTIVITY_UPDATE_LITERAL;
+    public static final readonly int BRANCH_CREATE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind BRANCH_CREATE_LITERAL;
+    public static final readonly int BRANCH_RENAME;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind BRANCH_RENAME_LITERAL;
+    public static final readonly int BRANCH_UPDATE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind BRANCH_UPDATE_LITERAL;
+    public static final readonly int CREATE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind CREATE_LITERAL;
+    public static final readonly int DCONFIG_CREATE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind DCONFIG_CREATE_LITERAL;
+    public static final readonly int DCONFIG_DELETE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind DCONFIG_DELETE_LITERAL;
+    public static final readonly int DCONFIG_RENAME;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind DCONFIG_RENAME_LITERAL;
+    public static final readonly int DCONFIG_UPDATE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind DCONFIG_UPDATE_LITERAL;
+    public static final readonly int DECISION_SERVICE_CREATE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind DECISION_SERVICE_CREATE_LITERAL;
+    public static final readonly int DELETE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind DELETE_LITERAL;
+    public static final readonly int DEPLOYMENT_COMPLETE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind DEPLOYMENT_COMPLETE_LITERAL;
+    public static final readonly int DEPLOYMENT_STARTED;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind DEPLOYMENT_STARTED_LITERAL;
+    public static final readonly int DREPORT_CREATE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind DREPORT_CREATE_LITERAL;
+    public static final readonly int DREPORT_DELETE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind DREPORT_DELETE_LITERAL;
+    public static final readonly int DREPORT_UPDATE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind DREPORT_UPDATE_LITERAL;
+    public static final readonly int RELEASE_DEPLOY;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind RELEASE_DEPLOY_LITERAL;
+    public static final readonly int RELEASE_UNDEPLOY;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind RELEASE_UNDEPLOY_LITERAL;
+    public static final readonly int RENAME;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind RENAME_LITERAL;
+    public static final readonly int SNAPSHOT_CREATE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind SNAPSHOT_CREATE_LITERAL;
+    public static final readonly int SNAPSHOT_RENAME;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind SNAPSHOT_RENAME_LITERAL;
+    public static final readonly int SNAPSHOT_RESTORE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind SNAPSHOT_RESTORE_LITERAL;
+    public static final readonly int SNAPSHOT_UPDATE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind SNAPSHOT_UPDATE_LITERAL;
+    public static final readonly int TEST_CASE_DELETE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind TEST_CASE_DELETE_LITERAL;
+    public static final readonly int TEST_CASE_UPLOAD;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind TEST_CASE_UPLOAD_LITERAL;
+    public static final readonly int TEST_REPORT_MERGE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind TEST_REPORT_MERGE_LITERAL;
+    public static final readonly int TEST_SUITE_CREATE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind TEST_SUITE_CREATE_LITERAL;
+    public static final readonly int TEST_SUITE_DELETE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind TEST_SUITE_DELETE_LITERAL;
+    public static final readonly int TEST_SUITE_RENAME;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind TEST_SUITE_RENAME_LITERAL;
+    public static final readonly int TEST_SUITE_UPDATE_MULTI;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind TEST_SUITE_UPDATE_MULTI_LITERAL;
+    public static final readonly int TEST_SUITE_UPDATE_SINGLE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind TEST_SUITE_UPDATE_SINGLE_LITERAL;
+    public static final readonly int UPDATE;
+    public static final readonly ilog.rules.teamserver.brm.IlrUpdateTypeKind UPDATE_LITERAL;
+    public static final readonly java.util.List VALUES domain 0,*;
+    public static ilog.rules.teamserver.brm.IlrUpdateTypeKind get(string arg);
+    public static ilog.rules.teamserver.brm.IlrUpdateTypeKind get(int arg);
+}
+
+public interface IlrUserSetting
+        extends ilog.rules.teamserver.model.IlrElementDetails
+{
+    public readonly abstract string key;
+    public readonly abstract string userName;
+    public readonly abstract string value;
+}
+
+public interface IlrValidationAct
+        extends ilog.rules.teamserver.brm.IlrActivity
+{
+}
+
+public interface IlrVariable
+        extends ilog.rules.teamserver.brm.IlrTypedElement
+{
+}
+
+public interface IlrVariableSet
+        extends ilog.rules.teamserver.brm.IlrPackageElement
+{
+    public readonly abstract java.util.List variables domain 0,*;
+    public ilog.rules.teamserver.brm.IlrVariable addVariable(string arg);
+    public ilog.rules.teamserver.brm.IlrVariable getVariable(string arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException;
+    public java.util.List getVariables(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+}
+
+public interface IlrVocabulary
+        extends ilog.rules.teamserver.brm.IlrPackageElement
+{
+    public readonly abstract string body;
+    public readonly abstract string locale;
+}
+

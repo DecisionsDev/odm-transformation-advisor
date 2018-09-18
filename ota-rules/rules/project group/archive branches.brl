@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>archive branches</name>
+  <uuid>b0c24102-e19a-4007-9e27-4be5b93548ba</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[definitions
+	set 'branches' to all ilr baselines in the baselines of project
+		where the baseline kind of each ilr baseline is BRANCH_LITERAL ;
+	set 'count' to the number of elements in branches ; 
+if
+	count is more than the value of Max Branch Count ( parameters )  
+then
+	add project entry Branch Archiving : < the name of project , "" + count  > to report ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

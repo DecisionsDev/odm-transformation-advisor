@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>rule under root</name>
+  <uuid>6ffb239a-1d57-4b7c-b463-4adea035d9ad</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[definitions
+	set rule to an ilr business rule in elements ;
+if
+	the rule package of rule is null  
+then
+	add entry Rule Under Root : < project, rule > to report ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

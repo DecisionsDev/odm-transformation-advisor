@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>same rule name repeated</name>
+  <uuid>19c6784c-6f5b-424f-824c-5b6932296b8d</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[definitions
+	set rule to an ilr business rule in elements ; 
+	set 'same name' to all ilr business rules in elements 
+		where the name of each ilr business rule is the name of rule and each ilr business rule is not rule ; 
+if
+	the number of elements in 'same name' is at least 1
+then
+	add entry Same Rule Name : < project, rule > to report ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

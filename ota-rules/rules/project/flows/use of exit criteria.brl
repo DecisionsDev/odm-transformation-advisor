@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>use of exit criteria</name>
+  <uuid>5bf8b632-8d35-4ebe-bd97-d01b7597779d</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[definitions
+	set flow to an ilr ruleflow in elements ;
+	set task to an ilr RFRule task in the tasks of the RFModel of flow ;
+if
+	the exit criteria of task is not NONE
+then
+	add entry Exit Criteria : < project, flow > to report ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>
