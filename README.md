@@ -13,10 +13,10 @@ The application will also look for rule project artifacts that do not align with
 See the list of checkpoints in the following section, and check-out a [sample report](https://rawgit.com/ODMDev/odm-transformation-advisor/master/docs/sample-ota-report.html) in the [docs](docs) folder.
 
 ## List of checkpoints 
-The table below lists the current checks for deprecated features or possible blockers for the adoption of ODM on Cloud.
+The table below lists the current list of checkpoints that are performed by the tool.
 
-| Check                           | Deprecation | ODM on Cloud Blocker |
-| --------------------------------| ----------- | -------------------- |
+| Check                           | Deprecation | N/A for SaaS  |
+| --------------------------------| ----------- | ------------- |
 | Use of classic rule engine      | &#10004;    | &#10004;      | 
 | Use of classic rule projects    | &#10004;    | &#10004;      | 
 | Use of rule templates           | &#10004;    | &#10004;      | 
