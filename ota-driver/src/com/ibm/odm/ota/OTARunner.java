@@ -48,7 +48,7 @@ public class OTARunner {
 
 	private String report;
 
-	private static final String DEFAULT_VERSION = "v89";
+	private static final String DEFAULT_VERSION = "v810";
 	private static final String DEFAULT_USERNAME = "rtsAdmin";
 	private static final String DEFAULT_PASSWORD = "rtsAdmin";
 	private static final String DEFAULT_URL = "http://localhost:9090/teamserver";

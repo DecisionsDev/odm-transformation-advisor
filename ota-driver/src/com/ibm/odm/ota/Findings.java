@@ -97,7 +97,7 @@ public class Findings {
 			loadFindings(workbook.getSheet("findings"));
 			loadMarkers(workbook.getSheet("markers"));
 			//workbook.close();
-		} catch (URISyntaxException | IOException | InvalidFormatException e) {
+		} catch (URISyntaxException | IOException e) {
 			throw new OTAException("Error loading findings configuration file",
 					e);
 		}

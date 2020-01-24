@@ -69,14 +69,14 @@ The executable advisor application is packaged under [ota-driver/pkg/ota](ota-dr
 Running the advisor requires the following to be installed and/or available:
 * Java runtime and the JAVA_HOME environment variable pointing to the Java install folder. Note that the pre-packaged jars have been compiled with Java 1.8.
 * [Apache Ant](https://ant.apache.org/) version 1.7.1 or above, and the ANT_HOME environment variable pointing to the Ant install folder.
-* Access to your Operational Decision Manager install folder (e.g. `C:/Program Files/IBM/ODM89`)
+* Access to your Operational Decision Manager install folder (e.g. `C:/Program Files/IBM/ODM810`)
 
 ## Configuration
 
 ### Mandatory settings
 Before running advisor, you need to edit the **[ota.properties](ota.properties)** file and set a few properties about your environment. At a minimum, you will need to set the following properties:
 * `ota.url` is the URL to the ODM repository you want to review.
-* `ota.version` is the name of the ODM version you are using. It has to be one of `v86`, `v87`, `v88` or `v89`.
+* `ota.version` is the name of the ODM version you are using. It has to be one of `v86`, `v87`, `v88`, `v89` or `v810`.
 * `odm.dir` is the Operational Decision Manager install folder.
 
 ### Optional settings
