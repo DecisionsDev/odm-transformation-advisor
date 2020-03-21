@@ -154,6 +154,13 @@ Total time: 14 seconds
 
 Note that the advisor only reads the content of your ODM repository. It does not make any modification to the ODM repository, or capture any data on your rule projects.
 
+## Older ODM versions
+
+The source code in this repo supports running against repositories from ODM 8.6 and above.
+If you are running older versions such as `8.5.x` or `8.0.x`, pre-packaged executable versions are available in the [`OLDER_ODM_VERSIONS`](OLDER_ODM_VERSIONS) folder.
+
+The list of compatibility checkpoints that are executed is the same. However, less best practices validations are availble.
+
 # More information and feedback
 The advisor implements most of its validations using ODM business rules that are applied to the rule artifacts from your repository.
 For example, the check for rules that are defined directly under the root folder of the project is implemented with the following simple rule:
@@ -171,13 +178,6 @@ Aside from enjoying a drink of our own Champagne, the goal of using rules was to
 This application was built based on the expertise of the IBM Cloud Technical Enablement group.
 If you would like to discuss expanding it and/or integrating it into your operations or have other questions, comments, or feedback,
 please send email to **Pierre Berlandier** at *pberland@us.ibm.com*
-
-## Older ODM versions
-
-The source code in this repo supports running against repositories from ODM 8.6 and above.
-If you are running older versions such as `8.5.x` or `8.0.x`, pre-packaged executable versions are available in the [`OLDER_ODM_VERSIONS`]() folder.
-
-The list of compatibility checkpoints that are executed is the same. However, less best practices validations are availble.
 
 
 # License
