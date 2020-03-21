@@ -172,6 +172,14 @@ This application was built based on the expertise of the IBM Cloud Technical Ena
 If you would like to discuss expanding it and/or integrating it into your operations or have other questions, comments, or feedback,
 please send email to **Pierre Berlandier** at *pberland@us.ibm.com*
 
+## Older ODM versions
+
+The source code in this repo supports running against repositories from ODM 8.6 and above.
+If you are running older versions such as `8.5.x` or `8.0.x`, pre-packaged executable versions are available in the [`OLDER_ODM_VERSIONS`]() folder.
+
+The list of compatibility checkpoints that are executed is the same. However, less best practices validations are availble.
+
+
 # License
 This project is licensed under the Apache License - see the [LICENSE](LICENSE) file for details.
 
