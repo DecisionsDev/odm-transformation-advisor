@@ -84,6 +84,7 @@ public class Findings {
 
 	/**
 	 * Loads the findings configuration file.
+	 * 
 	 * @param filename
 	 * @throws OTAException
 	 */
@@ -95,16 +96,19 @@ public class Findings {
 			dataFormatter = new DataFormatter();
 			loadFindings(workbook.getSheet("findings"));
 			loadMarkers(workbook.getSheet("markers"));
-			//workbook.close();
-		} catch (URISyntaxException | IOException e) {
-			throw new OTAException("Error loading findings configuration file",
-					e);
+			// Workbook.close is not available in older POI versions.
+			// workbook.close();
+		}
+		// WorkbookFactory.create throws InvalidFormatException in older POI versions.
+		// catch (URISyntaxException | IOException e) {
+		catch (Exception e) {
+			throw new OTAException("Error loading findings configuration file", e);
 		}
 	}
 
 	/**
-	 * Loads each row of the findings sheet. The value of predefined cells is
-	 * not checked and assumed to be correct.
+	 * Loads each row of the findings sheet. The value of predefined cells is not
+	 * checked and assumed to be correct.
 	 * 
 	 * @param sheet
 	 * @throws OTAException
@@ -144,9 +148,7 @@ public class Findings {
 		if (!paramsString.isEmpty()) {
 			final String paramsPattern = "(\\s*[a-z][a-zA-Z0-9]*\\s*=\\s*[a-zA-Z0-9]*\\s*,)*\\s*[a-z][a-zA-Z0-9]*\\s*=\\s*[a-zA-Z0-9]*\\s*";
 			if (!paramsString.matches(paramsPattern)) {
-				throw new OTAException(
-						"Invalid finding parameters definition: "
-								+ paramsString);
+				throw new OTAException("Invalid finding parameters definition: " + paramsString);
 			}
 			String[] assignments = paramsString.split("\\s*,\\s*");
 			for (String assignment : assignments) {
@@ -200,7 +202,7 @@ public class Findings {
 	public static Marker getMarker(String tag) throws OTAException {
 		return getInstance().markers.get(tag);
 	}
-	
+
 	public static Parameters getParameters() throws OTAException {
 		return getInstance().parameters;
 	}
