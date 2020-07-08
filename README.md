@@ -151,20 +151,25 @@ Decision Center - Password:
 BUILD SUCCESSFUL
 Total time: 14 seconds
 ```
-## Just checking...
 
-Note that the advisor only reads the content of your ODM repository. It does not make any modification to the ODM repository, or capture any data on your rule projects.
+# Jenkins integration
 
-## Older ODM versions
+You can integrate the OTA as part of your continuous integration practice, to perform continuous code quality inspection on your rule projects. Direction for integration with Jenkins are provided here.
+
+# FAQ
+
+- [Does OTA alter my ODM projects in any way?](#does-ota-alter-my-odm-projects-in-any-way)
+
+## Does OTA alter my ODM projects in any way?
+The advisor only reads the content of your ODM repository. It does not make any modification to the ODM repository, or capture any data on your rule projects.
+
+## What about older ODM versions
 
 The source code in this repo supports running against repositories from ODM 8.6 and above.
 If you are running older versions such as `8.5.x` or `8.0.x`, pre-packaged executable versions are available in the [`OLDER_ODM_VERSIONS`](OLDER_ODM_VERSIONS) folder.
 
 The list of compatibility checkpoints that are executed is the same. However, less best practices validations are available.
 
-# Jenkins integration
-
-You can integrate the OTA as part of your continuous integration practice, to perform continuous code quality inspection on your rule projects. Direction for integration with Jenkins are provided here.
 
 # More information and feedback
 
@@ -181,7 +186,7 @@ then
 
 Aside from enjoying a drink of our own Champagne, the goal of using rules was to make the advisor easily expandable to new validations, specific to your enterprise standards, without having to write any code. The advisor can then be used as a standard validation step, possibly as part of a Continuous Integration toolchain.
 
-This application was built based on the expertise of the IBM Cloud Technical Enablement group.
+This application was built based on the expertise of the IBM Cloud Integration Expert Labs and IBM Garage Solution Engineering.
 If you would like to discuss expanding it and/or integrating it into your operations or have other questions, comments, or feedback, please send email to **Pierre Berlandier** at *pberland@us.ibm.com*
 
 
