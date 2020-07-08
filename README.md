@@ -152,28 +152,32 @@ BUILD SUCCESSFUL
 Total time: 14 seconds
 ```
 
-# Jenkins integration
-
-You can integrate the OTA as part of your continuous integration practice, to perform continuous code quality inspection on your rule projects. Direction for integration with Jenkins are provided here.
 
 # FAQ
 
-- [Does OTA alter my ODM projects in any way?](#does-ota-alter-my-odm-projects-in-any-way)
+- [Does the OTA alter my ODM projects in any way?](#does-the-ota-alter-my-odm-projects-in-any-way)
+- [What about older ODM versions?](#what-about-older-odm-versions)
+- [How can I use the OTA with continuous integration?](#how-can-i-use-the-ota-with-continuous-integration)
+- [How can I extend the OTA?](#how-can-i-extend-the-ota)
 
-## Does OTA alter my ODM projects in any way?
+## Does the OTA alter my ODM projects in any way?
+
 The advisor only reads the content of your ODM repository. It does not make any modification to the ODM repository, or capture any data on your rule projects.
 
-## What about older ODM versions
+## What about older ODM versions?
 
 The source code in this repo supports running against repositories from ODM 8.6 and above.
 If you are running older versions such as `8.5.x` or `8.0.x`, pre-packaged executable versions are available in the [`OLDER_ODM_VERSIONS`](OLDER_ODM_VERSIONS) folder.
 
 The list of compatibility checkpoints that are executed is the same. However, less best practices validations are available.
 
+# How can I use the OTA with continuous integration?
 
-# More information and feedback
+You can integrate the OTA as part of your continuous integration practice, to perform continuous code quality inspection on your rule projects. Directions for integrating OTA with Jenkins are provided [here](./Jenkins/README.md).
 
-The advisor implements most of its validations using ODM business rules that are applied to the rule artifacts from your repository.
+# How can I extend the OTA?
+
+The OTA implements most of its validations using ODM business rules that are applied to the rule artifacts from your repository.
 For example, the check for rules that are defined directly under the root folder of the project is implemented with the following simple rule:
 ```
 definitions
@@ -184,7 +188,9 @@ then
   add entry Rule Under Root : < project, rule > to report ;
 ```
 
-Aside from enjoying a drink of our own Champagne, the goal of using rules was to make the advisor easily expandable to new validations, specific to your enterprise standards, without having to write any code. The advisor can then be used as a standard validation step, possibly as part of a Continuous Integration toolchain.
+The goal of using rules is to make the advisor easily expandable to new validations, specific to your enterprise standards, without having to write any code. An easy way to extend the OTA is thus to extend the set of rules found in the [ota-rules](./ota-rules) project.
+
+# More information and feedback
 
 This application was built based on the expertise of the IBM Cloud Integration Expert Labs and IBM Garage Solution Engineering.
 If you would like to discuss expanding it and/or integrating it into your operations or have other questions, comments, or feedback, please send email to **Pierre Berlandier** at *pberland@us.ibm.com*
