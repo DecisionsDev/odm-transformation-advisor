@@ -1,0 +1,123 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<flow-definition plugin="workflow-job@2.36">
+  <actions/>
+  <description></description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.plugins.jira.JiraProjectProperty plugin="jira@3.0.12"/>
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.29.5">
+      <projectUrl>https://github.com/ODMDev/odm-transformation-advisor.git/</projectUrl>
+      <displayName>ota</displayName>
+    </com.coravy.hudson.plugins.github.GithubProjectProperty>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>ODM_URL</name>
+          <description></description>
+          <defaultValue>http://<DC_HOST>:9090/teamserver</defaultValue>
+          <trim>false</trim>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+      <triggers>
+        <org.jenkinsci.plugins.gwt.GenericTrigger plugin="generic-webhook-trigger@1.66">
+          <spec></spec>
+          <genericVariables>
+            <org.jenkinsci.plugins.gwt.GenericVariable>
+              <expressionType>JSONPath</expressionType>
+              <key>project</key>
+              <value>$.project.name</value>
+              <regexpFilter></regexpFilter>
+              <defaultValue></defaultValue>
+            </org.jenkinsci.plugins.gwt.GenericVariable>
+            <org.jenkinsci.plugins.gwt.GenericVariable>
+              <expressionType>JSONPath</expressionType>
+              <key>type</key>
+              <value>$.type</value>
+              <regexpFilter></regexpFilter>
+              <defaultValue></defaultValue>
+            </org.jenkinsci.plugins.gwt.GenericVariable>
+            <org.jenkinsci.plugins.gwt.GenericVariable>
+              <expressionType>JSONPath</expressionType>
+              <key>author</key>
+              <value>$.author</value>
+              <regexpFilter></regexpFilter>
+              <defaultValue></defaultValue>
+            </org.jenkinsci.plugins.gwt.GenericVariable>
+            <org.jenkinsci.plugins.gwt.GenericVariable>
+              <expressionType>JSONPath</expressionType>
+              <key>sourceLink</key>
+              <value>$.sourceLink</value>
+              <regexpFilter></regexpFilter>
+              <defaultValue></defaultValue>
+            </org.jenkinsci.plugins.gwt.GenericVariable>
+            <org.jenkinsci.plugins.gwt.GenericVariable>
+              <expressionType>JSONPath</expressionType>
+              <key>decisionService</key>
+              <value>$.decisionService.name</value>
+              <regexpFilter></regexpFilter>
+              <defaultValue></defaultValue>
+            </org.jenkinsci.plugins.gwt.GenericVariable>
+            <org.jenkinsci.plugins.gwt.GenericVariable>
+              <expressionType>JSONPath</expressionType>
+              <key>activityType</key>
+              <value>$.content[0].kind</value>
+              <regexpFilter></regexpFilter>
+              <defaultValue></defaultValue>
+            </org.jenkinsci.plugins.gwt.GenericVariable>
+            <org.jenkinsci.plugins.gwt.GenericVariable>
+              <expressionType>JSONPath</expressionType>
+              <key>activityStatus</key>
+              <value>$.content[0].status</value>
+              <regexpFilter></regexpFilter>
+              <defaultValue></defaultValue>
+            </org.jenkinsci.plugins.gwt.GenericVariable>
+          </genericVariables>
+          <regexpFilterText>$type $activityType $activityStatus</regexpFilterText>
+          <regexpFilterExpression>(ActivityUpdated|ReleaseUpdated) (ChangeActivity|Release) ReadyForApproval</regexpFilterExpression>
+          <printPostContent>true</printPostContent>
+          <printContributedVariables>true</printContributedVariables>
+          <causeString>$type to $activityStatus by $author in &quot;$project&quot; of &quot;$decisionService&quot;</causeString>
+          <token>ota</token>
+          <silentResponse>false</silentResponse>
+        </org.jenkinsci.plugins.gwt.GenericTrigger>
+      </triggers>
+    </org.jenkinsci.plugins.workflow.job.properties.PipelineTriggersJobProperty>
+  </properties>
+  <definition class="org.jenkinsci.plugins.workflow.cps.CpsFlowDefinition" plugin="workflow-cps@2.79">
+    <script>node {
+   stage(&apos;Preparation&apos;) {
+      echo &apos;Preparing...&apos;
+      git branch: &apos;master&apos;, credentialsId: &apos;ssh-key&apos;, url: &apos;git@github.com:ODMDev/odm-transformation-advisor.git&apos;
+   }
+   stage(&apos;OTA&apos;) {
+    sh &apos;&apos;&apos;
+    echo $project
+    &apos;&apos;&apos;
+      sh &apos;&apos;&apos;
+      ls
+      rm -rf ota.properties
+      echo &quot;ota.url=$ODM_URL&quot; &gt;&gt; ota.properties
+      echo &quot;ota.datasource=&quot; &gt;&gt; ota.properties
+      echo &quot;ota.projects=$project&quot; &gt;&gt; ota.properties
+      echo &quot;ota.report=ota-report.html&quot; &gt;&gt; ota.properties
+      echo &quot;ota.version=v810&quot; &gt;&gt; ota.properties
+      echo &quot;odm.dir=/var/jenkins_home/ODM&quot; &gt;&gt; ota.properties
+      echo &quot;ota.username=odmAdmin&quot; &gt;&gt; ota.properties
+      echo &quot;ota.password=odmAdmin&quot; &gt;&gt; ota.properties
+      
+      cat ota.properties
+      cp ota.properties ota-driver/pkg/ota/
+      cd ota-driver/pkg/ota
+      chmod +x run-ota.sh
+      ./run-ota.sh
+      &apos;&apos;&apos;
+      publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: true, reportDir: &apos;ota-driver/pkg/ota&apos;, reportFiles: &apos;ota-report.html&apos;, reportName: &apos;OTA Report&apos;, reportTitles: &apos;ota-report&apos;])
+   }
+}</script>
+    <sandbox>true</sandbox>
+  </definition>
+  <triggers/>
+  <disabled>false</disabled>
+</flow-definition>

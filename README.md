@@ -15,17 +15,18 @@ See the list of checkpoints in the following section, and check-out a [sample re
 ## List of checkpoints 
 The table below lists the current list of checkpoints that are performed by the tool.
 
-| Check                           | Deprecation | N/A for SaaS  |
-| --------------------------------| ----------- | ------------- |
-| Use of classic rule engine      | &#10004;    | &#10004;      | 
-| Use of classic rule projects    | &#10004;    | &#10004;      | 
-| Use of rule templates           | &#10004;    | &#10004;      | 
-| Use of decision trees           | &#10004;    | &#10004;      | 
-| Use of CRE API in B2X           | &#10004;    | &#10004;      | 
-| Use of domain providers         |             | &#10004;      | 
-| Use of custom valueInfo         |             | &#10004;      | 
-| Use of custom valueEditor       |             | &#10004;      | 
-| Use of custom rule properties   |             | &#10004;      | 
+| Check                           | Deprecated | Not Available on SaaS | Not Available on OCP |
+| --------------------------------| ---------- | --------------------- | -------------------- |
+| Classic rule engine             | &#10004;   | &#10004;      | &#10004;      | 
+| Classic rule projects           | &#10004;   | &#10004;      | &#10004;      | 
+| CRE API in B2X                  | &#10004;   | &#10004;      | &#10004;      | 
+| EC fine-grain permissions       | &#10004;   | &#10004;      | &#10004;      | 
+| Rule templates                  | &#10004;   |               |               | 
+| Decision trees                  | &#10004;   |               |               | 
+| Domain providers                |            | &#10004;      |               | 
+| Custom valueInfo                |            | &#10004;      |               | 
+| Custom valueEditor              |            | &#10004;      |               | 
+| Custom rule properties          |            | &#10004;      |               |
 
 Additionally, the advisor is looking for the following situations:
 
@@ -159,9 +160,14 @@ Note that the advisor only reads the content of your ODM repository. It does not
 The source code in this repo supports running against repositories from ODM 8.6 and above.
 If you are running older versions such as `8.5.x` or `8.0.x`, pre-packaged executable versions are available in the [`OLDER_ODM_VERSIONS`](OLDER_ODM_VERSIONS) folder.
 
-The list of compatibility checkpoints that are executed is the same. However, less best practices validations are availble.
+The list of compatibility checkpoints that are executed is the same. However, less best practices validations are available.
+
+# Jenkins integration
+
+You can integrate the OTA as part of your continuous integration practice, to perform continuous code quality inspection on your rule projects. Direction for integration with Jenkins are provided here.
 
 # More information and feedback
+
 The advisor implements most of its validations using ODM business rules that are applied to the rule artifacts from your repository.
 For example, the check for rules that are defined directly under the root folder of the project is implemented with the following simple rule:
 ```
@@ -176,13 +182,14 @@ then
 Aside from enjoying a drink of our own Champagne, the goal of using rules was to make the advisor easily expandable to new validations, specific to your enterprise standards, without having to write any code. The advisor can then be used as a standard validation step, possibly as part of a Continuous Integration toolchain.
 
 This application was built based on the expertise of the IBM Cloud Technical Enablement group.
-If you would like to discuss expanding it and/or integrating it into your operations or have other questions, comments, or feedback,
-please send email to **Pierre Berlandier** at *pberland@us.ibm.com*
+If you would like to discuss expanding it and/or integrating it into your operations or have other questions, comments, or feedback, please send email to **Pierre Berlandier** at *pberland@us.ibm.com*
 
 
 # License
+
 This project is licensed under the Apache License - see the [LICENSE](LICENSE) file for details.
 
 # Notice
-Â© Copyright IBM Corporation 2018.
+
+© Copyright IBM Corporation 2020.
 
