@@ -171,11 +171,11 @@ If you are running older versions such as `8.5.x` or `8.0.x`, pre-packaged execu
 
 The list of compatibility checkpoints that are executed is the same. However, less best practices validations are available.
 
-# How can I use the OTA with continuous integration?
+## How can I use the OTA with continuous integration?
 
 You can integrate the OTA as part of your continuous integration practice, to perform continuous code quality inspection on your rule projects. Directions for integrating OTA with Jenkins are provided [here](./Jenkins/README.md).
 
-# How can I extend the OTA?
+## How can I extend the OTA?
 
 The OTA implements most of its validations using ODM business rules that are applied to the rule artifacts from your repository.
 For example, the check for rules that are defined directly under the root folder of the project is implemented with the following simple rule:

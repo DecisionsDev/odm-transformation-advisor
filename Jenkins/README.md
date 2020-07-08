@@ -1,4 +1,4 @@
-# Jenkins integration for ODM Transformation Advisor
+# Jenkins integration 
 
 ## Prerequisites
 - `JDK`, `Ant` and `ODM 8.10.x` are installed in the Jenkins node.
