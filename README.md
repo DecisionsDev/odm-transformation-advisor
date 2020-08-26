@@ -84,7 +84,7 @@ Before running advisor, you need to edit the **[ota.properties](ota.properties)*
 Other configuration properties that can be set are:
 
 * `ota.datasource`: the name of the target Decision Center datasource, when it is not the default `jdbc/ilogDataSource` name.
-* `ota.projects`: a list of rule project names (separated by a colon). Use this property when you only want a specific list of projects to be examined.
+* `ota.projects`: a list of selected rule projects, each separated by a colon (:). A selected rule project is either just the name of a project, or the name of a project and the name of a branch, separated by a slash (/). Use this property when you only want a specific list of projects to be examined.
 Otherwise, leave it blank to go through all the projects in the repository.
 * `ota.report`: the file path and name for the report that will be produced by advisor.
 
