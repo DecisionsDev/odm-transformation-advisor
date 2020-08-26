@@ -48,15 +48,13 @@ public class B2XMember {
 
 	private static Hashtable<String, Hashtable<String, List<String>>> deprecated;
 
-	private static Logger logger = Logger.getLogger(B2XMember.class
-			.getCanonicalName());
+	private static Logger logger = Logger.getLogger(B2XMember.class.getCanonicalName());
 
 	static {
 		try {
 			deprecated = new Hashtable<String, Hashtable<String, List<String>>>();
 			addUsageFrom(CONTEXT, new String[] { "?context", "context" }, true);
-			addUsageFrom(INSTANCE, new String[] { "?instance", "instance" },
-					false);
+			addUsageFrom(INSTANCE, new String[] { "?instance", "instance" }, false);
 		} catch (ClassNotFoundException e) {
 			logger.warning("Could not initialize the deprecated table");
 			deprecated = null;
@@ -69,8 +67,8 @@ public class B2XMember {
 	 * 
 	 * @param className
 	 */
-	private static void addUsageFrom(String className, String[] varNames,
-			boolean includeMembers) throws ClassNotFoundException {
+	private static void addUsageFrom(String className, String[] varNames, boolean includeMembers)
+			throws ClassNotFoundException {
 		Hashtable<String, List<String>> usage = new Hashtable<String, List<String>>();
 		List<String> variables = Arrays.asList(varNames);
 		usage.put(VARIABLE, variables);
@@ -81,12 +79,10 @@ public class B2XMember {
 			//
 			// Add public methods (except the ones from the Object class).
 			//
-			List<Method> objectMethods = Arrays
-					.asList(objectClazz.getMethods());
+			List<Method> objectMethods = Arrays.asList(objectClazz.getMethods());
 			List<String> methodNames = new ArrayList<String>();
 			for (Method method : clazz.getMethods()) {
-				if (Modifier.isPublic(method.getModifiers())
-						&& !objectMethods.contains(method)) {
+				if (Modifier.isPublic(method.getModifiers()) && !objectMethods.contains(method)) {
 					methodNames.add(method.getName());
 				}
 			}
@@ -97,8 +93,7 @@ public class B2XMember {
 			List<Field> objectFields = Arrays.asList(objectClazz.getFields());
 			List<String> fieldNames = new ArrayList<String>();
 			for (Field field : clazz.getFields()) {
-				if (Modifier.isPublic(field.getModifiers())
-						&& !objectFields.contains(field)) {
+				if (Modifier.isPublic(field.getModifiers()) && !objectFields.contains(field)) {
 					methodNames.add(field.getName());
 				}
 			}
@@ -123,11 +118,10 @@ public class B2XMember {
 		return name;
 	}
 
-	public String getBody()
-	{
+	public String getBody() {
 		return body;
 	}
-	
+
 	public String getType() {
 		return type;
 	}
@@ -141,8 +135,8 @@ public class B2XMember {
 	}
 
 	/**
-	 * Checks in sequence whether any of the variables, the methods or the
-	 * fields of the deprecated class are used in the B2X member body.
+	 * Checks in sequence whether any of the variables, the methods or the fields of
+	 * the deprecated class are used in the B2X member body.
 	 * 
 	 * @param className
 	 * @return
@@ -158,8 +152,8 @@ public class B2XMember {
 	}
 
 	/**
-	 * Check for reference to one of the deprecated variable, method, or field
-	 * in the body of the B2X member.
+	 * Check for reference to one of the deprecated variable, method, or field in
+	 * the body of the B2X member.
 	 * 
 	 * @param usage
 	 * @param type

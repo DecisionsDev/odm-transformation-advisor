@@ -2,7 +2,6 @@
 <com.ibm.rules.studio.model.decisionservice:Deployment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:com.ibm.rules.studio.model.decisionservice="http://com.ibm.rules.studio/model/decisionservice.ecore" ruleAppName="odm">
   <name>odm</name>
   <uuid>33c94c7d-7ee9-404b-8ea9-c546d32c33a1</uuid>
-  <targets label="odm"/>
   <operations operationName="project_validation_operation">
     <operation href="project_validation_operation.dop#cd134a3b-aa87-46ec-850a-d40dbe8c4755"/>
     <properties key="ruleset.version">

@@ -21,10 +21,7 @@
 **/
 package com.ibm.odm.ota.checker;
 
-import ilog.rules.teamserver.brm.IlrRuleProject;
-
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
@@ -33,7 +30,10 @@ import com.ibm.odm.ota.Findings;
 import com.ibm.odm.ota.OTAException;
 import com.ibm.odm.ota.ProjectGroup;
 import com.ibm.odm.ota.ProjectMap;
+import com.ibm.odm.ota.ProjectSelections;
 import com.ibm.odm.ota.Report;
+
+import ilog.rules.teamserver.brm.IlrRuleProject;
 
 /**
  * Performs checks at the level of groups of dependent projects (for classic
@@ -45,11 +45,10 @@ import com.ibm.odm.ota.Report;
 public class ProjectGroupChecker extends Checker {
 	public static final String RULESET_PATH = "/odm/project_group_validation_operation";
 
-	private static Logger logger = Logger.getLogger(ProjectGroupChecker.class
-			.getCanonicalName());
+	private static Logger logger = Logger.getLogger(ProjectGroupChecker.class.getCanonicalName());
 
-	public ProjectGroupChecker(String version, List<String> targetProjects) throws OTAException {
-		super(version, targetProjects);
+	public ProjectGroupChecker(String version, ProjectSelections projectSelections) throws OTAException {
+		super(version, projectSelections);
 	}
 
 	@Override
@@ -58,13 +57,28 @@ public class ProjectGroupChecker extends Checker {
 		ProjectMap map = new ProjectMap();
 		for (ProjectGroup group : map.getProjectGroups()) {
 			try {
-				if (isTargetProjectGroup(group)) {
+				if (isSelected(group)) {
 					runOne(report, group);
 				}
 			} catch (OTAException e) {
 				handleElementException(logger, e);
 			}
 		}
+	}
+
+	/**
+	 * A project group is selected if any of the project in the group is selected.
+	 * 
+	 * @param group
+	 * @return
+	 */
+	public boolean isSelected(ProjectGroup group) {
+		for (String project : group.getProjectNames()) {
+			if (projectSelections.isSelected(project)) {
+				return true;
+			}
+		}
+		return false;
 	}
 
 	public void runOne(Report report, ProjectGroup group) throws OTAException {

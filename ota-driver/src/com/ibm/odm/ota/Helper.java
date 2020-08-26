@@ -21,6 +21,9 @@
 **/
 package com.ibm.odm.ota;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import ilog.rules.teamserver.brm.IlrBaseline;
 import ilog.rules.teamserver.brm.IlrDependency;
 import ilog.rules.teamserver.brm.IlrRuleProject;
@@ -28,9 +31,6 @@ import ilog.rules.teamserver.model.IlrObjectNotFoundException;
 import ilog.rules.teamserver.model.IlrSession;
 import ilog.rules.teamserver.model.IlrSessionHelper;
 import ilog.rules.teamserver.model.permissions.IlrPermissionException;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * Provides helper functions.
@@ -40,30 +40,24 @@ import java.util.List;
  */
 public class Helper {
 
-	public static IlrRuleProject getProjectNamed(String projectName)
-			throws OTAException {
+	public static IlrRuleProject getProjectNamed(String projectName) throws OTAException {
 		try {
-			return IlrSessionHelper.getProjectNamed(DCConnection.getSession(),
-					projectName);
+			return IlrSessionHelper.getProjectNamed(DCConnection.getSession(), projectName);
 		} catch (IlrObjectNotFoundException e) {
 			throw new OTAException("Error getting project " + projectName, e);
 		}
 	}
 
-	public static List<IlrRuleProject> getDependencies(IlrRuleProject project)
-			throws OTAException {
+	public static List<IlrRuleProject> getDependencies(IlrRuleProject project) throws OTAException {
 		try {
 			List<IlrRuleProject> projects = new ArrayList<IlrRuleProject>();
 			IlrSession session = DCConnection.getSession();
-			IlrBaseline currentBaseline = IlrSessionHelper.getCurrentBaseline(
-					session, project);
+			IlrBaseline currentBaseline = IlrSessionHelper.getCurrentBaseline(session, project);
 			session.setWorkingBaseline(currentBaseline);
 			@SuppressWarnings("unchecked")
-			List<IlrDependency> deps = currentBaseline.getProjectInfo()
-					.getDependencies();
+			List<IlrDependency> deps = currentBaseline.getProjectInfo().getDependencies();
 			for (IlrDependency dep : deps) {
-				IlrRuleProject dependent = IlrSessionHelper.getProjectNamed(
-						session, dep.getProjectName());
+				IlrRuleProject dependent = IlrSessionHelper.getProjectNamed(session, dep.getProjectName());
 				projects.add(dependent);
 			}
 			return projects;

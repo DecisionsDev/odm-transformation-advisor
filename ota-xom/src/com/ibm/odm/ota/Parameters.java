@@ -6,6 +6,7 @@ import ilog.rules.bom.annotations.NotBusiness;
 
 /**
  * Findings parameters, used in rules or Java validations.
+ * 
  * @author pberland@us.ibm.com
  *
  */

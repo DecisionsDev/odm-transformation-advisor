@@ -3,6 +3,7 @@
 	<name>ota-driver</name>
 	<comment></comment>
 	<projects>
+		<project>ota-xom</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

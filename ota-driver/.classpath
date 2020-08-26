@@ -47,14 +47,14 @@
 	<classpathentry kind="var" path="ILOG_BR_HOME/executionserver/lib/poi-ooxml-schemas-4.0.1.jar"/>
 	<classpathentry kind="var" path="ILOG_BR_HOME/teamserver/lib/guava-26.0-jre.jar"/>
 	<classpathentry kind="var" path="ILOG_BR_HOME/teamserver/lib/icu4j-61.1.jar"/>
-	<classpathentry kind="var" path="ILOG_BR_HOME/teamserver/lib/spring-aop-5.0.7.RELEASE.jar"/>
-	<classpathentry kind="var" path="ILOG_BR_HOME/teamserver/lib/spring-beans-5.0.7.RELEASE.jar"/>
-	<classpathentry kind="var" path="ILOG_BR_HOME/teamserver/lib/spring-context-5.0.7.RELEASE.jar"/>
-	<classpathentry kind="var" path="ILOG_BR_HOME/teamserver/lib/spring-context-support-5.0.7.RELEASE.jar"/>
-	<classpathentry kind="var" path="ILOG_BR_HOME/teamserver/lib/spring-core-5.0.7.RELEASE.jar"/>
-	<classpathentry kind="var" path="ILOG_BR_HOME/teamserver/lib/spring-expression-5.0.7.RELEASE.jar"/>
-	<classpathentry kind="var" path="ILOG_BR_HOME/teamserver/lib/spring-web-5.0.7.RELEASE.jar"/>
-	<classpathentry kind="var" path="ILOG_BR_HOME/teamserver/lib/spring-webmvc-5.0.7.RELEASE.jar"/>
 	<classpathentry kind="var" path="ILOG_BR_HOME/teamserver/lib/commons-codec-1.11.jar"/>
+	<classpathentry kind="var" path="ILOG_BR_HOME/teamserver/lib/spring-aop-5.0.12.RELEASE.jar"/>
+	<classpathentry kind="var" path="ILOG_BR_HOME/teamserver/lib/spring-beans-5.0.12.RELEASE.jar"/>
+	<classpathentry kind="var" path="ILOG_BR_HOME/teamserver/lib/spring-context-5.0.12.RELEASE.jar"/>
+	<classpathentry kind="var" path="ILOG_BR_HOME/teamserver/lib/spring-context-support-5.0.12.RELEASE.jar"/>
+	<classpathentry kind="var" path="ILOG_BR_HOME/teamserver/lib/spring-core-5.0.12.RELEASE.jar"/>
+	<classpathentry kind="var" path="ILOG_BR_HOME/teamserver/lib/spring-expression-5.0.12.RELEASE.jar"/>
+	<classpathentry kind="var" path="ILOG_BR_HOME/teamserver/lib/spring-web-5.0.12.RELEASE.jar"/>
+	<classpathentry kind="var" path="ILOG_BR_HOME/teamserver/lib/spring-webmvc-5.0.12.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

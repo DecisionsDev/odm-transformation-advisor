@@ -21,17 +21,8 @@
 **/
 package com.ibm.odm.ota.checker;
 
-import ilog.rules.teamserver.brm.IlrBaseline;
-import ilog.rules.teamserver.brm.IlrRuleProject;
-import ilog.rules.teamserver.model.IlrDefaultSearchCriteria;
-import ilog.rules.teamserver.model.IlrElementDetails;
-import ilog.rules.teamserver.model.IlrObjectNotFoundException;
-import ilog.rules.teamserver.model.IlrSession;
-import ilog.rules.teamserver.model.IlrSessionHelper;
-import ilog.rules.teamserver.model.permissions.IlrPermissionException;
-import ilog.rules.teamserver.model.permissions.IlrSecurityProfileData;
-
 import java.util.Arrays;
+import java.util.Iterator;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -40,7 +31,16 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 
 import com.ibm.odm.ota.DCConnection;
 import com.ibm.odm.ota.OTAException;
+import com.ibm.odm.ota.ProjectSelections;
+import com.ibm.odm.ota.ProjectSelections.Item;
 import com.ibm.odm.ota.Report;
+
+import ilog.rules.teamserver.model.IlrDefaultSearchCriteria;
+import ilog.rules.teamserver.model.IlrElementDetails;
+import ilog.rules.teamserver.model.IlrObjectNotFoundException;
+import ilog.rules.teamserver.model.IlrSession;
+import ilog.rules.teamserver.model.permissions.IlrPermissionException;
+import ilog.rules.teamserver.model.permissions.IlrSecurityProfileData;
 
 /**
  * Performs checks that are not easily implemented with rules.
@@ -50,11 +50,10 @@ import com.ibm.odm.ota.Report;
  */
 public class RepositoryChecker extends Checker {
 
-	private static Logger logger = Logger.getLogger(RepositoryChecker.class
-			.getCanonicalName());
+	private static Logger logger = Logger.getLogger(RepositoryChecker.class.getCanonicalName());
 
-	public RepositoryChecker(String version, List<String> targetProjects) throws OTAException {
-		super(version, targetProjects);
+	public RepositoryChecker(String version, ProjectSelections projectSelections) throws OTAException {
+		super(version, projectSelections);
 	}
 
 	@Override
@@ -68,7 +67,7 @@ public class RepositoryChecker extends Checker {
 	}
 
 	/**
-	 * Check the use of fine grained permissions.
+	 * Checks the use of fine grained permissions.
 	 * 
 	 * @param report
 	 */
@@ -78,49 +77,48 @@ public class RepositoryChecker extends Checker {
 		for (String group : session.getAvailableGroups()) {
 			IlrSecurityProfileData sec = session.getSecurityProfileData(group);
 			if (sec.size() > 0) {
-				report.addTextEntry("PERMISSIONS", group,
-						Integer.toString(sec.size()), null);
+				report.addTextEntry("PERMISSIONS", group, Integer.toString(sec.size()), null);
 			}
 		}
 	}
 
 	/**
-	 * Check the use of custom properties for the rules.
+	 * Checks the use of custom properties for the rules.
 	 * 
 	 * @param report
 	 * @throws OTAException
 	 */
 	private void checkCustomProperties(Report report) throws OTAException {
-		List<String> predefined = Arrays.asList(new String[] { "effectiveDate",
-				"expirationDate", "status", "overriddenRules", "priority" });
+		List<String> predefined = Arrays
+				.asList(new String[] { "effectiveDate", "expirationDate", "status", "overriddenRules", "priority" });
 		IlrElementDetails element = getOneRule();
 		if (element != null) {
-			EList<EStructuralFeature> features = element.eClass()
-					.getEAllStructuralFeatures();
+			EList<EStructuralFeature> features = element.eClass().getEAllStructuralFeatures();
 			for (EStructuralFeature feature : features) {
-				if (feature.getEContainingClass().getName().equals("Rule")
-						&& !predefined.contains(feature.getName())) {
-					report.addTextEntry("CUSTOM_PROPERTY", "", feature.getName(),
-							null);
+				if (feature.getEContainingClass().getName().equals("Rule") && !predefined.contains(feature.getName())) {
+					report.addTextEntry("CUSTOM_PROPERTY", "", feature.getName(), null);
 				}
 			}
 		}
 	}
 
+	/**
+	 * Returns one rule from any of the selected projects in order to check the
+	 * repository-level properties of the rule.
+	 * 
+	 * @return
+	 * @throws OTAException
+	 */
 	private IlrElementDetails getOneRule() throws OTAException {
 		try {
+			Iterator<Item> iter = projectSelections.getSelections();
 			IlrSession session = DCConnection.getSession();
-			List<IlrRuleProject> projects = IlrSessionHelper
-					.getProjects(session);
-			for (IlrRuleProject project : projects) {
-				IlrBaseline currentBaseline = IlrSessionHelper
-						.getCurrentBaseline(session, project);
-				session.setWorkingBaseline(currentBaseline);
+			while (iter.hasNext()) {
+				iter.next().setProjectBaseline();
 
 				IlrDefaultSearchCriteria criteria = new IlrDefaultSearchCriteria(
 						session.getBrmPackage().getBusinessRule());
-				List<IlrElementDetails> elements = session
-						.findElementDetails(criteria);
+				List<IlrElementDetails> elements = session.findElementDetails(criteria);
 				if (elements.size() > 0) {
 					return elements.get(0);
 				}

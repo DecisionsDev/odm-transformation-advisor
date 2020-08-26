@@ -19,6 +19,20 @@
 		<pathelement path="${res.dir}"/>
 	</path>
 
+	<target name="test-ota">
+		<java classname="com.ibm.odm.ota.OTARunner" fork="yes">
+			<classpath refid="run.classpath" />
+			<jvmarg value="-Djava.util.logging.config.file=${res.dir}/logging.properties" />
+			<arg value="url=${ota.url}" />
+			<arg value="datasource=${ota.datasource}" />
+			<arg value="projects=${ota.projects}" />
+			<arg value="username=rtsAdmin" />
+			<arg value="password=rtsAdmin" />
+			<arg value="report=${ota.report}" />
+			<arg value="version=${ota.version}" />
+		</java>
+	</target>
+
 	<target name="run-ota">
 		<input message="Decision Center - Username:" addproperty="ota.username" />
 		<input message="Decision Center - Password:" addproperty="ota.password"/>
@@ -34,6 +48,6 @@
 			<arg value="version=${ota.version}" />
 		</java>
 	</target>
-		
+
 </project>
 

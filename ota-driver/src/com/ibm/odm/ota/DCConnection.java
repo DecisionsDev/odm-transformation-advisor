@@ -21,12 +21,12 @@
 **/
 package com.ibm.odm.ota;
 
+import java.util.logging.Logger;
+
 import ilog.rules.teamserver.client.IlrRemoteSessionFactory;
 import ilog.rules.teamserver.model.IlrConnectException;
 import ilog.rules.teamserver.model.IlrSession;
 import ilog.rules.teamserver.model.IlrSessionFactory;
-
-import java.util.logging.Logger;
 
 /**
  * Manages connection with the DC repository.
@@ -38,8 +38,7 @@ public class DCConnection {
 
 	private static IlrSession session = null;
 
-	private static Logger logger = Logger.getLogger(DCConnection.class
-			.getCanonicalName());
+	private static Logger logger = Logger.getLogger(DCConnection.class.getCanonicalName());
 
 	private DCConnection() {
 	}
@@ -53,15 +52,15 @@ public class DCConnection {
 		return session;
 	}
 
-	public static void startSession(String serverURL, String login,
-			String password, String datasource) throws OTAException {
+	public static void startSession(String serverURL, String login, String password, String datasource)
+			throws OTAException {
 		try {
 			IlrSessionFactory factory = new IlrRemoteSessionFactory();
 			factory.connect(login, password, serverURL, datasource);
 			session = factory.getSession();
 			session.beginUsage();
 		} catch (IlrConnectException e) {
-			throw new OTAException("Cannot connect to ODM repository with the given URL and credentials", e);
+			throw new OTAException("Error connecting to ODM repository with the given URL and credentials", e);
 		}
 	}
 

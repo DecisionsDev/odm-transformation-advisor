@@ -21,15 +21,12 @@
 **/
 package com.ibm.odm.ota.checker;
 
-import ilog.rules.teamserver.brm.IlrRuleProject;
-
-import java.util.List;
 import java.util.logging.Logger;
 
 import com.ibm.odm.ota.Findings;
 import com.ibm.odm.ota.OTAException;
 import com.ibm.odm.ota.Parameters;
-import com.ibm.odm.ota.ProjectGroup;
+import com.ibm.odm.ota.ProjectSelections;
 import com.ibm.odm.ota.Report;
 
 /**
@@ -43,12 +40,12 @@ public abstract class Checker {
 
 	private boolean oneExceptionFlagged = false;
 	protected String version;
-	protected List<String> targetProjects;
+	protected ProjectSelections projectSelections;
 	protected Parameters parameters;
 
-	protected Checker(String version, List<String> targetProjects) throws OTAException {
+	protected Checker(String version, ProjectSelections projectSelections) throws OTAException {
 		this.version = version;
-		this.targetProjects = targetProjects;
+		this.projectSelections = projectSelections;
 		this.parameters = Findings.getParameters();
 	}
 
@@ -67,29 +64,5 @@ public abstract class Checker {
 		} else {
 			logger.severe(e.getMessage());
 		}
-	}
-
-	protected boolean isTargetProject(IlrRuleProject project) {
-		return (targetProjects == null) ? true : targetProjects
-				.contains(project.getName());
-	}
-
-	/**
-	 * A project group is processed if any of the project in the group is a
-	 * target.
-	 * 
-	 * @param group
-	 * @return
-	 */
-	protected boolean isTargetProjectGroup(ProjectGroup group) {
-		if (targetProjects == null) {
-			return true;
-		}
-		for (String project : targetProjects) {
-			if (group.getProjectNames().contains(project)) {
-				return true;
-			}
-		}
-		return false;
 	}
 }

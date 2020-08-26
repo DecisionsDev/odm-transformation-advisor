@@ -21,16 +21,8 @@
 **/
 package com.ibm.odm.ota.checker;
 
-import ilog.rules.teamserver.brm.IlrBaseline;
-import ilog.rules.teamserver.brm.IlrRuleProject;
-import ilog.rules.teamserver.model.IlrDefaultSearchCriteria;
-import ilog.rules.teamserver.model.IlrElementDetails;
-import ilog.rules.teamserver.model.IlrObjectNotFoundException;
-import ilog.rules.teamserver.model.IlrSession;
-import ilog.rules.teamserver.model.IlrSessionHelper;
-import ilog.rules.teamserver.model.permissions.IlrPermissionException;
-
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -38,7 +30,17 @@ import java.util.logging.Logger;
 import com.ibm.odm.ota.DCConnection;
 import com.ibm.odm.ota.DecisionRunner;
 import com.ibm.odm.ota.OTAException;
+import com.ibm.odm.ota.ProjectSelections;
+import com.ibm.odm.ota.ProjectSelections.Item;
 import com.ibm.odm.ota.Report;
+
+import ilog.rules.teamserver.brm.IlrActionRule;
+import ilog.rules.teamserver.brm.IlrRuleProject;
+import ilog.rules.teamserver.model.IlrDefaultSearchCriteria;
+import ilog.rules.teamserver.model.IlrElementDetails;
+import ilog.rules.teamserver.model.IlrObjectNotFoundException;
+import ilog.rules.teamserver.model.IlrSession;
+import ilog.rules.teamserver.model.permissions.IlrRoleRestrictedPermissionException;
 
 /**
  * Performs checks at the individual rule project level.
@@ -50,53 +52,59 @@ public class ProjectChecker extends Checker {
 
 	private static final String RULESET_PATH = "/odm/project_validation_operation";
 
-	private static Logger logger = Logger.getLogger(ProjectChecker.class
-			.getCanonicalName());
+	private static Logger logger = Logger.getLogger(ProjectChecker.class.getCanonicalName());
 
-	public ProjectChecker(String version, List<String> targetProjects) throws OTAException {
-		super(version, targetProjects);
+	public ProjectChecker(String version, ProjectSelections projectSelections) throws OTAException {
+		super(version, projectSelections);
 	}
 
 	@Override
 	public void run(Report report) throws OTAException {
 		logger.info("@ Checking individual rule projects from repository");
-		IlrSession session = DCConnection.getSession();
-		List<IlrRuleProject> projects = IlrSessionHelper.getProjects(session);
-		for (IlrRuleProject project : projects) {
-			try {
-				if (isTargetProject(project)) {
-					runOne(report, project);
-				}
-			} catch (OTAException e) {
-				handleElementException(logger, e);
+
+		Iterator<Item> iter = projectSelections.getSelections();
+		try {
+			while (iter.hasNext()) {
+				runOne(report, iter.next());
 			}
+		} catch (OTAException e) {
+			handleElementException(logger, e);
 		}
 	}
 
-	public void runOne(Report report, IlrRuleProject project)
-			throws OTAException {
+	public void runOne(Report report, Item item) throws OTAException {
 		try {
-			logger.info("Checking project " + project.getName());
-			IlrSession session = DCConnection.getSession();
-			IlrBaseline currentBaseline = IlrSessionHelper.getCurrentBaseline(
-					session, project);
-			session.setWorkingBaseline(currentBaseline);
+			IlrRuleProject project = item.getProject();
+			item.setProjectBaseline();
+			report.setBranchContext(item.getBranchName());
+			logger.info("Checking project " + project.getName() + " in branch " + item.getBranchName());
 
+			IlrSession session = DCConnection.getSession();
 			IlrDefaultSearchCriteria criteria = new IlrDefaultSearchCriteria(
 					session.getBrmPackage().getProjectElement());
-			List<IlrElementDetails> elements = session
-					.findElementDetails(criteria);
+			List<IlrElementDetails> elements = session.findElementDetails(criteria);
 
 			runRulesetChecks(report, project, elements);
 			runJavaChecks(report, project, elements);
-			runDebugStuff(project, elements);
-		} catch (IlrObjectNotFoundException | IlrPermissionException e) {
+			// runExperimental(project, elements);
+
+		} catch (IlrRoleRestrictedPermissionException | IlrObjectNotFoundException e) {
 			throw new OTAException("Error accessing project elements", e);
+		} finally {
+			report.clearBranchContext();
 		}
 	}
 
-	private void runRulesetChecks(Report report, IlrRuleProject project,
-			List<IlrElementDetails> elements) throws OTAException {
+	/**
+	 * Runs the project validation ruleset.
+	 * 
+	 * @param report
+	 * @param project
+	 * @param elements
+	 * @throws OTAException
+	 */
+	private void runRulesetChecks(Report report, IlrRuleProject project, List<IlrElementDetails> elements)
+			throws OTAException {
 		DecisionRunner runner = new DecisionRunner(version, RULESET_PATH);
 		Map<String, Object> inputParameters = new HashMap<String, Object>();
 		inputParameters.put("project", project);
@@ -107,50 +115,34 @@ public class ProjectChecker extends Checker {
 
 	}
 
-	private void runJavaChecks(Report report, IlrRuleProject project,
-			List<IlrElementDetails> elements) throws OTAException {
-		// TODO
+	/**
+	 * Runs additional project validations.
+	 * 
+	 * @param report
+	 * @param project
+	 * @param elements
+	 * @throws OTAException
+	 */
+	private void runJavaChecks(Report report, IlrRuleProject project, List<IlrElementDetails> elements)
+			throws OTAException {
+		// TODO: Add validation backlog.
 	}
 
 	/**
-	 * Test & debug code on element details from the repository is done here.
+	 * Experimental code on element details from the repository is done here.
 	 * Invocation of this method should be removed from final code.
 	 * 
 	 * @param project
 	 * @param elements
 	 * @throws OTAException
 	 */
-	private void runDebugStuff(IlrRuleProject project,
-			List<IlrElementDetails> elements) throws OTAException {
+	@SuppressWarnings("unused")
+	private void runExperimental(IlrRuleProject project, List<IlrElementDetails> elements) throws OTAException {
 		for (IlrElementDetails details : elements) {
 			if (details.getType().equals("brm.ActionRule")) {
-				/*
-				 * IlrActionRule rule = ((IlrActionRule) details); if (
-				 * rule.getName().equals("vague name")) { IlrBrmPackage model =
-				 * DCConnection.getSession().getBrmPackage();
-				 * rule.setRawValue(model.getProjectElement_Documentation(),
-				 * "COMMENT"); DCConnection.getSession().commit(rule);
-				 * System.out.println("VAGUE NAME COMMENTED"); }
-				 */
-				/*
-				 * String body = rule.getDefinition().getBody();
-				 * System.out.println("--------------");
-				 * System.out.println(body); ActionRuleInfo ari = new
-				 * ActionRuleInfo(body); System.out.println(ari.getInfo());
-				 */
-
-				/*
-				 * IlrRulePackage pkg = ((IlrActionRule)
-				 * details).getRulePackage();
-				 * System.out.println(pkg.getPropertyValue(arg0)); if (pkg !=
-				 * null)
-				 * 
-				 * { if (pkg.getChildren().size() > 0)
-				 * System.out.println(pkg.getName()); }
-				 */
+				IlrActionRule rule = ((IlrActionRule) details);
 			}
 		}
-
 	}
 
 }

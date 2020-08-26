@@ -21,9 +21,6 @@
 **/
 package com.ibm.odm.ota;
 
-import java.io.File;
-import java.util.Arrays;
-import java.util.List;
 import java.util.logging.Logger;
 
 import com.ibm.odm.ota.checker.BOMChecker;
@@ -43,7 +40,7 @@ public class OTARunner {
 	private String password;
 	private String url;
 	private String datasource;
-	private List<String> projects;
+	private String projects;
 	private String version;
 
 	private String report;
@@ -54,13 +51,19 @@ public class OTARunner {
 	private static final String DEFAULT_URL = "http://localhost:9090/teamserver";
 	private static final String DEFAULT_REPORT = "odm-repository-report.html";
 
-	private static Logger logger = Logger.getLogger(OTARunner.class
-			.getCanonicalName());
+	private static Logger logger = Logger.getLogger(OTARunner.class.getCanonicalName());
 
 	private OTARunner(String[] args) throws OTAException {
 		getParams(args);
 	}
 
+	/**
+	 * Gets the parameters from the execution arguments. The parameter values are
+	 * parsed and validated just in time, in the place they are used.
+	 * 
+	 * @param args
+	 * @throws OTAException
+	 */
 	private void getParams(String[] args) throws OTAException {
 		if (args.length == 0) {
 			url = DEFAULT_URL;
@@ -73,19 +76,11 @@ public class OTARunner {
 		} else {
 			url = getArg("url", args);
 			datasource = getArg("datasource", args);
-			projects = getListArg("projects", args, ':');
 			username = getArg("username", args);
 			password = getArg("password", args);
 			report = getArg("report", args);
 			version = getArg("version", args);
-		}
-		//
-		// Parameter validations.
-		//
-		File ruleappPath = new File(DecisionRunner.getRepositoryPath(version));
-		if (!ruleappPath.exists()) {
-			throw new OTAException("Version parameter " + version
-					+ " is invalid");
+			projects = getArg("projects", args);
 		}
 	}
 
@@ -93,41 +88,23 @@ public class OTARunner {
 		for (String arg : args) {
 			String[] kvp = arg.split("=");
 			if (kvp[0].equals(key)) {
-				return (kvp.length == 1 || kvp[1].trim().isEmpty()) ? null
-						: kvp[1];
+				return (kvp.length == 1 || kvp[1].trim().isEmpty()) ? null : kvp[1];
 			}
 		}
 		throw new OTAException("Argument " + key + " not found", null);
-	}
-
-	/**
-	 * List elements are separated by the given separator character.
-	 * @param key
-	 * @param args
-	 * @return
-	 * @throws OTAException
-	 */
-	private List<String> getListArg(String key, String[] args, char separator)
-			throws OTAException {
-		String value = getArg(key, args);
-		if (value == null) {
-			return null;
-		}
-		value.trim();
-		return Arrays.asList(value.trim().split(" *" + separator + " *"));
-
 	}
 
 	private void run() throws OTAException {
 		DCConnection.startSession(url, username, password, datasource);
 		Report runReport = new Report(url, datasource, username);
 
-		logger.info("Starting repository analysis for " + url
-				+ (datasource != null ? "/" + datasource : ""));
-		(new ProjectChecker(version, projects)).run(runReport);
-		(new ProjectGroupChecker(version, projects)).run(runReport);
-		(new RepositoryChecker(version, projects)).run(runReport);
-		(new BOMChecker(version, projects)).run(runReport);
+		ProjectSelections projectSelections = new ProjectSelections(projects);
+
+		logger.info("Starting repository analysis for " + url + (datasource != null ? "/" + datasource : ""));
+		(new ProjectChecker(version, projectSelections)).run(runReport);
+		(new ProjectGroupChecker(version, projectSelections)).run(runReport);
+		(new RepositoryChecker(version, projectSelections)).run(runReport);
+		(new BOMChecker(version, projectSelections)).run(runReport);
 
 		ReportFormatter formatter = new ReportFormatter();
 		formatter.createHTML(runReport, report);

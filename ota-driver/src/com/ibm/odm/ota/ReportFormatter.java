@@ -21,8 +21,6 @@
 **/
 package com.ibm.odm.ota;
 
-import ilog.rules.teamserver.model.permalink.IlrPermanentLinkHelper;
-
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -38,6 +36,8 @@ import java.util.List;
 import java.util.Properties;
 
 import com.ibm.icu.text.DateFormat;
+
+import ilog.rules.teamserver.model.permalink.IlrPermanentLinkHelper;
 
 /**
  * Formats and outputs report to HTML file.
@@ -65,20 +65,16 @@ public class ReportFormatter implements Comparator<String> {
 
 	public ReportFormatter() throws OTAException {
 		try {
-			permalinkHelper = new IlrPermanentLinkHelper(
-					DCConnection.getSession());
-			preferences.load(ClassLoader
-					.getSystemResourceAsStream(PREFERENCES_FILE));
+			permalinkHelper = new IlrPermanentLinkHelper(DCConnection.getSession());
+			preferences.load(ClassLoader.getSystemResourceAsStream(PREFERENCES_FILE));
 		} catch (IOException e) {
-			throw new OTAException(
-					"Error loading report formatter preference file", e);
+			throw new OTAException("Error loading report formatter preference file", e);
 		}
 	}
 
 	public void createHTML(Report report, String filename) throws OTAException {
 		try {
-			Path htmlPath = Paths.get(ClassLoader.getSystemResource(
-					HTML_TMPL_FILE).toURI());
+			Path htmlPath = Paths.get(ClassLoader.getSystemResource(HTML_TMPL_FILE).toURI());
 			String template = new String(Files.readAllBytes(htmlPath));
 			template = template.replace("$timestamp", getTimestamp());
 			template = template.replace("$username", report.getUsername());
@@ -88,8 +84,7 @@ public class ReportFormatter implements Comparator<String> {
 			template = template.replace("$summaries", getSummaries(report));
 			template = template.replace("$impact", getImpact());
 			template = template.replace("$details", getDetails(report));
-			template = template.replace("$items",
-					Integer.toString(notableItems));
+			template = template.replace("$items", Integer.toString(notableItems));
 
 			os = new PrintWriter(new FileWriter(filename));
 			os.print(template);
@@ -100,15 +95,13 @@ public class ReportFormatter implements Comparator<String> {
 	}
 
 	private String getTimestamp() {
-		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.FULL,
-				DateFormat.SHORT);
+		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.FULL, DateFormat.SHORT);
 		return dateFormat.format(new Date());
 	}
 
 	private String getCSS() throws OTAException {
 		try {
-			Path cssPath = Paths.get(ClassLoader.getSystemResource(CSS_FILE)
-					.toURI());
+			Path cssPath = Paths.get(ClassLoader.getSystemResource(CSS_FILE).toURI());
 			return new String(Files.readAllBytes(cssPath));
 		} catch (IOException | URISyntaxException e) {
 			throw new OTAException("Error loading CSS file", e);
@@ -125,8 +118,7 @@ public class ReportFormatter implements Comparator<String> {
 		for (String type : findings) {
 			List<ReportElement> elementsFound = new ArrayList<ReportElement>();
 			for (ReportElement element : report.getElements()) {
-				if (element.getType().equals(type)
-						&& isReportable(element, Context.summary)) {
+				if (element.getType().equals(type) && isReportable(element, Context.summary)) {
 					elementsFound.add(element);
 				}
 			}
@@ -137,11 +129,9 @@ public class ReportFormatter implements Comparator<String> {
 				String plural = (count > 1) ? "s" : "";
 				String title = Findings.getFinding(type).description;
 				String format = Findings.getFinding(type).summary;
-				String summaryBody = String.format(format, selected.getWhere(),
-						selected.getWhat(), total, plural);
+				String summaryBody = String.format(format, selected.getWhere(), selected.getWhat(), total, plural);
 				String summaryHead = title + getMarkers(type);
-				summaries += String.format(SUMMARY_TMPL, summaryHead,
-						summaryBody);
+				summaries += String.format(SUMMARY_TMPL, summaryHead, summaryBody);
 				notableItems++;
 			}
 		}
@@ -177,18 +167,16 @@ public class ReportFormatter implements Comparator<String> {
 		for (ReportElement element : report.getElements()) {
 			if (isReportable(element, Context.detail)) {
 				details += "<tr>\n";
-				details += String.format(CELL_TMPL,
-						Findings.getFinding(element.getType()).title);
+				details += String.format(CELL_TMPL, Findings.getFinding(element.getType()).title);
 				details += String.format(CELL_TMPL, element.getWhere());
+				details += String.format(CELL_TMPL, element.getBranch());
 				String what = element.getWhat();
 				if (element.getElement() != null) {
-					String url = permalinkHelper.getElementDetailsURL(
-							element.getWhere(), element.getElement());
+					String url = permalinkHelper.getElementDetailsURL(element.getWhere(), element.getElement());
 					what = "<a href=\"" + url + "\">" + what + "</a>";
 				}
 				details += String.format(CELL_TMPL, what);
-				List<String> elementFlags = Findings.getFinding(element
-						.getType()).flags;
+				List<String> elementFlags = Findings.getFinding(element.getType()).flags;
 				for (String tag : Findings.getMarkers()) {
 					if (isReportable(tag, Context.detail)) {
 						String marked = elementFlags.contains(tag) ? "Y" : "";
@@ -201,8 +189,7 @@ public class ReportFormatter implements Comparator<String> {
 		return details;
 	}
 
-	private boolean isReportable(ReportElement element, Context context)
-			throws OTAException {
+	private boolean isReportable(ReportElement element, Context context) throws OTAException {
 		for (String flag : Findings.getFinding(element.getType()).flags) {
 			if (isReportable(flag, context)) {
 				return true;

@@ -55,11 +55,9 @@ public class B2XBrowser {
 	private void parseB2X(String input) throws OTAException {
 		try {
 
-			DocumentBuilderFactory factory = DocumentBuilderFactory
-					.newInstance();
+			DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
 			DocumentBuilder builder = factory.newDocumentBuilder();
-			Document doc = builder.parse(new InputSource(
-					new StringReader(input)));
+			Document doc = builder.parse(new InputSource(new StringReader(input)));
 			doc.getDocumentElement().normalize();
 
 			NodeList classList = getChildren(doc.getDocumentElement(), "class");
@@ -75,14 +73,12 @@ public class B2XBrowser {
 					String attrName = getValue(attr, "name");
 					String getter = getValue(attr, B2XMember.GETTER);
 					if (getter != null) {
-						B2XMember member = new B2XMember(className, attrName,
-								B2XMember.GETTER, getter);
+						B2XMember member = new B2XMember(className, attrName, B2XMember.GETTER, getter);
 						members.add(member);
 					}
 					String setter = getValue(attr, B2XMember.SETTER);
 					if (setter != null) {
-						B2XMember member = new B2XMember(className, attrName,
-								B2XMember.SETTER, setter);
+						B2XMember member = new B2XMember(className, attrName, B2XMember.SETTER, setter);
 						members.add(member);
 					}
 				}
@@ -94,8 +90,7 @@ public class B2XBrowser {
 					Node method = methodList.item(methodIndex);
 					String methodName = getValue(method, "name");
 					String methodBody = getValue(method, "body");
-					B2XMember member = new B2XMember(className, methodName,
-							B2XMember.METHOD, methodBody);
+					B2XMember member = new B2XMember(className, methodName, B2XMember.METHOD, methodBody);
 					members.add(member);
 				}
 			}
@@ -110,7 +105,6 @@ public class B2XBrowser {
 
 	private String getValue(Node node, String name) {
 		NodeList children = ((Element) node).getElementsByTagName(name);
-		return (children.getLength() == 1) ? children.item(0).getTextContent()
-				: null;
+		return (children.getLength() == 1) ? children.item(0).getTextContent() : null;
 	}
 }

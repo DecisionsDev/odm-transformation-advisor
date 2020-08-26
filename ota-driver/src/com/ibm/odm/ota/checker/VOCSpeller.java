@@ -54,16 +54,15 @@ public class VOCSpeller {
 	private static VOCSpeller speller = null;
 
 	private static final String DICT_FILE = "spelling.txt";
-	private static Logger logger = Logger.getLogger(VOCSpeller.class
-			.getCanonicalName());
+	private static Logger logger = Logger.getLogger(VOCSpeller.class.getCanonicalName());
 
 	public boolean isReady() {
 		return ready;
 	}
 
 	/**
-	 * Returns the list of misspelled words in the given verbalization string,
-	 * or null if no dictionary is available.
+	 * Returns the list of misspelled words in the given verbalization string, or
+	 * null if no dictionary is available.
 	 * 
 	 * @param verbalization
 	 * @return
@@ -93,13 +92,13 @@ public class VOCSpeller {
 		try {
 			URL dictURL = ClassLoader.getSystemResource(DICT_FILE);
 			if (dictURL == null) {
-				logger.warning("Cannot find the spelling dictionary file 'spelling.txt' in the resources folder. Spell check will not be performed.");
+				logger.warning(
+						"Cannot find the spelling dictionary file 'spelling.txt' in the resources folder. Spell check will not be performed.");
 				this.ready = false;
 				return;
 			}
 			Path cssPath = Paths.get(dictURL.toURI());
-			BufferedReader is = new BufferedReader(new FileReader(cssPath
-					.toFile().getAbsolutePath()));
+			BufferedReader is = new BufferedReader(new FileReader(cssPath.toFile().getAbsolutePath()));
 			String word;
 			while ((word = is.readLine()) != null) {
 				validWords.add(word.trim());
@@ -145,8 +144,7 @@ public class VOCSpeller {
 				// - empty strings
 				// - all-caps words, which have a chance to be an acronym
 				// - words of length 1
-				if (!word.isEmpty() && (word.length() > 1)
-						&& !(word.equals(word.toUpperCase()))) {
+				if (!word.isEmpty() && (word.length() > 1) && !(word.equals(word.toUpperCase()))) {
 					breakup.add(word.toLowerCase());
 				}
 			}

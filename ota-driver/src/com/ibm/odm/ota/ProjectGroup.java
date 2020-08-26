@@ -21,12 +21,12 @@
 **/
 package com.ibm.odm.ota;
 
-import ilog.rules.teamserver.brm.IlrRuleProject;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+
+import ilog.rules.teamserver.brm.IlrRuleProject;
 
 /**
  * Represents a group of interdependent rule projects (classic projects or
@@ -72,8 +72,7 @@ public class ProjectGroup {
 	}
 
 	public IlrRuleProject getDecisionService() throws OTAException {
-		return (decisionServiceName == null) ? null : Helper
-				.getProjectNamed(decisionServiceName);
+		return (decisionServiceName == null) ? null : Helper.getProjectNamed(decisionServiceName);
 	}
 
 	public IlrRuleProject getKeyProject() throws OTAException {

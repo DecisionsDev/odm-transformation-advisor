@@ -21,15 +21,15 @@
 **/
 package com.ibm.odm.ota;
 
-import ilog.rules.teamserver.brm.IlrRuleProject;
-import ilog.rules.teamserver.model.IlrSession;
-import ilog.rules.teamserver.model.IlrSessionHelper;
-
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+
+import ilog.rules.teamserver.brm.IlrRuleProject;
+import ilog.rules.teamserver.model.IlrSession;
+import ilog.rules.teamserver.model.IlrSessionHelper;
 
 /**
  * Represents the map of all rule projects found in the repository grouped by
