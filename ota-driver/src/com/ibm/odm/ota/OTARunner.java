@@ -49,7 +49,7 @@ public class OTARunner {
 	private static final String DEFAULT_USERNAME = "rtsAdmin";
 	private static final String DEFAULT_PASSWORD = "rtsAdmin";
 	private static final String DEFAULT_URL = "http://localhost:9090/teamserver";
-	private static final String DEFAULT_REPORT = "odm-repository-report.html";
+	private static final String DEFAULT_REPORT = "ota-report.html";
 
 	private static Logger logger = Logger.getLogger(OTARunner.class.getCanonicalName());
 

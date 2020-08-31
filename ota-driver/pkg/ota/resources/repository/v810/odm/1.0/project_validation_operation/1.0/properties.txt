@@ -1,4 +1,4 @@
-#Fri Jan 24 15:33:07 PST 2020
-ruleset.uuid=f55a8fe1-da49-44c7-b4db-1211dacacba5
+#Sun Aug 30 06:41:08 PDT 2020
+ruleset.uuid=db7cc355-4880-4f54-be3e-2299abd8858b
 ruleset.engine=de
-ruleset.engine.version=1.40.7
+ruleset.engine.version=1.40.10

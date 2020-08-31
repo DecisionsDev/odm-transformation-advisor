@@ -27,6 +27,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Logger;
 
+import org.eclipse.emf.ecore.EClass;
+
 import com.ibm.odm.ota.DCConnection;
 import com.ibm.odm.ota.DecisionRunner;
 import com.ibm.odm.ota.OTAException;
@@ -34,7 +36,6 @@ import com.ibm.odm.ota.ProjectSelections;
 import com.ibm.odm.ota.ProjectSelections.Item;
 import com.ibm.odm.ota.Report;
 
-import ilog.rules.teamserver.brm.IlrActionRule;
 import ilog.rules.teamserver.brm.IlrRuleProject;
 import ilog.rules.teamserver.model.IlrDefaultSearchCriteria;
 import ilog.rules.teamserver.model.IlrElementDetails;
@@ -73,15 +74,14 @@ public class ProjectChecker extends Checker {
 	}
 
 	public void runOne(Report report, Item item) throws OTAException {
+		IlrRuleProject project = item.getProject();
+		logger.info("Checking project " + project.getName() + " in branch " + item.getBranchName());
 		try {
-			IlrRuleProject project = item.getProject();
 			item.setProjectBaseline();
 			report.setBranchContext(item.getBranchName());
-			logger.info("Checking project " + project.getName() + " in branch " + item.getBranchName());
-
 			IlrSession session = DCConnection.getSession();
-			IlrDefaultSearchCriteria criteria = new IlrDefaultSearchCriteria(
-					session.getBrmPackage().getProjectElement());
+			EClass eClass = session.getBrmPackage().getProjectElement();
+			IlrDefaultSearchCriteria criteria = new IlrDefaultSearchCriteria(eClass);
 			List<IlrElementDetails> elements = session.findElementDetails(criteria);
 
 			runRulesetChecks(report, project, elements);
@@ -139,9 +139,7 @@ public class ProjectChecker extends Checker {
 	@SuppressWarnings("unused")
 	private void runExperimental(IlrRuleProject project, List<IlrElementDetails> elements) throws OTAException {
 		for (IlrElementDetails details : elements) {
-			if (details.getType().equals("brm.ActionRule")) {
-				IlrActionRule rule = ((IlrActionRule) details);
-			}
+			boolean isRule = details.getType().equals("brm.ActionRule");
 		}
 	}
 

@@ -23,6 +23,7 @@ The table below lists the current list of checkpoints that are performed by the 
 | EC fine-grain permissions       | &#10004;   | &#10004;      | &#10004;      | 
 | Rule templates                  | &#10004;   |               |               | 
 | Decision trees                  | &#10004;   |               |               | 
+| Smart Folders                   | &#10004;   |               | &#10004;      | 
 | Domain providers                |            | &#10004;      |               | 
 | Custom valueInfo                |            | &#10004;      |               | 
 | Custom valueEditor              |            | &#10004;      |               | 
@@ -108,7 +109,7 @@ After you have configured the properties, simply run the `run-ota.bat` (or `run-
 * Items flagged in the report include the permalink to the Decision Center rule artifact involved when available, in order to facilitate its review.
 * Log entries are persisted in the `ota.log` file. The logger settings can be updated in the `logging.properties` file under the `resources` folder.
 
-Out of the box, a sample execution will look like the following:
+Out of the box, a sample execution trace will look like the following:
 
 ```
 C:\ota\ota-driver\pkg\ota>run-ota

@@ -2,9 +2,6 @@
     <id>90788356-627f-4aa8-9eaa-30d7040353ce</id>
     <lang>ARL</lang>
     <class>
-        <businessName>com.ibm.odm.ota.ActionRuleInfo</businessName>
-    </class>
-    <class>
         <businessName>com.ibm.odm.ota.Parameters</businessName>
         <method>
             <name>getIntV</name>
@@ -122,6 +119,18 @@
             ]]></getter>
         </attribute>
         <attribute>
+            <name>B2X_CODE_TOO_LONG</name>
+            <getter language="irl"><![CDATA[
+            return "B2X_CODE_TOO_LONG";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>B2X_USING_CRE_API</name>
+            <getter language="irl"><![CDATA[
+            return "B2X_USING_CRE_API";
+            ]]></getter>
+        </attribute>
+        <attribute>
             <name>BOM_WITH_RULES</name>
             <getter language="irl"><![CDATA[
             return "BOM_WITH_RULES";
@@ -200,6 +209,12 @@
             ]]></getter>
         </attribute>
         <attribute>
+            <name>SMART_FOLDER</name>
+            <getter language="irl"><![CDATA[
+            return "SMART_FOLDER";
+            ]]></getter>
+        </attribute>
+        <attribute>
             <name>TECHNICAL_RULE</name>
             <getter language="irl"><![CDATA[
             return "TECHNICAL_RULE";
@@ -215,6 +230,12 @@
             <name>TEMPLATED</name>
             <getter language="irl"><![CDATA[
             return "TEMPLATED";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>UPDATE_STATE</name>
+            <getter language="irl"><![CDATA[
+            return "UPDATE_STATE";
             ]]></getter>
         </attribute>
         <attribute>
@@ -257,6 +278,12 @@
     <class>
         <businessName>com.ibm.odm.ota.virtual.ParamNameType</businessName>
         <executionName>java.lang.String</executionName>
+        <attribute>
+            <name>maxB2XCharSize</name>
+            <getter language="irl"><![CDATA[
+            return "maxB2XCharSize";
+            ]]></getter>
+        </attribute>
         <attribute>
             <name>maxProjectBranches</name>
             <getter language="irl"><![CDATA[

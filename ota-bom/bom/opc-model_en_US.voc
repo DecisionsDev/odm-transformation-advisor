@@ -38,6 +38,8 @@ com.ibm.odm.ota.virtual.BRMType.VOCABULARY#instance.label = Vocabulary
 # com.ibm.odm.ota.virtual.FeedbackType
 com.ibm.odm.ota.virtual.FeedbackType#concept.label = com.ibm.odm.opc.virtual.FeedbackType
 com.ibm.odm.ota.virtual.FeedbackType.ARCHIVING#instance.label = Branch Archiving
+com.ibm.odm.ota.virtual.FeedbackType.B2X_CODE_TOO_LONG#instance.label = B2X Code Size
+com.ibm.odm.ota.virtual.FeedbackType.B2X_USING_CRE_API#instance.label = B2X Using CRE API
 com.ibm.odm.ota.virtual.FeedbackType.BOM_WITH_RULES#instance.label = BOM with Rules
 com.ibm.odm.ota.virtual.FeedbackType.CLASSIC_ENGINE#instance.label = Classic Rule Engine
 com.ibm.odm.ota.virtual.FeedbackType.CLASSIC_PROJECT#instance.label = Classic Rule Projects
@@ -46,14 +48,16 @@ com.ibm.odm.ota.virtual.FeedbackType.DECISION_TREE#instance.label = Decision Tre
 com.ibm.odm.ota.virtual.FeedbackType.DOMAIN_PROVIDER#instance.label = External Domain Provider
 com.ibm.odm.ota.virtual.FeedbackType.EXIT_CRITERIA#instance.label = Exit Criteria
 com.ibm.odm.ota.virtual.FeedbackType.JAVA_VERBALIZATION#instance.label = Java Verbalization
-com.ibm.odm.ota.virtual.FeedbackType.PERMISSIONS#instance.label = Artifact Permissions
+com.ibm.odm.ota.virtual.FeedbackType.PERMISSIONS#instance.label = Fine Grained Permissions
 com.ibm.odm.ota.virtual.FeedbackType.PRIORITY#instance.label = Rule Priorities
 com.ibm.odm.ota.virtual.FeedbackType.RULE_UNDER_ROOT#instance.label = Rule Under Root
 com.ibm.odm.ota.virtual.FeedbackType.RULE_USING_ELSE#instance.label = Rule Using Else
 com.ibm.odm.ota.virtual.FeedbackType.SAME_RULE_NAME#instance.label = Same Rule Name
+com.ibm.odm.ota.virtual.FeedbackType.SMART_FOLDER#instance.label = Smart Folders
 com.ibm.odm.ota.virtual.FeedbackType.TECHNICAL_RULE#instance.label = Technical Rules
 com.ibm.odm.ota.virtual.FeedbackType.TEMPLATE#instance.label = Rule Templates
 com.ibm.odm.ota.virtual.FeedbackType.TEMPLATED#instance.label = Rules from Template
+com.ibm.odm.ota.virtual.FeedbackType.UPDATE_STATE#instance.label = Member Using Update State
 com.ibm.odm.ota.virtual.FeedbackType.USING_DIFFERENT_ALGORITHMS#instance.label = Using Different Algorithms
 com.ibm.odm.ota.virtual.FeedbackType.USING_RETE#instance.label = Using Rete
 com.ibm.odm.ota.virtual.FeedbackType.USING_SEQUENTIAL#instance.label = Using Sequential
@@ -63,5 +67,7 @@ com.ibm.odm.ota.virtual.FeedbackType.VERBALIZATION_SPELLING#instance.label = Ver
 
 # com.ibm.odm.ota.virtual.ParamNameType
 com.ibm.odm.ota.virtual.ParamNameType#concept.label = com.ibm.odm.ota.virtual.ParamNameType
+com.ibm.odm.ota.virtual.ParamNameType.maxB2XCharSize#instance.documentation = Max B2X Char Size
+com.ibm.odm.ota.virtual.ParamNameType.maxB2XCharSize#instance.label = Max B2X Char Size
 com.ibm.odm.ota.virtual.ParamNameType.maxProjectBranches#instance.documentation = Max Branch Count
 com.ibm.odm.ota.virtual.ParamNameType.maxProjectBranches#instance.label = Max Branch Count

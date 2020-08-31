@@ -5,6 +5,9 @@
   <locale>en_US</locale>
   <definition><![CDATA[definitions
 	set template to an ilr template in elements ;
+if
+	the name of template does not start with "%" or
+	the name of template does not end with "_key"
 then
 	add entry Rule Templates : < project, template > to  report ;]]></definition>
 </ilog.rules.studio.model.brl:ActionRule>

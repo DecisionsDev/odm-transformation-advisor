@@ -88,7 +88,6 @@ public class FeedbackType
     {
         static CLASSIC_ENGINE,
         static CLASSIC_PROJECT,
-        static PERMISSIONS,
         static ARCHIVING,
         static PRIORITY,
         static TEMPLATE,
@@ -108,9 +107,16 @@ public class FeedbackType
         static JAVA_VERBALIZATION,
         static VERBALIZATION_SPELLING,
         static SAME_RULE_NAME,
-        static RULE_USING_ELSE
+        static RULE_USING_ELSE,
+        static B2X_USING_CRE_API,
+        static B2X_CODE_TOO_LONG,
+        static SMART_FOLDER,
+        static UPDATE_STATE,
+        static PERMISSIONS
     }
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType ARCHIVING;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType B2X_CODE_TOO_LONG;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType B2X_USING_CRE_API;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType BOM_WITH_RULES;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType CLASSIC_ENGINE;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType CLASSIC_PROJECT;
@@ -124,9 +130,11 @@ public class FeedbackType
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType RULE_UNDER_ROOT;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType RULE_USING_ELSE;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType SAME_RULE_NAME;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType SMART_FOLDER;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType TECHNICAL_RULE;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType TEMPLATE;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType TEMPLATED;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType UPDATE_STATE;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType USING_DIFFERENT_ALGORITHMS;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType USING_RETE;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType USING_SEQUENTIAL;
@@ -146,6 +154,8 @@ public class ParamNameType
         property domainProviderResource "findings.xlsx"
         property domainValueProviderName "com.ibm.rules.domainProvider.msexcel2007"
 {
+    domain {static maxProjectBranches, static maxB2XCharSize}
+    public static final readonly com.ibm.odm.ota.virtual.ParamNameType maxB2XCharSize;
     public static final readonly com.ibm.odm.ota.virtual.ParamNameType maxProjectBranches;
 }
 

@@ -86,7 +86,8 @@ public class BOMChecker extends Checker {
 		Iterator<Item> iter = projectSelections.getSelections();
 		try {
 			while (iter.hasNext()) {
-				runOne(report, iter.next());
+				Item item = iter.next();
+				runOne(report, item);
 			}
 		} catch (OTAException e) {
 			handleElementException(logger, e);

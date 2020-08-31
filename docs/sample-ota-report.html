@@ -93,28 +93,28 @@ tr:first-child th:last-child {
 <body>
 	<h1>ODM Repository Analysis Result</h1>
 
-Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http://localhost:9090/teamserver</em> (datasource default).
+Run by <em>rtsAdmin</em> on Sunday, August 30, 2020 at 4:55 PM, against <em>http://localhost:9090/teamserver</em> (datasource default).
 
 	<h2>Findings Summary</h2>
 	<p>A total of 25 notable items have been found and are detailed below.</p>
 	
-	<div><p class="summary-head">Group using  fine-grained permissions&nbsp;<span style="color:Orange;font-size:20px">&#x1f503;</span>&nbsp;<span style="color:OrangeRed;font-size:20px">&#x2601;</span></p></div>
-<div><p class="summary-body">We found some user groups that are associated with fine-grained permissions on repository artifacts (for instance, your custom group <em>Eligibility</em> defines 2 such permissions). These fine-grained permissions are deprecated in ODM vNext. The migration path is to rely on the assigned authors, testers and approvers in the release and activities from the Governance Framework.<br><br><b>4 occurences found</b></p></div>
+	<div><p class="summary-head">Group using fine-grained permissions&nbsp;<span style="color:Orange;font-size:20px">&#x1f503;</span>&nbsp;<span style="color:OrangeRed;font-size:20px">&#x2601;</span></p></div>
+<div><p class="summary-body">Some user groups are associated with fine-grained permissions on repository artifacts (for instance, the custom group <em>UserGroup</em> defines <em>1</em> such permissions). These fine-grained permissions are deprecated in ODM 8.10.0. The migration path is to rely on the assigned authors, testers and approvers in the release and activities from the Governance Framework. <br><br><b>1 occurence found</b></p></div>
 <br>
 <div><p class="summary-head">Decision tree defined&nbsp;<span style="color:Orange;font-size:20px">&#x1f503;</span>&nbsp;<span style="color:OrangeRed;font-size:20px">&#x2601;</span></p></div>
-<div><p class="summary-body">Some rule projects are using Decision Trees (for example, <em>sample decision tree</em> in project <em>governed-project</em>). Decision Trees have been deprecated since ODM version 8.8.1. You can convert them into sparse Decision Tables or a collection of Action Rules, one per leaf in the Decision Tree.<br><br><b>1 occurence found</b></p></div>
+<div><p class="summary-body">Some rule projects are using Decision Trees (for example, <em>sample decision tree</em> in project <em>ota-test-governed-rules</em>). Decision Trees have been deprecated since ODM version 8.8.1. You can convert them into sparse Decision Tables or a collection of Action Rules, one per leaf in the Decision Tree.<br><br><b>1 occurence found</b></p></div>
 <br>
 <div><p class="summary-head">Business rule template defined&nbsp;<span style="color:Orange;font-size:20px">&#x1f503;</span>&nbsp;<span style="color:OrangeRed;font-size:20px">&#x2601;</span></p></div>
-<div><p class="summary-body">Templates for Action Rules and or Decision Tables, such as template <em>sample template</em> in project <em>governed-project</em>, are deprecated since ODM version 8.8.1. Templates cannot be used in the Business Console of Decision Center. It is thus important to avoid using them.<br><br><b>1 occurence found</b></p></div>
+<div><p class="summary-body">Templates for Action Rules and or Decision Tables, such as template <em>sample template</em> in project <em>ota-test-governed-rules</em>, are deprecated since ODM version 8.8.1. Templates cannot be used in the Business Console of Decision Center. It is thus important to avoid using them.<br><br><b>1 occurence found</b></p></div>
 <br>
 <div><p class="summary-head">B2X code using CRE API classes&nbsp;<span style="color:Orange;font-size:20px">&#x1f503;</span>&nbsp;<span style="color:OrangeRed;font-size:20px">&#x2601;</span></p></div>
-<div><p class="summary-body">The B2X code for some BOM members seems to be using deprecated CRE API classes which are not usable with the Decision Engine (e.g. IlrContext). One example is <em>com.sample.Person.printInContext1</em> in project <em>cre-rules</em>.  <br><br><b>4 occurences found</b></p></div>
+<div><p class="summary-body">The B2X code for some BOM members seems to be using deprecated CRE API classes which are not usable with the Decision Engine (e.g. IlrContext). One example is <em>com.sample.Person.printInContext1</em> in project <em>ota-test-cre-rules</em>.  <br><br><b>2 occurences found</b></p></div>
 <br>
 <div><p class="summary-head">Project using CRE&nbsp;<span style="color:Orange;font-size:20px">&#x1f503;</span>&nbsp;<span style="color:OrangeRed;font-size:20px">&#x2601;</span></p></div>
-<div><p class="summary-body">The use of the Classic Rule Engine (CRE)  was detected in some of the rule projects (see your project <em>test-rules</em>, for example). The CRE is deprecated since ODM version 8.9.0. Migration to the more efficient Decision Engine is recommended.<br><br><b>3 occurence found</b></p></div>
+<div><p class="summary-body">The use of the Classic Rule Engine (CRE)  was detected in some of the rule projects (see your project <em>loanvalidation-rules</em>, for example). The CRE is deprecated since ODM version 8.9.0. Migration to the more efficient Decision Engine is recommended.<br><br><b>2 occurence found</b></p></div>
 <br>
 <div><p class="summary-head">Classic rule projects&nbsp;<span style="color:Orange;font-size:20px">&#x1f503;</span>&nbsp;<span style="color:OrangeRed;font-size:20px">&#x2601;</span></p></div>
-<div><p class="summary-body">Some rule projects are organized using Classic Rule Projects (see your project <em>test-rules</em>, for example). Classic Rule Projects are deprecated since ODM version 8.8.0. It is recommended that you migrate to projects organized as <em>Decision Services</em>. ODM provides an automated migration tool that will help you perform that project migration.<br><br><b>3 occurences found</b></p></div>
+<div><p class="summary-body">Some rule projects are organized using Classic Rule Projects (see your project <em>loanvalidation-rules</em>, for example). Classic Rule Projects are deprecated since ODM version 8.8.0. It is recommended that you migrate to projects organized as <em>Decision Services</em>. ODM provides an automated migration tool that will help you perform that project migration.<br><br><b>1 occurence found</b></p></div>
 <br>
 <div><p class="summary-head">BOM with external domain provider&nbsp;<span style="color:OrangeRed;font-size:20px">&#x2601;</span></p></div>
 <div><p class="summary-body">Dynamic domains associated with external data sources (reference to a database or web service) such as <em>derbyDataBaseDomainProvider</em> used in a BOM entry from project <em>bomdomainpopulate-rules</em>, cannot be used with ODM on Cloud. <br><br><b>1 occurence found</b></p></div>
@@ -125,53 +125,53 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <div><p class="summary-head">BOM with valueInfo&nbsp;<span style="color:OrangeRed;font-size:20px">&#x2601;</span></p></div>
 <div><p class="summary-body">A BOM entry for project  <em>bomdomainpopulate-rules</em> defines a valueInfo property that points to the class <em>ilog.rules.studio.samples.bomdomainpopulate.Stock</em>. This entails the repackaging of the Decision Center EAR, which is not supported for ODM on Cloud.<br><br><b>1 occurence found</b></p></div>
 <br>
-<div><p class="summary-head">Custom property defined&nbsp;<span style="color:OrangeRed;font-size:20px">&#x2601;</span></p></div>
-<div><p class="summary-body">Rule model property extensions (i.e. custom properties such as property <em>Geography</em>) cannot be used with ODM on Cloud. <br><br><b>1 occurence found</b></p></div>
+<div><p class="summary-head">Smart Folder defined&nbsp;<span style="color:Orange;font-size:20px">&#x1f503;</span></p></div>
+<div><p class="summary-body">Some rule projects are using Smart Folders (for example, <em>Deployable Rules</em> in project <em>Miniloan Service</em>). Decision Trees have been deprecated since ODM version 8.10.0. <br><br><b>1 occurence found</b></p></div>
 <br>
 <div><p class="summary-head">Business rule using priority&nbsp;<span style="color:LightSkyBlue;font-size:20px">&#x1f481;</span></p></div>
-<div><p class="summary-body">Some rules found in rule projects such as <em>Loan Validation Determination</em>, are using rule priorities. While there is no issue with using rule priorities, they can make rule maintenance more difficult, especially for business users, as they can be easily overlooked, and make the understanding of the rules execution more complex. Relying on a rule flow for orchestration can sometime be a better option.<br><br><b>17 occurences found</b></p></div>
+<div><p class="summary-body">Some rules found in rule projects such as <em>Loan Validation Determination</em>, are using rule priorities. While there is no issue with using rule priorities, they can make rule maintenance more difficult, especially for business users, as they can be easily overlooked, and make the understanding of the rules execution more complex. Relying on a rule flow for orchestration can sometime be a better option.<br><br><b>12 occurences found</b></p></div>
 <br>
 <div><p class="summary-head">Verbalization in Java format&nbsp;<span style="color:LightSkyBlue;font-size:20px">&#x1f481;</span></p></div>
-<div><p class="summary-body">BOM member verbalizations should be in natural language to make rules readable and maintainable. BOM member <em>com.sample.Person.askAbout(java.lang.String)</em> in project <em>governed-project</em> for example, uses a Java-like verbalization, which should be avoided. <br><br><b>1 occurence found</b></p></div>
+<div><p class="summary-body">BOM member verbalizations should be in natural language to make rules readable and maintainable. BOM member <em>com.sample.Person.askAbout(java.lang.String)</em> in project <em>ota-test-governed-rules</em> for example, uses a Java-like verbalization, which should be avoided. <br><br><b>1 occurence found</b></p></div>
 <br>
 <div><p class="summary-head">B2X code too long&nbsp;<span style="color:LightSkyBlue;font-size:20px">&#x1f481;</span></p></div>
-<div><p class="summary-body">The B2X code for some BOM members is too long. B2X code should ideally be one or two simple statements. If longer code is needed, it is better to define and maintain it as a XOM member. One example is <em>com.sample.Person.printInContext2</em> in project <em>cre-rules</em>.  <br><br><b>1 occurence found</b></p></div>
+<div><p class="summary-body">The B2X code for some BOM members is too long. B2X code should ideally be one or two simple statements. If longer code is needed, it is better to define and maintain it as a XOM member. One example is <em>com.sample.Person.printInContext2</em> in project <em>ota-test-cre-rules</em>.  <br><br><b>1 occurence found</b></p></div>
 <br>
 <div><p class="summary-head">Project defines BOM and rules&nbsp;<span style="color:LightSkyBlue;font-size:20px">&#x1f481;</span></p></div>
-<div><p class="summary-body">It is a good practice to define the BOM and the rules in separate rule projects (see project <em>Miniloan Service</em> which defines both a BOM entry <em>miniloan</em> and rules). <br><br><b>10 occurences found</b></p></div>
+<div><p class="summary-body">It is a good practice to define the BOM and the rules in separate rule projects (see project <em>Miniloan Service</em> which defines both a BOM entry <em>miniloan</em> and rules). <br><br><b>7 occurences found</b></p></div>
 <br>
 <div><p class="summary-head">Project with large number of branches&nbsp;<span style="color:LightSkyBlue;font-size:20px">&#x1f481;</span></p></div>
-<div><p class="summary-body">The number of project branches and baselines in the Decision Center repository can quickly build up, reducing Decision Center's performances and taking up significant disk space. For example, we have detected that your project <em>hello_world</em> has 3 branches in the repository. You can use the ODM archive tool available in ODM version 8.9.2 to easily archive old project branches.<br><br><b>5 occurences found</b></p></div>
+<div><p class="summary-body">The number of project branches and baselines in the Decision Center repository can quickly build up, reducing Decision Center's performances and taking up significant disk space. For example, we have detected that your project <em>Loan Validation Service</em> has 6 branches in the repository. You can use the ODM archive tool available in ODM version 8.9.2 to easily archive old project branches.<br><br><b>2 occurences found</b></p></div>
 <br>
 <div><p class="summary-head">Rule using 'else' statement&nbsp;<span style="color:LightSkyBlue;font-size:20px">&#x1f481;</span></p></div>
-<div><p class="summary-body">Some Action Rules are using the 'else' statement, which can sometimes make rules difficult to debug and to maintain by Business Users. One example is rule <em>checkSSNareanumber</em> in project  <em>Loan Validation Check</em>. <br><br><b>14 occurences found</b></p></div>
+<div><p class="summary-body">Some Action Rules are using the 'else' statement, which can sometimes make rules difficult to debug and to maintain by Business Users. One example is rule <em>checkName</em> in project  <em>Loan Validation Check</em>. <br><br><b>8 occurences found</b></p></div>
 <br>
 <div><p class="summary-head">Rule under root package&nbsp;<span style="color:LightSkyBlue;font-size:20px">&#x1f481;</span></p></div>
-<div><p class="summary-body">It is a good practice to define rules under a rule package, instead of directly under the root rule folder. See rule <em>rule under root</em> in project <em>governed-project</em> which is defined directly under the root folder.<br><br><b>1 occurence found</b></p></div>
+<div><p class="summary-body">It is a good practice to define rules under a rule package, instead of directly under the root rule folder. See rule <em>rule under root</em> in project <em>ota-test-governed-rules</em> which is defined directly under the root folder.<br><br><b>1 occurence found</b></p></div>
 <br>
 <div><p class="summary-head">Flow using different algorithms&nbsp;<span style="color:LightSkyBlue;font-size:20px">&#x1f481;</span></p></div>
-<div><p class="summary-body">All the rule tasks in a given rule flow should use the same algorithm whenever possible. For example, tasks in <em>check eligibility</em> from project <em>Miniloan Service</em> are using different algorithms: check whether this is needed.<br><br><b>3 occurences found</b></p></div>
+<div><p class="summary-body">All the rule tasks in a given rule flow should use the same algorithm whenever possible. For example, tasks in <em>miniloan</em> from project <em>Miniloan Service</em> are using different algorithms: check whether this is needed.<br><br><b>3 occurences found</b></p></div>
 <br>
 <div><p class="summary-head">Task using Rete algorithm&nbsp;<span style="color:LightSkyBlue;font-size:20px">&#x1f481;</span></p></div>
-<div><p class="summary-body">Rete algorithm should be selected when inference is required in rule execution. Check its use is appropriate, for example in rule flow <em>computationFlow</em> from project <em>Loan Validation Scoring</em>.<br><br><b>8 occurences found</b></p></div>
+<div><p class="summary-body">Rete algorithm should be selected when inference is required in rule execution. Check its use is appropriate, for example in rule flow <em>computationFlow</em> from project <em>Loan Validation Scoring</em>.<br><br><b>5 occurences found</b></p></div>
 <br>
 <div><p class="summary-head">Spelling error in verbalization&nbsp;<span style="color:LightSkyBlue;font-size:20px">&#x1f481;</span></p></div>
-<div><p class="summary-body">Possible spelling errors were detected in the verbalization of some BOM members, for example in project <em>Loan Validation Base</em>. <br><br><b>12 occurences found</b></p></div>
+<div><p class="summary-body">Possible spelling errors were detected in the verbalization of some BOM members, for example in project <em>Value Editor Service</em>. <br><br><b>2 occurences found</b></p></div>
 <br>
 <div><p class="summary-head">Multiple rules with same name&nbsp;<span style="color:LightSkyBlue;font-size:20px">&#x1f481;</span></p></div>
-<div><p class="summary-body">Multiple rules, under different packages, have the same name. For example, in project <em>governed-project</em>, there are multiple rules with the same name <em>vague name</em>. <br><br><b>2 occurences found</b></p></div>
+<div><p class="summary-body">Multiple rules, under different packages, have the same name. For example, in project <em>ota-test-governed-rules</em>, there are multiple rules with the same name <em>vague name</em>. <br><br><b>2 occurences found</b></p></div>
 <br>
 <div><p class="summary-head">Task using Exit Criteria&nbsp;<span style="color:LightSkyBlue;font-size:20px">&#x1f481;</span></p></div>
-<div><p class="summary-body">The use of Exit Criteria other than the default in rule tasks (see flow <em>test flow</em> in project <em>governed-project</em> for example) may make rule maintenance more delicate. Review its use with care. <br><br><b>1 occurence found</b></p></div>
+<div><p class="summary-body">The use of Exit Criteria other than the default in rule tasks (see flow <em>test flow</em> in project <em>ota-test-governed-rules</em> for example) may make rule maintenance more delicate. Review its use with care. <br><br><b>1 occurence found</b></p></div>
 <br>
 <div><p class="summary-head">Task using Sequential algorithm&nbsp;<span style="color:LightSkyBlue;font-size:20px">&#x1f481;</span></p></div>
-<div><p class="summary-body">FastPath is now the default algorithm: you may want to validate the need for the Sequential algorithm (e.g. in rule flow <em>test flow</em> from project <em>governed-project</em>).</p></div>
+<div><p class="summary-body">FastPath is now the default algorithm: you may want to validate the need for the Sequential algorithm (e.g. in rule flow <em>test flow</em> from project <em>ota-test-governed-rules</em>).</p></div>
 <br>
 <div><p class="summary-head">Business rule defined from template&nbsp;<span style="color:LightSkyBlue;font-size:20px">&#x1f481;</span></p></div>
-<div><p class="summary-body">Some Action Rule or Decision Tables  (for example, <em>sample using template</em> in project <em>governed-project</em>) are defined based on templates, which are deprecated since ODM version 8.8.1. Note that these rules are not bound to follow their template when edited in the Business Console. <br><br><b>1 occurence found</b></p></div>
+<div><p class="summary-body">Some Action Rule or Decision Tables  (for example, <em>sample using template</em> in project <em>ota-test-governed-rules</em>) are defined based on templates, which are deprecated since ODM version 8.8.1. Note that these rules are not bound to follow their template when edited in the Business Console. <br><br><b>1 occurence found</b></p></div>
 <br>
 <div><p class="summary-head">Technical rule defined&nbsp;<span style="color:LightSkyBlue;font-size:20px">&#x1f481;</span></p></div>
-<div><p class="summary-body">Technical Rules, such as <em>initialize flow</em> in project <em>governed-project</em> are not visible in the Business Console by default, and can usually be rewritten as Action Rules, making them more readable and maintainable, even for technical users. <br><br><b>1 occurence found</b></p></div>
+<div><p class="summary-body">Technical Rules, such as <em>initialize flow</em> in project <em>ota-test-governed-rules</em> are not visible in the Business Console by default, and can usually be rewritten as Action Rules, making them more readable and maintainable, even for technical users. <br><br><b>1 occurence found</b></p></div>
 <br>
 
 
@@ -182,8 +182,9 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 		<tr>
 			<th>What Type</th>
 			<th>Where Found</th>
+			<th>Which Branch</th>
 			<th>Which Artifact</th>
-			<th>SaaS Blocker</th>
+			<th>N/A for SaaS</th>
 <th>Recommendation</th>
 <th>Deprecation</th>
 
@@ -191,7 +192,8 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 		<tr>
 <td>Rule Using Else</td>
 <td>Loan Validation Check</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Check&id=brm.ActionRule%3A20%3A20&locale=en_US&datasource=jdbc%2FilogDataSource">checkSSNareanumber</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Check&id=brm.ActionRule%3A19%3A19&locale=en_US&datasource=jdbc%2FilogDataSource">checkName</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -199,7 +201,8 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Rule Using Else</td>
 <td>Loan Validation Check</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Check&id=brm.ActionRule%3A21%3A21&locale=en_US&datasource=jdbc%2FilogDataSource">checkAge</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Check&id=brm.ActionRule%3A20%3A20&locale=en_US&datasource=jdbc%2FilogDataSource">checkAge</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -207,7 +210,8 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Rule Using Else</td>
 <td>Loan Validation Check</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Check&id=brm.ActionRule%3A22%3A22&locale=en_US&datasource=jdbc%2FilogDataSource">checkName</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Check&id=brm.ActionRule%3A21%3A21&locale=en_US&datasource=jdbc%2FilogDataSource">checkSSNdigits</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -215,7 +219,8 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Rule Using Else</td>
 <td>Loan Validation Check</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Check&id=brm.ActionRule%3A23%3A23&locale=en_US&datasource=jdbc%2FilogDataSource">checkSSNdigits</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Check&id=brm.ActionRule%3A22%3A22&locale=en_US&datasource=jdbc%2FilogDataSource">checkZipcode</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -223,7 +228,8 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Rule Using Else</td>
 <td>Loan Validation Check</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Check&id=brm.ActionRule%3A24%3A24&locale=en_US&datasource=jdbc%2FilogDataSource">checkZipcode</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Check&id=brm.ActionRule%3A23%3A23&locale=en_US&datasource=jdbc%2FilogDataSource">checkSSNareanumber</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -231,7 +237,8 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Rule Using Else</td>
 <td>Loan Validation Determination</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Determination&id=brm.ActionRule%3A28%3A28&locale=en_US&datasource=jdbc%2FilogDataSource">approval</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Determination&id=brm.ActionRule%3A27%3A27&locale=en_US&datasource=jdbc%2FilogDataSource">approval</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -239,7 +246,8 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Rule Priorities</td>
 <td>Loan Validation Determination</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Determination&id=brm.ActionRule%3A25%3A25&locale=en_US&datasource=jdbc%2FilogDataSource">defaultInsurance</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Determination&id=brm.DecisionTable%3A26%3A26&locale=en_US&datasource=jdbc%2FilogDataSource">grade</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -247,7 +255,8 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Rule Priorities</td>
 <td>Loan Validation Determination</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Determination&id=brm.ActionRule%3A28%3A28&locale=en_US&datasource=jdbc%2FilogDataSource">approval</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Determination&id=brm.ActionRule%3A27%3A27&locale=en_US&datasource=jdbc%2FilogDataSource">approval</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -255,7 +264,8 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Rule Priorities</td>
 <td>Loan Validation Determination</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Determination&id=brm.DecisionTable%3A29%3A29&locale=en_US&datasource=jdbc%2FilogDataSource">grade</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Determination&id=brm.ActionRule%3A29%3A29&locale=en_US&datasource=jdbc%2FilogDataSource">defaultInsurance</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -263,6 +273,7 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Using Rete</td>
 <td>Loan Validation Scoring</td>
+<td>[current]</td>
 <td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Scoring&id=brm.Ruleflow%3A3%3A3&locale=en_US&datasource=jdbc%2FilogDataSource">computationFlow</a></td>
 <td></td>
 <td>Y</td>
@@ -271,7 +282,8 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Rule Priorities</td>
 <td>Loan Validation Scoring</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Scoring&id=brm.ActionRule%3A33%3A33&locale=en_US&datasource=jdbc%2FilogDataSource">initialCorporateScore</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Scoring&id=brm.ActionRule%3A33%3A33&locale=en_US&datasource=jdbc%2FilogDataSource">repayment</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -279,7 +291,8 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Rule Priorities</td>
 <td>Loan Validation Scoring</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Scoring&id=brm.ActionRule%3A37%3A37&locale=en_US&datasource=jdbc%2FilogDataSource">repayment</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Scoring&id=brm.ActionRule%3A37%3A37&locale=en_US&datasource=jdbc%2FilogDataSource">initialCorporateScore</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -287,103 +300,8 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Using Rete</td>
 <td>Loan Validation Service</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Service&id=brm.Ruleflow%3A3%3A3&locale=en_US&datasource=jdbc%2FilogDataSource">computationFlow</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Using Rete</td>
-<td>Loan Validation Service</td>
+<td>[current]</td>
 <td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Service&id=brm.Ruleflow%3A4%3A4&locale=en_US&datasource=jdbc%2FilogDataSource">loanvalidation</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Rule Using Else</td>
-<td>Loan Validation Service</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Service&id=brm.ActionRule%3A20%3A20&locale=en_US&datasource=jdbc%2FilogDataSource">checkSSNareanumber</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Rule Using Else</td>
-<td>Loan Validation Service</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Service&id=brm.ActionRule%3A21%3A21&locale=en_US&datasource=jdbc%2FilogDataSource">checkAge</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Rule Using Else</td>
-<td>Loan Validation Service</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Service&id=brm.ActionRule%3A22%3A22&locale=en_US&datasource=jdbc%2FilogDataSource">checkName</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Rule Using Else</td>
-<td>Loan Validation Service</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Service&id=brm.ActionRule%3A23%3A23&locale=en_US&datasource=jdbc%2FilogDataSource">checkSSNdigits</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Rule Using Else</td>
-<td>Loan Validation Service</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Service&id=brm.ActionRule%3A24%3A24&locale=en_US&datasource=jdbc%2FilogDataSource">checkZipcode</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Rule Using Else</td>
-<td>Loan Validation Service</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Service&id=brm.ActionRule%3A28%3A28&locale=en_US&datasource=jdbc%2FilogDataSource">approval</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Rule Priorities</td>
-<td>Loan Validation Service</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Service&id=brm.ActionRule%3A25%3A25&locale=en_US&datasource=jdbc%2FilogDataSource">defaultInsurance</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Rule Priorities</td>
-<td>Loan Validation Service</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Service&id=brm.ActionRule%3A28%3A28&locale=en_US&datasource=jdbc%2FilogDataSource">approval</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Rule Priorities</td>
-<td>Loan Validation Service</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Service&id=brm.DecisionTable%3A29%3A29&locale=en_US&datasource=jdbc%2FilogDataSource">grade</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Rule Priorities</td>
-<td>Loan Validation Service</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Service&id=brm.ActionRule%3A33%3A33&locale=en_US&datasource=jdbc%2FilogDataSource">initialCorporateScore</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Rule Priorities</td>
-<td>Loan Validation Service</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Service&id=brm.ActionRule%3A37%3A37&locale=en_US&datasource=jdbc%2FilogDataSource">repayment</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -391,15 +309,26 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>BOM with Rules</td>
 <td>Miniloan Service</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Miniloan+Service&id=brm.BOM%3A78%3A78&locale=en_US&datasource=jdbc%2FilogDataSource">miniloan</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Miniloan+Service&id=brm.BOM%3A3%3A3&locale=en_US&datasource=jdbc%2FilogDataSource">miniloan</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
 </tr>
 <tr>
+<td>Smart Folders</td>
+<td>Miniloan Service</td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Miniloan+Service&id=brm.SmartView%3A143%3A143&locale=en_US&datasource=jdbc%2FilogDataSource">Deployable Rules</a></td>
+<td></td>
+<td></td>
+<td>Y</td>
+</tr>
+<tr>
 <td>Using Different Algorithms</td>
 <td>Miniloan Service</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Miniloan+Service&id=brm.Ruleflow%3A116%3A116&locale=en_US&datasource=jdbc%2FilogDataSource">check eligibility</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Miniloan+Service&id=brm.Ruleflow%3A5%3A5&locale=en_US&datasource=jdbc%2FilogDataSource">miniloan</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -407,7 +336,8 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Using Rete</td>
 <td>Miniloan Service</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Miniloan+Service&id=brm.Ruleflow%3A116%3A116&locale=en_US&datasource=jdbc%2FilogDataSource">check eligibility</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Miniloan+Service&id=brm.Ruleflow%3A5%3A5&locale=en_US&datasource=jdbc%2FilogDataSource">miniloan</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -415,6 +345,7 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>BOM with Rules</td>
 <td>Value Editor Service</td>
+<td>[current]</td>
 <td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Value+Editor+Service&id=brm.BOM%3A6%3A6&locale=en_US&datasource=jdbc%2FilogDataSource">purchase</a></td>
 <td></td>
 <td>Y</td>
@@ -423,7 +354,8 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Rule Using Else</td>
 <td>Value Editor Service</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Value+Editor+Service&id=brm.ActionRule%3A49%3A49&locale=en_US&datasource=jdbc%2FilogDataSource">effective offers</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Value+Editor+Service&id=brm.ActionRule%3A51%3A51&locale=en_US&datasource=jdbc%2FilogDataSource">effective offers</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -431,23 +363,17 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Rule Priorities</td>
 <td>Value Editor Service</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Value+Editor+Service&id=brm.ActionRule%3A49%3A49&locale=en_US&datasource=jdbc%2FilogDataSource">effective offers</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Rule Priorities</td>
-<td>Value Editor Service</td>
+<td>[current]</td>
 <td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Value+Editor+Service&id=brm.ActionRule%3A50%3A50&locale=en_US&datasource=jdbc%2FilogDataSource">welcome</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
 </tr>
 <tr>
-<td>BOM with Rules</td>
-<td>bomdomainpopulate-rules</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=bomdomainpopulate-rules&id=brm.BOM%3A4%3A4&locale=en_US&datasource=jdbc%2FilogDataSource">model</a></td>
+<td>Rule Priorities</td>
+<td>Value Editor Service</td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Value+Editor+Service&id=brm.ActionRule%3A51%3A51&locale=en_US&datasource=jdbc%2FilogDataSource">effective offers</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -455,143 +381,134 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>BOM with Rules</td>
 <td>bomdomainpopulate-rules</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=bomdomainpopulate-rules&id=brm.BOM%3A5%3A5&locale=en_US&datasource=jdbc%2FilogDataSource">domains</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=bomdomainpopulate-rules&id=brm.BOM%3A4%3A4&locale=en_US&datasource=jdbc%2FilogDataSource">domains</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
 </tr>
 <tr>
 <td>BOM with Rules</td>
-<td>classic-bom</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=classic-bom&id=brm.BOM%3A37%3A37&locale=en_US&datasource=jdbc%2FilogDataSource">classic-xom</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Using Rete</td>
-<td>classic-bom</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=classic-bom&id=brm.Ruleflow%3A69%3A69&locale=en_US&datasource=jdbc%2FilogDataSource">mainRuleflow</a></td>
+<td>bomdomainpopulate-rules</td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=bomdomainpopulate-rules&id=brm.BOM%3A5%3A5&locale=en_US&datasource=jdbc%2FilogDataSource">model</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
 </tr>
 <tr>
 <td>BOM with Rules</td>
-<td>classic-rules</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=classic-rules&id=brm.BOM%3A37%3A37&locale=en_US&datasource=jdbc%2FilogDataSource">classic-xom</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Using Rete</td>
-<td>classic-rules</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=classic-rules&id=brm.Ruleflow%3A69%3A69&locale=en_US&datasource=jdbc%2FilogDataSource">mainRuleflow</a></td>
+<td>ota-test-cre-rules</td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=ota-test-cre-rules&id=brm.BOM%3A55%3A55&locale=en_US&datasource=jdbc%2FilogDataSource">model</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
 </tr>
 <tr>
 <td>BOM with Rules</td>
-<td>governed-project</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=governed-project&id=brm.BOM%3A77%3A77&locale=en_US&datasource=jdbc%2FilogDataSource">model for governed project</a></td>
+<td>ota-test-governed-rules</td>
+<td>Spring Release</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=ota-test-governed-rules&id=brm.BOM%3A54%3A54&locale=en_US&datasource=jdbc%2FilogDataSource">model for governed project</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
 </tr>
 <tr>
 <td>Exit Criteria</td>
-<td>governed-project</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=governed-project&id=brm.Ruleflow%3A115%3A115&locale=en_US&datasource=jdbc%2FilogDataSource">test flow</a></td>
+<td>ota-test-governed-rules</td>
+<td>Spring Release</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=ota-test-governed-rules&id=brm.Ruleflow%3A47%3A47&locale=en_US&datasource=jdbc%2FilogDataSource">test flow</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
 </tr>
 <tr>
 <td>Using Different Algorithms</td>
-<td>governed-project</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=governed-project&id=brm.Ruleflow%3A115%3A115&locale=en_US&datasource=jdbc%2FilogDataSource">test flow</a></td>
+<td>ota-test-governed-rules</td>
+<td>Spring Release</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=ota-test-governed-rules&id=brm.Ruleflow%3A47%3A47&locale=en_US&datasource=jdbc%2FilogDataSource">test flow</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
 </tr>
 <tr>
 <td>Using Rete</td>
-<td>governed-project</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=governed-project&id=brm.Ruleflow%3A115%3A115&locale=en_US&datasource=jdbc%2FilogDataSource">test flow</a></td>
+<td>ota-test-governed-rules</td>
+<td>Spring Release</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=ota-test-governed-rules&id=brm.Ruleflow%3A47%3A47&locale=en_US&datasource=jdbc%2FilogDataSource">test flow</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
 </tr>
 <tr>
 <td>Using Sequential</td>
-<td>governed-project</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=governed-project&id=brm.Ruleflow%3A115%3A115&locale=en_US&datasource=jdbc%2FilogDataSource">test flow</a></td>
+<td>ota-test-governed-rules</td>
+<td>Spring Release</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=ota-test-governed-rules&id=brm.Ruleflow%3A47%3A47&locale=en_US&datasource=jdbc%2FilogDataSource">test flow</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
 </tr>
 <tr>
 <td>Decision Trees</td>
-<td>governed-project</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=governed-project&id=brm.DecisionTree%3A174%3A174&locale=en_US&datasource=jdbc%2FilogDataSource">sample decision tree</a></td>
+<td>ota-test-governed-rules</td>
+<td>Spring Release</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=ota-test-governed-rules&id=brm.DecisionTree%3A94%3A94&locale=en_US&datasource=jdbc%2FilogDataSource">sample decision tree</a></td>
 <td>Y</td>
 <td></td>
 <td>Y</td>
 </tr>
 <tr>
 <td>Rule Templates</td>
-<td>governed-project</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=governed-project&id=brm.Template%3A11%3A11&locale=en_US&datasource=jdbc%2FilogDataSource">sample template</a></td>
+<td>ota-test-governed-rules</td>
+<td>Spring Release</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=ota-test-governed-rules&id=brm.Template%3A38%3A38&locale=en_US&datasource=jdbc%2FilogDataSource">sample template</a></td>
 <td>Y</td>
 <td></td>
 <td>Y</td>
 </tr>
 <tr>
 <td>Technical Rules</td>
-<td>governed-project</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=governed-project&id=brm.TechnicalRule%3A171%3A171&locale=en_US&datasource=jdbc%2FilogDataSource">initialize flow</a></td>
+<td>ota-test-governed-rules</td>
+<td>Spring Release</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=ota-test-governed-rules&id=brm.TechnicalRule%3A91%3A91&locale=en_US&datasource=jdbc%2FilogDataSource">initialize flow</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
 </tr>
 <tr>
 <td>Rule Under Root</td>
-<td>governed-project</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=governed-project&id=brm.ActionRule%3A170%3A170&locale=en_US&datasource=jdbc%2FilogDataSource">rule under root</a></td>
+<td>ota-test-governed-rules</td>
+<td>Spring Release</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=ota-test-governed-rules&id=brm.ActionRule%3A90%3A90&locale=en_US&datasource=jdbc%2FilogDataSource">rule under root</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
 </tr>
 <tr>
 <td>Same Rule Name</td>
-<td>governed-project</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=governed-project&id=brm.ActionRule%3A208%3A210&locale=en_US&datasource=jdbc%2FilogDataSource">vague name</a></td>
+<td>ota-test-governed-rules</td>
+<td>Spring Release</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=ota-test-governed-rules&id=brm.ActionRule%3A88%3A88&locale=en_US&datasource=jdbc%2FilogDataSource">vague name</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
 </tr>
 <tr>
 <td>Same Rule Name</td>
-<td>governed-project</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=governed-project&id=brm.ActionRule%3A209%3A211&locale=en_US&datasource=jdbc%2FilogDataSource">vague name</a></td>
+<td>ota-test-governed-rules</td>
+<td>Spring Release</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=ota-test-governed-rules&id=brm.ActionRule%3A95%3A95&locale=en_US&datasource=jdbc%2FilogDataSource">vague name</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
 </tr>
 <tr>
 <td>Rules from Template</td>
-<td>governed-project</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=governed-project&id=brm.ActionRule%3A169%3A175&locale=en_US&datasource=jdbc%2FilogDataSource">sample using template</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>BOM with Rules</td>
-<td>hello_world</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=hello_world&id=brm.BOM%3A39%3A39&locale=en_US&datasource=jdbc%2FilogDataSource">model</a></td>
+<td>ota-test-governed-rules</td>
+<td>Spring Release</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=ota-test-governed-rules&id=brm.ActionRule%3A89%3A96&locale=en_US&datasource=jdbc%2FilogDataSource">sample using template</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -599,6 +516,7 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>BOM with Rules</td>
 <td>loanvalidation-rules</td>
+<td>[current]</td>
 <td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=loanvalidation-rules&id=brm.BOM%3A1%3A1&locale=en_US&datasource=jdbc%2FilogDataSource">model</a></td>
 <td></td>
 <td>Y</td>
@@ -607,6 +525,7 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Using Different Algorithms</td>
 <td>loanvalidation-rules</td>
+<td>[current]</td>
 <td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=loanvalidation-rules&id=brm.Ruleflow%3A1%3A1&locale=en_US&datasource=jdbc%2FilogDataSource">loanvalidation</a></td>
 <td></td>
 <td>Y</td>
@@ -615,6 +534,7 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Using Rete</td>
 <td>loanvalidation-rules</td>
+<td>[current]</td>
 <td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=loanvalidation-rules&id=brm.Ruleflow%3A1%3A1&locale=en_US&datasource=jdbc%2FilogDataSource">loanvalidation</a></td>
 <td></td>
 <td>Y</td>
@@ -623,6 +543,7 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Rule Using Else</td>
 <td>loanvalidation-rules</td>
+<td>[current]</td>
 <td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=loanvalidation-rules&id=brm.ActionRule%3A15%3A15&locale=en_US&datasource=jdbc%2FilogDataSource">approval</a></td>
 <td></td>
 <td>Y</td>
@@ -631,7 +552,8 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Rule Priorities</td>
 <td>loanvalidation-rules</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=loanvalidation-rules&id=brm.DecisionTable%3A18%3A18&locale=en_US&datasource=jdbc%2FilogDataSource">grade</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=loanvalidation-rules&id=brm.DecisionTable%3A14%3A14&locale=en_US&datasource=jdbc%2FilogDataSource">grade</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -639,7 +561,8 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Rule Priorities</td>
 <td>loanvalidation-rules</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=loanvalidation-rules&id=brm.ActionRule%3A2%3A2&locale=en_US&datasource=jdbc%2FilogDataSource">defaultInsurance</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=loanvalidation-rules&id=brm.ActionRule%3A2%3A2&locale=en_US&datasource=jdbc%2FilogDataSource">repayment</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -647,7 +570,8 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Rule Priorities</td>
 <td>loanvalidation-rules</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=loanvalidation-rules&id=brm.ActionRule%3A4%3A4&locale=en_US&datasource=jdbc%2FilogDataSource">repayment</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=loanvalidation-rules&id=brm.ActionRule%3A6%3A6&locale=en_US&datasource=jdbc%2FilogDataSource">initialCorporateScore</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
@@ -655,101 +579,33 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Rule Priorities</td>
 <td>loanvalidation-rules</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=loanvalidation-rules&id=brm.ActionRule%3A5%3A5&locale=en_US&datasource=jdbc%2FilogDataSource">initialCorporateScore</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Rule Priorities</td>
-<td>loanvalidation-rules</td>
+<td>[current]</td>
 <td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=loanvalidation-rules&id=brm.ActionRule%3A15%3A15&locale=en_US&datasource=jdbc%2FilogDataSource">approval</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
 </tr>
 <tr>
-<td>BOM with Rules</td>
-<td>test-rules</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=test-rules&id=brm.BOM%3A33%3A33&locale=en_US&datasource=jdbc%2FilogDataSource">model</a></td>
+<td>Rule Priorities</td>
+<td>loanvalidation-rules</td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=loanvalidation-rules&id=brm.ActionRule%3A17%3A17&locale=en_US&datasource=jdbc%2FilogDataSource">defaultInsurance</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
-</tr>
-<tr>
-<td>Branch Archiving</td>
-<td>hello_world</td>
-<td>3</td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Branch Archiving</td>
-<td>uhg-npt-main</td>
-<td>3</td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Branch Archiving</td>
-<td>Miniloan Service</td>
-<td>4</td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Classic Rule Engine</td>
-<td></td>
-<td>test-rules</td>
-<td>Y</td>
-<td></td>
-<td>Y</td>
-</tr>
-<tr>
-<td>Classic Rule Projects</td>
-<td></td>
-<td>test-rules</td>
-<td>Y</td>
-<td></td>
-<td>Y</td>
-</tr>
-<tr>
-<td>Classic Rule Engine</td>
-<td></td>
-<td>cre-rules</td>
-<td>Y</td>
-<td></td>
-<td>Y</td>
-</tr>
-<tr>
-<td>Classic Rule Projects</td>
-<td></td>
-<td>classic-rules</td>
-<td>Y</td>
-<td></td>
-<td>Y</td>
 </tr>
 <tr>
 <td>Branch Archiving</td>
 <td>Loan Validation Service</td>
-<td>7</td>
 <td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Branch Archiving</td>
-<td>acme-rules</td>
-<td>4</td>
+<td>6</td>
 <td></td>
 <td>Y</td>
 <td></td>
 </tr>
 <tr>
 <td>Classic Rule Engine</td>
+<td></td>
 <td></td>
 <td>loanvalidation-rules</td>
 <td>Y</td>
@@ -759,63 +615,62 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Classic Rule Projects</td>
 <td></td>
+<td></td>
 <td>loanvalidation-rules</td>
 <td>Y</td>
 <td></td>
 <td>Y</td>
 </tr>
 <tr>
-<td>Artifact Permissions</td>
-<td>Eligibility</td>
-<td>2</td>
-<td>Y</td>
+<td>Branch Archiving</td>
+<td>ota-test-governed-rules</td>
 <td></td>
-<td>Y</td>
-</tr>
-<tr>
-<td>Artifact Permissions</td>
-<td>Fraud</td>
 <td>4</td>
+<td></td>
+<td>Y</td>
+<td></td>
+</tr>
+<tr>
+<td>Classic Rule Engine</td>
+<td></td>
+<td></td>
+<td>ota-test-cre-rules</td>
 <td>Y</td>
 <td></td>
 <td>Y</td>
 </tr>
 <tr>
-<td>Artifact Permissions</td>
-<td>Lending Reviewers</td>
-<td>4</td>
+<td>Fine Grained Permissions</td>
+<td>UserGroup</td>
+<td></td>
+<td>1</td>
 <td>Y</td>
 <td></td>
 <td>Y</td>
 </tr>
 <tr>
-<td>Artifact Permissions</td>
-<td>glou</td>
-<td>4</td>
-<td>Y</td>
-<td></td>
-<td>Y</td>
-</tr>
-<tr>
-<td>Custom properties</td>
-<td></td>
-<td>Geography</td>
+<td>Using Value Editor</td>
+<td>Value Editor Service</td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Value+Editor+Service&id=brm.BOM%3A6%3A6&locale=en_US&datasource=jdbc%2FilogDataSource">sample.myeditor.editor</a></td>
 <td>Y</td>
 <td></td>
 <td></td>
 </tr>
 <tr>
 <td>Verbalizations Spelling</td>
-<td>Loan Validation Base</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Loan+Validation+Base&id=brm.Vocabulary%3A2%3A2&locale=en_US&datasource=jdbc%2FilogDataSource">util</a></td>
+<td>Value Editor Service</td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Value+Editor+Service&id=brm.Vocabulary%3A6%3A6&locale=en_US&datasource=jdbc%2FilogDataSource">impl</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
 </tr>
 <tr>
-<td>Using Value Editor</td>
-<td>Value Editor Service</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=Value+Editor+Service&id=brm.BOM%3A6%3A6&locale=en_US&datasource=jdbc%2FilogDataSource">sample.myeditor.editor</a></td>
+<td>External Domain Provider</td>
+<td>bomdomainpopulate-rules</td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=bomdomainpopulate-rules&id=brm.BOM%3A4%3A4&locale=en_US&datasource=jdbc%2FilogDataSource">derbyDataBaseDomainProvider</a></td>
 <td>Y</td>
 <td></td>
 <td></td>
@@ -823,151 +678,53 @@ Run by <em>rtsAdmin</em> on Friday, August 24, 2018 at 2:15 PM, against <em>http
 <tr>
 <td>Using Value Info</td>
 <td>bomdomainpopulate-rules</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=bomdomainpopulate-rules&id=brm.BOM%3A4%3A4&locale=en_US&datasource=jdbc%2FilogDataSource">ilog.rules.studio.samples.bomdomainpopulate.Stock</a></td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=bomdomainpopulate-rules&id=brm.BOM%3A5%3A5&locale=en_US&datasource=jdbc%2FilogDataSource">ilog.rules.studio.samples.bomdomainpopulate.Stock</a></td>
 <td>Y</td>
 <td></td>
-<td></td>
-</tr>
-<tr>
-<td>External Domain Provider</td>
-<td>bomdomainpopulate-rules</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=bomdomainpopulate-rules&id=brm.BOM%3A5%3A5&locale=en_US&datasource=jdbc%2FilogDataSource">derbyDataBaseDomainProvider</a></td>
-<td>Y</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>Verbalizations Spelling</td>
-<td>bomdomainpopulate-rules</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=bomdomainpopulate-rules&id=brm.Vocabulary%3A4%3A4&locale=en_US&datasource=jdbc%2FilogDataSource">australian</a></td>
-<td></td>
-<td>Y</td>
 <td></td>
 </tr>
 <tr>
 <td>B2X Using CRE API</td>
-<td>cre-rules</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=cre-rules&id=brm.BOM2XOMMapping%3A104%3A106&locale=en_US&datasource=jdbc%2FilogDataSource">com.sample.Person.printInContext1</a></td>
+<td>ota-test-cre-rules</td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=ota-test-cre-rules&id=brm.BOM2XOMMapping%3A53%3A53&locale=en_US&datasource=jdbc%2FilogDataSource">com.sample.Person.printInContext1</a></td>
 <td>Y</td>
 <td></td>
 <td>Y</td>
 </tr>
 <tr>
 <td>B2X Using CRE API</td>
-<td>cre-rules</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=cre-rules&id=brm.BOM2XOMMapping%3A104%3A106&locale=en_US&datasource=jdbc%2FilogDataSource">com.sample.Person.printInContext2</a></td>
+<td>ota-test-cre-rules</td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=ota-test-cre-rules&id=brm.BOM2XOMMapping%3A53%3A53&locale=en_US&datasource=jdbc%2FilogDataSource">com.sample.Person.printInContext2</a></td>
 <td>Y</td>
 <td></td>
 <td>Y</td>
 </tr>
 <tr>
 <td>B2X Code Size</td>
-<td>cre-rules</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=cre-rules&id=brm.BOM2XOMMapping%3A104%3A106&locale=en_US&datasource=jdbc%2FilogDataSource">com.sample.Person.printInContext2</a></td>
+<td>ota-test-cre-rules</td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=ota-test-cre-rules&id=brm.BOM2XOMMapping%3A53%3A53&locale=en_US&datasource=jdbc%2FilogDataSource">com.sample.Person.printInContext2</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
 </tr>
 <tr>
 <td>Verbalizations Spelling</td>
-<td>cre-rules</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=cre-rules&id=brm.Vocabulary%3A110%3A110&locale=en_US&datasource=jdbc%2FilogDataSource">printincontext</a></td>
+<td>ota-test-cre-rules</td>
+<td>[current]</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=ota-test-cre-rules&id=brm.Vocabulary%3A55%3A55&locale=en_US&datasource=jdbc%2FilogDataSource">printincontext</a></td>
 <td></td>
 <td>Y</td>
 <td></td>
 </tr>
 <tr>
 <td>Java Verbalization</td>
-<td>governed-project</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=governed-project&id=brm.Vocabulary%3A77%3A77&locale=en_US&datasource=jdbc%2FilogDataSource">com.sample.Person.askAbout(java.lang.String)</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>B2X Using CRE API</td>
-<td>test-rules</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=test-rules&id=brm.BOM2XOMMapping%3A33%3A33&locale=en_US&datasource=jdbc%2FilogDataSource">com.ibm.odm.migrate.Member.addToWM</a></td>
-<td>Y</td>
-<td></td>
-<td>Y</td>
-</tr>
-<tr>
-<td>B2X Using CRE API</td>
-<td>test-rules</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=test-rules&id=brm.BOM2XOMMapping%3A33%3A33&locale=en_US&datasource=jdbc%2FilogDataSource">com.ibm.odm.migrate.Member.printRuleName</a></td>
-<td>Y</td>
-<td></td>
-<td>Y</td>
-</tr>
-<tr>
-<td>Verbalizations Spelling</td>
-<td>uhg-npt-bom</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=uhg-npt-bom&id=brm.Vocabulary%3A38%3A38&locale=en_US&datasource=jdbc%2FilogDataSource">ipa</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Verbalizations Spelling</td>
-<td>uhg-npt-bom</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=uhg-npt-bom&id=brm.Vocabulary%3A38%3A38&locale=en_US&datasource=jdbc%2FilogDataSource">mpin</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Verbalizations Spelling</td>
-<td>uhg-npt-bom</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=uhg-npt-bom&id=brm.Vocabulary%3A38%3A38&locale=en_US&datasource=jdbc%2FilogDataSource">org</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Verbalizations Spelling</td>
-<td>uhg-npt-bom</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=uhg-npt-bom&id=brm.Vocabulary%3A38%3A38&locale=en_US&datasource=jdbc%2FilogDataSource">pcp</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Verbalizations Spelling</td>
-<td>uhg-npt-bom</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=uhg-npt-bom&id=brm.Vocabulary%3A38%3A38&locale=en_US&datasource=jdbc%2FilogDataSource">pd</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Verbalizations Spelling</td>
-<td>uhg-npt-bom</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=uhg-npt-bom&id=brm.Vocabulary%3A38%3A38&locale=en_US&datasource=jdbc%2FilogDataSource">com</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Verbalizations Spelling</td>
-<td>uhg-npt-bom</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=uhg-npt-bom&id=brm.Vocabulary%3A38%3A38&locale=en_US&datasource=jdbc%2FilogDataSource">npt</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Verbalizations Spelling</td>
-<td>uhg-npt-bom</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=uhg-npt-bom&id=brm.Vocabulary%3A38%3A38&locale=en_US&datasource=jdbc%2FilogDataSource">entitytype</a></td>
-<td></td>
-<td>Y</td>
-<td></td>
-</tr>
-<tr>
-<td>Verbalizations Spelling</td>
-<td>uhg-npt-bom</td>
-<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=uhg-npt-bom&id=brm.Vocabulary%3A38%3A38&locale=en_US&datasource=jdbc%2FilogDataSource">uhg</a></td>
+<td>ota-test-governed-rules</td>
+<td>Spring Release</td>
+<td><a href="http://localhost:9090/teamserver/faces/explore/details.jsp?project=ota-test-governed-rules&id=brm.Vocabulary%3A54%3A54&locale=en_US&datasource=jdbc%2FilogDataSource">com.sample.Person.askAbout(java.lang.String)</a></td>
 <td></td>
 <td>Y</td>
 <td></td>

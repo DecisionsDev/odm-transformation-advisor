@@ -59,10 +59,7 @@ public class RepositoryChecker extends Checker {
 	@Override
 	public void run(Report report) throws OTAException {
 		logger.info("@ Checking repository characteristics");
-		//
-		// Fine-grained permission may get deprecated in vNext.
-		// checkPermissions(report);
-		//
+		checkPermissions(report);
 		checkCustomProperties(report);
 	}
 
@@ -71,7 +68,6 @@ public class RepositoryChecker extends Checker {
 	 * 
 	 * @param report
 	 */
-	@SuppressWarnings("unused")
 	private void checkPermissions(Report report) {
 		IlrSession session = DCConnection.getSession();
 		for (String group : session.getAvailableGroups()) {

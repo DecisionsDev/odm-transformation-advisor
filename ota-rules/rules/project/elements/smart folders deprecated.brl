@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>smart folders deprecated</name>
+  <uuid>986bc85b-23b9-4688-8a27-81f6ef6edf20</uuid>
+  <documentation><![CDATA[Ignore default smart folders: %templatesView_key, %businessRulesView_key, %simulationsView_key, %emptyActionRule_key, and %ruleflowsView_key]]></documentation>
+  <locale>en_US</locale>
+  <definition><![CDATA[definitions
+	set smartfolder to an ilr smart view in elements;
+if
+	the name of smartfolder does not start with "%" or
+	the name of smartfolder does not end with "_key"
+then
+	add entry Smart Folders : < project, smartfolder > to report ;
+]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>
