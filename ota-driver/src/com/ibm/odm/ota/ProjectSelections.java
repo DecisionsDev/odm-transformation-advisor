@@ -48,10 +48,14 @@ public class ProjectSelections {
 		this.selections = getSelectedItems(projectSelectionsString);
 	}
 
+	/**
+	 * Returns an iterator on all selected project/branch items.
+	 * @return
+	 */
 	public Iterator<Item> getSelections() {
 		return selections.iterator();
 	}
-
+	
 	/**
 	 * Return true if the given project name is selected for analysis.
 	 * 
@@ -119,9 +123,15 @@ public class ProjectSelections {
 					branchName = null;
 				}
 				try {
-					selections.add(new Item(IlrSessionHelper.getProjectNamed(session, projectName), branchName));
+					IlrRuleProject project = IlrSessionHelper.getProjectNamed(session, projectName);
+					if ( project == null ) {
+						throw new OTAException("Invalid rule project name: " + projectName);
+					}
+					else {
+					selections.add(new Item(project, branchName));
+					}
 				} catch (IlrObjectNotFoundException e) {
-					throw new OTAException("Invalid project name: " + projectName);
+					throw new OTAException("Invalid rule project name: " + projectName);
 				}
 			}
 		}
