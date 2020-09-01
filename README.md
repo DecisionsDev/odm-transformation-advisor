@@ -1,3 +1,7 @@
+[![GitHub release](https://img.shields.io/github/release/ODMDev/odm-docker-kubernetes.svg)](https://github.com/ODMDev/odm-docker-kubernetes/releases)
+![GitHub last commit](https://img.shields.io/github/last-commit/ODMDev/odm-docker-kubernetes)
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
+
 # ODM Transformation Advisor
 The IBM Operational Decision Manager (ODM) platform has evolved quickly in the past few years: a new management console, a new engine (the Decision Engine),
 new projects organization (Decision Services), a SaaS offering (ODM on Cloud), and we can expect more to come as new platform deployment options are made available.
