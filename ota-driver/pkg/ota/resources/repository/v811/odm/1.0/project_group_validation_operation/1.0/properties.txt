@@ -1,0 +1,4 @@
+#Thu Jul 20 02:40:14 EDT 2023
+ruleset.uuid=90588ee2-e36c-447a-9f16-a198604340bf
+ruleset.engine=de
+ruleset.engine.version=1.40.12

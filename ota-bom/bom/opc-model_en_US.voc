@@ -19,7 +19,7 @@ com.ibm.odm.ota.Parameters.getStringV(com.ibm.odm.ota.virtual.ParamNameType)#phr
 # com.ibm.odm.ota.Report
 com.ibm.odm.ota.Report#concept.label = report
 com.ibm.odm.ota.Report.addObjectEntryV(com.ibm.odm.ota.virtual.FeedbackType,ilog.rules.teamserver.brm.IlrRuleProject,ilog.rules.teamserver.brm.IlrProjectElement)#phrase.action = add entry {0}: < {1}, {2}> to {this}
-com.ibm.odm.ota.Report.addTextEntryV(com.ibm.odm.ota.virtual.FeedbackType,java.lang.String,java.lang.String)#phrase.action = add project entry {0}: < {1}, {2}> to {this}
+com.ibm.odm.ota.Report.addTextEntryV(com.ibm.odm.ota.virtual.FeedbackType,java.lang.String,java.lang.String)#phrase.action = add project entry {0, finding}: < {1, where}, {2, what}> to {this}
 
 # com.ibm.odm.ota.virtual.BRMType
 com.ibm.odm.ota.virtual.BRMType#concept.label = BRMType
@@ -42,14 +42,20 @@ com.ibm.odm.ota.virtual.FeedbackType.B2X_CODE_TOO_LONG#instance.label = B2X Code
 com.ibm.odm.ota.virtual.FeedbackType.B2X_USING_CRE_API#instance.label = B2X Using CRE API
 com.ibm.odm.ota.virtual.FeedbackType.BOM_WITH_RULES#instance.label = BOM with Rules
 com.ibm.odm.ota.virtual.FeedbackType.CLASSIC_ENGINE#instance.label = Classic Rule Engine
+com.ibm.odm.ota.virtual.FeedbackType.CLASSIC_ENGINE_REMOVED#instance.label = Classic Rule Engine Removed
 com.ibm.odm.ota.virtual.FeedbackType.CLASSIC_PROJECT#instance.label = Classic Rule Projects
+com.ibm.odm.ota.virtual.FeedbackType.CRP_REMOVED#instance.label = Classic Rule Project Removed
 com.ibm.odm.ota.virtual.FeedbackType.CUSTOM_PROPERTY#instance.label = Custom properties
+com.ibm.odm.ota.virtual.FeedbackType.CUSTOM_RULE_LANGUAGE#instance.label = Custom Rule Language
 com.ibm.odm.ota.virtual.FeedbackType.DECISION_TREE#instance.label = Decision Trees
 com.ibm.odm.ota.virtual.FeedbackType.DOMAIN_PROVIDER#instance.label = External Domain Provider
 com.ibm.odm.ota.virtual.FeedbackType.EXIT_CRITERIA#instance.label = Exit Criteria
 com.ibm.odm.ota.virtual.FeedbackType.JAVA_VERBALIZATION#instance.label = Java Verbalization
+com.ibm.odm.ota.virtual.FeedbackType.MODELING_DECISION_SERVICE#instance.label = Modeling Decisions Project 
+com.ibm.odm.ota.virtual.FeedbackType.MODELING_DS_REMOVED#instance.label = Modeling Decision Removed
 com.ibm.odm.ota.virtual.FeedbackType.PERMISSIONS#instance.label = Fine Grained Permissions
 com.ibm.odm.ota.virtual.FeedbackType.PRIORITY#instance.label = Rule Priorities
+com.ibm.odm.ota.virtual.FeedbackType.RULESET_WITHOUT_RULEFLOW#instance.label = Operation Without Ruleflow
 com.ibm.odm.ota.virtual.FeedbackType.RULE_UNDER_ROOT#instance.label = Rule Under Root
 com.ibm.odm.ota.virtual.FeedbackType.RULE_USING_ELSE#instance.label = Rule Using Else
 com.ibm.odm.ota.virtual.FeedbackType.SAME_RULE_NAME#instance.label = Same Rule Name
@@ -57,6 +63,7 @@ com.ibm.odm.ota.virtual.FeedbackType.SMART_FOLDER#instance.label = Smart Folders
 com.ibm.odm.ota.virtual.FeedbackType.TECHNICAL_RULE#instance.label = Technical Rules
 com.ibm.odm.ota.virtual.FeedbackType.TEMPLATE#instance.label = Rule Templates
 com.ibm.odm.ota.virtual.FeedbackType.TEMPLATED#instance.label = Rules from Template
+com.ibm.odm.ota.virtual.FeedbackType.TEMPLATE_REMOVED#instance.label = Rule Templates Removed
 com.ibm.odm.ota.virtual.FeedbackType.UPDATE_STATE#instance.label = Member Using Update State
 com.ibm.odm.ota.virtual.FeedbackType.USING_DIFFERENT_ALGORITHMS#instance.label = Using Different Algorithms
 com.ibm.odm.ota.virtual.FeedbackType.USING_RETE#instance.label = Using Rete

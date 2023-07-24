@@ -112,21 +112,34 @@ public class FeedbackType
         static B2X_CODE_TOO_LONG,
         static SMART_FOLDER,
         static UPDATE_STATE,
-        static PERMISSIONS
+        static PERMISSIONS,
+        static CRP_REMOVED,
+        static MODELING_DECISION_SERVICE,
+        static CUSTOM_RULE_LANGUAGE,
+        static MODELING_DS_REMOVED,
+        static CLASSIC_ENGINE_REMOVED,
+        static TEMPLATE_REMOVED,
+        static RULESET_WITHOUT_RULEFLOW
     }
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType ARCHIVING;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType B2X_CODE_TOO_LONG;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType B2X_USING_CRE_API;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType BOM_WITH_RULES;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType CLASSIC_ENGINE;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType CLASSIC_ENGINE_REMOVED;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType CLASSIC_PROJECT;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType CRP_REMOVED;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType CUSTOM_PROPERTY;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType CUSTOM_RULE_LANGUAGE;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType DECISION_TREE;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType DOMAIN_PROVIDER;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType EXIT_CRITERIA;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType JAVA_VERBALIZATION;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType MODELING_DECISION_SERVICE;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType MODELING_DS_REMOVED;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType PERMISSIONS;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType PRIORITY;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType RULESET_WITHOUT_RULEFLOW;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType RULE_UNDER_ROOT;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType RULE_USING_ELSE;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType SAME_RULE_NAME;
@@ -134,6 +147,7 @@ public class FeedbackType
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType TECHNICAL_RULE;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType TEMPLATE;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType TEMPLATED;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType TEMPLATE_REMOVED;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType UPDATE_STATE;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType USING_DIFFERENT_ALGORITHMS;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType USING_RETE;

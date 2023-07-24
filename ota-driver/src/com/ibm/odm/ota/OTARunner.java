@@ -96,7 +96,7 @@ public class OTARunner {
 
 	private void run() throws OTAException {
 		DCConnection.startSession(url, username, password, datasource);
-		Report runReport = new Report(url, datasource, username);
+		Report runReport = new Report(url, datasource, username, version);
 
 		ProjectSelections projectSelections = new ProjectSelections(projects);
 
@@ -106,7 +106,7 @@ public class OTARunner {
 		(new RepositoryChecker(version, projectSelections)).run(runReport);
 		(new BOMChecker(version, projectSelections)).run(runReport);
 
-		ReportFormatter formatter = new ReportFormatter();
+		ReportFormatter formatter = new ReportFormatter( );
 		formatter.createHTML(runReport, report);
 		logger.info("Analysis completed, results available in " + report);
 

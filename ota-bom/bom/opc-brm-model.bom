@@ -1,6 +1,6 @@
 
 property loadGetterSetterAsProperties "true"
-property origin "xom:/ota-bom//opc-xom/lib/jrules-teamserver.jar"
+property origin "xom:/ota-bom/jrules-teamserver.jar"
 property uuid "46da990c-6ac1-488d-888e-f864752e67df"
 package ilog.rules.teamserver.brm;
 
@@ -172,12 +172,6 @@ public interface IlrArgument
     public readonly abstract string argumentType;
     public readonly abstract string name;
     public readonly abstract int order;
-}
-
-public interface IlrBMD
-        extends ilog.rules.teamserver.brm.IlrPackageElement
-{
-    public readonly abstract string body;
 }
 
 public interface IlrBOM
@@ -546,21 +540,6 @@ public interface IlrBrmPackage
     public static final readonly int BASIC_MODEL_ELEMENT__LAST_CHANGED_BY;
     public static final readonly int BASIC_MODEL_ELEMENT__LAST_CHANGED_ON;
     public static final readonly int BASIC_MODEL_ELEMENT__TYPE;
-    public static final readonly int BMD;
-    public readonly abstract org.eclipse.emf.ecore.EAttribute BMD_Body;
-    public static final readonly int BMD_FEATURE_COUNT;
-    public static final readonly int BMD__BODY;
-    public static final readonly int BMD__CREATED_BY;
-    public static final readonly int BMD__CREATED_ON;
-    public static final readonly int BMD__DOCUMENTATION;
-    public static final readonly int BMD__GROUP;
-    public static final readonly int BMD__LAST_CHANGED_BY;
-    public static final readonly int BMD__LAST_CHANGED_ON;
-    public static final readonly int BMD__NAME;
-    public static final readonly int BMD__PROJECT;
-    public static final readonly int BMD__RULE_PACKAGE;
-    public static final readonly int BMD__TYPE;
-    public static final readonly int BMD__UUID;
     public static final readonly int BOM;
     public readonly abstract org.eclipse.emf.ecore.EClass BOM2XOMMapping;
     public readonly abstract org.eclipse.emf.ecore.EAttribute BOM2XOMMapping_Body;
@@ -2176,6 +2155,13 @@ public interface IlrDataConnection
 {
 }
 
+public interface IlrDecisionModel
+        extends ilog.rules.teamserver.brm.IlrPackageElement
+{
+    public readonly abstract byte[] body;
+    public readonly abstract string source;
+}
+
 public interface IlrDecisionTable
         extends ilog.rules.teamserver.brm.IlrBusinessRule
 {
@@ -3251,5 +3237,30 @@ public interface IlrVocabulary
 {
     public readonly abstract string body;
     public readonly abstract string locale;
+}
+
+package ilog.rules.teamserver.dsm;
+
+
+public interface IlrOperation
+        extends ilog.rules.teamserver.brm.IlrPackageElement
+{
+    public readonly abstract java.util.List advancedProperties domain 0,*;
+    public readonly abstract string businessDisplayName;
+    public readonly abstract string description;
+    public readonly abstract string engineConfigurationFile;
+    public readonly abstract string extractor;
+    public readonly abstract java.util.List referencedVariables domain 0,*;
+    public readonly abstract ilog.rules.teamserver.brm.IlrRuleflow ruleflow;
+    public readonly abstract string rulesetName;
+    public readonly abstract java.util.List rulesetProperties domain 0,*;
+    public readonly abstract java.util.List tags domain 0,*;
+    public readonly abstract ilog.rules.teamserver.brm.IlrRuleProject targetRuleProject;
+    public readonly abstract boolean usingExtractor;
+    public readonly abstract boolean usingRuleflow;
+    public java.util.List getReferencedVariables(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
+    public java.util.List getTags(ilog.rules.teamserver.model.IlrElementVersion arg)
+                throws ilog.rules.teamserver.model.IlrObjectNotFoundException domain 0,*;
 }
 

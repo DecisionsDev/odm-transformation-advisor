@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>operation without a flow</name>
+  <uuid>d074c859-3a9e-4acd-a0b3-905726e3cee4</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[definitions
+    set operation to an operation in elements ;
+if
+    the ruleflow of operation is null
+then
+    add entry Operation Without Ruleflow : < project , operation > to report ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

@@ -31,7 +31,7 @@
 	</target>
 
 	<target name="compile-ota" depends="clean-ota-bin">
-		<javac srcdir="${src.dir}" destdir="${bin.dir}" includeantruntime="false">
+		<javac srcdir="${src.dir}" destdir="${bin.dir}" debug="true" includeantruntime="false">
 			<classpath refid="compile.classpath" />
 		</javac>
 	</target>

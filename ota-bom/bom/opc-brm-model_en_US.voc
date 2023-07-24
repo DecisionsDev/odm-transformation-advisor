@@ -112,10 +112,6 @@ ilog.rules.teamserver.brm.IlrArgument.argumentType#phrase.navigation = {argument
 ilog.rules.teamserver.brm.IlrArgument.name#phrase.navigation = {name} of {this}
 ilog.rules.teamserver.brm.IlrArgument.order#phrase.navigation = {order} of {this}
 
-# ilog.rules.teamserver.brm.IlrBMD
-ilog.rules.teamserver.brm.IlrBMD#concept.label = ilr BMD
-ilog.rules.teamserver.brm.IlrBMD.body#phrase.navigation = {body} of {this}
-
 # ilog.rules.teamserver.brm.IlrBOM
 ilog.rules.teamserver.brm.IlrBOM#concept.label = ilr BOM
 ilog.rules.teamserver.brm.IlrBOM.body#phrase.navigation = {body} of {this}
@@ -432,20 +428,6 @@ ilog.rules.teamserver.brm.IlrBrmPackage.BASIC_MODEL_ELEMENT__CREATED_ON#phrase.n
 ilog.rules.teamserver.brm.IlrBrmPackage.BASIC_MODEL_ELEMENT__LAST_CHANGED_BY#phrase.navigation = the BASIC MODEL ELEMENT  LAST CHANGED BY
 ilog.rules.teamserver.brm.IlrBrmPackage.BASIC_MODEL_ELEMENT__LAST_CHANGED_ON#phrase.navigation = the BASIC MODEL ELEMENT  LAST CHANGED ON
 ilog.rules.teamserver.brm.IlrBrmPackage.BASIC_MODEL_ELEMENT__TYPE#phrase.navigation = the BASIC MODEL ELEMENT  TYPE
-ilog.rules.teamserver.brm.IlrBrmPackage.BMD#phrase.navigation = the BMD
-ilog.rules.teamserver.brm.IlrBrmPackage.BMD_FEATURE_COUNT#phrase.navigation = the BMD FEATURE COUNT
-ilog.rules.teamserver.brm.IlrBrmPackage.BMD__BODY#phrase.navigation = the BMD  BODY
-ilog.rules.teamserver.brm.IlrBrmPackage.BMD__CREATED_BY#phrase.navigation = the BMD  CREATED BY
-ilog.rules.teamserver.brm.IlrBrmPackage.BMD__CREATED_ON#phrase.navigation = the BMD  CREATED ON
-ilog.rules.teamserver.brm.IlrBrmPackage.BMD__DOCUMENTATION#phrase.navigation = the BMD  DOCUMENTATION
-ilog.rules.teamserver.brm.IlrBrmPackage.BMD__GROUP#phrase.navigation = the BMD  GROUP
-ilog.rules.teamserver.brm.IlrBrmPackage.BMD__LAST_CHANGED_BY#phrase.navigation = the BMD  LAST CHANGED BY
-ilog.rules.teamserver.brm.IlrBrmPackage.BMD__LAST_CHANGED_ON#phrase.navigation = the BMD  LAST CHANGED ON
-ilog.rules.teamserver.brm.IlrBrmPackage.BMD__NAME#phrase.navigation = the BMD  NAME
-ilog.rules.teamserver.brm.IlrBrmPackage.BMD__PROJECT#phrase.navigation = the BMD  PROJECT
-ilog.rules.teamserver.brm.IlrBrmPackage.BMD__RULE_PACKAGE#phrase.navigation = the BMD  RULE PACKAGE
-ilog.rules.teamserver.brm.IlrBrmPackage.BMD__TYPE#phrase.navigation = the BMD  TYPE
-ilog.rules.teamserver.brm.IlrBrmPackage.BMD__UUID#phrase.navigation = the BMD  UUID
 ilog.rules.teamserver.brm.IlrBrmPackage.BOM#phrase.navigation = the BOM
 ilog.rules.teamserver.brm.IlrBrmPackage.BOM2XOM_MAPPING#phrase.navigation = the BOM2 XOM MAPPING
 ilog.rules.teamserver.brm.IlrBrmPackage.BOM2XOM_MAPPING_FEATURE_COUNT#phrase.navigation = the BOM2 XOM MAPPING FEATURE COUNT
@@ -1637,6 +1619,10 @@ ilog.rules.teamserver.brm.IlrConnectionEntry.uuid#phrase.navigation = {uuid} of 
 # ilog.rules.teamserver.brm.IlrDataConnection
 ilog.rules.teamserver.brm.IlrDataConnection#concept.label = ilr data connection
 
+# ilog.rules.teamserver.brm.IlrDecisionModel
+ilog.rules.teamserver.brm.IlrDecisionModel#concept.label = decision model
+ilog.rules.teamserver.brm.IlrDecisionModel.source#phrase.navigation = {source} of {this}
+
 # ilog.rules.teamserver.brm.IlrDecisionTable
 ilog.rules.teamserver.brm.IlrDecisionTable#concept.label = ilr decision table
 
@@ -2347,3 +2333,19 @@ ilog.rules.teamserver.brm.IlrVariableSet.variables#phrase.navigation = {variable
 ilog.rules.teamserver.brm.IlrVocabulary#concept.label = ilr vocabulary
 ilog.rules.teamserver.brm.IlrVocabulary.body#phrase.navigation = {body} of {this}
 ilog.rules.teamserver.brm.IlrVocabulary.locale#phrase.navigation = {locale} of {this}
+
+# ilog.rules.teamserver.dsm.IlrOperation
+ilog.rules.teamserver.dsm.IlrOperation#concept.label = operation
+ilog.rules.teamserver.dsm.IlrOperation.advancedProperties#phrase.navigation = {advanced property} of {this}
+ilog.rules.teamserver.dsm.IlrOperation.businessDisplayName#phrase.navigation = {business display name} of {this}
+ilog.rules.teamserver.dsm.IlrOperation.description#phrase.navigation = {description} of {this}
+ilog.rules.teamserver.dsm.IlrOperation.engineConfigurationFile#phrase.navigation = {engine configuration file} of {this}
+ilog.rules.teamserver.dsm.IlrOperation.extractor#phrase.navigation = {extractor} of {this}
+ilog.rules.teamserver.dsm.IlrOperation.referencedVariables#phrase.navigation = {referenced variable} of {this}
+ilog.rules.teamserver.dsm.IlrOperation.ruleflow#phrase.navigation = {ruleflow} of {this}
+ilog.rules.teamserver.dsm.IlrOperation.rulesetName#phrase.navigation = {ruleset name} of {this}
+ilog.rules.teamserver.dsm.IlrOperation.rulesetProperties#phrase.navigation = {ruleset property} of {this}
+ilog.rules.teamserver.dsm.IlrOperation.tags#phrase.navigation = {tag} of {this}
+ilog.rules.teamserver.dsm.IlrOperation.targetRuleProject#phrase.navigation = {target rule project} of {this}
+ilog.rules.teamserver.dsm.IlrOperation.usingExtractor#phrase.navigation = {this} is using extractor
+ilog.rules.teamserver.dsm.IlrOperation.usingRuleflow#phrase.navigation = {this} is using ruleflow

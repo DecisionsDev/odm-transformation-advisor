@@ -40,6 +40,25 @@ p.summary-body {
 	background: #EFEFEF;
 }
 
+div.summary-body {
+	display: block;
+	margin: 0.25rem;
+	padding: 1rem;
+	width: 60%;
+	background: #EFEFEF;
+}
+
+div.summary-body table {
+	width: 100% !important;
+	font-size: 12px;
+}
+
+div.header table {
+	width: 60%;
+	font-size:12px;
+	font-family:Verdana, Arial, sans-serif;
+}
+
 table {
 	color: #333;
 	font-family: Consolas, Helvetica, Arial, sans-serif;
@@ -81,4 +100,31 @@ tr:first-child th:nth-child(1) {
 
 tr:first-child th:last-child {
 	border-radius: 0 5px 0 0;
+}
+
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+}
+
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
 }

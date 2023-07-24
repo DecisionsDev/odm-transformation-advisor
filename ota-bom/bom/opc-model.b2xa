@@ -143,15 +143,33 @@
             ]]></getter>
         </attribute>
         <attribute>
+            <name>CLASSIC_ENGINE_REMOVED</name>
+            <getter language="irl"><![CDATA[
+            return "CLASSIC_ENGINE_REMOVED";
+            ]]></getter>
+        </attribute>
+        <attribute>
             <name>CLASSIC_PROJECT</name>
             <getter language="irl"><![CDATA[
             return "CLASSIC_PROJECT";
             ]]></getter>
         </attribute>
         <attribute>
+            <name>CRP_REMOVED</name>
+            <getter language="irl"><![CDATA[
+            return "CRP_REMOVED";
+            ]]></getter>
+        </attribute>
+        <attribute>
             <name>CUSTOM_PROPERTY</name>
             <getter language="irl"><![CDATA[
             return "CUSTOM_PROPERTY";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>CUSTOM_RULE_LANGUAGE</name>
+            <getter language="irl"><![CDATA[
+            return "CUSTOM_RULE_LANGUAGE";
             ]]></getter>
         </attribute>
         <attribute>
@@ -179,6 +197,18 @@
             ]]></getter>
         </attribute>
         <attribute>
+            <name>MODELING_DECISION_SERVICE</name>
+            <getter language="irl"><![CDATA[
+            return "MODELING_DECISION_SERVICE";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>MODELING_DS_REMOVED</name>
+            <getter language="irl"><![CDATA[
+            return "MODELING_DS_REMOVED";
+            ]]></getter>
+        </attribute>
+        <attribute>
             <name>PERMISSIONS</name>
             <getter language="irl"><![CDATA[
             return "PERMISSIONS";
@@ -188,6 +218,12 @@
             <name>PRIORITY</name>
             <getter language="irl"><![CDATA[
             return "PRIORITY";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>RULESET_WITHOUT_RULEFLOW</name>
+            <getter language="irl"><![CDATA[
+            return "RULESET_WITHOUT_RULEFLOW";
             ]]></getter>
         </attribute>
         <attribute>
@@ -230,6 +266,12 @@
             <name>TEMPLATED</name>
             <getter language="irl"><![CDATA[
             return "TEMPLATED";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>TEMPLATE_REMOVED</name>
+            <getter language="irl"><![CDATA[
+            return "TEMPLATE_REMOVED";
             ]]></getter>
         </attribute>
         <attribute>

@@ -6,12 +6,34 @@
 <style>
 $css
 </style>
+<script type="text/javascript">
+<!-- 
+function switchMenu(obj, parent) {	
+	var el = document.getElementById(obj);
+	var p = document.getElementById(parent);
+	if ( el.style.display != "none" ) {
+		el.style.display = "none";
+		p.className ="arrow right";
+	}
+	else {
+		el.style.display = '';
+		p.className="arrow down";
+	}
+}
+-->
+     </script> 
 </head>
 <body>
 	<h1>ODM Repository Analysis Result</h1>
-
-Run by <em>$username</em> on $timestamp, against <em>$repository</em> (datasource $datasource).
-
+<div class="header">
+<table>
+<tr><td>Author</td><td><em>$username</em></td></tr>
+<tr><td>Date</td><td>$timestamp</td></tr>
+<tr><td>Decision Center</td><td>$repository</td></tr>
+<tr><td>Data Source </td><td>$datasource</td></tr>
+<tr><td>Compatibility with </td><td>$version</td></tr>
+</table>
+</div>
 	<h2>Findings Summary</h2>
 	<p>A total of $items notable items have been found and are detailed below.</p>
 	

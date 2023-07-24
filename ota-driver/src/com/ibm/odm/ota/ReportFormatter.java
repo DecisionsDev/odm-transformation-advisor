@@ -50,14 +50,14 @@ public class ReportFormatter implements Comparator<String> {
 	private static final String HTML_TMPL_FILE = "report.html";
 	private static final String PREFERENCES_FILE = "preferences.properties";
 
-	private static final String SUMMARY_TMPL = "<div><p class=\"summary-head\">%s</p></div>\n<div><p class=\"summary-body\">%s</p></div>\n<br>\n";
+	private static final String SUMMARY_TMPL = "<div><p class=\"summary-head\">%s</p></div>\n<div><p class=\"summary-body\">%s</p></div>\n<div class=\"summary-body\">%s</div>\n<br>\n";
 	private static final String MARKERS_TMPL = "&nbsp;<span style=\"color:%s;font-size:20px\">%s;</span>";
 	private static final String CELL_TMPL = "<td>%s</td>\n";
+	private static final String CELL_CENTERED_TMPL = "<td style=\"text-align:center;\">%s</td>\n";
 
 	private PrintWriter os = null;
 	private Properties preferences = new Properties();
 	private int notableItems = 0;
-	private IlrPermanentLinkHelper permalinkHelper;
 
 	private enum Context {
 		summary, detail;
@@ -65,7 +65,6 @@ public class ReportFormatter implements Comparator<String> {
 
 	public ReportFormatter() throws OTAException {
 		try {
-			permalinkHelper = new IlrPermanentLinkHelper(DCConnection.getSession());
 			preferences.load(ClassLoader.getSystemResourceAsStream(PREFERENCES_FILE));
 		} catch (IOException e) {
 			throw new OTAException("Error loading report formatter preference file", e);
@@ -80,6 +79,7 @@ public class ReportFormatter implements Comparator<String> {
 			template = template.replace("$username", report.getUsername());
 			template = template.replace("$repository", report.getUrl());
 			template = template.replace("$datasource", report.getDatasource());
+			template = template.replace("$version", report.getVersion());
 			template = template.replace("$css", getCSS());
 			template = template.replace("$summaries", getSummaries(report));
 			template = template.replace("$impact", getImpact());
@@ -131,7 +131,8 @@ public class ReportFormatter implements Comparator<String> {
 				String format = Findings.getFinding(type).summary;
 				String summaryBody = String.format(format, selected.getWhere(), selected.getWhat(), total, plural);
 				String summaryHead = title + getMarkers(type);
-				summaries += String.format(SUMMARY_TMPL, summaryHead, summaryBody);
+				String findingDetails = getDetailsByFinding(type, elementsFound);
+				summaries += String.format(SUMMARY_TMPL, summaryHead, summaryBody, findingDetails);
 				notableItems++;
 			}
 		}
@@ -171,16 +172,12 @@ public class ReportFormatter implements Comparator<String> {
 				details += String.format(CELL_TMPL, element.getWhere());
 				details += String.format(CELL_TMPL, element.getBranch());
 				String what = element.getWhat();
-				if (element.getElement() != null) {
-					String url = permalinkHelper.getElementDetailsURL(element.getWhere(), element.getElement());
-					what = "<a href=\"" + url + "\">" + what + "</a>";
-				}
 				details += String.format(CELL_TMPL, what);
 				List<String> elementFlags = Findings.getFinding(element.getType()).flags;
 				for (String tag : Findings.getMarkers()) {
 					if (isReportable(tag, Context.detail)) {
 						String marked = elementFlags.contains(tag) ? "Y" : "";
-						details += String.format(CELL_TMPL, marked);
+						details += String.format(CELL_CENTERED_TMPL, marked);
 					}
 				}
 				details += "</tr>\n";
@@ -189,6 +186,31 @@ public class ReportFormatter implements Comparator<String> {
 		return details;
 	}
 
+	private String getDetailsByFinding(String finding, List<ReportElement> elements) throws OTAException {
+		String details = "<div onclick=\"switchMenu('"+finding+"','"+finding+"_switch')\">Details <i id=\""+finding+"_switch\" class=\"arrow right\"></i></div><div style=\"display:none\" id=\""+finding+"\" onclick=\"switchMenu('"+finding+"','"+finding+"_switch')\">"
+				+ 	"<table><tr><th>Where Found</th><th>Which Branch</th><th>Which Artifact</th>"
+				+ getImpact()+ "</tr>\n";
+		for (ReportElement element : elements) {
+			if (isReportable(element, Context.detail)) {
+				details += "<tr>\n";
+				details += String.format(CELL_TMPL, element.getWhere());
+				details += String.format(CELL_TMPL, element.getBranch());
+				String what = element.getWhat();
+				details += String.format(CELL_TMPL, what);
+				List<String> elementFlags = Findings.getFinding(element.getType()).flags;
+				for (String tag : Findings.getMarkers()) {
+					if (isReportable(tag, Context.detail)) {
+						String marked = elementFlags.contains(tag) ? "Y" : "";
+						details += String.format(CELL_CENTERED_TMPL, marked);
+					}
+				}
+				details += "</tr>\n";
+			}
+		}
+		details += "</table>\n</div>";
+		return details;
+	}
+	
 	private boolean isReportable(ReportElement element, Context context) throws OTAException {
 		for (String flag : Findings.getFinding(element.getType()).flags) {
 			if (isReportable(flag, context)) {
