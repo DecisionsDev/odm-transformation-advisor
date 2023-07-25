@@ -50,7 +50,9 @@ public class ReportFormatter implements Comparator<String> {
 	private static final String HTML_TMPL_FILE = "report.html";
 	private static final String PREFERENCES_FILE = "preferences.properties";
 
-	private static final String SUMMARY_TMPL = "<div><p class=\"summary-head\">%s</p></div>\n<div><p class=\"summary-body\">%s</p></div>\n<div class=\"summary-body\">%s</div>\n<br>\n";
+	private static final String SUMMARY_TMPL = "<div><p class=\"summary-head\">%s</p></div>\n"
+			+ "<div><p class=\"summary-body\">%s</p></div>\n"
+			+ "<div class=\"summary-body\">%s</div>\n<br>\n";
 	private static final String MARKERS_TMPL = "&nbsp;<span style=\"color:%s;font-size:20px\">%s;</span>";
 	private static final String CELL_TMPL = "<td>%s</td>\n";
 	private static final String CELL_CENTERED_TMPL = "<td style=\"text-align:center;\">%s</td>\n";
