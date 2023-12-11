@@ -6,5 +6,5 @@
   <definition><![CDATA[if
 	it is not true that project is decision service 
 then
-	add project entry Classic Rule Projects : < "" , the name of project > to report ;]]></definition>
+	add project entry Classic Rule Project Removed  : <  the name of project, "rule project" > to report ;]]></definition>
 </ilog.rules.studio.model.brl:ActionRule>

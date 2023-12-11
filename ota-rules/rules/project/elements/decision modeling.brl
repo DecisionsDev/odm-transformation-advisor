@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ilog.rules.studio.model.brl:ActionRule xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ilog.rules.studio.model.brl="http://ilog.rules.studio/model/brl.ecore">
+  <name>decision modeling</name>
+  <uuid>932153e7-0ce5-4de0-9834-38682b9e6daa</uuid>
+  <locale>en_US</locale>
+  <definition><![CDATA[definitions 
+	set 'variable1' to a decision model in elements ;
+if
+    variable1 is not null 
+then
+    add project entry Modeling Decisions Project : <  the name of project, "decision service" > to report ;]]></definition>
+</ilog.rules.studio.model.brl:ActionRule>

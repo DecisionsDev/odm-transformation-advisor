@@ -105,6 +105,7 @@ public class DecisionRunner {
 		if (!ruleappPath.exists()) {
 			throw new OTAException("Invalid OTA version parameter: " + version);
 		}
+		logger.info( ruleappPath.getAbsolutePath());
 		rappConfig.setDirectory(ruleappPath);
 
 		IlrPersistenceConfig xomPersistence = xuConfig.getManagedXOMPersistenceConfig();

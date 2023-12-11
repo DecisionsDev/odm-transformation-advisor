@@ -19,6 +19,7 @@ public class Report {
 	private String datasource;
 	private String username;
 	private String branch = "";
+	private String version;
 	private List<ReportElement> elements = new ArrayList<ReportElement>();
 
 	public void setBranchContext(String branch) {
@@ -49,10 +50,11 @@ public class Report {
 	}
 
 	@NotBusiness
-	public Report(String url, String datasource, String username) {
+	public Report(String url, String datasource, String username, String version) {
 		this.url = url;
 		this.datasource = datasource;
 		this.username = username;
+		this.version = version;
 	}
 
 	@NotBusiness
@@ -68,6 +70,11 @@ public class Report {
 	@NotBusiness
 	public String getUrl() {
 		return url;
+	}
+	
+	@NotBusiness
+	public String getVersion() {
+		return version;
 	}
 
 	@NotBusiness

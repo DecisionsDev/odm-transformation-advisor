@@ -8,5 +8,5 @@
 if
 	mode is null or mode is not "DecisionEngine" 
 then
-	add project entry Classic Rule Engine : < "" , the name of project > to report ;]]></definition>
+	add project entry Classic Rule Engine  : <  the name of project, "decision service" > to report ;]]></definition>
 </ilog.rules.studio.model.brl:ActionRule>

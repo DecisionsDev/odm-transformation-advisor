@@ -12,9 +12,7 @@
 		</fileset>
 		<fileset dir="${odm.dir}/teamserver/lib">
 			<include name="**/*.jar" />
-		</fileset>
-		<fileset dir="${odm.dir}/executionserver/lib">
-			<include name="**/*.jar" />
+			<exclude name="jrules-engine.jar"/>
 		</fileset>
 		<pathelement path="${res.dir}"/>
 	</path>
