@@ -71,6 +71,8 @@ com.ibm.odm.ota.virtual.FeedbackType.USING_SEQUENTIAL#instance.label = Using Seq
 com.ibm.odm.ota.virtual.FeedbackType.VALUE_EDITOR#instance.label = Using Value Editor
 com.ibm.odm.ota.virtual.FeedbackType.VALUE_INFO#instance.label = Using Value Info
 com.ibm.odm.ota.virtual.FeedbackType.VERBALIZATION_SPELLING#instance.label = Verbalizations Spelling
+com.ibm.odm.ota.virtual.FeedbackType.XML_BINDING#instance.label = XML Binding
+com.ibm.odm.ota.virtual.FeedbackType.XOM_MANAGEMENT_IN_DC#instance.label = XOM Management not enabled
 
 # com.ibm.odm.ota.virtual.ParamNameType
 com.ibm.odm.ota.virtual.ParamNameType#concept.label = com.ibm.odm.ota.virtual.ParamNameType

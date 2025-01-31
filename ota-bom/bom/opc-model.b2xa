@@ -316,6 +316,18 @@
             return "VERBALIZATION_SPELLING";
             ]]></getter>
         </attribute>
+        <attribute>
+            <name>XML_BINDING</name>
+            <getter language="irl"><![CDATA[
+            return "XML_BINDING";
+            ]]></getter>
+        </attribute>
+        <attribute>
+            <name>XOM_MANAGEMENT_IN_DC</name>
+            <getter language="irl"><![CDATA[
+            return "XOM_MANAGEMENT_IN_DC";
+            ]]></getter>
+        </attribute>
     </class>
     <class>
         <businessName>com.ibm.odm.ota.virtual.ParamNameType</businessName>
