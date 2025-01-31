@@ -6,14 +6,19 @@
 	
 	<property file="${basedir}/ota.properties"/>
 
+
 	<path id="run.classpath">
 		<fileset dir="${lib.dir}">
 			<include name="**/*.jar" />
+			<exclude name="**/*patch.jar"/>
 		</fileset>
 		<fileset dir="${odm.dir}/teamserver/lib">
 			<include name="**/*.jar" />
 			<exclude name="jrules-engine.jar"/>
 		</fileset>
+		<fileset dir="${lib.dir}">
+			<include name="**/*patch.jar" />
+		</fileset>		
 		<pathelement path="${res.dir}"/>
 	</path>
 

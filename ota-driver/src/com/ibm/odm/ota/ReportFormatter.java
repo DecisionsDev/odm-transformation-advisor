@@ -81,7 +81,7 @@ public class ReportFormatter implements Comparator<String> {
 			template = template.replace("$username", report.getUsername());
 			template = template.replace("$repository", report.getUrl());
 			template = template.replace("$datasource", report.getDatasource());
-			template = template.replace("$version", report.getVersion());
+			template = template.replace("$version", report.getVersion() + "&nbsp;" + getStatus(report));
 			template = template.replace("$css", getCSS());
 			template = template.replace("$summaries", getSummaries(report));
 			template = template.replace("$impact", getImpact());
@@ -108,6 +108,20 @@ public class ReportFormatter implements Comparator<String> {
 		} catch (IOException | URISyntaxException e) {
 			throw new OTAException("Error loading CSS file", e);
 		}
+	}
+	
+	private String getStatus(Report report) throws OTAException {
+		
+		String result = "";
+		for (ReportElement element : report.getElements()) {
+		   if ( isReportable(element, Context.summary )) {
+			   if ( Findings.getFindingMaxImportance(element.getType()) >=4 ) {
+				   return getMarker("FAIL"); 
+			   }
+		   }
+		}
+		return getMarker("PASS");
+		
 	}
 
 	private String getSummaries(Report report) throws OTAException {
@@ -145,13 +159,17 @@ public class ReportFormatter implements Comparator<String> {
 		String result = "";
 		for (String flag : Findings.getFinding(type).flags) {
 			if (isReportable(flag, Context.summary)) {
-				String color = Findings.getMarker(flag).color;
-				String icon = Findings.getMarker(flag).icon;
-				String markerString = String.format(MARKERS_TMPL, color, icon);
-				result += markerString;
+				result += getMarker(flag);
 			}
 		}
 		return result;
+	}
+
+	private String getMarker(String flag) throws OTAException {
+		String color = Findings.getMarker(flag).color;
+		String icon = Findings.getMarker(flag).icon;
+		String markerString = String.format(MARKERS_TMPL, color, icon);
+		return  markerString;
 	}
 
 	private String getImpact() throws OTAException {
