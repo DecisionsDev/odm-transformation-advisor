@@ -184,6 +184,15 @@ public class Findings {
 		}
 		return importance;
 	}
+	
+	public static int getFindingMaxImportance(String tag) {
+		int importance = 0;
+		for (String flag : instance.findings.get(tag).flags) {
+			if ( instance.markers.get(flag).importance > importance )
+				importance = instance.markers.get(flag).importance  ;
+		}
+		return importance;
+	}
 
 	public static List<String> getFindings() throws OTAException {
 		return new ArrayList<String>(getInstance().findings.keySet());

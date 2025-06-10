@@ -1,0 +1,4 @@
+#Wed Jan 29 16:50:55 PST 2025
+ruleset.uuid=1fae5e25-588e-48a5-9378-c21b43178874
+ruleset.engine=de
+ruleset.engine.version=1.40.12

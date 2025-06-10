@@ -119,7 +119,9 @@ public class FeedbackType
         static MODELING_DS_REMOVED,
         static CLASSIC_ENGINE_REMOVED,
         static TEMPLATE_REMOVED,
-        static RULESET_WITHOUT_RULEFLOW
+        static RULESET_WITHOUT_RULEFLOW,
+        static XOM_MANAGEMENT_IN_DC,
+        static XML_BINDING
     }
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType ARCHIVING;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType B2X_CODE_TOO_LONG;
@@ -155,6 +157,8 @@ public class FeedbackType
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType VALUE_EDITOR;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType VALUE_INFO;
     public static final readonly com.ibm.odm.ota.virtual.FeedbackType VERBALIZATION_SPELLING;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType XML_BINDING;
+    public static final readonly com.ibm.odm.ota.virtual.FeedbackType XOM_MANAGEMENT_IN_DC;
 }
 
 public class ParamNameType
@@ -171,5 +175,14 @@ public class ParamNameType
     domain {static maxProjectBranches, static maxB2XCharSize}
     public static final readonly com.ibm.odm.ota.virtual.ParamNameType maxB2XCharSize;
     public static final readonly com.ibm.odm.ota.virtual.ParamNameType maxProjectBranches;
+}
+
+package java.lang;
+
+
+public class ClassNotFoundException
+        extends java.lang.Exception
+        property "de.autoCatchExceptionInConditions" "true"
+{
 }
 

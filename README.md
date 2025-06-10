@@ -32,6 +32,10 @@ The table below lists the current list of checkpoints that are performed by the 
 | Custom valueInfo                |            | &#10004;      |               | 
 | Custom valueEditor              |            | &#10004;      |               | 
 | Custom rule properties          |            | &#10004;      |               |
+| XML Binding                     | &#10004;   |               |               |
+| Optional XOM Mangemenent in DC  | &#10004;   |               |               |
+| Operation without Ruleflow      | &#10004;   |               |               |
+
 
 Additionally, the advisor is looking for the following situations:
 
@@ -82,7 +86,7 @@ Running the advisor requires the following to be installed and/or available:
 ### Mandatory settings
 Before running advisor, you need to edit the **[ota.properties](ota.properties)** file and set a few properties about your environment. At a minimum, you will need to set the following properties:
 * `ota.url` is the URL to the ODM repository you want to review.
-* `ota.version` is the name of the ODM version you are using. It has to be one of `v86`, `v87`, `v88`, `v89` or `v810`.
+* `ota.version` is the name of the ODM version you want to move to. It has to be one of `v810`, `v811`, `v812`, `v900` .
 * `odm.dir` is the Operational Decision Manager install folder.
 
 ### Optional settings
@@ -198,7 +202,7 @@ The goal of using rules is to make the advisor easily expandable to new validati
 # More information and feedback
 
 This application was built based on the expertise of the IBM Cloud Integration Expert Labs and IBM Garage Solution Engineering.
-If you would like to discuss expanding it and/or integrating it into your operations or have other questions, comments, or feedback, please send email to **Pierre Berlandier** at *pberland@us.ibm.com*
+If you would like to discuss expanding it and/or integrating it into your operations or have other questions, comments, or feedback, please create an [issue](https://github.com/DecisionsDev/odm-transformation-advisor/issues) 
 
 
 # License
@@ -207,5 +211,5 @@ This project is licensed under the Apache License - see the [LICENSE](LICENSE) f
 
 # Notice
 
-© Copyright IBM Corporation 2020.
+© Copyright IBM Corporation 2025.
 
